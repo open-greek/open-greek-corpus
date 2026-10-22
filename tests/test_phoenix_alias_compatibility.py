@@ -120,7 +120,7 @@ def test_active_or_nested_review_cannot_lose_its_authority(tmp_path, nested):
     def removed(root):
         state._overlay(root, tmp_path, {authority.parts: (root / authority).read_bytes()})
         (tmp_path / authority).unlink()
-        with pytest.raises(ValueError, match="frozen authority"):
+        with pytest.raises(ValueError, match="frozen authority|source authority"):
             with state.prior_alias_view(tmp_path):
                 pytest.fail("A reviewed state cannot discard its source authority")
     if nested:

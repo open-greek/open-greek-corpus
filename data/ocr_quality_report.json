@@ -8,8 +8,8 @@
     "ocr",
     "ocr-masked"
    ],
-   "n_token_occurrences": 36132211,
-   "n_unique_forms": 1166494,
+   "n_token_occurrences": 36132082,
+   "n_unique_forms": 1166483,
    "n_works": 2502,
    "sources": [
     "byzantine_vernacular",
@@ -1933,9 +1933,9 @@
    "n_surface_tokens": 16626,
    "n_tokens": 16626,
    "n_tokens_checked": 11111,
-   "n_unattested": 2454,
+   "n_unattested": 2455,
    "source": "ocr",
-   "unattested_rate": 0.220862,
+   "unattested_rate": 0.220952,
    "witness": null
   },
   "archilochus.fragmenta": {
@@ -1943,9 +1943,9 @@
    "n_surface_tokens": 9865,
    "n_tokens": 9865,
    "n_tokens_checked": 6352,
-   "n_unattested": 1665,
+   "n_unattested": 1668,
    "source": "ocr",
-   "unattested_rate": 0.262122,
+   "unattested_rate": 0.262594,
    "witness": null
   },
   "archippus-lysis-opsimus.testimonia-et-fragmenta": {
@@ -2021,9 +2021,9 @@
    "n_surface_tokens": 201613,
    "n_tokens": 201613,
    "n_tokens_checked": 123864,
-   "n_unattested": 22791,
+   "n_unattested": 22792,
    "source": "ocr",
-   "unattested_rate": 0.184,
+   "unattested_rate": 0.184008,
    "witness": null
   },
   "aristaeus.fragmenta": {
@@ -4149,9 +4149,9 @@
    "n_surface_tokens": 54499,
    "n_tokens": 54499,
    "n_tokens_checked": 33907,
-   "n_unattested": 6860,
+   "n_unattested": 6861,
    "source": "ocr",
-   "unattested_rate": 0.202318,
+   "unattested_rate": 0.202348,
    "witness": null
   },
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana": {
@@ -4541,9 +4541,9 @@
    "n_surface_tokens": 392780,
    "n_tokens": 392251,
    "n_tokens_checked": 233362,
-   "n_unattested": 22848,
+   "n_unattested": 22849,
    "source": "cgpg",
-   "unattested_rate": 0.097908,
+   "unattested_rate": 0.097912,
    "witness": null
   },
   "cyrillus-theology.commentarii-in-lucam-in-catenis": {
@@ -7695,9 +7695,9 @@
    "n_surface_tokens": 20627,
    "n_tokens": 20627,
    "n_tokens_checked": 11952,
-   "n_unattested": 1404,
+   "n_unattested": 1405,
    "source": "ocr",
-   "unattested_rate": 0.11747,
+   "unattested_rate": 0.117554,
    "witness": null
   },
   "gregorius-nyssenus.oratio-consolatoria-in-pulcheriam": {
@@ -7986,12 +7986,31 @@
   },
   "herodas.mimiambi": {
    "edition": "herodas-hk-ocr",
-   "n_surface_tokens": 2846,
-   "n_tokens": 2846,
-   "n_tokens_checked": 1729,
-   "n_unattested": 377,
+   "n_surface_tokens": 2036,
+   "n_tokens": 2036,
+   "n_tokens_checked": 1261,
+   "n_unattested": 251,
    "source": "ocr",
-   "unattested_rate": 0.218045,
+   "source_role_review": {
+    "audit": {
+     "path": "data/corpus_changes/editorial-role-review/changes.json",
+     "sha256": "d82592b79a9b9aa89fe0fc5e5ea6e9eb3ed57078d40e9554bacfd273b9747bed"
+    },
+    "counts": {
+     "original_analysis_tokens": 2846,
+     "original_rows": 136,
+     "original_surface_tokens": 2850,
+     "primary_analysis_tokens": 2036,
+     "primary_rows": 62,
+     "primary_surface_tokens": 2036,
+     "retained_analysis_tokens": 810,
+     "retained_spans": 84,
+     "retained_surface_tokens": 814
+    },
+    "qualification": "The review separates authorial verse from speaker labels, headings, apparatus, and commentary without correcting Greek spellings. The token change measures source boundaries, not character error rate or recognition accuracy. It does not certify every retained OCR reading or complete the missing Herodas pages.",
+    "scope": "Source-role review of the 136 previously served Headlam–Knox rows"
+   },
+   "unattested_rate": 0.199048,
    "witness": null
   },
   "heron.definitiones": {
@@ -8039,9 +8058,9 @@
    "n_surface_tokens": 147538,
    "n_tokens": 147538,
    "n_tokens_checked": 106671,
-   "n_unattested": 25848,
+   "n_unattested": 25849,
    "source": "ocr",
-   "unattested_rate": 0.242315,
+   "unattested_rate": 0.242325,
    "witness": null
   },
   "hesychius-lexicography.lexicon-p-w": {
@@ -10379,9 +10398,9 @@
    "n_surface_tokens": 36897,
    "n_tokens": 21744,
    "n_tokens_checked": 13532,
-   "n_unattested": 2804,
+   "n_unattested": 2805,
    "source": "ocr",
-   "unattested_rate": 0.207213,
+   "unattested_rate": 0.207286,
    "witness": {
     "agreement_primary_in_secondary": 0.01219,
     "agreement_secondary_in_primary": 0.247525,
@@ -26771,9 +26790,9 @@
    "n_surface_tokens": 1825,
    "n_tokens": 1825,
    "n_tokens_checked": 1154,
-   "n_unattested": 134,
+   "n_unattested": 135,
    "source": "cgpg",
-   "unattested_rate": 0.116118,
+   "unattested_rate": 0.116984,
    "witness": null
   },
   "pseudo-justinus-martyr.de-resurrectione": {
@@ -27799,9 +27818,9 @@
    "n_surface_tokens": 4008,
    "n_tokens": 4008,
    "n_tokens_checked": 2546,
-   "n_unattested": 375,
+   "n_unattested": 376,
    "source": "ocr",
-   "unattested_rate": 0.14729,
+   "unattested_rate": 0.147683,
    "witness": null
   },
   "thales.testimonia": {
@@ -27907,9 +27926,9 @@
    "n_surface_tokens": 45043,
    "n_tokens": 45043,
    "n_tokens_checked": 27436,
-   "n_unattested": 3856,
+   "n_unattested": 3858,
    "source": "ocr",
-   "unattested_rate": 0.140545,
+   "unattested_rate": 0.140618,
    "witness": null
   },
   "theodoretus.epistulae-collectio-sirmondiana-epistulae-1-95": {
@@ -27967,9 +27986,9 @@
    "n_surface_tokens": 130016,
    "n_tokens": 130016,
    "n_tokens_checked": 76990,
-   "n_unattested": 9204,
+   "n_unattested": 9205,
    "source": "ocr",
-   "unattested_rate": 0.119548,
+   "unattested_rate": 0.119561,
    "witness": null
   },
   "theodoretus.interpretatio-in-jeremiam": {
@@ -28285,9 +28304,9 @@
    "n_surface_tokens": 42985,
    "n_tokens": 42985,
    "n_tokens_checked": 25575,
-   "n_unattested": 3532,
+   "n_unattested": 3533,
    "source": "cgpg",
-   "unattested_rate": 0.138104,
+   "unattested_rate": 0.138143,
    "witness": null
   },
   "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem": {
@@ -29425,11 +29444,10 @@
   "orphica.lithica",
   "tlg4075.tlg001",
   "eubulus.fragmenta",
-  "lamprocles.fragmenta",
   "archestratus-parodius.fragmenta",
+  "lamprocles.fragmenta",
   "anacreontea.anacreontea",
   "scholia-in-theocritum.scholia-vetera-et-recentiora",
-  "herodas.mimiambi",
   "philodemus.tlg1595-tlg472",
   "eupolis.fragmenta",
   "tlg1595.tlg472",
@@ -29461,6 +29479,7 @@
   "flavius-justinianus-imperator.novellae",
   "fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai",
   "dindorf-hgm1.paratexta",
+  "herodas.mimiambi",
   "demodocus.fragmenta",
   "gregorius-nazianzenus.de-pace-1-orat-6",
   "joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3",
@@ -29649,12 +29668,12 @@
   "joannes-chrysostomus.de-profectu-evangelii",
   "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen",
   "aeneas-philosophy.epistulae",
+  "thales.fragmenta",
   "joannes-chrysostomus.in-pentecosten-sermo-1-sp",
   "joannes-chrysostomus.de-paenitentia-homiliae-1-9",
   "basilius-theology.in-gordium-martyrem",
   "joannes-chrysostomus.in-illud-vidua-eligatur",
   "basilius-theology.homiliae-in-hexaemeron",
-  "thales.fragmenta",
   "eusebius-scr-eccl.antiquorum-martyriorum-collectio-fragmenta",
   "gregorius-nazianzenus.in-laudem-athanasii-orat-21",
   "joannes-chrysostomus.de-sacerdotio-lib-1-6",
@@ -29690,9 +29709,9 @@
   "demochares.fhg2",
   "georgius-pachymeres.progymnasmata",
   "gregorius-nyssenus.contra-fatum",
+  "theodoretus.de-providentia-orationes-decem",
   "joannes-chrysostomus.in-epistulam-ad-romanos-homiliae-1-32",
   "joannes-chrysostomus.in-epistulam-i-ad-corinthios-homiliae-1-44",
-  "theodoretus.de-providentia-orationes-decem",
   "joannes-chrysostomus.in-sanctum-lucianum-martyrem",
   "gregorius-nyssenus.de-vita-gregorii-thaumaturgi",
   "joannes-chrysostomus.ad-stagirium-daemone-vexatum-lib-1-3",
@@ -29832,9 +29851,9 @@
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
   "nicolaus-rhetoric.progymnasmata-walz-i-263",
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
+  "gregorius-nyssenus.oratio-catechetica-magna",
   "athanasius-theology.homilia-de-semente-sp",
   "joannes-stobaeus-anthologus.anthologium",
-  "gregorius-nyssenus.oratio-catechetica-magna",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
   "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
   "basilius-theology.de-spiritu-sancto",

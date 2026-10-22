@@ -31,8 +31,8 @@
    "works": 528
   },
   "first1k": {
-   "analysis_tokens": 21867745,
-   "passages": 269495,
+   "analysis_tokens": 21867616,
+   "passages": 269491,
    "works": 1045
   },
   "galenus_verbatim": {
@@ -56,8 +56,8 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25298426,
-   "passages": 1335002,
+   "analysis_tokens": 25297616,
+   "passages": 1334928,
    "works": 1217
   },
   "perseus": {
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "6cb22ea7933fcf3f7d3b13d62c6ed1647aac4b48cdbc87842e5016e837ef33a3",
+ "corpus_sha256": "82cf8f432747b768fa4a54946eb26eb05ad78ce82a28353ca1b28ae3c56bc5f5",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -1875,7 +1875,7 @@
   "hermogenes.peri-meqo-dou-deino-thtos-sp.jsonl": "6e0bf6d00e80d5f850910d3090eeae202f141c2cbb56c67ac6a086f6f4bc27a2",
   "hermogenes.peri-sta-sewn.jsonl": "ada65ccb68203052e7586d65e8928414e36759ad9fa1dd28731cdb98960eb506",
   "hermogenes.progymnasmata-dub.jsonl": "cf473615a9a206b0747b35812e67ce45ea56d762ae71fd924215320aac1b7644",
-  "herodas.mimiambi.jsonl": "266915ced62896c3503c2ae0bb59bfc202a7e25dfe6c8ff1035313cdfaa00274",
+  "herodas.mimiambi.jsonl": "b50c5d810cac0a8a44a2acdd567aa1c7f7e7266e83698325122501b0656e68ef",
   "herodianus.ab-excessu-divi-marci.jsonl": "4e90ddd112d171567c5dec00eeee10c7d2fc7886a5a6954f5454148164625ae5",
   "herodorus.fragmenta.jsonl": "b68a1ee24f9df7f079c307dd24768c3986182ce7b3e29dc67bf1b76baf3faefc",
   "herodotus.historiae.jsonl": "9380cbdf16f08da52ef826ec3b8b56c6dda51911ecb0238a32d54830641df19d",
@@ -1985,7 +1985,7 @@
   "hippolytus-of-rome.commentarii-in-danielem.jsonl": "534c171fea79aef4b8ce992f21cb3a44359b841a581890c5262f494045a5ac80",
   "hippolytus.refutatio-omnium-haeresium-philosophumena.jsonl": "62d04dc42d622a77a7dff5d7db00b19b9a40b6adfdcf86df6659a86345a3249c",
   "hippon.testimonia.jsonl": "659969e8e30d8ee45b2c2ec0ca6dfe5f1cb2bd85ccbfd27dac71cb9aa214face",
-  "hipponax.fragmenta.jsonl": "6177c705abade229dbfcaa8f01bd555b46393d8f62c6f3853c6f5fc5dc89bf68",
+  "hipponax.fragmenta.jsonl": "42afc388823708deaabe0a868a127a48be89ea5b5f919280669c5370f94171b9",
   "hippostratus.fragmenta-fhg4.jsonl": "a6b35ab5998ac52388853db56dccf5ab0891253b1bc4190f56063222aa1b609a",
   "hippostratus.fragmenta.jsonl": "50826b2712041248fbb2ff5a2cdb351dcd5cc18401aee3f8b142564e18e9955e",
   "hippys.fragmenta.jsonl": "d4da1c3d4564474d27a0db0ad75e27aa13c8294d7940f2af451e3971e79adb91",
@@ -4016,13 +4016,17 @@
   "audit_compression.py": "d2504998f18d7d69fb009312eede80ffc83667e07e5450134eceb2361d101d21",
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
+  "citation_alias_state.py": "1537c6d6e053c5d6d60eea7d6d886c25e38e26e99cc5abd89c926a3f3bb8778a",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
-  "frequency_projection.py": "81d172243fb37ff5606a1667e4e587a17b4f069ee1107b86b6482af368c5cddd",
+  "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
+  "frequency_projection.py": "6f22ef3e01a07fedb1fbb1c763939a9106567f7263dc942c970d69ba374b9f8e",
+  "herodas_source_observations.py": "406885c8e3e73d9e127f2d05ac1c436ac95c2d2284ef8d8717434c1614503c33",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
   "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
+  "phoenix_current_state.py": "776e16e86bfa96bb432610a4cbb25f1849113d91e72816d300727f79a94b461c",
   "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
-  "photius_current_state.py": "473f593ebce9177ea0c38bbdabdd7a964ef6c7502c9aef2af15b84f47cf03b2c",
+  "photius_current_state.py": "2874452d4f8cbe14822696fe1e2883f43c700821c7b4195f270cce3896ea4c72",
   "photius_final_boundary_observations.py": "0d5ef55a53c03f4b92c1fd3a10f8f683fa32ead7cbcd497de31b1b568d64d009",
   "photius_final_source_observations.py": "d6da9366bb1aba305d3c12a28d57994f9e853cbdbfdffdd26ed31a0ffa40cdd3",
   "photius_reading_vote.py": "12dcf44df4381bec2cf8339651513e0e388c32b710e2743ded46ad61565dbce9",
@@ -4039,6 +4043,7 @@
   "prepare_photius_editorial_substitutions.py": "79d070b5d8f4460dfa92f8b48c2e780ac700395fce1264a0948ee22a16ea8b8c",
   "prepare_photius_review_campaign.py": "4ef586e6bb30bcb07a7e0222b851bb3b13c8cc7f6b99301f5c0698f7e5b6e516",
   "prepare_photius_uncertainty_pilot.py": "55f59e5e2ccd3125e435804fbcbecfc55c50c584b491125ba611f527438c8ed4",
+  "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
   "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
   "repair_photius_apparatus.py": "81167bb6febfc1a8433190c57a5efa3d9a128b5a09b3cad826eb10b4c4654583",
   "repair_photius_body.py": "cdec501910a0eed9aed96318b56fb4df87145f2bcdf07666818579e636970075",
@@ -4056,13 +4061,13 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65783868,
+  "analysis_tokens": 65782929,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29651657,
-  "ocr_passages": 1346420,
+  "ocr_analysis_tokens": 29650847,
+  "ocr_passages": 1346346,
   "ocr_works": 1416,
-  "passages": 1964196,
+  "passages": 1964118,
   "works": 3914
  },
  "works": {
@@ -49022,13 +49027,13 @@
    }
   },
   "herodas.mimiambi": {
-   "analysis_tokens": 2846,
+   "analysis_tokens": 2036,
    "components": [
     {
-     "analysis_tokens": 2846,
+     "analysis_tokens": 2036,
      "edition": "herodas-hk-ocr",
      "license": "PD",
-     "passages": 136,
+     "passages": 62,
      "source": "ocr"
     }
    ],
@@ -49036,13 +49041,13 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 2846,
-   "ocr_passages": 136,
-   "passages": 136,
+   "ocr_analysis_tokens": 2036,
+   "ocr_passages": 62,
+   "passages": 62,
    "sources": {
     "ocr": {
-     "analysis_tokens": 2846,
-     "passages": 136
+     "analysis_tokens": 2036,
+     "passages": 62
     }
    }
   },
@@ -51800,27 +51805,27 @@
    }
   },
   "hipponax.fragmenta": {
-   "analysis_tokens": 154,
+   "analysis_tokens": 25,
    "components": [
     {
-     "analysis_tokens": 154,
+     "analysis_tokens": 25,
      "edition": "1st1K-grc1",
      "license": "CC-BY-SA-4.0",
-     "passages": 5,
+     "passages": 1,
      "source": "first1k"
     }
    ],
    "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
    "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 154,
-   "non_ocr_passages": 5,
+   "non_ocr_analysis_tokens": 25,
+   "non_ocr_passages": 1,
    "ocr_analysis_tokens": 0,
    "ocr_passages": 0,
-   "passages": 5,
+   "passages": 1,
    "sources": {
     "first1k": {
-     "analysis_tokens": 154,
-     "passages": 5
+     "analysis_tokens": 25,
+     "passages": 1
     }
    }
   },
