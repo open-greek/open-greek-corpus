@@ -41,10 +41,17 @@ def projection_recipe_pins():
               "prepare_photius_editorial_continuation.py", "photius_remaining_context.py",
               "photius_remaining_roles.py", "photius_remaining_words.py", "photius_current_state.py")
     names += tuple(path.name for path in sorted(scripts.glob('photius_remaining_manual_*.py')))
+    names += tuple(name for name in ('repair_photius_final_review.py',
+        'photius_final_boundary_observations.py', 'photius_final_source_observations.py')
+        if (scripts / name).exists())
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("photius_final_review"):
+        from repair_photius_final_review import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
     if rec.get("photius_editorial_continuation"):
         from repair_photius_editorial_continuation import lexical_segments
         lexical_segments(rec)
@@ -133,6 +140,9 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("photius_final_review"):
+            from repair_photius_final_review import lexical_segments
+            return lexical_segments(rec)
         if rec.get("photius_editorial_continuation"):
             from repair_photius_editorial_continuation import lexical_segments
             return lexical_segments(rec)

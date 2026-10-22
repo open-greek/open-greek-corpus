@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25328275,
+   "analysis_tokens": 25328295,
    "passages": 1337730,
    "works": 1217
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "022cf16617436bde3a3a8b02d682f41b38031fb2f7137044545d9bd14905601f",
+ "corpus_sha256": "7d11cf31468c9deabb0a9d5a1054b1a33724050b399c2cec9d54da22ccb37954",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3072,7 +3072,7 @@
   "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
   "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
   "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
-  "photius.bibliotheca.jsonl": "aa39e3465387f5f192a509acbb7b8107c4641e3bf2a92bdf774d3253b2c7a1a0",
+  "photius.bibliotheca.jsonl": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
   "photius.commentarii-in-joannem-in-catenis.jsonl": "91d600d98ae8083e62d50bbedecbdf043fceee10e979038742ff36ef5d83d087",
   "photius.commentarii-in-matthaeum-in-catenis.jsonl": "ff7fb39786fa88d9cfc94eda028a9367593cb8c1b04ef92bd0587448bc80472d",
   "photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl": "96a78396ec81a9a51d20cd3378990eb68a1333f214f190beaa5d175cb965a74d",
@@ -4017,10 +4017,12 @@
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
-  "frequency_projection.py": "fce972b88a94779c3e2817c8a4ab5b0d623082169294fceca0966c1f0bdcfef7",
+  "frequency_projection.py": "1708e75ecde77b205ab14d2e47e836f6c561c0b3348dcb7418a137db382e2455",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
-  "photius_current_state.py": "fba59fcd691132d87101fc026bbc14046bcf27654d2649c90c427c87e290e50c",
+  "photius_current_state.py": "0f78089c04674a69a68fb903d3172751b29551ad90ccb043d4e0e7807274a486",
+  "photius_final_boundary_observations.py": "0d5ef55a53c03f4b92c1fd3a10f8f683fa32ead7cbcd497de31b1b568d64d009",
+  "photius_final_source_observations.py": "d6da9366bb1aba305d3c12a28d57994f9e853cbdbfdffdd26ed31a0ffa40cdd3",
   "photius_reading_vote.py": "12dcf44df4381bec2cf8339651513e0e388c32b710e2743ded46ad61565dbce9",
   "photius_remaining_context.py": "648e38d5d912ddd0e33e21c2c9f4e0bae92543ee85e07e97d12962cfa3c55d6d",
   "photius_remaining_manual_a.py": "9ef629b3a4c1a15d591fb5da0658d7651c2031acb62c9cb71bb6108668aee6da",
@@ -4041,6 +4043,7 @@
   "repair_photius_context.py": "27444a0a4d15f68423c11280f36e0957bfc83f32754cc64b56dce11c265c7cf7",
   "repair_photius_editorial_continuation.py": "eb4f496a4ed09d32c9e7a85fcee4c92dcfeb1659f14fb5912a4e3c425ba00505",
   "repair_photius_editorial_substitutions.py": "33fca83840e8a3dae26bdb56e0451511a093d8a66655bea1312982d401ce852a",
+  "repair_photius_final_review.py": "ac06803825eca1567c84ec7e8cbbab87586f1431db3e8090d15f7c6dcd323907",
   "repair_photius_historical_batches.py": "d858bd36777680749451ee8a7ede5adf24eaa20f79978aed8be990d32efb5c06",
   "repair_photius_historical_readings.py": "871dc264136e2317758389f0ea4a682af63ea8de261698073b2a59af12e62e06",
   "repair_photius_readings.py": "9129c68d28361f87e9cec789e3eb6dff5a5aa67a3519f8156fe298aa7dcb6784",
@@ -4050,10 +4053,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65813717,
-  "mixed_ocr_analysis_tokens": 552979,
+  "analysis_tokens": 65813737,
+  "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29681506,
+  "ocr_analysis_tokens": 29681526,
   "ocr_passages": 1349148,
   "ocr_works": 1416,
   "passages": 1966924,
@@ -79190,7 +79193,7 @@
    }
   },
   "photius.bibliotheca": {
-   "analysis_tokens": 283125,
+   "analysis_tokens": 283145,
    "components": [
     {
      "analysis_tokens": 151161,
@@ -79200,7 +79203,7 @@
      "source": "ocr"
     },
     {
-     "analysis_tokens": 129959,
+     "analysis_tokens": 129979,
      "edition": "bekker1825-complete-source-reviewed",
      "license": "CC-BY-SA-4.0",
      "passages": 3462,
@@ -79239,12 +79242,12 @@
    "mixed_ocr_digital": true,
    "non_ocr_analysis_tokens": 429,
    "non_ocr_passages": 2,
-   "ocr_analysis_tokens": 282696,
+   "ocr_analysis_tokens": 282716,
    "ocr_passages": 3780,
    "passages": 3782,
    "sources": {
     "ocr": {
-     "analysis_tokens": 282696,
+     "analysis_tokens": 282716,
      "passages": 3780
     },
     "reviewed-text-consensus": {

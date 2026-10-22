@@ -79,6 +79,8 @@ PHOTIUS_LATER_INPUTS := scripts/repair_photius_context.py \
     scripts/photius_remaining_context.py scripts/photius_remaining_roles.py scripts/photius_remaining_words.py \
     $(wildcard scripts/photius_remaining_manual_*.py) \
     scripts/photius_current_state.py scripts/check_photius_predecessor.py \
+    scripts/repair_photius_final_review.py scripts/photius_final_boundary_observations.py \
+    scripts/photius_final_source_observations.py \
     scripts/prepare_photius_uncertainty_pilot.py scripts/photius_uncertainty_pilot_observations.py \
     scripts/fetch_photius_uncertainty_sources.py \
     $(wildcard data/corpus_changes/photius-bekker-context/* \
@@ -87,7 +89,8 @@ PHOTIUS_LATER_INPUTS := scripts/repair_photius_context.py \
                data/corpus_changes/photius-bekker-uncertainties/source-images/* \
                data/corpus_changes/photius-bekker-uncertainty-admission/* \
                data/corpus_changes/photius-bekker-editorial-substitutions/* \
-               data/corpus_changes/photius-bekker-editorial-continuation/*)
+               data/corpus_changes/photius-bekker-editorial-continuation/* \
+               data/corpus_changes/photius-bekker-final-review/*)
 SOURCE_COMPONENTS := data/source_component_tokens.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
@@ -461,6 +464,7 @@ capital-positions:
         check-photius-historical-assessment check-photius-uncertainty-pilot \
         check-photius-uncertainty-admission check-photius-editorial-substitutions \
         check-photius-editorial-source check-photius-editorial-continuation check-photius-editorial-continuation-source \
+        check-photius-final-review check-photius-final-review-source \
         check-photius-apparatus-audit \
         check-source-components \
         check-capital-positions \
@@ -480,7 +484,7 @@ check: check-photius-complete-review \
        check-photius-historical-readings \
        check-photius-historical-batches \
        check-photius-historical-assessment check-photius-uncertainty-admission \
-       check-photius-editorial-substitutions check-photius-editorial-continuation \
+       check-photius-editorial-substitutions check-photius-editorial-continuation check-photius-final-review \
        check-photius-apparatus-audit \
        check-source-components \
        check-capital-positions \
@@ -533,10 +537,16 @@ check-photius-editorial-source:
 	$(PY) scripts/check_photius_predecessor.py --stage editorial-source
 
 check-photius-editorial-continuation:
-	$(PY) scripts/repair_photius_editorial_continuation.py --check-literal
+	$(PY) scripts/check_photius_predecessor.py --stage editorial-continuation
 
 check-photius-editorial-continuation-source:
-	$(PY) scripts/repair_photius_editorial_continuation.py --check
+	$(PY) scripts/check_photius_predecessor.py --stage editorial-continuation-source
+
+check-photius-final-review:
+	$(PY) scripts/repair_photius_final_review.py --check-literal
+
+check-photius-final-review-source:
+	$(PY) scripts/repair_photius_final_review.py --check
 
 check-photius-apparatus-audit:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus-audit

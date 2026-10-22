@@ -1240,7 +1240,24 @@ and projection validation. With `PHOTIUS_COMPARISON_HTML` set, run
 selection from the supplied source and validate the scan crops. The generated
 audit is under `data/corpus_changes/photius-bekker-editorial-continuation/`;
 its counts and current quality reports retain every held case and its reason.
-Undo the continuation before all preceding layers.
+Undo the continuation after the final occurrence review below, then before all
+preceding layers.
+
+The [final occurrence review](docs/photius-final-review.md) addresses those 27
+remaining identities with joint word decisions and explicit source dispositions.
+It accounts for all 27 and leaves zero served held identities.
+Complete words receive one retained passage owner, while source variants,
+original rows, and citation aliases remain reversible. Marginal references,
+nonlexical marks, bracketed material, and an unsupported OCR insertion have
+separate roles. Greek reading resolutions and effective lexical admissions are
+reported separately from nonlexical classifications and historical scan facts.
+
+Run `make check-photius-final-review` for public replay, witness, and projection
+validation. With `PHOTIUS_COMPARISON_HTML` set,
+`make check-photius-final-review-source` repeats the source selections and scan
+crops. The generated authority is under
+`data/corpus_changes/photius-bekker-final-review/`. Undo this layer first with
+`python3 scripts/repair_photius_final_review.py --undo`.
 
 The optional `scripts/compare_photius_local_edition.py` accepts a user-supplied
 comparison HTML file for location diagnostics. The raw comparison HTML is not
@@ -3494,7 +3511,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 283,125 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 283,145 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |

@@ -1,4 +1,4 @@
-"""Strict continuation views for frozen Photius validators and current reports.
+"""Strict predecessor views for frozen Photius validators and current reports.
 
 Only the exact newest corpus postimage is reversed. Older validators receive
 the exact preceding corpus bytes, while every other input remains the actual
@@ -18,6 +18,9 @@ ALIASES = Path('data/passage_aliases.json')
 ARCHIVE = Path('data/corpus_changes/photius-bekker-editorial-continuation')
 AUDIT = ARCHIVE/'changes.json'
 TAG = 'photius_editorial_continuation'
+FINAL_ARCHIVE = Path('data/corpus_changes/photius-bekker-final-review')
+FINAL_AUDIT = FINAL_ARCHIVE/'changes.json'
+FINAL_TAG = 'photius_final_review'
 
 
 def _pins(directory):
@@ -41,22 +44,23 @@ def _overlay(source, destination, overrides):
 
 
 @contextmanager
-def predecessor_view(root=ROOT):
-    """Expose exactly the first-editorial stage, checking the latest layer first."""
+def _stage_view(root, *, module_name, archive, audit, tag, label):
+    """Reverse one exact layer while keeping every real authority visible."""
     root = Path(root).absolute()
-    if not (root/AUDIT).exists():
-        if (root/CORPUS).exists() and ('"'+TAG+'"').encode() in (root/CORPUS).read_bytes():
-            raise ValueError('Continuation metadata has no frozen authority')
+    if not (root/audit).exists():
+        if (root/CORPUS).exists() and ('"'+tag+'"').encode() in (root/CORPUS).read_bytes():
+            raise ValueError(label+' metadata has no frozen authority')
         yield root
         return
-    import repair_photius_editorial_continuation as continuation
+    from importlib import import_module
+    layer = import_module(module_name)
     raw = (root/CORPUS).read_bytes()
-    before = continuation.restore_before_bytes(raw, root)
-    # Metadata validation also verifies the live alias bytes. A continuation
-    # cannot authorize any alias changes through this corpus-only overlay.
-    continuation.active_metadata(root)
+    before = layer.restore_before_bytes(raw, root)
+    # The metadata check also verifies live aliases; a corpus-only overlay
+    # cannot authorize a change to them.
+    layer.active_metadata(root)
     aliases = (root/ALIASES).read_bytes()
-    pins = _pins(root/ARCHIVE)
+    pins = _pins(root/archive)
     try:
         if before == raw:
             yield root
@@ -67,17 +71,47 @@ def predecessor_view(root=ROOT):
                 yield view
     finally:
         if ((root/CORPUS).read_bytes() != raw or (root/ALIASES).read_bytes() != aliases
-                or _pins(root/ARCHIVE) != pins):
-            raise ValueError('Continuation inputs changed during predecessor validation')
+                or _pins(root/archive) != pins):
+            raise ValueError(label+' inputs changed during predecessor validation')
+
+
+@contextmanager
+def continuation_view(root=ROOT):
+    """Expose the exact continuation postimage to its frozen validators."""
+    with _stage_view(root, module_name='repair_photius_final_review',
+                     archive=FINAL_ARCHIVE, audit=FINAL_AUDIT,
+                     tag=FINAL_TAG, label='Final review') as previous:
+        yield previous
+
+
+@contextmanager
+def predecessor_view(root=ROOT):
+    """Expose the first-editorial stage after checking both later layers."""
+    with continuation_view(root) as continuation_root:
+        with _stage_view(continuation_root,
+                         module_name='repair_photius_editorial_continuation',
+                         archive=ARCHIVE, audit=AUDIT, tag=TAG,
+                         label='Continuation') as previous:
+            yield previous
 
 
 def continuation_metadata(root=ROOT):
+    with continuation_view(root) as previous:
+        if not (previous/AUDIT).exists():
+            if (previous/CORPUS).exists() and ('"'+TAG+'"').encode() in (previous/CORPUS).read_bytes():
+                raise ValueError('Continuation metadata has no frozen authority')
+            return None
+        from repair_photius_editorial_continuation import active_metadata
+        return active_metadata(previous)
+
+
+def final_metadata(root=ROOT):
     root = Path(root)
-    if not (root/AUDIT).exists():
-        if (root/CORPUS).exists() and ('"'+TAG+'"').encode() in (root/CORPUS).read_bytes():
-            raise ValueError('Continuation metadata has no frozen authority')
+    if not (root/FINAL_AUDIT).exists():
+        if (root/CORPUS).exists() and ('"'+FINAL_TAG+'"').encode() in (root/CORPUS).read_bytes():
+            raise ValueError('Final review metadata has no frozen authority')
         return None
-    from repair_photius_editorial_continuation import active_metadata
+    from repair_photius_final_review import active_metadata
     return active_metadata(root)
 
 
@@ -92,10 +126,13 @@ def later_metadata(root=ROOT, *, current_root=None):
     latest = continuation_metadata(root if current_root is None else current_root)
     if latest:
         result['editorial_continuation'] = latest
+    final = final_metadata(root if current_root is None else current_root)
+    if final:
+        result['final_review'] = final
     return result
 
 
-def current_uncertainty_measurement(later):
+def _continuation_measurement(later):
     from repair_photius_complete_review import current_uncertainty_measurement as previous_measurement
     result = previous_measurement(later)
     latest = later.get('editorial_continuation')
@@ -131,4 +168,89 @@ def current_uncertainty_measurement(later):
         previous_editorial_source_review=result['editorial_source_review'],
         editorial_source_review=latest['source_review'],source_review=latest['source_review'],
         qualification='Current served unresolved count after successive attributed editorial substitutions. Original scan uncertainties and scan-resolution counts remain historical measurements; editorial source choices are not scan verification. Independent fragment and nonbody exclusions survive unless separately source reviewed.')
+    return result
+
+
+def _identities(counts, name):
+    values = counts[name]
+    if (not isinstance(values, list) or any(not isinstance(v, dict)
+            or not isinstance(v.get('locus'), str) or not v['locus']
+            or type(v.get('segment_index')) is not int or v['segment_index'] < 0 for v in values)):
+        raise ValueError('Final review identities need exact passage and segment keys')
+    result = {(v['locus'],v['segment_index']) for v in values}
+    if len(result) != len(values):
+        raise ValueError('Final review repeats an uncertainty identity')
+    return result
+
+
+def current_uncertainty_measurement(later):
+    """Extend served counts without calling nonlexical decisions substitutions."""
+    result = _continuation_measurement(later)
+    final = later.get('final_review')
+    if not final:
+        return result
+    if not result or not later.get('editorial_continuation'):
+        raise ValueError('Final review requires its exact continuation predecessor')
+    counts = final['counts']
+    names = ('previous_current_uncertainty_spans', 'current_uncertainty_spans',
+             'resolved_uncertainty_spans', 'newly_editorially_substituted_spans',
+             'nonlexically_classified_spans', 'editorially_substituted_spans')
+    if any(type(counts.get(name)) is not int or counts[name] < 0 for name in names):
+        raise ValueError('Final review counts must be nonnegative exact integers')
+    resolved = _identities(counts, 'resolved_identities')
+    lexical = _identities(counts, 'lexical_resolution_identities')
+    nonlexical = _identities(counts, 'nonlexical_resolution_identities')
+    admitted = _identities(counts, 'lexical_admitted_identities')
+    earlier = set()
+    for name in ('uncertainty_review', 'uncertainty_admission',
+                 'editorial_substitutions', 'editorial_continuation'):
+        previous_counts = later.get(name, {}).get('counts', {})
+        for field in ('resolved_identities', 'substituted_identities'):
+            earlier.update((v['locus'],v['segment_index']) for v in previous_counts.get(field, []))
+    remaining = result['current_uncertainty_spans'] - len(resolved)
+    roles = counts['resolved_by_text_role']
+    scan_backed = counts.get('new_scan_backed_dispositions', 0)
+    if type(scan_backed) is not int or scan_backed < 0:
+        raise ValueError('Final scan-backed disposition count must be a nonnegative exact integer')
+    dispositions = counts.get('dispositions')
+    if dispositions is not None and (not isinstance(dispositions, dict)
+            or any(not isinstance(k,str) or not k or type(v) is not int or v < 0
+                   for k,v in dispositions.items())
+            or sum(dispositions.values()) != counts['previous_current_uncertainty_spans']):
+        raise ValueError('Final disposition counts do not account for every reviewed identity')
+    if (counts['previous_current_uncertainty_spans'] != result['current_uncertainty_spans']
+            or counts['resolved_uncertainty_spans'] != len(resolved)
+            or counts['current_uncertainty_spans'] != remaining or remaining < 0
+            or resolved.intersection(earlier) or lexical.intersection(nonlexical)
+            or lexical.union(nonlexical) != resolved or not admitted.issubset(lexical)
+            or counts['nonlexically_classified_spans'] != len(nonlexical)
+            or counts['newly_editorially_substituted_spans'] > len(lexical)
+            or counts['editorially_substituted_spans'] != result['editorially_substituted_spans'] + counts['newly_editorially_substituted_spans']
+            or not isinstance(roles, dict) or any(not isinstance(k,str) or not k
+                or type(v) is not int or v < 0 for k,v in roles.items())
+            or sum(roles.values()) != len(resolved)):
+        raise ValueError('Final review counts do not extend distinct predecessor uncertainties')
+    if ('scan_uncertainty_spans' in counts
+            and counts['scan_uncertainty_spans'] != result['scan_uncertainty_spans']):
+        raise ValueError('Final review changed the historical scan uncertainty measurement')
+    result = deepcopy(result)
+    result.update(current_uncertainty_spans=remaining,
+        unsubstituted_source_uncertainty_spans=remaining,
+        resolved_uncertainty_spans=len(resolved),
+        final_review_lexical_resolution_spans=len(lexical),
+        final_review_lexically_admitted_spans=len(admitted),
+        final_review_scan_backed_dispositions=scan_backed,
+        nonlexically_classified_spans=len(nonlexical),
+        resolved_by_text_role=deepcopy(roles),
+        newly_editorially_substituted_spans=counts['newly_editorially_substituted_spans'],
+        editorially_substituted_spans=counts['editorially_substituted_spans'],
+        addressed_uncertainty_spans=result['baseline_uncertainty_spans']-remaining,
+        previous_source_review=result['source_review'],
+        final_source_review=final['source_review'], source_review=final['source_review'],
+        qualification='Current served uncertainty count after exact final source decisions. Greek reading resolutions and lexical admission are counted separately from classified references or other nonlexical material. Historical scan uncertainties and earlier scan resolutions remain unchanged; only explicitly attributed editorial word choices increase the editorial substitution count. Original readings, exclusions, and earlier authorities remain reversible.')
+    if counts['newly_editorially_substituted_spans']:
+        result.update(previous_editorial_source_review=result['editorial_source_review'],
+                      editorial_source_review=final['source_review'])
+    if dispositions is not None:
+        result['final_review_dispositions'] = deepcopy(dispositions)
     return result
