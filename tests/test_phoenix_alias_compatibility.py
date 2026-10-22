@@ -98,3 +98,19 @@ def test_nested_alias_authorization_is_bound_to_source_and_postimage_pins(tmp_pa
             with state.prior_alias_view(tmp_path):
                 pytest.fail("A nested view must retain the verified Phoenix authority")
 
+
+@pytest.mark.parametrize("nested", [False, True])
+def test_active_or_nested_review_cannot_lose_its_authority(tmp_path, nested):
+    authority = Path(phoenix.AUDIT) / "changes.json"
+    def removed(root):
+        state._overlay(root, tmp_path, {authority.parts: (root / authority).read_bytes()})
+        (tmp_path / authority).unlink()
+        with pytest.raises(ValueError, match="frozen authority"):
+            with state.prior_alias_view(tmp_path):
+                pytest.fail("A reviewed state cannot discard its source authority")
+    if nested:
+        with state.prior_alias_view(ROOT) as previous:
+            removed(previous)
+    else:
+        removed(ROOT)
+

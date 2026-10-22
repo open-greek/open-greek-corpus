@@ -58,6 +58,11 @@ def prior_alias_view(root=ROOT):
     root = Path(root).absolute()
     phoenix = root/'data/corpus_changes/phoenix-crusius-review'
     if not (phoenix/'changes.json').exists():
+        primary = root/'data/corpus/phoenix.fragmenta.jsonl'
+        if ((root/ALIASES).resolve() in _VALIDATED_ALIAS_FILES.get()
+                or primary.exists() and (b'"crusius_source_review"' in primary.read_bytes()
+                    or b'crusius-1894-source-reviewed' in primary.read_bytes())):
+            raise ValueError('Reviewed Phoenix aliases require their frozen authority')
         yield root
         return
     from repair_phoenix_crusius import verify, sha, ORIGINAL_SHA256, PRIMARY, RETAINED
