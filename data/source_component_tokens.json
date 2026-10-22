@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25300534,
+   "analysis_tokens": 25300496,
    "passages": 1334950,
    "works": 1217
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "7509fd066dce68d6850b8f12b480ac2fb028489fc225d1cb5c1c0a5607b7e578",
+ "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -1875,7 +1875,7 @@
   "hermogenes.peri-meqo-dou-deino-thtos-sp.jsonl": "6e0bf6d00e80d5f850910d3090eeae202f141c2cbb56c67ac6a086f6f4bc27a2",
   "hermogenes.peri-sta-sewn.jsonl": "ada65ccb68203052e7586d65e8928414e36759ad9fa1dd28731cdb98960eb506",
   "hermogenes.progymnasmata-dub.jsonl": "cf473615a9a206b0747b35812e67ce45ea56d762ae71fd924215320aac1b7644",
-  "herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939",
+  "herodas.mimiambi.jsonl": "66afd05c9a7ff83bddf07fa4cf4c6b69e07f5914876f8c7b6497b3be506636c5",
   "herodianus.ab-excessu-divi-marci.jsonl": "4e90ddd112d171567c5dec00eeee10c7d2fc7886a5a6954f5454148164625ae5",
   "herodorus.fragmenta.jsonl": "b68a1ee24f9df7f079c307dd24768c3986182ce7b3e29dc67bf1b76baf3faefc",
   "herodotus.historiae.jsonl": "9380cbdf16f08da52ef826ec3b8b56c6dda51911ecb0238a32d54830641df19d",
@@ -4019,15 +4019,20 @@
   "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
   "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
-  "frequency_projection.py": "621802dc5b60249996478c9e46a498f2cd268264112d825521dcf22bc7360e98",
+  "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
+  "frequency_projection.py": "658bd9319c9bd7b06d6cf9a4d5ded5c9ec2d8c0369b1a4d68a1505afc4cd65ff",
   "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
   "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
   "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
   "herodas_body_source_observations.py": "7b019b293cf5a6aef214bc08b137c037b67ffbd328e9cc785432b53d2a9d18ef",
   "herodas_body_witness_observations.py": "80773103136d6d8084b4869ed8cd996b44094d95a50cec2529caa23f66f10001",
   "herodas_body_witnesses.py": "2ad983bf3777992ed7b1acdd0caf1b56bec9557db459f288b12e8ab3883815c0",
-  "herodas_current_state.py": "924ed0249e2111b8f0f9423ada5355124e7e3ea19c5a198aecca281f3491d4fb",
+  "herodas_current_state.py": "8dea87c881a2f06cf0ee5aa23d660769e88f7eb076b13e25d1469032e9cad504",
+  "herodas_excerpt_readings_a.py": "f4786cfc50cb58e31093c37d3f043ebbcfb66647befc22ef8affb721ba2971b1",
+  "herodas_excerpt_readings_b.py": "1d2d20135166bbac06f8b042659c65b79ee665333d7df9018e35c656d3fe3ccd",
+  "herodas_review_state.py": "c0c0ebadef4bf2ae0e12ec0e863ed235bfca96523427f1013432d368cdf3af44",
   "herodas_source_observations.py": "406885c8e3e73d9e127f2d05ac1c436ac95c2d2284ef8d8717434c1614503c33",
+  "herodas_uncertainty_readings.py": "a73ea947288c13f27c3780eb71001f638fd658b987e807d25d6a93fd48dd79c4",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
   "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
@@ -4053,6 +4058,7 @@
   "prepare_photius_uncertainty_pilot.py": "55f59e5e2ccd3125e435804fbcbecfc55c50c584b491125ba611f527438c8ed4",
   "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
   "repair_herodas_body.py": "07e6c8d8b0d7636ae17cd10055aaf573a641e1e1c0ea457dcdd9dfc91e4a05a2",
+  "repair_herodas_readings.py": "ccf47d3380f09ccb044613cb285f5264e818ac0457ae01a25f03b598eb94fed3",
   "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
   "repair_photius_apparatus.py": "81167bb6febfc1a8433190c57a5efa3d9a128b5a09b3cad826eb10b4c4654583",
   "repair_photius_body.py": "cdec501910a0eed9aed96318b56fb4df87145f2bcdf07666818579e636970075",
@@ -4072,10 +4078,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65785847,
+  "analysis_tokens": 65785809,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29653765,
+  "ocr_analysis_tokens": 29653727,
   "ocr_passages": 1346368,
   "ocr_works": 1416,
   "passages": 1964140,
@@ -49038,10 +49044,10 @@
    }
   },
   "herodas.mimiambi": {
-   "analysis_tokens": 4954,
+   "analysis_tokens": 4916,
    "components": [
     {
-     "analysis_tokens": 4954,
+     "analysis_tokens": 4916,
      "edition": "herodas-hk-ocr",
      "license": "PD",
      "passages": 84,
@@ -49052,12 +49058,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 4954,
+   "ocr_analysis_tokens": 4916,
    "ocr_passages": 84,
    "passages": 84,
    "sources": {
     "ocr": {
-     "analysis_tokens": 4954,
+     "analysis_tokens": 4916,
      "passages": 84
     }
    }

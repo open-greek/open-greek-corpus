@@ -7988,18 +7988,18 @@
    "consensus": {
     "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
     "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
-    "rows_with_counted_consensus": 22,
-    "rows_without_counted_consensus": 62,
+    "rows_with_counted_consensus": 84,
+    "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "scan-reviewed": 2918,
-     "source-marked-reading": 155
+     "scan-reviewed": 4916,
+     "source-marked-reading": 193
     }
    },
    "edition": "herodas-hk-ocr",
    "n_surface_tokens": 5109,
-   "n_tokens": 4954,
-   "n_tokens_checked": 3077,
-   "n_unattested": 611,
+   "n_tokens": 4916,
+   "n_tokens_checked": 3048,
+   "n_unattested": 609,
    "source": "ocr",
    "source_role_review": {
     "audit": {
@@ -8035,10 +8035,47 @@
      "manifest_sha256": "c25da47315010632a261861ce056f5ab7328180fd36357d67018730f8deef438",
      "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment."
     },
+    "later_reading_review": {
+     "counts": {
+      "additional_source_edits": 1,
+      "analysis_tokens": 4916,
+      "analysis_tokens_by_origin": {
+       "older_excerpt": {
+        "current": 1966,
+        "previous": 2036
+       },
+       "recovered_pages": {
+        "current": 2950,
+        "previous": 2918
+       }
+      },
+      "archived_decisions": {
+       "printed-damage": 11,
+       "resolved": 32
+      },
+      "archived_uncertainty_slots": 45,
+      "archived_uncertainty_spans_remaining": 0,
+      "archived_uncertainty_spans_reviewed": 43,
+      "body_pages": 35,
+      "changed_passages": 49,
+      "literal_edits": 202,
+      "noncountable_slots": 193,
+      "older_changed_passages": 41,
+      "older_passages_reviewed": 62,
+      "older_uncertainty_spans_remaining": 0,
+      "passages": 84,
+      "previous_analysis_tokens": 4954,
+      "remaining_uncertainty_slots": 0,
+      "remaining_uncertainty_spans": 0
+     },
+     "manifest": "data/corpus_changes/herodas-reading-review/changes.json",
+     "manifest_sha256": "aeb6268293e14dc6268c0069d2f16ed3a01dcd0e3814787880ed93ffca4714a7",
+     "qualification": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds."
+    },
     "qualification": "The review separates authorial verse from speaker labels, headings, apparatus, and commentary without correcting Greek spellings. The token change measures source boundaries, not character error rate or recognition accuracy. It does not certify every retained OCR reading or complete the missing Herodas pages.",
     "scope": "Source-role review of the 136 previously served Headlam–Knox rows"
    },
-   "unattested_rate": 0.19857,
+   "unattested_rate": 0.199803,
    "witness": null
   },
   "heron.definitiones": {
@@ -29503,11 +29540,11 @@
   "oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo",
   "comica-adespota-caf.fragmenta-incertorum-poetarum",
   "joannes-chrysostomus.in-sanctum-romanum-homilia-1",
+  "herodas.mimiambi",
   "joannes-chrysostomus.in-novam-dominicam-et-in-apostolum-thomam-sp",
   "flavius-justinianus-imperator.novellae",
   "fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai",
   "dindorf-hgm1.paratexta",
-  "herodas.mimiambi",
   "demodocus.fragmenta",
   "gregorius-nazianzenus.de-pace-1-orat-6",
   "joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3",
