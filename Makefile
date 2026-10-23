@@ -488,6 +488,7 @@ capital-positions:
         check-editorial-roles \
         check-herodas-body \
         check-herodas-readings \
+        check-acharnians-source-pilot \
         check-photius-apparatus-repair \
         check-photius-readings \
         check-photius-historical-readings \
@@ -513,6 +514,7 @@ check: check-photius-complete-review \
        check-editorial-roles \
        check-herodas-body \
        check-herodas-readings \
+       check-acharnians-source-pilot \
        check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
        check-photius-review-observations \
        check-known-limitations \
@@ -544,6 +546,9 @@ check-herodas-body:
 
 check-herodas-readings:
 	$(PY) scripts/herodas_review_state.py --check
+
+check-acharnians-source-pilot:
+	$(PY) scripts/audit_acharnians_source_pilot.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

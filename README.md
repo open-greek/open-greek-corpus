@@ -398,6 +398,16 @@ as a current measurement. The reading audit is in
 `data/corpus_changes/herodas-reading-review/`, with source capture pins in
 `data/corpus_changes/herodas-reading-sources/`.
 
+The [ten-page Acharnians source pilot](docs/acharnians-source-pilot.md) identifies
+the Dübner 1855 scan and measures an edition-scope defect: the Acharnians-labeled
+primary includes subsequent plays, critical annotation, and indexes. Only
+21,078 of its 354,055 Greek tokens fall on the Acharnians page block. These are
+source-region counts, not OCR error estimates. The frozen assessment retains
+ten scan images, same-scan OCR comparisons, exact observations, and baseline
+pins without changing served text. Use `make check-acharnians-source-pilot`
+to verify it offline; [#102](https://github.com/open-greek/open-greek-corpus/issues/102)
+tracks the source-supported work and role split.
+
 `python3 scripts/repair_editorial_roles.py --apply --source-pdf HERODAS.pdf
 --source-tei HIPPONAX.xml` builds the role partition from the exact pinned
 sources in its historical input state. On the current checkout, use
