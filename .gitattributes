@@ -1,2 +1,6 @@
 # Preserve the checksummed upstream snapshots, including their line endings.
 data/reference/gutenberg/** -text
+
+# Preserve frozen scan evidence byte for byte, including OCR trailing spaces.
+data/audits/acharnians-source-pilot/** -text
+data/audits/acharnians-source-pilot/page-*-tesseract.txt -whitespace
