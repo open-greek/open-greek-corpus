@@ -55,10 +55,17 @@ def projection_recipe_pins():
     names += ("herodas_review_state.py", "repair_herodas_readings.py", "fetch_herodas_reading_sources.py",
               "herodas_uncertainty_readings.py")
     names += tuple(path.name for path in sorted(scripts.glob("herodas_excerpt_readings*.py")))
+    names += ("repair_dubner_scholias.py", "dubner_source_observations.py",
+              "dubner_witness_alignment.py", "dubner_dedup_observations.py",
+              "capture_dubner_sources.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if "dubner_scope_review" in rec or rec.get("edition") == "dubner-1855-collated":
+        from repair_dubner_scholias import validate_projection
+        validate_projection(rec)
+        return rec["analysis_text"]
     if rec.get("herodas_reading_review"):
         from repair_herodas_readings import lexical_segments
         lexical_segments(rec)
@@ -167,6 +174,10 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if "dubner_scope_review" in rec or rec.get("edition") == "dubner-1855-collated":
+            # Source-role filtering precedes alignment. The page-word reading
+            # does not assert adjacency across removed headings or apparatus.
+            return []
         if rec.get("herodas_reading_review"):
             from repair_herodas_readings import lexical_segments
             return lexical_segments(rec)

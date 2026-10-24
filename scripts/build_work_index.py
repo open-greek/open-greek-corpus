@@ -29,6 +29,7 @@ filename.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -56,10 +57,88 @@ def load_passage_aliases(path: Path, works: dict) -> dict:
     return validate_passage_aliases(aliases, works)
 
 
-def validate_passage_aliases(aliases: dict, works: dict) -> dict:
+def _active_passage_alias_fragments(root: Path):
+    """Ask named admission producers for their verified active extensions."""
+    from repair_dubner_scholias import alias_fragment
+    fragment = alias_fragment(root)
+    return [] if fragment is None else [fragment]
+
+
+def _retired_passage_alias_sources(root: Path, declared: dict, works: dict) -> dict:
+    """Authorize a dissolved source identity, without reviving it as a target."""
+    if not isinstance(declared, dict):
+        raise ValueError("Invalid retired passage alias sources")
+    if not declared:
+        return {}
+    ledger = load_json(root / "data/work_ids.json", {})
+    entries = ledger.get("works", {}) if isinstance(ledger, dict) else None
+    if not isinstance(entries, dict):
+        raise ValueError("Invalid work identifier ledger for retired passage aliases")
+    for old, identifier in declared.items():
+        entry = entries.get(identifier) if isinstance(identifier, str) else None
+        if (not isinstance(old, str) or not old or not isinstance(identifier, str)
+                or not re.fullmatch(r"ogc\d{6}", identifier) or not isinstance(entry, dict)
+                or entry.get("slug") != old or entry.get("status") != "retired"
+                or old in works
+                or any(old in work.get("former_slugs", []) for work in works.values())):
+            raise ValueError("Retired passage alias source differs from its ledger: " + str(old))
+    return {old: {"id": identifier} for old, identifier in declared.items()}
+
+
+def load_active_passage_aliases(path: Path, works: dict) -> tuple[dict, list[dict]]:
+    """Compose current citations without rewriting frozen migration authority.
+
+    Only named admission producers supply extensions. Each producer verifies its
+    own replay and active postimages before returning a fragment; the index also
+    checks its authority hash, refuses collisions, and validates all destinations.
+    The historical loader above deliberately continues to read just its file.
+    """
+    aliases = load_passage_aliases(path, works)
+    authorities = []
+    root = Path(path).parent.parent
+    for fragment in _active_passage_alias_fragments(root):
+        if (not isinstance(fragment, dict) or not isinstance(fragment.get("aliases"), dict)
+                or not isinstance(fragment.get("authority"), dict)):
+            raise ValueError("Invalid active passage alias fragment")
+        authority = fragment["authority"]
+        relative = authority.get("path")
+        digest = authority.get("sha256")
+        if (not isinstance(relative, str) or "\\" in relative
+                or Path(relative).is_absolute() or ".." in Path(relative).parts
+                or not relative.startswith("data/corpus_changes/")
+                or not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest)):
+            raise ValueError("Invalid active passage alias authority")
+        authority_path = REPO / relative
+        if (not authority_path.is_file()
+                or hashlib.sha256(authority_path.read_bytes()).hexdigest() != digest):
+            raise ValueError("Active passage alias authority changed: " + relative)
+        additions = fragment["aliases"]
+        declared_retired = fragment.get("retired_sources", {})
+        retired_sources = _retired_passage_alias_sources(root, declared_retired, works)
+        if set(retired_sources) - set(additions):
+            raise ValueError("A retired passage alias source has no declared aliases")
+        for old, passages in additions.items():
+            if not isinstance(passages, dict):
+                raise ValueError("Invalid active passage alias entries: " + str(old))
+            collision = set(aliases.get(old, {})) & set(passages)
+            if collision:
+                raise ValueError("Active passage alias collision: " + old + ", "
+                                 + sorted(collision)[0])
+        validate_passage_aliases(additions, works, source_works={**works, **retired_sources})
+        for old, passages in additions.items():
+            aliases.setdefault(old, {}).update(passages)
+        exported_authority = {"path": relative, "sha256": digest}
+        if declared_retired:
+            exported_authority["retired_sources"] = dict(declared_retired)
+        authorities.append(exported_authority)
+    return aliases, authorities
+
+
+def validate_passage_aliases(aliases: dict, works: dict, *, source_works: dict | None = None) -> dict:
+    source_works = works if source_works is None else source_works
     destinations = {}
     for old, passages in aliases.items():
-        if old not in works and not any(old in w.get("former_slugs", []) for w in works.values()):
+        if old not in source_works and not any(old in w.get("former_slugs", []) for w in source_works.values()):
             raise ValueError(f"Passage alias source is unknown: {old}")
         for locus, target in passages.items():
             relative = Path(target["path"])
@@ -559,8 +638,9 @@ def build(write: bool = True) -> dict:
         for fs in e.get("former_slugs", []):
             redirects[fs] = slug
 
+    passage_aliases, passage_alias_authorities = load_active_passage_aliases(PASSAGE_ALIASES, works)
     out = {
-        "passage_aliases": load_passage_aliases(PASSAGE_ALIASES, works),
+        "passage_aliases": passage_aliases,
         "citation_aliases": load_citation_aliases(CITATION_ALIASES, works),
         "_meta": {
             "description": "Reader-facing WEMI-leveled index of served cog "
@@ -587,6 +667,8 @@ def build(write: bool = True) -> dict:
         "works": works,
         "redirects": {k: redirects[k] for k in sorted(redirects)},
     }
+    if passage_alias_authorities:
+        out["_meta"]["passage_alias_authorities"] = passage_alias_authorities
     if write:
         WORK_INDEX.write_text(
             json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

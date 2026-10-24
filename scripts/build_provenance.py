@@ -154,6 +154,8 @@ def main() -> None:
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
+    from repair_dubner_scholias import metadata as dubner_metadata
+    dubner = dubner_metadata(REPO)
     if set(ce) != set(components):
         raise ValueError("Corpus editions and source components describe different works")
     # The component report pins every corpus file and the eligibility recipe;
@@ -211,6 +213,8 @@ def main() -> None:
                 corrected.discard(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
+        if urn in dubner:
+            return ", ".join(f"[{item['id']}]({item['url']})" for item in dubner[urn]["sources"])
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
         # archive.org) from the visible text but keep the link target
         url = (ocr.get(urn, {}).get("source_url")
@@ -252,7 +256,9 @@ def main() -> None:
         # ones where they exist (they carry the Migne column range, the attribution
         # note, what a catena actually covers), so preferring the index wholesale
         # would flatten 316 good rows into a bare title.
-        if not desc.strip() or looks_like_page_header(desc):
+        if urn in dubner:
+            desc = indexed_desc(urn, index)
+        elif not desc.strip() or looks_like_page_header(desc):
             desc = indexed_desc(urn, index) or desc
         status = (MIXED_STATUS if mixed else "manual" if urn in corrected
                   else "auto-corrected" if urn in auto_corrected
@@ -278,6 +284,8 @@ def main() -> None:
             # older campaign model.
             ed = srcs.get(m.get("edition", ""), {})
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
+        if urn in dubner:
+            model += " (collated same-edition OCR; unresolved readings excluded)"
         words = component["analysis_tokens"]
         rows.append((name, desc, dl, model, f"{words:,}", status))
 

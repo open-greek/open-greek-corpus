@@ -27,6 +27,14 @@ SCAN_WORKS = {
     "apollonius-geom.conica": ("Heiberg", "Book IV", "Books I–III and the opening letter of Book IV"),
     "cassius-dio.historiae-romanae": ("Cary", "Books 36–55 through 55.9.4", "Early fragments and remaining Greek transmission"),
 }
+DUBNER_HISTORICAL_EDITIONS = {
+    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii":
+        "qwen36-scholia_aristoph_dubner-masked",
+    "platonius.fragmenta-de-comoedia-graeca":
+        "qwen36-platonius_duebner_scholaristoph1",
+}
+DUBNER_RETIRED_WORK = "platonius.fragmenta-de-comoedia-graeca"
+DUBNER_COMPARATIVE = "data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl"
 
 
 def _load(path):
@@ -116,6 +124,152 @@ def _edition(key, name, *, provider="ocr", scheme="", source="", license="PD",
     return {"key": key, "name": name, "provider": provider, "scheme": scheme,
         "source": source, "license": license, "editor": editor, "year": year,
         "storage": storage, "servable": servable, "note": note}
+
+
+def dubner_identity_metadata(root):
+    """Obtain work identities only from the verified active source partition."""
+    from repair_dubner_scholias import metadata
+    return metadata(Path(root))
+
+
+def dubner_retired_work_slugs(root, *, identities=None):
+    """Identify the dissolved volume without treating it as a new primary."""
+    identities = dubner_identity_metadata(root) if identities is None else identities
+    if DUBNER_RETIRED_WORK in identities:
+        raise ValueError("The retired Dübner whole-volume assignment cannot be a primary Work")
+    return {DUBNER_RETIRED_WORK} if identities else set()
+
+
+def _dubner_retired_metadata(identities):
+    if not identities:
+        return None
+    first = next(iter(identities.values()))
+    source = next((item["url"] for item in first["sources"] if item.get("id") == "harvard"),
+                  first["sources"][0]["url"])
+    note = (
+        "Retired misassigned whole-volume OCR, with no single successor Work. "
+        "Original rows and citations remain in per-work secondary witnesses and "
+        "source-role archives. Overlapping prolegomena remain comparative "
+        "witnesses outside primary lexical counts at " + DUBNER_COMPARATIVE + "."
+    )
+    historical = _edition(DUBNER_HISTORICAL_EDITIONS[DUBNER_RETIRED_WORK],
+        "Dübner 1855, retired whole-volume OCR assignment",
+        source=source, editor="Dübner, Friedrich", year=1855,
+        storage="secondary", servable=False, note=note)
+    composition = {"policy": "retired-whole-volume-assignment-with-literal-witnesses-retained",
+        "manifest": first["authority"]["path"], "manifest_sha256": first["authority"]["sha256"],
+        "qualification": note, "primary_rows": 0, "analysis_tokens": 0,
+        "components": [{"storage": "ocr_witnesses", "path": DUBNER_COMPARATIVE,
+            "role": "comparative-prolegomena", "license": "PD",
+            "sources": deepcopy(first["sources"])}]}
+    return historical, composition
+
+
+def _retire_dubner_registry_assignment(registry, identities):
+    if not identities or DUBNER_RETIRED_WORK not in registry.works:
+        return
+    historical, composition = _dubner_retired_metadata(identities)
+    slug = DUBNER_RETIRED_WORK
+    key = registry.mint_edition(slug, historical["key"], historical["name"], servable=False)
+    record = registry.works[slug].editions[key]
+    for field, value in historical.items():
+        if field != "key":
+            setattr(record, field, value)
+    registry.works[slug].default_edition = None
+    registry.works[slug].coverage_composition = composition
+
+
+def register_dubner_work_records(registry, root, *, identities=None):
+    """Register source-backed Works before their reviewed manifestations."""
+    identities = dubner_identity_metadata(root) if identities is None else identities
+    dubner_retired_work_slugs(root, identities=identities)
+    for slug, value in identities.items():
+        registry.mint_author(value["author_name"], slug=value["author"])
+        aliases = {"cts": value["cts"]} if value.get("cts") else {}
+        registry.mint_work(value["author"], value["title"], slug=slug, aliases=aliases)
+        # mint_work preserves an existing identity. The verified source review
+        # supplies its corrected display scope and attribution separately.
+        work = registry.works[slug]
+        work.author, work.title = value["author"], value["title"]
+        work.best_source = "open_corpus"
+    _retire_dubner_registry_assignment(registry, identities)
+    return identities
+
+
+def ensure_dubner_work_records(document, root):
+    """Supply the same identities to an admission's initial registry update."""
+    identities = dubner_identity_metadata(root)
+    dubner_retired_work_slugs(root, identities=identities)
+    for slug, value in identities.items():
+        document.setdefault("authors", {}).setdefault(value["author"], {
+            "name": value["author_name"], "aliases": {}})
+        work = document.setdefault("works", {}).setdefault(slug, {
+            "aliases": {}, "default_edition": None, "tags": [], "editions": {}})
+        work.update(author=value["author"], title=value["title"], best_source="open_corpus")
+        if value.get("cts"):
+            previous = work.setdefault("aliases", {}).get("cts")
+            if previous is not None and previous != value["cts"]:
+                raise ValueError("Dübner Work CTS identity conflicts with the registry: " + slug)
+            work["aliases"]["cts"] = value["cts"]
+    retired = document.get("works", {}).get(DUBNER_RETIRED_WORK)
+    if identities and retired is not None:
+        historical, composition = _dubner_retired_metadata(identities)
+        key = DUBNER_RETIRED_WORK + "." + historical["key"]
+        record = retired.setdefault("editions", {}).setdefault(key, {})
+        record.update({field: value for field, value in historical.items() if field != "key"})
+        retired.update(default_edition=None, coverage_composition=composition)
+
+
+def _dubner(root):
+    """Credit one merged manifestation and its retained same-edition witnesses."""
+    result = {}
+    for slug, value in dubner_identity_metadata(root).items():
+        sources = deepcopy(value["sources"])
+        source = sources[0]["url"]
+        edition = value["edition"]
+        note = value["qualification"]
+        primary = _edition(edition, value["title"] + " (Dübner 1855, collated OCR)",
+            scheme="source-page.region", source=source, editor="Dübner, Friedrich",
+            year=1855, note=note)
+        secondary_key = "dubner-1855-legacy-witnesses"
+        secondary = _edition(secondary_key, "Dübner 1855, retained raw OCR witnesses",
+            scheme="original-scan-page.row", source=source, editor="Dübner, Friedrich",
+            year=1855, storage="secondary", note=(
+                "Original OCR readings of the same printed edition, preserved separately "
+                "from the merged primary. Distinct scan copies and OCR runs do not "
+                "establish independent textual editions. " + note))
+        editions = [primary, secondary]
+        historical = DUBNER_HISTORICAL_EDITIONS.get(slug)
+        historical_note = (
+            "Historical whole-volume OCR assignment. The corrected source partition "
+            "retains the literal original rows and citations in its audit and "
+            "outside the primary; this edition no longer represents the served Work."
+        )
+        if historical:
+            editions.append(_edition(historical, "Dübner 1855, former whole-volume OCR assignment",
+                source=source, editor="Dübner, Friedrich", year=1855,
+                storage="secondary", servable=False, note=historical_note))
+        result[slug] = {"editions": editions, "default_edition": edition,
+            "disable_editions": [historical] if historical else [],
+            "disable_note": historical_note,
+            "coverage_composition": {
+                "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+                "manifest": value["authority"]["path"],
+                "manifest_sha256": value["authority"]["sha256"],
+                "scope": value["scope"], "counts": deepcopy(value["counts"]),
+                "qualification": note, "sources": sources,
+                "primary_quality": {"status": "source-role-reviewed-collated-ocr",
+                    "scope": value["scope"], "passages": value["primary_rows"],
+                    "analysis_tokens": value["analysis_tokens"],
+                    "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."},
+                "components": [
+                    {"edition": edition, "storage": "primary", "path": f"data/corpus/{slug}.jsonl",
+                        "passages": value["primary_rows"], "analysis_tokens": value["analysis_tokens"],
+                        "role": "source-reviewed-historical-text", "license": "PD", "sources": sources},
+                    {"edition": secondary_key, "storage": "secondary", "path": f"data/corpus_secondary/{slug}.jsonl",
+                        "passages": value["secondary_rows"], "role": "literal-same-edition-ocr-witnesses",
+                        "license": "PD", "sources": sources}]}}
+    return result
 
 
 def _meibom(root):
@@ -748,7 +902,7 @@ def reviewed_manifestation_metadata(root=ROOT):
     root = Path(root)
     from editorial_role_manifestations import metadata as editorial_roles
     return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root), **_phoenix(root),
-            **editorial_roles(root)}
+            **editorial_roles(root), **_dubner(root)}
 
 
 def register_reviewed_manifestations(registry, root=ROOT):
@@ -762,6 +916,7 @@ def register_reviewed_manifestations(registry, root=ROOT):
         registry.works[slug].best_source = "open_corpus"
         registry.mint_edition(slug, value["edition"], "First1KGreek (" + value["edition"] + ")",
             provider=value["provider"], license=value["license"])
+    register_dubner_work_records(registry, root)
     metadata = reviewed_manifestation_metadata(root)
     for slug, value in metadata.items():
         if slug not in registry.works:
@@ -820,14 +975,18 @@ def main():
     from source_identity import Registry
     path = args.registry or args.root / "data/source_registry.json"
     registry = Registry.load(path)
-    before = {slug: {"default": work.default_edition, "coverage": getattr(work, "coverage_composition", {}),
+    before = {slug: {"author": work.author, "title": work.title, "aliases": deepcopy(work.aliases),
+        "default": work.default_edition, "coverage": getattr(work, "coverage_composition", {}),
         "editions": {key: dict(vars(value)) for key, value in work.editions.items()}} for slug, work in registry.works.items()}
     metadata = register_reviewed_manifestations(registry, args.root)
     if args.check:
         from critical_text import load_critical_editions
         critical = load_critical_editions(args.root / "data")
-        drift = [slug for slug in set(metadata) | set(musical_identity_metadata(args.root)) | set(critical)
-            if before.get(slug) != {"default": registry.works[slug].default_edition,
+        retired = dubner_retired_work_slugs(args.root) & set(registry.works)
+        drift = [slug for slug in set(metadata) | set(musical_identity_metadata(args.root)) | set(critical) | retired
+            if before.get(slug) != {"author": registry.works[slug].author,
+                "title": registry.works[slug].title, "aliases": registry.works[slug].aliases,
+                "default": registry.works[slug].default_edition,
                 "coverage": getattr(registry.works[slug], "coverage_composition", {}),
                 "editions": {key: dict(vars(value)) for key, value in registry.works[slug].editions.items()}}]
         if drift:

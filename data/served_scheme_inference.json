@@ -1,14 +1,14 @@
 {
  "_meta": {
   "by_class": {
-   "edition-prefixed": 985,
+   "edition-prefixed": 983,
    "logical-numeric": 2614,
-   "mixed": 313,
+   "mixed": 327,
    "physical": 2
   },
   "dominance": 0.9,
   "what": "Classify every served work's loci and infer a citation scheme where the",
-  "works": 3914
+  "works": 3926
  },
  "works": {
   "abas.fragmenta": {
@@ -29774,14 +29774,6 @@
    ],
    "scheme": "ref"
   },
-  "platonius.fragmenta-de-comoedia-graeca": {
-   "class": "edition-prefixed",
-   "sample": [
-    "platonius_duebner_scholaristoph1_0008.1",
-    "platonius_duebner_scholaristoph1_0008.2",
-    "platonius_duebner_scholaristoph1_0008.3"
-   ]
-  },
   "plotinus.enneades": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -33050,12 +33042,111 @@
     "schol_aratum_maass_0009.1"
    ]
   },
-  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
-   "class": "edition-prefixed",
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855": {
+   "class": "mixed",
    "sample": [
-    "scholia_aristoph_dubner_0007.1",
-    "scholia_aristoph_dubner_0007.2",
-    "scholia_aristoph_dubner_0007.3"
+    "dubner1855.0032"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0043",
+    "dubner1855.0044",
+    "dubner1855.0045"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0251",
+    "dubner1855.0252",
+    "dubner1855.0253"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0357",
+    "dubner1855.0358",
+    "dubner1855.0359"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0074",
+    "dubner1855.0075",
+    "dubner1855.0076"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0290",
+    "dubner1855.0291",
+    "dubner1855.0292"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0119",
+    "dubner1855.0120",
+    "dubner1855.0121"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0211",
+    "dubner1855.0212",
+    "dubner1855.0213"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0365",
+    "dubner1855.0366",
+    "dubner1855.0367"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0315",
+    "dubner1855.0316",
+    "dubner1855.0317"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0306",
+    "dubner1855.0307",
+    "dubner1855.0308"
+   ]
+  },
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0177",
+    "dubner1855.0178",
+    "dubner1855.0179"
+   ]
+  },
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0040",
+    "dubner1855.0041"
+   ]
+  },
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855": {
+   "class": "mixed",
+   "sample": [
+    "dubner1855.0040"
    ]
   },
   "scholia-in-callimachum.schol-callim-schneider": {
