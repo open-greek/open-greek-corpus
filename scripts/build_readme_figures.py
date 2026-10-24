@@ -57,6 +57,41 @@ def render(text, figures, works):
         f"in the checked lexical projection, {len(figures['sources'])} source categories.", text, "status")
 
 
+def sync_duplicate_counts(text, leaf, pages):
+    """Keep the duplicate-candidate prose bound to its generated diagnostics."""
+    bands = {band["band"]: band for band in pages["served_droppable_by_containment"]}
+    high, low = bands["0.90-0.99"], bands["0.80-0.90"]
+    text = replace_once(
+        r"[\d,]+ served pairs and [\d,]+ tokens sit\n\s*above 0\.90, another [\d,]+ pairs and [\d,]+ tokens between 0\.80 and 0\.90",
+        f"{high['pairs']:,} served pairs and {high['tokens']:,} tokens sit\n"
+        f"  above 0.90, another {low['pairs']:,} pairs and {low['tokens']:,} tokens between 0.80 and 0.90",
+        text, "duplicate page bands")
+    text = replace_once(
+        r"same-item ones beside them, [\d,]+ pairs\n\s*and [\d,]+ tokens in the top band and [\d,]+ and [\d,]+ in the next",
+        f"same-item ones beside them, {high['same_item_pairs']:,} pairs\n"
+        f"  and {high['same_item_tokens']:,} tokens in the top band and "
+        f"{low['same_item_pairs']:,} and {low['same_item_tokens']:,} in the next",
+        text, "same-item duplicate bands")
+    runs = pages["duplicate_runs"]
+    text = replace_once(
+        r"[\d,]+ runs are recorded in `duplicate_runs`, [\d,]+ of them touching served\n\s*text, and (?:about )?[\d,]+ tokens",
+        f"{runs['runs']:,} runs are recorded in `duplicate_runs`, {runs['served_runs']:,} of them touching served\n"
+        f"  text, and {runs['served_tokens_in_second_reads']:,} tokens", text, "duplicate runs")
+    text = replace_once(r"lists [\d,]+ remaining pairs in [\d,]+ files",
+        f"lists {leaf['candidates']:,} remaining pairs in {len(leaf['by_file']):,} files",
+        text, "duplicate leaf candidates")
+    text = replace_once(r"[\d,]+ pairs have\s+a side that holds nothing the other lacks, [\d,]+ tokens",
+        f"{leaf['clean_second_copies']:,} pairs have\n  a side that holds nothing the other lacks, "
+        f"{leaf['clean_second_copies_tokens']:,} tokens", text, "contained leaf readings")
+    text = replace_once(r"of which [\d,]+ pairs and\n\s*[\d,]+ tokens are in served text",
+        f"of which {leaf['clean_second_copies_served']:,} pairs and\n"
+        f"  {leaf['clean_second_copies_served_tokens']:,} tokens are in served text",
+        text, "served duplicate leaf candidates")
+    return replace_once(r"the other [\d,]+ pairs, [\d,]+ tokens, cannot be\s+dropped from either side",
+        f"the other {leaf['overlapping_not_copies']:,} pairs, {leaf['overlapping_not_copies_tokens']:,} tokens, cannot be\n"
+        "  dropped from either side", text, "complementary leaf readings")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
@@ -68,6 +103,11 @@ def main():
     path = args.root / "README.md"
     original = path.read_text(encoding="utf-8")
     updated = render(original, figures, works)
+    if "served pairs and" in original or "remaining pairs in" in original:
+        diagnostics = {name: json.loads((args.root / "data" / (name + ".json")).read_bytes())
+                       for name in ("duplicate_leaf_candidates", "duplicate_page_candidates")}
+        updated = sync_duplicate_counts(updated, diagnostics["duplicate_leaf_candidates"],
+                                        diagnostics["duplicate_page_candidates"])
     if args.check and updated != original:
         parser.exit(1, "README corpus figures are stale; run build_readme_figures.py --write\n")
     if args.write and updated != original:
