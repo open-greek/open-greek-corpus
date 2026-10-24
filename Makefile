@@ -131,6 +131,7 @@ SOURCE_RECOVERY_INPUTS := scripts/repair_westermann_scope.py scripts/westermann_
                          scripts/repair_hesychius_missing_columns.py scripts/hesychius_gap_observations.py \
                          scripts/capture_hesychius_gap.py scripts/run_hesychius_gap_ocr.py \
                          scripts/hesychius_gap_manifestations.py scripts/repair_pindar_duplicate_primaries.py \
+                         scripts/pindar_duplicate_manifestations.py \
                          $(shell find data/corpus_changes/westermann-source-review \
                              data/corpus_changes/westermann-1845-scope \
                              data/corpus_changes/hesychius-missing-columns \

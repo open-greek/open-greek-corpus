@@ -646,11 +646,16 @@ def apply_oga_dating(reg: Registry) -> None:
         if cts:
             by_cts.setdefault(cts.split(":")[-1], slug)
 
-    filled, agreed, conflicts, no_home, adjudicated = [], [], [], [], []
+    filled, agreed, conflicts, no_home, adjudicated, qualified = [], [], [], [], [], []
+    from pindar_duplicate_manifestations import qualify_oga_date
     adj_seen = set()
     for urn, e in sorted(od.get("works", {}).items()):
         c = e.get("century")
         if c is None:
+            continue
+        qualified_reading = qualify_oga_date(reg, urn, e)
+        if qualified_reading is not None:
+            qualified.append(qualified_reading)
             continue
         # match by the registry work's own CTS alias first (survives slug
         # renames), else by the slug the ingester resolved (covers pta / renumbered
@@ -753,6 +758,7 @@ def apply_oga_dating(reg: Registry) -> None:
             "counts": {
                 "filled": len(filled), "agreed": len(agreed),
                 "conflicts": len(conflicts),
+                "qualified_upstream_readings": len(qualified),
                 "adjudicated": len(adjudicated),
                 "adjudicated_by_decision": adj_counts,
                 "resolved_no_registry_home": len(no_home),
@@ -762,6 +768,7 @@ def apply_oga_dating(reg: Registry) -> None:
         "filled": filled,
         "adjudicated": adjudicated,
         "conflicts": conflicts,
+        "qualified_upstream_readings": qualified,
         "resolved_no_registry_home": sorted(no_home),
     }
     OGA_DATING_REPORT.write_text(
@@ -839,6 +846,8 @@ def build() -> Registry:
     dubner_retired = dubner_retired_work_slugs(REPO, identities=dubner_definitions)
     from westermann_manifestations import identity_metadata as westermann_identity_metadata
     westermann_slugs = set(westermann_identity_metadata(REPO))
+    from pindar_duplicate_manifestations import identity_metadata as pindar_identity_metadata
+    pindar_slugs = set(pindar_identity_metadata(REPO))
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
         # function's downstream logic expects from each work's cts alias (non-tlg
@@ -1008,7 +1017,7 @@ def build() -> Registry:
     for work_cts, win in sorted(ingested.items()):
         if (work_cts in by_key or work_cts.startswith("cogByz.")
                 or work_cts in critical_editions or work_cts in gutenberg_slugs
-                or work_cts in dubner_retired):
+                or work_cts in dubner_retired or work_cts in pindar_slugs):
             continue  # cogByz.* are minted by the Byzantine pass below
         tg = work_cts.split(".")[0]
         group, title = names.get(work_cts, ("", ""))

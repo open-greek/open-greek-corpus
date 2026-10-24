@@ -86,6 +86,10 @@ opaque identifiers remain retired with explicit canonical redirects. The
 First1K ingester uses the same reviewed routes, including when a generated
 crosswalk is absent. Run `make check-pindar-duplicates` to verify the exact
 duplicate comparison and undo archive.
+The registry derives each unit's title and edition credits from its pinned
+First1K header. The collective catalog attribution does not establish a
+composition date: the four upstream OGA dates remain qualified source readings
+without becoming unit-level century or era tags.
 The release quality block exposes the verified counts for all three repairs;
 the known-limitations artifact retains the recovered Hesychius columns' reading
 uncertainty separately from their repaired coverage.

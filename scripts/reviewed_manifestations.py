@@ -971,7 +971,9 @@ def register_reviewed_manifestations(registry, root=ROOT):
     from hesychius_gap_manifestations import register as register_hesychius_gap
     register_westermann(registry, root)
     register_hesychius_gap(registry, root)
-    return metadata
+    from pindar_duplicate_manifestations import register as register_pindar_duplicates
+    pindar_metadata = register_pindar_duplicates(registry, root)
+    return {**metadata, **pindar_metadata}
 
 
 def main():
