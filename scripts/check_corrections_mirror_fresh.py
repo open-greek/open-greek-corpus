@@ -10,7 +10,9 @@ Where it exists, two consumers read it. build_corpus_catalog.py and
 build_provenance.py both take `provenance.json` as enrichment on top of the rows'
 own `corrections` stamps, to cover the works whose stamps predate the stamping
 convention. Enrichment from a STALE mirror is not neutral: it adds a claim the
-served text no longer supports. When the 2026-08-21 confusion/accepted census
+served text no longer supports. Manual enrichment additionally requires a
+standing record at its exact current primary locus, checked by
+correction_quality_claims.py. When the 2026-08-21 confusion/accepted census
 reverted 1,512 corrections, the mirror was left at its pre-revert state, and 12
 works whose served text had gone back to raw OCR stayed in `auto_corrected_works`;
 7 of them were published as `auto-corrected` in data/corpus_catalog.tsv while the

@@ -54,6 +54,7 @@ import re
 import sys
 from pathlib import Path
 from build_source_components import MIXED_STATUS, load_verified, validate_catalog
+from correction_quality_claims import verified_manual_works
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -248,8 +249,8 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
     MIN_AUTO_COVERAGE build_provenance.py applies and for the same reason: a
     single stamped row used to be enough, so a cross-work pass that touched 6
     rows of a 2,950-row Eustathius moved the published raw-OCR share by a million
-    tokens. It does not gate `manual`, which claims a person read the work rather
-    than that they changed much of it.
+    tokens. It does not gate `manual`, which records an editing method rather
+    than how much text changed or a measured accuracy rate.
 
     That rule used to have a hole the docstring did not admit to. The log could
     promote a work with NO stamped rows at all, which is zero coverage and so the
@@ -258,9 +259,9 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
     build_provenance.py has the right rule and says so: for a work the corpus
     actually serves, the rows are authoritative in BOTH directions, so a seed list
     claiming a correction the text cannot show is stale rather than believed. The
-    log keeps its vote on `manual`, where the claim is that a person read the work
-    and edit volume does not measure that, and where a per-treatise split that
-    re-keyed the rows its stamps sat on is the known case.
+    log can enrich `manual` only when a manual record's corrected reading still
+    stands at its exact current primary locus. Retired or re-keyed mirror
+    records cannot establish that claim; the shared enrichment loader checks it.
     """
     if mixed:
         return MIXED_STATUS
@@ -292,12 +293,11 @@ def build_rows() -> tuple[list[list[str]], dict]:
     for stale, slug in aliases.items():
         totals[slug] = totals.pop(stale)
 
-    # The corrections log is a local, gitignored audit mirror (it names the AI
-    # correctors), so treat it as optional enrichment and never as a required
-    # input: the catalog has to build the same way from a fresh clone.
+    # The local audit mirror is optional. Manual enrichment must resolve to a
+    # standing correction at its exact current primary locus, as in the README.
     log_fp = DATA / "corrections_log" / "provenance.json"
     log = json.loads(log_fp.read_text(encoding="utf-8")) if log_fp.exists() else {}
-    manual_log = set(log.get("corrected_works", []))
+    manual_log = verified_manual_works(DATA)
     auto_log = set(log.get("auto_corrected_works", []))
 
     rows: list[list[str]] = []
