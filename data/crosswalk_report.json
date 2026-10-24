@@ -2,7 +2,7 @@
   "headline": {
     "works": 11089,
     "authors": 3318,
-    "editions": 10264,
+    "editions": 10268,
     "pct_works_with_canonical_locus": 36.5,
     "pct_works_with_logical_served_locus": 12.5,
     "pct_works_with_work_qid": 5.2,
@@ -103,9 +103,9 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4052,
+    "works_with_logical_locus": 4053,
     "pct": 36.5,
-    "works_only_physical_or_none": 3187,
+    "works_only_physical_or_none": 3186,
     "by_scheme": {
       "(none)": 1565,
       "fragment.line": 1444,
@@ -243,6 +243,7 @@
       "psalm.verse.line": 2,
       "question.answer.line": 2,
       "ref.sub.sub": 2,
+      "reviewed-duplicate.source.block": 2,
       "scan-page.row": 2,
       "section.epistle or discourse.line": 2,
       "section.extract.excerpt.line": 2,
@@ -256,6 +257,7 @@
       "vita.hypothesis.scholion.oration.section.line": 2,
       "vita.line": 2,
       "vita.verse of orbis descriptio.line of scholion": 2,
+      "volume.marker-page": 2,
       "volume.printed-page": 2,
       "walz page.line": 2,
       "wescher page.line": 2,
@@ -358,6 +360,7 @@
       "scholion.verse.line": 1,
       "section.fragment.line": 1,
       "source of scholion.scholion.line": 1,
+      "source-page.row": 1,
       "st number.page.line": 1,
       "testamentum.chapter.section.line": 1,
       "tetralogy.play.fragment.line": 1,
@@ -372,7 +375,6 @@
       "verso.recto.column.line": 1,
       "vita.argumentum.scholion.epigram.verse.line": 1,
       "volume.chapter.line": 1,
-      "volume.marker-page": 1,
       "volume.reference-scan": 1,
       "wehrli fragment.line": 1
     }
@@ -987,7 +989,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3187,
+      "count": 3186,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

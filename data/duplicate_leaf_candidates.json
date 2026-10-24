@@ -11,14 +11,16 @@
    "cgpg"
   ]
  },
- "files_scanned": 4480,
+ "files_scanned": 4482,
  "candidates": 32,
  "clean_second_copies": 12,
  "clean_second_copies_tokens": 4810,
- "clean_second_copies_served": 4,
- "clean_second_copies_served_tokens": 1778,
+ "clean_second_copies_served": 0,
+ "clean_second_copies_served_tokens": 0,
  "overlapping_not_copies": 20,
  "overlapping_not_copies_tokens": 7709,
+ "partial_overlap_candidates": 1,
+ "partial_overlap_candidates_served": 0,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -29,15 +31,15 @@
   },
   {
    "band": "0.90-0.99",
-   "pairs": 2,
-   "tokens": 843,
+   "pairs": 0,
+   "tokens": 0,
    "same_item_pairs": 0,
    "same_item_tokens": 0
   },
   {
    "band": "0.80-0.90",
-   "pairs": 2,
-   "tokens": 935,
+   "pairs": 0,
+   "tokens": 0,
    "same_item_pairs": 0,
    "same_item_tokens": 0
   },
@@ -60,15 +62,31 @@
   "what": "consecutive pages repeating at a fixed offset inside one scan item: a leaf-run the OCR delivered twice",
   "why": "containment asks whether two pages say the same thing, and a second read garbled differently enough fails that test however safe the gate is. Position asks something the garbling cannot touch, so a run admits a pair the score alone would refuse. It admits it for CONSIDERATION only; every post-condition in collapse_duplicate_reads.py still has to pass before any page is displaced.",
   "min_links": 3,
-  "runs": 0,
+  "runs": 1,
   "served_runs": 0,
   "served_tokens_in_second_reads": 0,
-  "detail": []
+  "detail": [
+   {
+    "run": "PG073+4@483",
+    "file": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+    "item": "PG073",
+    "page_offset": 4,
+    "first_page": 483,
+    "last_page": 486,
+    "links": 4,
+    "pairs": 4,
+    "second_copy_pages": 4,
+    "tokens_b": 1778,
+    "containment_min": 0.8896,
+    "containment_max": 0.9158,
+    "served": false
+   }
+  ]
  },
  "by_file": {
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
-  "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": 4,
+  "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl": 4,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl": 2,
   "data/corpus/theophylactus-achridensis.epistulae.jsonl": 2,
@@ -90,13 +108,31 @@
    "words_b": 295,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.961,
+   "bigram_coverage_b": 0.961,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 289,
+    "tokens_a": 295,
+    "tokens_b": 295,
+    "span_a": [
+     0,
+     295
+    ],
+    "span_b": [
+     0,
+     295
+    ],
+    "unmatched_tokens_a": 6,
+    "unmatched_tokens_b": 6
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+   "served": false,
    "locus_a": "PG073.486",
    "locus_b": "PG073.490",
    "containment": 0.9158,
@@ -107,13 +143,31 @@
    "words_b": 419,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
+   "bigram_coverage_a": 0.9046,
+   "bigram_coverage_b": 0.9158,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 397,
+    "tokens_a": 422,
+    "tokens_b": 419,
+    "span_a": [
+     0,
+     422
+    ],
+    "span_b": [
+     0,
+     412
+    ],
+    "unmatched_tokens_a": 25,
+    "unmatched_tokens_b": 22
+   },
+   "same_item": true,
+   "page_offset": 4,
+   "run": "PG073+4@483"
   },
   {
-   "file": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+   "served": false,
    "locus_a": "PG073.483",
    "locus_b": "PG073.487",
    "containment": 0.9115,
@@ -124,13 +178,31 @@
    "words_b": 424,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
+   "bigram_coverage_a": 0.9093,
+   "bigram_coverage_b": 0.9115,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 405,
+    "tokens_a": 426,
+    "tokens_b": 424,
+    "span_a": [
+     0,
+     426
+    ],
+    "span_b": [
+     0,
+     424
+    ],
+    "unmatched_tokens_a": 21,
+    "unmatched_tokens_b": 19
+   },
+   "same_item": true,
+   "page_offset": 4,
+   "run": "PG073+4@483"
   },
   {
-   "file": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+   "served": false,
    "locus_a": "PG073.485",
    "locus_b": "PG073.489",
    "containment": 0.8937,
@@ -144,13 +216,31 @@
     "μηδεν δυνασθαι δραν εξω"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
+   "bigram_coverage_a": 0.8937,
+   "bigram_coverage_b": 0.8665,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 404,
+    "tokens_a": 434,
+    "tokens_b": 444,
+    "span_a": [
+     0,
+     433
+    ],
+    "span_b": [
+     0,
+     443
+    ],
+    "unmatched_tokens_a": 30,
+    "unmatched_tokens_b": 40
+   },
+   "same_item": true,
+   "page_offset": 4,
+   "run": "PG073+4@483"
   },
   {
-   "file": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+   "served": false,
    "locus_a": "PG073.484",
    "locus_b": "PG073.488",
    "containment": 0.8896,
@@ -163,9 +253,27 @@
     "παθειν συμβεβηκε δυνατον"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
+   "bigram_coverage_a": 0.8896,
+   "bigram_coverage_b": 0.8685,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 449,
+    "tokens_a": 477,
+    "tokens_b": 491,
+    "span_a": [
+     1,
+     477
+    ],
+    "span_b": [
+     1,
+     491
+    ],
+    "unmatched_tokens_a": 28,
+    "unmatched_tokens_b": 42
+   },
+   "same_item": true,
+   "page_offset": 4,
+   "run": "PG073+4@483"
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -185,8 +293,26 @@
    "unique_runs_if_a_dropped": [
     "ελααβανον διδαναι αυτοιο"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.8851,
+   "bigram_coverage_b": 0.8582,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 363,
+    "tokens_a": 387,
+    "tokens_b": 400,
+    "span_a": [
+     0,
+     387
+    ],
+    "span_b": [
+     0,
+     400
+    ],
+    "unmatched_tokens_a": 24,
+    "unmatched_tokens_b": 37
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -207,8 +333,26 @@
     "κυδοα ναι ευνενεστατον"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.8304,
+   "bigram_coverage_b": 0.7828,
+   "partial_overlap": true,
+   "ordered_overlap": {
+    "matched_tokens": 366,
+    "tokens_a": 403,
+    "tokens_b": 429,
+    "span_a": [
+     0,
+     403
+    ],
+    "span_b": [
+     0,
+     429
+    ],
+    "unmatched_tokens_a": 37,
+    "unmatched_tokens_b": 63
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -226,8 +370,26 @@
     "εναντιων εξαγειν ηδη"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.8222,
+   "bigram_coverage_b": 0.8128,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 399,
+    "tokens_a": 451,
+    "tokens_b": 454,
+    "span_a": [
+     0,
+     450
+    ],
+    "span_b": [
+     0,
+     452
+    ],
+    "unmatched_tokens_a": 52,
+    "unmatched_tokens_b": 55
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -245,8 +407,26 @@
     "ροβδουχος προση νεγκε"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.8169,
+   "bigram_coverage_b": 0.8103,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 352,
+    "tokens_a": 387,
+    "tokens_b": 390,
+    "span_a": [
+     0,
+     387
+    ],
+    "span_b": [
+     0,
+     390
+    ],
+    "unmatched_tokens_a": 35,
+    "unmatched_tokens_b": 38
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -262,8 +442,26 @@
    "words_b": 413,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7713,
+   "bigram_coverage_b": 0.7866,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 363,
+    "tokens_a": 419,
+    "tokens_b": 413,
+    "span_a": [
+     0,
+     419
+    ],
+    "span_b": [
+     0,
+     413
+    ],
+    "unmatched_tokens_a": 56,
+    "unmatched_tokens_b": 50
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -281,8 +479,26 @@
    "unique_runs_if_a_dropped": [
     "β εριριοηια τρια"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7791,
+   "bigram_coverage_b": 0.7701,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 154,
+    "tokens_a": 175,
+    "tokens_b": 178,
+    "span_a": [
+     2,
+     175
+    ],
+    "span_b": [
+     2,
+     178
+    ],
+    "unmatched_tokens_a": 21,
+    "unmatched_tokens_b": 24
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -305,8 +521,26 @@
     "λοιπους ηλευθερωσεν ιδοντες",
     "εστρατοπεδευσαντο υπερτερουντε γε"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.6499,
+   "bigram_coverage_b": 0.7738,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 346,
+    "tokens_a": 463,
+    "tokens_b": 395,
+    "span_a": [
+     0,
+     462
+    ],
+    "span_b": [
+     1,
+     394
+    ],
+    "unmatched_tokens_a": 117,
+    "unmatched_tokens_b": 49
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -324,8 +558,26 @@
     "αωθσης ουκ οιθαμεν"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7426,
+   "bigram_coverage_b": 0.7426,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 421,
+    "tokens_a": 488,
+    "tokens_b": 488,
+    "span_a": [
+     1,
+     488
+    ],
+    "span_b": [
+     1,
+     488
+    ],
+    "unmatched_tokens_a": 67,
+    "unmatched_tokens_b": 67
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -363,8 +615,26 @@
    "unique_runs_if_a_dropped": [
     "οαμοος ουθ αι"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7412,
+   "bigram_coverage_b": 0.4183,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 194,
+    "tokens_a": 229,
+    "tokens_b": 415,
+    "span_a": [
+     0,
+     229
+    ],
+    "span_b": [
+     108,
+     339
+    ],
+    "unmatched_tokens_a": 35,
+    "unmatched_tokens_b": 221
+   },
+   "same_item": true,
+   "page_offset": 100,
    "run": null
   },
   {
@@ -387,8 +657,26 @@
     "χοιρος ιοτκερ ημεινων",
     "κραιωτην φα ειπκιανο μενεο εονιωκα μνοια φμο εη οιεηισιι εον αοι ασαοαι"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7106,
+   "bigram_coverage_b": 0.7256,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 182,
+    "tokens_a": 406,
+    "tokens_b": 398,
+    "span_a": [
+     0,
+     272
+    ],
+    "span_b": [
+     196,
+     398
+    ],
+    "unmatched_tokens_a": 224,
+    "unmatched_tokens_b": 216
+   },
+   "same_item": true,
+   "page_offset": 12,
    "run": null
   },
   {
@@ -413,8 +701,26 @@
     "καθ ενα εκαστον βημα"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.7247,
+   "bigram_coverage_b": 0.3969,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 147,
+    "tokens_a": 186,
+    "tokens_b": 386,
+    "span_a": [
+     0,
+     186
+    ],
+    "span_b": [
+     33,
+     281
+    ],
+    "unmatched_tokens_a": 39,
+    "unmatched_tokens_b": 239
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -450,8 +756,26 @@
     "αριστερα ενθεν κακειθεν",
     "προς ανατολην δεξιω μερει"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.6491,
+   "bigram_coverage_b": 0.3763,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 165,
+    "tokens_a": 267,
+    "tokens_b": 468,
+    "span_a": [
+     0,
+     246
+    ],
+    "span_b": [
+     13,
+     467
+    ],
+    "unmatched_tokens_a": 102,
+    "unmatched_tokens_b": 303
+   },
+   "same_item": true,
+   "page_offset": 7,
    "run": null
   },
   {
@@ -478,8 +802,26 @@
     "φαταβρογθισαι ευβεων απεθωκε",
     "ρωμαιων ανυσας αρχη αισχιστα δ εφθαρη"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.6082,
+   "bigram_coverage_b": 0.6116,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 275,
+    "tokens_a": 369,
+    "tokens_b": 370,
+    "span_a": [
+     0,
+     369
+    ],
+    "span_b": [
+     0,
+     370
+    ],
+    "unmatched_tokens_a": 94,
+    "unmatched_tokens_b": 95
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -528,8 +870,26 @@
     "κυριε επεβλεψας δε",
     "υιον ανθρωπου ον εκραταιωσας εαυτω"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.5203,
+   "bigram_coverage_b": 0.5134,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 212,
+    "tokens_a": 372,
+    "tokens_b": 377,
+    "span_a": [
+     76,
+     311
+    ],
+    "span_b": [
+     0,
+     373
+    ],
+    "unmatched_tokens_a": 160,
+    "unmatched_tokens_b": 165
+   },
+   "same_item": true,
+   "page_offset": 100,
    "run": null
   },
   {
@@ -557,8 +917,26 @@
    "unique_runs_if_a_dropped": [
     "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4855,
+   "bigram_coverage_b": 0.31,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 115,
+    "tokens_a": 232,
+    "tokens_b": 390,
+    "span_a": [
+     73,
+     228
+    ],
+    "span_b": [
+     4,
+     194
+    ],
+    "unmatched_tokens_a": 117,
+    "unmatched_tokens_b": 275
+   },
+   "same_item": true,
+   "page_offset": 3,
    "run": null
   },
   {
@@ -595,8 +973,26 @@
    "unique_runs_if_a_dropped": [
     "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4624,
+   "bigram_coverage_b": 0.273,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 56,
+    "tokens_a": 232,
+    "tokens_b": 446,
+    "span_a": [
+     1,
+     211
+    ],
+    "span_b": [
+     369,
+     443
+    ],
+    "unmatched_tokens_a": 176,
+    "unmatched_tokens_b": 390
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -621,8 +1017,26 @@
     "κακεισε ειθ ουτως",
     "καγκελλου μη επερειδομενοι επ αυτοις αλλ"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4552,
+   "bigram_coverage_b": 0.3608,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 200,
+    "tokens_a": 343,
+    "tokens_b": 443,
+    "span_a": [
+     1,
+     343
+    ],
+    "span_b": [
+     125,
+     434
+    ],
+    "unmatched_tokens_a": 143,
+    "unmatched_tokens_b": 243
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -672,8 +1086,26 @@
     "ταις λοιπαις προελευσεσιν ει",
     "παγανη κυριακη ανερχονται"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4535,
+   "bigram_coverage_b": 0.2557,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 89,
+    "tokens_a": 186,
+    "tokens_b": 333,
+    "span_a": [
+     1,
+     186
+    ],
+    "span_b": [
+     81,
+     278
+    ],
+    "unmatched_tokens_a": 97,
+    "unmatched_tokens_b": 244
+   },
+   "same_item": true,
+   "page_offset": 66,
    "run": null
   },
   {
@@ -704,8 +1136,26 @@
     "εκνευοντες δεξια κατερχονται",
     "νεας μεγαλης εκκλησιασκεισε γαρ"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4494,
+   "bigram_coverage_b": 0.3292,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 89,
+    "tokens_a": 186,
+    "tokens_b": 273,
+    "span_a": [
+     3,
+     181
+    ],
+    "span_b": [
+     2,
+     273
+    ],
+    "unmatched_tokens_a": 97,
+    "unmatched_tokens_b": 184
+   },
+   "same_item": true,
+   "page_offset": 4,
    "run": null
   },
   {
@@ -751,8 +1201,26 @@
     "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
     "οι πατρικοι παιδες"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4486,
+   "bigram_coverage_b": 0.3482,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 139,
+    "tokens_a": 258,
+    "tokens_b": 332,
+    "span_a": [
+     4,
+     213
+    ],
+    "span_b": [
+     4,
+     332
+    ],
+    "unmatched_tokens_a": 119,
+    "unmatched_tokens_b": 193
+   },
+   "same_item": true,
+   "page_offset": 210,
    "run": null
   },
   {
@@ -790,8 +1258,26 @@
     "τας σχολας εκδεχομενον",
     "ευσεβεστατων εα αυγουστων"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4472,
+   "bigram_coverage_b": 0.3296,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 127,
+    "tokens_a": 232,
+    "tokens_b": 380,
+    "span_a": [
+     59,
+     231
+    ],
+    "span_b": [
+     1,
+     315
+    ],
+    "unmatched_tokens_a": 105,
+    "unmatched_tokens_b": 253
+   },
+   "same_item": true,
+   "page_offset": 8,
    "run": null
   },
   {
@@ -834,8 +1320,26 @@
     "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
     "οι πατρικοι παιδες"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4321,
+   "bigram_coverage_b": 0.3804,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 130,
+    "tokens_a": 258,
+    "tokens_b": 310,
+    "span_a": [
+     46,
+     247
+    ],
+    "span_b": [
+     0,
+     301
+    ],
+    "unmatched_tokens_a": 128,
+    "unmatched_tokens_b": 180
+   },
+   "same_item": true,
+   "page_offset": 3,
    "run": null
   },
   {
@@ -865,8 +1369,26 @@
     "αποχαιρετιζοντες πον πατοιαρχην",
     "νεας μεγαλης εκκλησιας"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4207,
+   "bigram_coverage_b": 0.3754,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 140,
+    "tokens_a": 319,
+    "tokens_b": 378,
+    "span_a": [
+     125,
+     317
+    ],
+    "span_b": [
+     1,
+     208
+    ],
+    "unmatched_tokens_a": 179,
+    "unmatched_tokens_b": 238
+   },
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -898,8 +1420,26 @@
     "νεας μεγαλης εκκλησιας",
     "αποστολων ομοιως τελειται"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4104,
+   "bigram_coverage_b": 0.3919,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 132,
+    "tokens_a": 328,
+    "tokens_b": 377,
+    "span_a": [
+     1,
+     328
+    ],
+    "span_b": [
+     9,
+     314
+    ],
+    "unmatched_tokens_a": 196,
+    "unmatched_tokens_b": 245
+   },
+   "same_item": true,
+   "page_offset": 1,
    "run": null
   },
   {
@@ -928,8 +1468,26 @@
     "λοιπους αρχοντας τους μελλοντας δηριγευειν",
     "ψαλται χριστος ανεστη δ"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4085,
+   "bigram_coverage_b": 0.3087,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 138,
+    "tokens_a": 268,
+    "tokens_b": 362,
+    "span_a": [
+     0,
+     251
+    ],
+    "span_b": [
+     68,
+     360
+    ],
+    "unmatched_tokens_a": 130,
+    "unmatched_tokens_b": 224
+   },
+   "same_item": true,
+   "page_offset": 63,
    "run": null
   },
   {
@@ -963,8 +1521,26 @@
     "δειλινου ιπποδρομιου κα ειτα εισελθων",
     "δυο μαγλαβιτων σπαθαριων βασταζοντωνε"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4057,
+   "bigram_coverage_b": 0.2781,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 128,
+    "tokens_a": 284,
+    "tokens_b": 402,
+    "span_a": [
+     1,
+     214
+    ],
+    "span_b": [
+     150,
+     400
+    ],
+    "unmatched_tokens_a": 156,
+    "unmatched_tokens_b": 274
+   },
+   "same_item": true,
+   "page_offset": 27,
    "run": null
   },
   {
@@ -1023,8 +1599,26 @@
     "εσπεραν επεμπον ιερευσιν",
     "μακροστιχοιν θθι οαιιγ χσι"
    ],
-   "same_item": false,
-   "page_offset": null,
+   "bigram_coverage_a": 0.4005,
+   "bigram_coverage_b": 0.3824,
+   "partial_overlap": false,
+   "ordered_overlap": {
+    "matched_tokens": 193,
+    "tokens_a": 419,
+    "tokens_b": 449,
+    "span_a": [
+     1,
+     264
+    ],
+    "span_b": [
+     8,
+     448
+    ],
+    "unmatched_tokens_a": 226,
+    "unmatched_tokens_b": 256
+   },
+   "same_item": true,
+   "page_offset": 47,
    "run": null
   }
  ]
