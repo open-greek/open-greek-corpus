@@ -6,8 +6,9 @@ Reads source_component_tokens.json (every row's source and eligible tokens),
 corpus_editions.json (dominant descriptive edition), cgpg_works.json / ocr_works.json
 (human descriptions), work_index.json (the served title, for the many OCR works whose
 ledger description is blank or is a scan's running head), and
-data/corrections_log/provenance.json (the list of works that have had a correction
-pass, delivered by the OCR pipeline - a plain list of urns, nothing about how).
+the optional corrections-log mirror. Manual mirror claims require a standing
+manual correction at its exact current primary locus; work-level flags alone
+do not establish the current text's quality.
 Rewrites the table between the OCR-PROVENANCE markers in README.md and the
 identity anchor counts derived from the current work index.
 
@@ -22,6 +23,7 @@ import sys
 from pathlib import Path
 from build_readme_figures import sync_identity_counts as sync_anchor_counts
 from build_source_components import MIXED_STATUS, load_verified
+from correction_quality_claims import verified_manual_works
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -162,7 +164,7 @@ def main() -> None:
     # its whole-work totals avoid stale delivery-ledger or modification-time counts.
     prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
-    corrected = set(prov.get("corrected_works", []))
+    corrected = verified_manual_works(DATA)
     auto_corrected = set(prov.get("auto_corrected_works", []))
     # Authoritative edit status comes from the rows' own `corrections` stamps
     # (every edit method - confusion, dehyphenation, freq, ... - stamps the row),
@@ -177,11 +179,9 @@ def main() -> None:
     # processed sit around 15% of rows stamped, works it merely grazed sit under
     # 1%.
     #
-    # The threshold does NOT gate the manual promotion. "Manually corrected"
-    # claims a person reviewed the text, which edit volume does not measure: a
-    # clean work rightly comes back with few edits, and four walz_rhetores
-    # volumes read near zero only because a per-treatise split re-keyed the rows
-    # their corrections were stamped on.
+    # The threshold does not gate manual stamps or verified manual mirror
+    # claims. A sparse standing manual edit is still evidence of that method;
+    # an old record whose locus was re-keyed is not current-primary evidence.
     MIN_AUTO_COVERAGE = 0.01
     corpus_dir = DATA / "corpus"
     if corpus_dir.is_dir():
@@ -210,7 +210,6 @@ def main() -> None:
                 auto_corrected.add(urn)
             else:
                 auto_corrected.discard(urn)
-                corrected.discard(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
         if urn in dubner:

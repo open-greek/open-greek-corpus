@@ -331,7 +331,8 @@ $(SOURCE_COMPONENTS): $(CORPUS_FILES) scripts/build_source_components.py $(FREQU
 # drag the whole ingest chain into `reports`.
 $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
             $(QUALITY_REPORT) $(SOURCE_COMPONENTS) data/work_token_totals.json \
-            scripts/build_corpus_catalog.py
+            scripts/build_corpus_catalog.py scripts/correction_quality_claims.py \
+            scripts/check_corrections_mirror_fresh.py
 	$(PY) scripts/build_corpus_catalog.py
 
 # Needs the Dilemma lemmatizer, like $(LEMMA_FREQ). Writes the .tsv.gz and its
@@ -458,6 +459,8 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
+           scripts/correction_quality_claims.py scripts/check_corrections_mirror_fresh.py \
+           $(DUP_LEAVES) $(DUP_PAGES) \
            data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS) \
            data/ocr_works.json data/inventory/ocr_edition_sources.json
 	$(PY) scripts/build_provenance.py
