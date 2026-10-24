@@ -126042,7 +126042,206 @@
       "description": "Migne PG 74, 1859; scan 12 begins Books VII/VIII fragments; scan 473 ends John at columns 755–756; scan 474 begins Acts; scan 482 begins Romans below the end of Acts."
      }
     ],
-    "qualification": "PG074 Books VII and VIII survive as fragments in this edition; this does not reconstruct lost continuous books."
+    "qualification": "PG074 Books VII and VIII survive as fragments in this edition; this does not reconstruct lost continuous books.",
+    "later_duplicate_review": {
+     "authority": {
+      "path": "data/corpus_changes/reviewed-duplicate-blocks/changes.json",
+      "sha256": "9dfc8146a5b65b8cf0564b8299c529e361f7eae5f28c91fc0422e859d8c71f03"
+     },
+     "groups": [
+      {
+       "analysis_greek_tokens": 395,
+       "key": "cyril:PG073.483",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 850,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 395,
+        "unresolved": 31
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 457
+      },
+      {
+       "analysis_greek_tokens": 438,
+       "key": "cyril:PG073.484",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 968,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 438,
+        "unresolved": 55
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 553
+      },
+      {
+       "analysis_greek_tokens": 426,
+       "key": "cyril:PG073.485",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 878,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 426,
+        "unresolved": 31
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 490
+      },
+      {
+       "analysis_greek_tokens": 407,
+       "key": "cyril:PG073.486",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 841,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 407,
+        "unresolved": 22
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 454
+      }
+     ],
+     "counts": {
+      "original_rows": 8,
+      "primary_rows": 4,
+      "literal_witness_rows": 8,
+      "original_greek_tokens": 3537,
+      "surface_greek_tokens": 1954,
+      "analysis_greek_tokens": 1666,
+      "collated_passages": 4,
+      "primary_rows_removed": 4,
+      "reading_statuses": {
+       "single-witness": 1666,
+       "unresolved": 139
+      }
+     },
+     "sources": [
+      {
+       "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+       "filename": "patrologiaecurs43hopfgoog.pdf",
+       "id": "cyril-pg73",
+       "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+       "pdf_pages": 575,
+       "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+       "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+      }
+     ],
+     "upstream_texts": [
+      {
+       "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+       "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+       "license": "CC-BY-4.0",
+       "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+      }
+     ],
+     "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+     "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+     "components": [
+      {
+       "provider": "cgpg",
+       "license": "CC-BY-4.0",
+       "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+       "source_pins": {
+        "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+        "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+         "filename": "patrologiaecurs43hopfgoog.pdf",
+         "id": "cyril-pg73",
+         "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+         "pdf_pages": 575,
+         "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+         "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+        }
+       ],
+       "upstream_texts": [
+        {
+         "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+         "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+         "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+         "license": "CC-BY-4.0",
+         "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+        }
+       ],
+       "edition": "reviewed-duplicate-block-consensus-2026-10",
+       "storage": "primary",
+       "path": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
+       "sha256": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc",
+       "role": "reviewed-duplicate-block-projection",
+       "passages": 4,
+       "loci": [
+        "reviewed-duplicate.PG073.483",
+        "reviewed-duplicate.PG073.484",
+        "reviewed-duplicate.PG073.485",
+        "reviewed-duplicate.PG073.486"
+       ],
+       "surface_greek_tokens": 1954,
+       "analysis_greek_tokens": 1666
+      },
+      {
+       "provider": "cgpg",
+       "license": "CC-BY-4.0",
+       "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+       "source_pins": {
+        "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+        "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+         "filename": "patrologiaecurs43hopfgoog.pdf",
+         "id": "cyril-pg73",
+         "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+         "pdf_pages": 575,
+         "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+         "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+        }
+       ],
+       "upstream_texts": [
+        {
+         "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+         "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+         "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+         "license": "CC-BY-4.0",
+         "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+        }
+       ],
+       "edition": "reviewed-duplicate-block-literal-witnesses-2026-10",
+       "storage": "secondary",
+       "path": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+       "sha256": "b290b731b366ac19c7f0a3e30792061f9a0e5b0d7aab4fae67426cafd0da3029",
+       "role": "literal-duplicate-readings",
+       "passages": 8,
+       "original_editions": [
+        "calfa-pg73-5895ab908dd4"
+       ],
+       "original_greek_tokens": 3537,
+       "counts_toward_primary_frequency": false
+      }
+     ],
+     "work_file_accounting": {
+      "original_primary_rows": 3109,
+      "current_primary_rows": 3105
+     }
+    }
    },
    "editions": {
     "cyrillus-theology.commentarii-in-joannem.calfa-pg73-5895ab908dd4": {
@@ -126080,6 +126279,33 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-block-consensus-2026-10": {
+     "name": "Reviewed duplicate-block collation of Calfa PG073 readings",
+     "provider": "cgpg",
+     "scheme": "reviewed-duplicate.source.block",
+     "editor": "",
+     "year": null,
+     "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Only 4 reviewed physical passages in data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl; derived from repeated readings of one upstream extraction. A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260."
+    },
+    "cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-block-literal-witnesses-2026-10": {
+     "name": "Calfa PG073, retained literal duplicate readings",
+     "provider": "cgpg",
+     "scheme": "volume.marker-page",
+     "editor": "",
+     "year": null,
+     "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Only 8 literal original rows in data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl. The original edition fields remain on these rows; this registry record identifies their secondary storage and does not replace the existing source edition. A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+     "storage": "secondary"
     }
    }
   },
@@ -184256,6 +184482,138 @@
     "era:late-antique",
     "genre:lexicography"
    ],
+   "coverage_composition": {
+    "later_duplicate_review": {
+     "authority": {
+      "path": "data/corpus_changes/reviewed-duplicate-blocks/changes.json",
+      "sha256": "9dfc8146a5b65b8cf0564b8299c529e361f7eae5f28c91fc0422e859d8c71f03"
+     },
+     "groups": [
+      {
+       "analysis_greek_tokens": 266,
+       "key": "hesychius:0143-0150",
+       "literal_witness_rows": 111,
+       "original_greek_tokens": 452,
+       "original_rows": 111,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "damaged-reading": 1,
+        "single-witness": 266,
+        "unresolved": 10
+       },
+       "slug": "hesychius-lexicography.lexicon-o",
+       "surface_greek_tokens": 287
+      }
+     ],
+     "counts": {
+      "original_rows": 111,
+      "primary_rows": 1,
+      "literal_witness_rows": 111,
+      "original_greek_tokens": 452,
+      "surface_greek_tokens": 287,
+      "analysis_greek_tokens": 266,
+      "collated_passages": 1,
+      "primary_rows_removed": 110,
+      "reading_statuses": {
+       "damaged-reading": 1,
+       "single-witness": 266,
+       "unresolved": 10
+      }
+     },
+     "sources": [
+      {
+       "artifact_url": "https://archive.org/download/hesychiialexand00schmgoog/hesychiialexand00schmgoog.pdf",
+       "filename": "hesychiialexand00schmgoog.pdf",
+       "id": "hesychius",
+       "label": "Hesychii Alexandrini lexicon, Schmidt edition, source scan",
+       "pdf_pages": 882,
+       "sha256": "aaa3e3e2c8d83e8f2f7e1c1a1ecc84236855be83db80afeaa1685290c23678aa",
+       "url": "https://archive.org/details/hesychiialexand00schmgoog"
+      }
+     ],
+     "upstream_texts": [],
+     "attribution": "Retained qwen36-hesychius_schmidt_masked OCR extraction of the pinned Hesychius scan",
+     "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+     "components": [
+      {
+       "provider": "ocr",
+       "license": "PD",
+       "source": "https://archive.org/details/hesychiialexand00schmgoog",
+       "attribution": "Retained qwen36-hesychius_schmidt_masked OCR extraction of the pinned Hesychius scan",
+       "source_pins": {
+        "data/corpus/hesychius-lexicography.lexicon-o.jsonl": "a33565ffd995674f3d30171658f81ddb069660f8f63e78c8ac40652f016e75b9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/hesychiialexand00schmgoog/hesychiialexand00schmgoog.pdf",
+         "filename": "hesychiialexand00schmgoog.pdf",
+         "id": "hesychius",
+         "label": "Hesychii Alexandrini lexicon, Schmidt edition, source scan",
+         "pdf_pages": 882,
+         "sha256": "aaa3e3e2c8d83e8f2f7e1c1a1ecc84236855be83db80afeaa1685290c23678aa",
+         "url": "https://archive.org/details/hesychiialexand00schmgoog"
+        }
+       ],
+       "upstream_texts": [],
+       "edition": "reviewed-duplicate-block-consensus-2026-10",
+       "storage": "primary",
+       "path": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
+       "sha256": "fbcd34f636c2586b3f59ae9142e77e675e5144a7e20d2333cee70aff99a76257",
+       "role": "reviewed-duplicate-block-projection",
+       "passages": 1,
+       "loci": [
+        "reviewed-duplicate.hesychius.0150"
+       ],
+       "surface_greek_tokens": 287,
+       "analysis_greek_tokens": 266
+      },
+      {
+       "provider": "ocr",
+       "license": "PD",
+       "source": "https://archive.org/details/hesychiialexand00schmgoog",
+       "attribution": "Retained qwen36-hesychius_schmidt_masked OCR extraction of the pinned Hesychius scan",
+       "source_pins": {
+        "data/corpus/hesychius-lexicography.lexicon-o.jsonl": "a33565ffd995674f3d30171658f81ddb069660f8f63e78c8ac40652f016e75b9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/hesychiialexand00schmgoog/hesychiialexand00schmgoog.pdf",
+         "filename": "hesychiialexand00schmgoog.pdf",
+         "id": "hesychius",
+         "label": "Hesychii Alexandrini lexicon, Schmidt edition, source scan",
+         "pdf_pages": 882,
+         "sha256": "aaa3e3e2c8d83e8f2f7e1c1a1ecc84236855be83db80afeaa1685290c23678aa",
+         "url": "https://archive.org/details/hesychiialexand00schmgoog"
+        }
+       ],
+       "upstream_texts": [],
+       "edition": "reviewed-duplicate-block-literal-witnesses-2026-10",
+       "storage": "secondary",
+       "path": "data/corpus_secondary/hesychius-lexicography.lexicon-o.reviewed-duplicate-witnesses.jsonl",
+       "sha256": "14f3f8fe851a12ae268e7a1aeb26e6976dc289ad6f6d97c1dda0d214f78b9030",
+       "role": "literal-duplicate-readings",
+       "passages": 111,
+       "original_editions": [
+        "qwen36-hesychius_schmidt_masked"
+       ],
+       "original_greek_tokens": 452,
+       "counts_toward_primary_frequency": false
+      }
+     ],
+     "work_file_accounting": {
+      "original_primary_rows": 32228,
+      "current_primary_rows": 32118
+     }
+    }
+   },
    "editions": {
     "hesychius-lexicography.lexicon-o.latte-1953": {
      "name": "Hesychii Alexandrini lexicon, vols. 1%19`2",
@@ -184280,6 +184638,33 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "hesychius-lexicography.lexicon-o.reviewed-duplicate-block-consensus-2026-10": {
+     "name": "Reviewed duplicate-block collation of Hesychius OCR readings",
+     "provider": "ocr",
+     "scheme": "reviewed-duplicate.source.block",
+     "editor": "",
+     "year": null,
+     "source": "https://archive.org/details/hesychiialexand00schmgoog",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Only 1 reviewed physical passages in data/corpus/hesychius-lexicography.lexicon-o.jsonl; derived from repeated readings of one upstream extraction. A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260."
+    },
+    "hesychius-lexicography.lexicon-o.reviewed-duplicate-block-literal-witnesses-2026-10": {
+     "name": "Hesychius, retained literal duplicate OCR readings",
+     "provider": "ocr",
+     "scheme": "source-page.row",
+     "editor": "",
+     "year": null,
+     "source": "https://archive.org/details/hesychiialexand00schmgoog",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Only 111 literal original rows in data/corpus_secondary/hesychius-lexicography.lexicon-o.reviewed-duplicate-witnesses.jsonl. The original edition fields remain on these rows; this registry record identifies their secondary storage and does not replace the existing source edition. A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+     "storage": "secondary"
     }
    }
   },
@@ -289246,8 +289631,8 @@
    ],
    "coverage_composition": {
     "policy": "retired-whole-volume-assignment-with-literal-witnesses-retained",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "qualification": "Retired misassigned whole-volume OCR, with no single successor Work. Original rows and citations remain in per-work secondary witnesses and source-role archives. Overlapping prolegomena remain comparative witnesses outside primary lexical counts at data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl.",
     "primary_rows": 0,
     "analysis_tokens": 0,
@@ -308713,14 +309098,14 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
     "counts": {
      "agreement": 107,
      "unresolved": 42
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -308802,7 +309187,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -308815,7 +309200,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -309049,15 +309434,16 @@
    ],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
     "counts": {
      "agreement": 15215,
      "incomplete-reading": 1,
-     "unresolved": 6424
+     "source-reviewed": 25,
+     "unresolved": 6396
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309076,7 +309462,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "passages": 31,
-     "analysis_tokens": 15215,
+     "analysis_tokens": 15240,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -309085,7 +309471,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
       "passages": 31,
-      "analysis_tokens": 15215,
+      "analysis_tokens": 15240,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -309139,7 +309525,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309152,7 +309538,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     },
     "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.qwen36-scholia_aristoph_dubner-masked": {
@@ -309218,17 +309604,18 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
     "counts": {
-     "agreement": 18508,
+     "agreement": 18521,
      "damaged-reading": 4,
      "incomplete-reading": 7,
      "single-witness": 1467,
-     "unresolved": 7962
+     "source-reviewed": 4,
+     "unresolved": 7916
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309247,7 +309634,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "passages": 39,
-     "analysis_tokens": 19975,
+     "analysis_tokens": 19992,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -309256,7 +309643,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
       "passages": 39,
-      "analysis_tokens": 19975,
+      "analysis_tokens": 19992,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -309310,7 +309697,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-aves-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309323,7 +309710,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -309365,8 +309752,8 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
     "counts": {
      "agreement": 2331,
@@ -309374,7 +309761,7 @@
      "single-witness": 450,
      "unresolved": 1022
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309456,7 +309843,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309469,7 +309856,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -309511,17 +309898,18 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
     "counts": {
-     "agreement": 22620,
+     "agreement": 23107,
      "damaged-reading": 2,
      "incomplete-reading": 4,
      "single-witness": 9,
-     "unresolved": 10575
+     "source-reviewed": 4,
+     "unresolved": 9380
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309540,7 +309928,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "passages": 45,
-     "analysis_tokens": 22630,
+     "analysis_tokens": 23121,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -309549,7 +309937,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
       "passages": 45,
-      "analysis_tokens": 22630,
+      "analysis_tokens": 23121,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -309603,7 +309991,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-equites-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309616,7 +310004,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -309658,8 +310046,8 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
     "counts": {
      "agreement": 6754,
@@ -309667,7 +310055,7 @@
      "single-witness": 1,
      "unresolved": 2297
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309749,7 +310137,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309762,7 +310150,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -309804,8 +310192,8 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
     "counts": {
      "agreement": 31379,
@@ -309814,7 +310202,7 @@
      "single-witness": 1,
      "unresolved": 10233
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -309896,7 +310284,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -309909,7 +310297,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310058,16 +310446,16 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
     "counts": {
-     "agreement": 20561,
+     "agreement": 21087,
      "incomplete-reading": 6,
      "single-witness": 1004,
-     "unresolved": 9404
+     "unresolved": 8141
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310086,7 +310474,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "passages": 40,
-     "analysis_tokens": 21566,
+     "analysis_tokens": 22092,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -310095,7 +310483,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
       "passages": 40,
-      "analysis_tokens": 21566,
+      "analysis_tokens": 22092,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -310149,7 +310537,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-pax-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310162,7 +310550,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310204,16 +310592,16 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
     "counts": {
-     "agreement": 33691,
+     "agreement": 33922,
      "incomplete-reading": 7,
      "single-witness": 2,
-     "unresolved": 12625
+     "unresolved": 12086
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310232,7 +310620,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "passages": 65,
-     "analysis_tokens": 33693,
+     "analysis_tokens": 33924,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -310241,7 +310629,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
       "passages": 65,
-      "analysis_tokens": 33693,
+      "analysis_tokens": 33924,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -310295,7 +310683,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310308,7 +310696,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310322,17 +310710,17 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
     "counts": {
-     "agreement": 20882,
+     "agreement": 21027,
      "damaged-reading": 4,
      "incomplete-reading": 5,
      "single-witness": 1071,
-     "unresolved": 7642
+     "unresolved": 7306
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310351,7 +310739,7 @@
      "status": "source-role-reviewed-collated-ocr",
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "passages": 42,
-     "analysis_tokens": 21953,
+     "analysis_tokens": 22098,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
     },
     "components": [
@@ -310360,7 +310748,7 @@
       "storage": "primary",
       "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
       "passages": 42,
-      "analysis_tokens": 21953,
+      "analysis_tokens": 22098,
       "role": "source-reviewed-historical-text",
       "license": "PD",
       "sources": [
@@ -310414,7 +310802,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310427,7 +310815,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310469,14 +310857,14 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
     "counts": {
      "agreement": 3580,
      "unresolved": 1227
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310558,7 +310946,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310571,7 +310959,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310611,8 +310999,8 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
     "counts": {
      "agreement": 17727,
@@ -310620,7 +311008,7 @@
      "single-witness": 87,
      "unresolved": 6151
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310702,7 +311090,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310715,7 +311103,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310757,14 +311145,14 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
     "counts": {
      "agreement": 356,
      "unresolved": 109
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310846,7 +311234,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310859,7 +311247,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }
@@ -310873,14 +311261,14 @@
    "tags": [],
    "coverage_composition": {
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
-    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
-    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "manifest": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "manifest_sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327",
     "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
     "counts": {
      "agreement": 181,
      "unresolved": 84
     },
-    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
     "sources": [
      {
       "id": "toronto",
@@ -310962,7 +311350,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate."
     },
     "scholia-in-aristophanem.triclinius-meters-dubner-1855.dubner-1855-legacy-witnesses": {
      "name": "Dübner 1855, retained raw OCR witnesses",
@@ -310975,7 +311363,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired. A later bounded scan review corrects explicitly anchored historical occurrences and seven source-reviewed column permutations. Named source adjudications retain prior vote status and all contrary readings; they add no voter. Three partial duplicate-column layouts remain held. Outside-primary corrections are separate reading overlays and do not alter the frozen editorial witness display. The unresolved inventory measures extraction disagreement, not an OCR error rate.",
      "storage": "secondary"
     }
    }

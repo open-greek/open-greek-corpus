@@ -83,7 +83,8 @@ def post_merge_bytes(repo: Path, path: str | Path) -> bytes:
     from dubner_witness_alignment import B_PRIMARY, B_CROSSWORK, B_DUPLICATE
     if relative.as_posix() not in {B_PRIMARY, B_CROSSWORK, B_DUPLICATE}:
         raise FileNotFoundError(current)
-    from repair_dubner_scholias import active, verify
+    from repair_dubner_scholias import active
+    from dubner_layers import verify_scope as verify
     if not active(repo):
         raise FileNotFoundError(current)
     _, before = verify(repo)

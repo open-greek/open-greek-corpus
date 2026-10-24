@@ -190,24 +190,34 @@ def _john_resolution(root):
     if report.get("counts") != expected:
         return _pending(root, "Cyril admission does not contain every reviewed complementary-volume and boundary component.")
     from repair_john_coverage import CORPUS, PARATEXT, WITNESS, SOURCE, RAW_SHA, fresh_blobs
+    from repair_reviewed_duplicate_blocks import historical_bytes
     import gzip
+    predecessor = historical_bytes(root, CORPUS)
     for relative in (CORPUS, PARATEXT, WITNESS):
-        if _sha(root / relative) != report["outputs"][relative]:
+        actual = (hashlib.sha256(predecessor).hexdigest()
+                  if relative == CORPUS and predecessor is not None else _sha(root / relative))
+        if actual != report["outputs"][relative]:
             raise ValueError("Cyril primary text or preserved witness changed: " + relative)
     if hashlib.sha256(gzip.decompress((root / SOURCE).read_bytes())).hexdigest() != RAW_SHA:
         raise ValueError("Calfa PG 73 source changed")
     fresh = json.loads(gzip.decompress((path.parent / "fresh-witnesses.json.gz").read_bytes()))
     if fresh_blobs(root, [value["raw_jsonl"].encode() for value in fresh["archives"]]) != fresh:
         raise ValueError("Cyril independent missing-leaf witnesses changed")
-    rows = [json.loads(line) for line in (root / CORPUS).read_text().splitlines()]
+    rows = [json.loads(line) for line in (predecessor if predecessor is not None
+                                        else (root / CORPUS).read_bytes()).splitlines()]
     if (sum(row["locus"].startswith("PG073.") for row in rows) != 528 or
             sum(row["locus"].startswith("pg074_") for row in rows) != 2578 or
             sum(row["locus"].startswith("PG074.reference-scan") for row in rows) != 3 or len(rows) != 3109):
-        raise ValueError("Cyril current primary rows lack a reviewed volume or missing leaf")
+        raise ValueError("Cyril coverage admission lacks a reviewed volume or missing leaf")
+    later = {}
+    if predecessor is not None:
+        from reviewed_duplicate_manifestations import metadata
+        later = {"later_duplicate_review": metadata(root)[
+            "cyrillus-theology.commentarii-in-joannem"]["later_duplicate_review"]}
     return _resolved(root,
         "The complementary PG 73 and PG 74 commentary material is represented, including three missing PG 74 leaves. Volume title matter is separate paratext, and Acts/Romans readings retain their distinct work identities. Books VII and VIII survive as fragments in this edition; no lost continuous text is reconstructed. The PG 73 witness remains identified as Calfa OCR rather than corrected text.",
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
-        counts=report["counts"])
+        counts=report["counts"], **later)
 
 
 def resolution(root: Path, slug: str):

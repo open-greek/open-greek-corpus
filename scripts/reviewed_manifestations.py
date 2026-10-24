@@ -128,7 +128,7 @@ def _edition(key, name, *, provider="ocr", scheme="", source="", license="PD",
 
 def dubner_identity_metadata(root):
     """Obtain work identities only from the verified active source partition."""
-    from repair_dubner_scholias import metadata
+    from dubner_layers import metadata
     return metadata(Path(root))
 
 
@@ -778,13 +778,18 @@ def _cyril(root):
     primary = f"data/corpus/{slug}.jsonl"
     if _sha(root / primary) == audit["inputs"][primary]:
         return {}
-    _verify(root, primary, audit["outputs"][primary])
+    from repair_reviewed_duplicate_blocks import historical_bytes
+    primary_raw = historical_bytes(root, primary)
+    if primary_raw is None:
+        primary_raw = _verify(root, primary, audit["outputs"][primary]).read_bytes()
+    elif hashlib.sha256(primary_raw).hexdigest() != audit["outputs"][primary]:
+        raise ValueError("Cyril duplicate-review predecessor differs from its coverage admission")
     for relative_output, digest in audit["outputs"].items():
         if relative_output.startswith(("data/paratext/", "data/ocr_witnesses/")):
             _verify(root, relative_output, digest)
     expected = {"added_pg73": 528, "retained_pg74_john": 2578, "added_pg74_missing_leaves": 3,
                 "title_paratext": 4, "held_other_works": 474}
-    if audit["counts"] != expected or _count(root / primary) != 3109:
+    if audit["counts"] != expected or len(primary_raw.splitlines()) != 3109:
         raise ValueError("Cyril complementary-volume count changed")
     evidence = audit["evidence"]
     editions = [_edition("calfa-pg73-5895ab908dd4", "Calfa PG073 OCR, complementary first volume", provider="cgpg",
@@ -960,6 +965,8 @@ def register_reviewed_manifestations(registry, root=ROOT):
                 composition["components"].insert(0, component)
         work.coverage_composition = composition
         work.best_source = "open_corpus"
+    from reviewed_duplicate_manifestations import register as register_duplicate_manifestations
+    register_duplicate_manifestations(registry, root)
     return metadata
 
 

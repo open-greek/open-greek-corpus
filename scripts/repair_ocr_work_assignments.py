@@ -246,7 +246,10 @@ def run(root, mode):
         outputs.update(secondary_outputs)
         changes.extend(secondary_changes)
         for path, raw in outputs.items():
-            if (root / path).read_bytes() != raw:
+            from repair_reviewed_duplicate_blocks import historical_bytes
+            previous = historical_bytes(root, path)
+            actual = previous if previous is not None else (root / path).read_bytes()
+            if actual != raw:
                 raise ValueError(f"Repaired corpus differs from replay: {path}")
         current_aliases = json.loads((root / ALIASES).read_text())["aliases"]
         if changes != audit["changes"] or any(current_aliases.get(slug) != targets

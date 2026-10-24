@@ -28,7 +28,7 @@ def test_published_known_limitations_are_current(rebuilt):
 
 def test_every_accepted_limitation_has_a_reopen_condition(rebuilt):
     limitations = rebuilt["limitations"]
-    assert [row["issue"].rsplit("/", 1)[-1] for row in limitations] == ["1", "2", "31"]
+    assert [row["issue"].rsplit("/", 1)[-1] for row in limitations] == ["1", "2", "31", "105"]
     assert all(row["status"] == "accepted-measured-limitation" for row in limitations)
     assert all(row["reopen_when"] for row in limitations)
 
@@ -45,6 +45,12 @@ def test_metrics_come_from_the_current_source_artifacts(rebuilt):
     assert limitations["raw-ocr-coverage"]["current_measurement"]["global_raw_token_bounds"] is None
     assert limitations["nonfinal-grave-source-errors"]["current_measurement"][
         "tokens"] == graves["tokens"]
+    reading = limitations["dubner-1855-unresolved-readings"]["current_measurement"]
+    audit = json.loads((REPO / reading["authority"]["path"]).read_bytes())
+    assert reading["counts"] == audit["counts"]
+    categories = reading["counts"]["remaining_unresolved_categories"]
+    assert sum(categories[key] for key in ("omission_tie", "accent_case_or_elision_only",
+        "different_word_readings")) == reading["counts"]["reading_statuses"]["unresolved"]
 
 
 def test_coverage_findings_keep_open_work_distinct_from_verified_repairs(rebuilt):

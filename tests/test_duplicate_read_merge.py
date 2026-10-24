@@ -179,7 +179,7 @@ def test_historical_reader_requires_an_active_and_valid_retirement(tmp_path, mon
     with pytest.raises(FileNotFoundError):
         mg.post_merge_bytes(tmp_path, B_PRIMARY)
     monkeypatch.setattr(repair, "active", lambda root: True)
-    def changed_authority(root):
+    def changed_authority(root, **kwargs):
         raise ValueError("changed retirement authority")
     monkeypatch.setattr(repair, "verify", changed_authority)
     with pytest.raises(ValueError, match="changed retirement authority"):

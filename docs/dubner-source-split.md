@@ -76,7 +76,7 @@ to one arbitrarily. Its individual historical citations remain resolvable.
 
 ```sh
 python3 scripts/capture_dubner_sources.py --check
-python3 scripts/repair_dubner_scholias.py --check
+python3 scripts/dubner_layers.py --check
 ```
 
 The repair can be reproduced from its frozen preimages and reviewed source
@@ -87,3 +87,41 @@ does not prevent literal recovery. Both operations refuse later changes to
 their owned files. Derived indexes, registries, and frequency artifacts must
 then be rebuilt normally. The earlier Acharnians ten-page pilot remains a
 historical audit of the pre-repair release.
+
+## Later occurrence and layout review
+
+`repair_dubner_readings.py` adds a separately reversible reading layer. Its
+45 historical occurrence corrections retain exact raw source offsets, printed
+evidence, original and corrected text, and contrary readings. Seven reviewed
+cell permutations restore column order without adding or removing a visible
+source character or introducing another vote group. Three partial duplicated
+column layouts remain held because a permutation cannot establish their
+physical word identities.
+
+The layer reduces unresolved slots from 75,797 to 72,390, with 199,421 eligible
+Greek tokens. The remaining nonoverlapping categories are 10,228 omission ties,
+19,796 normalized-form disagreements, and 42,366 different-word readings. A
+separate count of 10,238 disagreements within one extraction overlaps those
+categories. These measurements describe extraction disagreement, not recognition
+accuracy. Four heading or editorial corrections remain separate outside-primary
+reading overlays; they do not change the frozen paratext display or admit text.
+
+The scan reads `ἐν Ληναίοις διὰ Καλλιστράτου` at the pilot's proposed missing-eta
+example. The new occurrence authority explicitly supersedes the old proposed
+`Ἀθηναίοις` while retaining that historical observation unchanged.
+
+```sh
+python3 scripts/capture_dubner_readings.py --check
+python3 scripts/capture_dubner_layouts.py --check
+python3 scripts/repair_dubner_readings.py --check
+```
+
+Source captures and generated observations are under
+`data/corpus_changes/dubner-reading-review/` and `dubner-layout-review/`;
+the reading preimages, networks, records, and complete remaining assessment are
+under `data/corpus_changes/dubner-1855-readings/`. The generator code contains
+the reviewed decisions. The ordinary current-state checker proves every frozen
+scope output against either its unchanged bytes or the checked later preimage.
+Undo the reading layer before undoing the source partition. Literal undo remains
+possible after a correction source is invalidated; a new source decision must
+be admitted in another layer rather than rewriting either frozen authority.

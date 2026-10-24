@@ -44,8 +44,24 @@ Editorial annotation and indexes are outside primary lexical counts; historical
 overlaps remain comparative witnesses. The merged reading preserves unresolved
 alternatives, which do not enter scalar frequencies. Run
 `python3 scripts/capture_dubner_sources.py --check` and
-`python3 scripts/repair_dubner_scholias.py --check` to verify the source evidence,
+`python3 scripts/dubner_layers.py --check` to verify the source evidence,
 literal replay, boundaries, and accounting.
+
+The later reading review corrects 45 historical OCR occurrences and seven
+source-verified column orders above that frozen partition. It reduces unresolved
+word-alignment slots from 75,797 to 72,390 while preserving every contrary
+reading. The remaining counts are extraction disagreements, not an OCR error
+rate. Three partial duplicate-column layouts need occurrence-level association.
+The source prints **Ληναίοις**, superseding the pilot's mistaken proposed
+**Ἀθηναίοις**; that earlier observation remains archived. Current measurements
+and reopening conditions appear in `data/known_limitations.json` and the tagged
+release's quality block.
+
+The [reviewed duplicate repair](docs/reviewed-duplicates.md) represents Cyril's
+four repeated PG073 passages and Hesychius's overlapping page once. All 119
+original rows and the 35 additional Hesychius lines remain in literal witnesses
+and checked word networks. Old citations still resolve. Run
+`make check-reviewed-duplicates` to replay the source-supported collation.
 
 GlossAPI historical datasets are staged separately under the admission rules
 in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).
@@ -923,6 +939,10 @@ commit ID and commit date may differ after committing release metadata. Checks
 default to the version and date declared in `CITATION.cff`, preserving a suffix
 such as `.1`; explicit identity options must agree with those declarations.
 Creation still uses `corpus-<date>` unless `--release-id` is supplied.
+Set the final release identity with `--sync-citation` before regenerating the
+completeness review and known-limitations registry. Both reports include the
+declared release, so changing `CITATION.cff` requires rebuilding them before
+their freshness checks can pass.
 
 `make reports` refreshes the corpus polytonic report, the date comparison, and
 the five-work completeness review when their inputs change. For the latter,
@@ -2510,7 +2530,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1409 listed works/volumes containing OCR: 128 manually corrected, 891 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 386 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1409 listed works/volumes containing OCR: 131 manually corrected, 888 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 386 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -2866,7 +2886,7 @@ not agree with it.
 | cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum | Cyrillus - Apologia Xii Anathematismorum Contra Theodoretum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,192 | auto-corrected |
 | cyrillus-theology.apologia-xii-capitulorum-contra-orientales | Cyrillus - Apologia Xii Capitulorum Contra Orientales | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,271 | auto-corrected |
 | cyrillus-theology.collectio-dictorum-veteris-testamenti-sp | Cyrillus - Collectio Dictorum Veteris Testamenti [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,510 | raw OCR |
-| cyrillus-theology.commentarii-in-joannem | Cyril of Alexandria v6 (Commentary on John) | calfa-pg73-5895ab908dd4 | calfa-co | 392,251 | auto-corrected |
+| cyrillus-theology.commentarii-in-joannem | Cyril of Alexandria v6 (Commentary on John) | calfa-pg73-5895ab908dd4 | calfa-co | 390,380 | auto-corrected |
 | cyrillus-theology.commentarii-in-lucam-in-catenis | Cyrillus - Commentarii In Lucam (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 86,969 | auto-corrected |
 | cyrillus-theology.commentarius-in-isaiam-prophetam | Cyrillus - Commentarius In Isaiam Prophetam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 293,813 | auto-corrected |
 | cyrillus-theology.contra-julianum-lib-1-2 | Cyrillus - Contra Julianum (Lib. 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
@@ -3196,7 +3216,7 @@ not agree with it.
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
-| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 147,538 | auto-corrected |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 147,352 | auto-corrected |
 | hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,868 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | raw OCR |
 | hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
@@ -3702,15 +3722,15 @@ not agree with it.
 | scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | auto-corrected |
 | scholia-in-aratum.scholia-in-aratum-scholia-vetera | Scholia In Aratum - Scholia In Aratum (Scholia Vetera) | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,686 | raw OCR |
 | scholia-in-aristophanem.andronicus-poet-order-dubner-1855 | Scholia In Aristophanem - Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 107 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Hypotheses and scholia to Acharnians (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 15,215 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-aves-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Birds (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 19,975 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Hypotheses and scholia to Acharnians (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 15,240 | manual |
+| scholia-in-aristophanem.scholia-in-aves-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Birds (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 19,992 | manual |
 | scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Assemblywomen (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 2,781 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-equites-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Knights (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 22,630 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-equites-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Knights (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 23,121 | manual |
 | scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Lysistrata (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 6,755 | auto-corrected |
 | scholia-in-aristophanem.scholia-in-nubes-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Clouds (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 31,380 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-pax-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Peace (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 21,566 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-plutus-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Wealth (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 33,693 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-ranae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Frogs (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 21,953 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-pax-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Peace (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 22,092 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-plutus-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Wealth (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 33,924 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-ranae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Frogs (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 22,098 | auto-corrected |
 | scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Thesmophoriazusae (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 3,580 | auto-corrected |
 | scholia-in-aristophanem.scholia-in-vespae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Wasps (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 17,814 | auto-corrected |
 | scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855 | Scholia In Aristophanem - Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 356 | auto-corrected |
@@ -3947,11 +3967,11 @@ not agree with it.
   version of this line said the repo prefers a merged reading to picking a
   winner, which is not the rule and was retracted on 2026-08-09. What remains
   is listed in `data/duplicate_page_candidates.json` with containment banded,
-  because a single total would mislead: 8 served pairs and 2,860 tokens sit
+  because a single total would mislead: 7 served pairs and 2,575 tokens sit
   above 0.90, another 48 pairs and 17,527 tokens between 0.80 and 0.90. Those
   totals count pairs across two scan items, which both drop tools refuse by
-  rule, so the actionable figures are the same-item ones beside them, 3 pairs
-  and 885 tokens in the top band and 25 and 8,451 in the next. An earlier
+  rule, so the actionable figures are the same-item ones beside them, 2 pairs
+  and 600 tokens in the top band and 25 and 8,451 in the next. An earlier
   version of this line called the lower bands "increasingly just neighbouring
   pages of one book"; they are not, and the page offsets say so plainly: 292
   same-item pairs sit at an offset of 10 pages and the histogram is almost all
@@ -4005,8 +4025,8 @@ not agree with it.
   0.841 by containment. Its output,
   data/duplicate_leaf_candidates.json, lists 32 remaining pairs in 9 files and
   splits them by what dropping one would cost, in BOTH directions. 12 pairs have
-  a side that holds nothing the other lacks, 4,810 tokens, of which 4 pairs and
-  1,778 tokens are in served text; the other 20 pairs, 7,709 tokens, cannot be
+  a side that holds nothing the other lacks, 4,810 tokens, of which 0 pairs and
+  0 tokens are in served text; the other 20 pairs, 7,709 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
   side to drop is not decidable from the ordering: in PG118's first leaf the
   earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later

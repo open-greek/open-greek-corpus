@@ -156,7 +156,7 @@ def main() -> None:
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
-    from repair_dubner_scholias import metadata as dubner_metadata
+    from dubner_layers import metadata as dubner_metadata
     dubner = dubner_metadata(REPO)
     if set(ce) != set(components):
         raise ValueError("Corpus editions and source components describe different works")

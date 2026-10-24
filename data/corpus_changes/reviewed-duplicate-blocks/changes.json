@@ -1,0 +1,136 @@
+{
+ "before_encoding": "base64",
+ "before_sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da",
+ "counts": {
+  "analysis_greek_tokens": 1932,
+  "collated_passages": 5,
+  "literal_witness_rows": 119,
+  "original_greek_tokens": 3989,
+  "original_rows": 119,
+  "primary_rows_removed": 114,
+  "reading_statuses": {
+   "damaged-reading": 1,
+   "single-witness": 1932,
+   "unresolved": 149
+  },
+  "surface_greek_tokens": 2241
+ },
+ "groups": [
+  {
+   "analysis_greek_tokens": 395,
+   "key": "cyril:PG073.483",
+   "literal_witness_rows": 2,
+   "original_greek_tokens": 850,
+   "original_rows": 2,
+   "primary_rows": 1,
+   "reading_statuses": {
+    "single-witness": 395,
+    "unresolved": 31
+   },
+   "slug": "cyrillus-theology.commentarii-in-joannem",
+   "surface_greek_tokens": 457
+  },
+  {
+   "analysis_greek_tokens": 438,
+   "key": "cyril:PG073.484",
+   "literal_witness_rows": 2,
+   "original_greek_tokens": 968,
+   "original_rows": 2,
+   "primary_rows": 1,
+   "reading_statuses": {
+    "single-witness": 438,
+    "unresolved": 55
+   },
+   "slug": "cyrillus-theology.commentarii-in-joannem",
+   "surface_greek_tokens": 553
+  },
+  {
+   "analysis_greek_tokens": 426,
+   "key": "cyril:PG073.485",
+   "literal_witness_rows": 2,
+   "original_greek_tokens": 878,
+   "original_rows": 2,
+   "primary_rows": 1,
+   "reading_statuses": {
+    "single-witness": 426,
+    "unresolved": 31
+   },
+   "slug": "cyrillus-theology.commentarii-in-joannem",
+   "surface_greek_tokens": 490
+  },
+  {
+   "analysis_greek_tokens": 407,
+   "key": "cyril:PG073.486",
+   "literal_witness_rows": 2,
+   "original_greek_tokens": 841,
+   "original_rows": 2,
+   "primary_rows": 1,
+   "reading_statuses": {
+    "single-witness": 407,
+    "unresolved": 22
+   },
+   "slug": "cyrillus-theology.commentarii-in-joannem",
+   "surface_greek_tokens": 454
+  },
+  {
+   "analysis_greek_tokens": 266,
+   "key": "hesychius:0143-0150",
+   "literal_witness_rows": 111,
+   "original_greek_tokens": 452,
+   "original_rows": 111,
+   "primary_rows": 1,
+   "reading_statuses": {
+    "damaged-reading": 1,
+    "single-witness": 266,
+    "unresolved": 10
+   },
+   "slug": "hesychius-lexicography.lexicon-o",
+   "surface_greek_tokens": 287
+  }
+ ],
+ "inputs": {
+  "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": "a33565ffd995674f3d30171658f81ddb069660f8f63e78c8ac40652f016e75b9",
+  "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+ },
+ "issue": "https://github.com/open-greek/open-greek-corpus/issues/33",
+ "outputs": {
+  "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc",
+  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": "fbcd34f636c2586b3f59ae9142e77e675e5144a7e20d2333cee70aff99a76257",
+  "data/corpus_changes/reviewed-duplicate-blocks/passage-aliases.json": "be6155284f1ea5cd7929e9dc097bc5f8101bef8b07a4e71132ec1b5267d4d8a1",
+  "data/corpus_changes/reviewed-duplicate-blocks/records.jsonl.gz": "5e85fc266319b1870a65706a82201da3c98be5717c19a1c6cf2c8399fbc9eaba",
+  "data/corpus_changes/reviewed-duplicate-blocks/word-networks.json.gz": "021c35b0333e5ee8a633a6e97dc8fd3cb541d130013e1a8b0a0b531d8b2d777b",
+  "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl": "b290b731b366ac19c7f0a3e30792061f9a0e5b0d7aab4fae67426cafd0da3029",
+  "data/corpus_secondary/hesychius-lexicography.lexicon-o.reviewed-duplicate-witnesses.jsonl": "14f3f8fe851a12ae268e7a1aeb26e6976dc289ad6f6d97c1dda0d214f78b9030"
+ },
+ "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+ "recipe_sha256": {
+  "capture_reviewed_duplicate_sources.py": "8a1cc6414bc253bbff49c587ca1c14e219afd50735749b125c98324c7d3cdaf5",
+  "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+  "repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
+  "reviewed_duplicate_block_observations.py": "9e895c8bb3402f5bbfb7e7262f6a47d910a656281efee4c1b0455786729157d1"
+ },
+ "recorded_at": "2026-10-24T14:32:36.349855+00:00",
+ "schema_version": 1,
+ "source_capture_sha256": "275785b429eb9d759415f2aa8fc3bb6fbc0a9018fc5812cb96469c9d6b92096a",
+ "sources": [
+  {
+   "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+   "filename": "patrologiaecurs43hopfgoog.pdf",
+   "id": "cyril-pg73",
+   "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+   "pdf_pages": 575,
+   "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+   "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+  },
+  {
+   "artifact_url": "https://archive.org/download/hesychiialexand00schmgoog/hesychiialexand00schmgoog.pdf",
+   "filename": "hesychiialexand00schmgoog.pdf",
+   "id": "hesychius",
+   "label": "Hesychii Alexandrini lexicon, Schmidt edition, source scan",
+   "pdf_pages": 882,
+   "sha256": "aaa3e3e2c8d83e8f2f7e1c1a1ecc84236855be83db80afeaa1685290c23678aa",
+   "url": "https://archive.org/details/hesychiialexand00schmgoog"
+  }
+ ]
+}

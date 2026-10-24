@@ -32,6 +32,22 @@ def test_missing_or_partial_photius_and_cyril_admissions_stay_open(tmp_path):
         assert not coverage.resolution(tmp_path, slug)["complete"]
 
 
+def test_cyril_coverage_survives_verified_duplicate_collation(monkeypatch):
+    slug = "cyrillus-theology.commentarii-in-joannem"
+    result = coverage.resolution(ROOT, slug)
+    assert result["complete"]
+    assert result["counts"]["added_pg73"] == 528
+    review = result["later_duplicate_review"]
+    assert review["counts"]["primary_rows"] == 4
+    assert review["counts"]["literal_witness_rows"] == 8
+    assert review["work_file_accounting"] == {
+        "original_primary_rows": 3109, "current_primary_rows": 3105}
+    import repair_reviewed_duplicate_blocks as duplicate_review
+    monkeypatch.setattr(duplicate_review, "historical_bytes", lambda *args: b"wrong predecessor\n")
+    with pytest.raises(ValueError, match="primary text or preserved witness changed"):
+        coverage.resolution(ROOT, slug)
+
+
 def test_mathematical_resolution_preserves_every_historical_citation():
     for slug, count in [("pappus-mathematics.synagoge", 304), ("apollonius-geom.conica", 57)]:
         assert coverage._check_mathematical_citations(ROOT, slug)["preserved_historical_citations"] == count
