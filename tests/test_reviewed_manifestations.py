@@ -318,10 +318,12 @@ def test_dio_digital_participation_preserves_licensed_credits_and_raw_source_has
         reviewed.register_reviewed_manifestations(reg, tmp_path)
 
 
-def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_path):
+@pytest.mark.parametrize("later_duplicate_review", [False, True])
+def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_path, monkeypatch, later_duplicate_review):
     slug = "cyrillus-theology.commentarii-in-joannem"
     corpus = f"data/corpus/{slug}.jsonl"
-    digest = put(tmp_path, corpus, b'{"text":"opaque"}\n' * 3109)
+    original = b'{"text":"opaque"}\n' * 3109
+    digest = put(tmp_path, corpus, original)
     put(tmp_path, "data/corpus_changes/cyril-john-coverage/changes.json", {
         "inputs": {corpus: "old"}, "outputs": {corpus: digest},
         "counts": {"added_pg73": 528, "retained_pg74_john": 2578,
@@ -329,6 +331,18 @@ def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_pat
         "evidence": {"source_url": "https://example.org/calfa", "source_license": "CC-BY-4.0",
             "source_sha256": "pinned", "attribution": "Calfa PG073", "reference_scans": [
                 {"url": "https://example.org/PG073"}, {"url": "https://example.org/PG074"}]}})
+    if later_duplicate_review:
+        put(tmp_path, corpus, b'{"text":"collated"}\n' * 3105)
+        import repair_reviewed_duplicate_blocks as duplicate_review
+        monkeypatch.setattr(duplicate_review, "historical_bytes", lambda root, path: original)
+        # Exercise the predecessor credit in isolation; the duplicate registry
+        # component has its own source-qualified authority tests.
+        result = reviewed._cyril(tmp_path)
+        assert result[slug]["coverage_composition"]["counts"]["added_pg73"] == 528
+        monkeypatch.setattr(duplicate_review, "historical_bytes", lambda root, path: b"wrong predecessor\n")
+        with pytest.raises(ValueError, match="predecessor differs"):
+            reviewed._cyril(tmp_path)
+        return
     reg = registry(slug)
     reviewed.register_reviewed_manifestations(reg, tmp_path)
     work = reg.works[slug]

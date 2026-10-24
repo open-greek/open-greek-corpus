@@ -421,7 +421,8 @@ data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
 
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
                 data/correction_stamp_gap.json $(SOURCE_COMPONENTS) scripts/build_known_limitations.py \
-                scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py
+                scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py \
+                scripts/dubner_review_quality.py $(DUBNER_INPUTS)
 	$(PY) scripts/build_known_limitations.py --write
 
 # Quoted on issue #34, so it rebuilds whenever the text it counts changes.
