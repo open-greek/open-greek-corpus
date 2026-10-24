@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 1920268,
-  "tokens": 65292644,
-  "tokens_lemmatized": 63500937,
+  "passages": 1920154,
+  "tokens": 65292022,
+  "tokens_lemmatized": 63500356,
   "works": 3926
  },
  "generated_from": {
-  "commit": "2435e9f18addfda1fcdb23785c3912ba5ed4c39a",
+  "commit": "5ce09e7795aded763fca4d6af99f6fad2eb20e2b",
   "commit_date": "2026-10-24",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -17,7 +17,7 @@
    "works": 1
   },
   "CC-BY-4.0": {
-   "tokens": 4697305,
+   "tokens": 4695434,
    "works": 235
   },
   "CC-BY-SA-4.0": {
@@ -25,7 +25,7 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 25914803,
+   "tokens": 25916052,
    "works": 1245
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -68,19 +68,19 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3926,
-  "catalog_sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be",
-  "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
+  "catalog_sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1",
+  "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20256407,
-    "works": 897
+    "tokens": 20197432,
+    "works": 894
    },
    "manual": {
-    "tokens": 5806079,
-    "works": 135
+    "tokens": 5864432,
+    "works": 138
    },
    "mixed-unassessed": {
     "tokens": 805136,
@@ -95,13 +95,79 @@
     "works": 392
    }
   },
+  "dubner_reading_review": {
+   "assessment": {
+    "path": "data/corpus_changes/dubner-1855-readings/assessment.json",
+    "sha256": "5947be16012d68e4f7dd4843f5d6e56277b40d4475e88521fbb9eeff1e2f5a3e"
+   },
+   "authority": {
+    "path": "data/corpus_changes/dubner-1855-readings/changes.json",
+    "sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327"
+   },
+   "counts": {
+    "analysis_tokens": 199421,
+    "approved_layout_pages": 7,
+    "baseline_reading_statuses": {
+     "agreement": 193892,
+     "damaged-reading": 38,
+     "incomplete-reading": 40,
+     "single-witness": 4092,
+     "unresolved": 75797
+    },
+    "changed_pages": 12,
+    "held_layout_pages": 3,
+    "lane_occurrence_edits": 45,
+    "outside_primary_observations": 4,
+    "primary_rows": 391,
+    "primary_source_observations": 45,
+    "reading_statuses": {
+     "agreement": 195294,
+     "damaged-reading": 38,
+     "incomplete-reading": 40,
+     "single-witness": 4092,
+     "source-reviewed": 33,
+     "unresolved": 72390
+    },
+    "remaining_unresolved_categories": {
+     "accent_case_or_elision_only": 19796,
+     "different_word_readings": 42366,
+     "omission_tie": 10228,
+     "one_group_internal_disagreement": 10238
+    },
+    "source_observations": 49,
+    "source_reviewed_slots": 33,
+    "unresolved_reduction": 3407,
+    "works": 14
+   },
+   "held_layouts": [
+    {
+     "page_key": "aves:0271",
+     "reason": "Truncated right-column cells coexist with a full right-column transcription. The exact occurrence association and treatment of partial readings require a separate fragment review."
+    },
+    {
+     "page_key": "equites:0094",
+     "reason": "The OCR combines full column text with partial repeated column snippets. A cell permutation would retain duplicate word occurrences; fragment-level source association is required."
+    },
+    {
+     "page_key": "equites:0107",
+     "reason": "The right-column snippets repeat parts of a later full transcription of that column. Their truncated readings remain contrary evidence; a permutation alone cannot deduplicate their votes."
+    }
+   ],
+   "qualification": "Reading-disagreement slots are not an OCR error count or an accuracy rate. The orthographic-only category folds case, combining marks, final sigma, and elision using the frozen alignment key. The one-group count overlaps the other three categories. All contrary readings remain available; unreviewed spellings are not certified.",
+   "reopen_when": [
+    "A source capture or occurrence anchor is invalidated; remove this layer by literal undo before replacing its authority.",
+    "A new source review establishes exact fragment identities on a held partial-duplicate page; admit it in a separate reversible layer without another vote group.",
+    "New occurrence-specific scan evidence resolves a remaining reading; preserve its contrary readings and original locus in a later review."
+   ],
+   "review_scope": "All ten delimiter-bearing candidate pages were inspected in both scans. Seven exact cell permutations exhaust the approved layout decisions; three partial duplicate-column cases have no admitted fragment decision."
+  },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "polytonic_loss": {
    "counts": {
     "flagged": 600,
     "readings": 130410,
-    "unassessable": 52157,
-    "unflagged": 77653
+    "unassessable": 52159,
+    "unflagged": 77651
    },
    "fresh_validation": [
     {
@@ -285,9 +351,9 @@
     "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
    ],
    "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
-   "page_readings_sha256": "ac8e450ae01579b9f011dcaee8c5cb72641c4b86005ee8f88631c2cc00ae9f08",
+   "page_readings_sha256": "908343d79a960bac27cdae9c4aec74f9ac02d78ffe6ae6f8f0ea316b64dfcc07",
    "report": "data/polytonic_loss_report.json",
-   "report_sha256": "695cb9f32e2050d008b08bd9d5ca34697f864f48cb3f5d9d573630038fc16e0f",
+   "report_sha256": "daf635fa5563fd598d7b913deea5aeeebff12eee5e9ff7422fcb7f550ef2dbd7",
    "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
    "selection_rule": null
   },
@@ -295,7 +361,7 @@
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "global_raw_token_bounds": null,
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28607563,
+    "ocr_tokens": 28606941,
     "ocr_works": 1424,
     "raw_share_of_corpus_tokens": 0.039,
     "raw_tokens": 2545077,
@@ -304,7 +370,7 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29160562,
+   "ocr_tokens": 29159940,
    "ocr_works": 1428,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
@@ -322,8 +388,8 @@
      "works": 19
     },
     "cgpg": {
-     "analysis_tokens": 4349729,
-     "passages": 11403,
+     "analysis_tokens": 4347858,
+     "passages": 11399,
      "works": 199
     },
     "dcc": {
@@ -367,8 +433,8 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24807331,
-     "passages": 1291078,
+     "analysis_tokens": 24808580,
+     "passages": 1290968,
      "works": 1229
     },
     "perseus": {
@@ -397,7 +463,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
+   "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -581,15 +647,15 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "9e59276f62dfeac19efb2185fc124ae156b2adcbca19e08acf4f3cc9ee501cc5",
+   "sha256": "5fbac97e1ae00db06ecf7a661913a9e59db39a935b83d0015f7f63b0fe42f34d",
    "totals": {
-    "analysis_tokens": 65292644,
+    "analysis_tokens": 65292022,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29160562,
-    "ocr_passages": 1302496,
+    "ocr_analysis_tokens": 29159940,
+    "ocr_passages": 1302382,
     "ocr_works": 1428,
-    "passages": 1920268,
+    "passages": 1920154,
     "works": 3926
    }
   },
@@ -759,8 +825,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be",
-     "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5"
+     "catalog_sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1",
+     "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131"
     },
     "pairs": 43580,
     "raw_share_lower_bound": 0.0317,
@@ -846,7 +912,7 @@
   }
  },
  "release_date": "2026-10-24",
- "release_id": "corpus-2026-10-24",
+ "release_id": "corpus-2026-10-24.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -857,7 +923,7 @@
    "works": 19
   },
   "cgpg": {
-   "tokens": 4513742,
+   "tokens": 4511871,
    "works": 199
   },
   "dcc": {
@@ -893,7 +959,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24549020,
+   "tokens": 24550269,
    "works": 1227
   },
   "perseus": {

@@ -3,20 +3,20 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
+  "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "9e59276f62dfeac19efb2185fc124ae156b2adcbca19e08acf4f3cc9ee501cc5",
-   "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
+   "sha256": "5fbac97e1ae00db06ecf7a661913a9e59db39a935b83d0015f7f63b0fe42f34d",
+   "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65292644,
+    "analysis_tokens": 65292022,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29160562,
-    "ocr_passages": 1302496,
+    "ocr_analysis_tokens": 29159940,
+    "ocr_passages": 1302382,
     "ocr_works": 1428,
-    "passages": 1920268,
+    "passages": 1920154,
     "works": 3926
    },
    "by_source": {
@@ -31,8 +31,8 @@
      "works": 19
     },
     "cgpg": {
-     "analysis_tokens": 4349729,
-     "passages": 11403,
+     "analysis_tokens": 4347858,
+     "passages": 11399,
      "works": 199
     },
     "dcc": {
@@ -76,8 +76,8 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24807331,
-     "passages": 1291078,
+     "analysis_tokens": 24808580,
+     "passages": 1290968,
      "works": 1229
     },
     "perseus": {
@@ -291,19 +291,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be"
+   "sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "ebf0bd5daf64f6616617fbb6cc1811a2b29738564cc34d116b3d1018f84fbf90"
+   "sha256": "8f879ae1bc92a402ec1edfdfde3b744b040490f3b8c0a7438e5e55247085bc04"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "27ba1828d9a9f606af81cbc13cdb919616516430ad619cbd9d265c77b8737c0f"
+   "sha256": "389825847e12be5efdf11bdaea77bfcbdb460d6fdcb06c92dc2dfacc286dda39"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "291c5e1fd71f684e07b37bec7958513e951fdb4779e2c06035d137286be4978c"
+   "sha256": "0bac99a3c4b5006c9f79d83349f2c8b38e88482ef75d7bea82a21b43ae918437"
   }
  },
  "active_coverage_findings": [],
@@ -15893,7 +15893,7 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-24",
+     "declared_release": "corpus-2026-10-24.1",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -15926,13 +15926,212 @@
      "title_paratext": 4,
      "held_other_works": 474
     },
+    "later_duplicate_review": {
+     "authority": {
+      "path": "data/corpus_changes/reviewed-duplicate-blocks/changes.json",
+      "sha256": "9dfc8146a5b65b8cf0564b8299c529e361f7eae5f28c91fc0422e859d8c71f03"
+     },
+     "groups": [
+      {
+       "analysis_greek_tokens": 395,
+       "key": "cyril:PG073.483",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 850,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 395,
+        "unresolved": 31
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 457
+      },
+      {
+       "analysis_greek_tokens": 438,
+       "key": "cyril:PG073.484",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 968,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 438,
+        "unresolved": 55
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 553
+      },
+      {
+       "analysis_greek_tokens": 426,
+       "key": "cyril:PG073.485",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 878,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 426,
+        "unresolved": 31
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 490
+      },
+      {
+       "analysis_greek_tokens": 407,
+       "key": "cyril:PG073.486",
+       "literal_witness_rows": 2,
+       "original_greek_tokens": 841,
+       "original_rows": 2,
+       "primary_rows": 1,
+       "reading_statuses": {
+        "single-witness": 407,
+        "unresolved": 22
+       },
+       "slug": "cyrillus-theology.commentarii-in-joannem",
+       "surface_greek_tokens": 454
+      }
+     ],
+     "counts": {
+      "original_rows": 8,
+      "primary_rows": 4,
+      "literal_witness_rows": 8,
+      "original_greek_tokens": 3537,
+      "surface_greek_tokens": 1954,
+      "analysis_greek_tokens": 1666,
+      "collated_passages": 4,
+      "primary_rows_removed": 4,
+      "reading_statuses": {
+       "single-witness": 1666,
+       "unresolved": 139
+      }
+     },
+     "sources": [
+      {
+       "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+       "filename": "patrologiaecurs43hopfgoog.pdf",
+       "id": "cyril-pg73",
+       "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+       "pdf_pages": 575,
+       "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+       "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+      }
+     ],
+     "upstream_texts": [
+      {
+       "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+       "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+       "license": "CC-BY-4.0",
+       "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+      }
+     ],
+     "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+     "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+     "components": [
+      {
+       "provider": "cgpg",
+       "license": "CC-BY-4.0",
+       "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+       "source_pins": {
+        "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+        "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+         "filename": "patrologiaecurs43hopfgoog.pdf",
+         "id": "cyril-pg73",
+         "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+         "pdf_pages": 575,
+         "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+         "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+        }
+       ],
+       "upstream_texts": [
+        {
+         "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+         "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+         "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+         "license": "CC-BY-4.0",
+         "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+        }
+       ],
+       "edition": "reviewed-duplicate-block-consensus-2026-10",
+       "storage": "primary",
+       "path": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
+       "sha256": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc",
+       "role": "reviewed-duplicate-block-projection",
+       "passages": 4,
+       "loci": [
+        "reviewed-duplicate.PG073.483",
+        "reviewed-duplicate.PG073.484",
+        "reviewed-duplicate.PG073.485",
+        "reviewed-duplicate.PG073.486"
+       ],
+       "surface_greek_tokens": 1954,
+       "analysis_greek_tokens": 1666
+      },
+      {
+       "provider": "cgpg",
+       "license": "CC-BY-4.0",
+       "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+       "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+       "source_pins": {
+        "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+        "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+       },
+       "source_preimage_archive": {
+        "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+        "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+       },
+       "sources": [
+        {
+         "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+         "filename": "patrologiaecurs43hopfgoog.pdf",
+         "id": "cyril-pg73",
+         "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+         "pdf_pages": 575,
+         "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+         "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+        }
+       ],
+       "upstream_texts": [
+        {
+         "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+         "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+         "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+         "license": "CC-BY-4.0",
+         "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+        }
+       ],
+       "edition": "reviewed-duplicate-block-literal-witnesses-2026-10",
+       "storage": "secondary",
+       "path": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+       "sha256": "b290b731b366ac19c7f0a3e30792061f9a0e5b0d7aab4fae67426cafd0da3029",
+       "role": "literal-duplicate-readings",
+       "passages": 8,
+       "original_editions": [
+        "calfa-pg73-5895ab908dd4"
+       ],
+       "original_greek_tokens": 3537,
+       "counts_toward_primary_frequency": false
+      }
+     ],
+     "work_file_accounting": {
+      "original_primary_rows": 3109,
+      "current_primary_rows": 3105
+     }
+    },
     "publication": {
-     "declared_release": "corpus-2026-10-24",
+     "declared_release": "corpus-2026-10-24.1",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
    },
-   "corpus_file_sha256": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd"
+   "corpus_file_sha256": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc"
   },
   {
    "slug": "pappus-mathematics.synagoge",
@@ -16028,7 +16227,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-24",
+     "declared_release": "corpus-2026-10-24.1",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16128,7 +16327,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-24",
+     "declared_release": "corpus-2026-10-24.1",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16380,7 +16579,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-24",
+     "declared_release": "corpus-2026-10-24.1",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16408,7 +16607,7 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29160562,
+    "ocr_component_tokens": 29159940,
     "mixed_works": 4,
     "mixed_ocr_tokens": 552999,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
@@ -16433,13 +16632,86 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "forms": 26061,
-    "tokens": 41947,
+    "forms": 26055,
+    "tokens": 41936,
     "share": 0.000642,
     "works": 1645
    },
    "why_no_bulk_action_remains": "All forms clearing the approved corpus-skeleton gates were repaired, and four scan-backed review rounds applied only exact readings. The residue is distributed over thousands of source pages; changing grave to acute blindly is known to choose the wrong word in common cases.",
    "reopen_when": "Page images, an aligned independent edition, or another approved evidence type makes a bounded set of occurrences deterministically repairable."
+  },
+  {
+   "key": "dubner-1855-unresolved-readings",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/105",
+   "status": "accepted-measured-limitation",
+   "current_measurement": {
+    "authority": {
+     "path": "data/corpus_changes/dubner-1855-readings/changes.json",
+     "sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327"
+    },
+    "assessment": {
+     "path": "data/corpus_changes/dubner-1855-readings/assessment.json",
+     "sha256": "5947be16012d68e4f7dd4843f5d6e56277b40d4475e88521fbb9eeff1e2f5a3e"
+    },
+    "counts": {
+     "analysis_tokens": 199421,
+     "approved_layout_pages": 7,
+     "baseline_reading_statuses": {
+      "agreement": 193892,
+      "damaged-reading": 38,
+      "incomplete-reading": 40,
+      "single-witness": 4092,
+      "unresolved": 75797
+     },
+     "changed_pages": 12,
+     "held_layout_pages": 3,
+     "lane_occurrence_edits": 45,
+     "outside_primary_observations": 4,
+     "primary_rows": 391,
+     "primary_source_observations": 45,
+     "reading_statuses": {
+      "agreement": 195294,
+      "damaged-reading": 38,
+      "incomplete-reading": 40,
+      "single-witness": 4092,
+      "source-reviewed": 33,
+      "unresolved": 72390
+     },
+     "remaining_unresolved_categories": {
+      "accent_case_or_elision_only": 19796,
+      "different_word_readings": 42366,
+      "omission_tie": 10228,
+      "one_group_internal_disagreement": 10238
+     },
+     "source_observations": 49,
+     "source_reviewed_slots": 33,
+     "unresolved_reduction": 3407,
+     "works": 14
+    },
+    "review_scope": "All ten delimiter-bearing candidate pages were inspected in both scans. Seven exact cell permutations exhaust the approved layout decisions; three partial duplicate-column cases have no admitted fragment decision.",
+    "held_layouts": [
+     {
+      "page_key": "aves:0271",
+      "reason": "Truncated right-column cells coexist with a full right-column transcription. The exact occurrence association and treatment of partial readings require a separate fragment review."
+     },
+     {
+      "page_key": "equites:0094",
+      "reason": "The OCR combines full column text with partial repeated column snippets. A cell permutation would retain duplicate word occurrences; fragment-level source association is required."
+     },
+     {
+      "page_key": "equites:0107",
+      "reason": "The right-column snippets repeat parts of a later full transcription of that column. Their truncated readings remain contrary evidence; a permutation alone cannot deduplicate their votes."
+     }
+    ],
+    "reopen_when": [
+     "A source capture or occurrence anchor is invalidated; remove this layer by literal undo before replacing its authority.",
+     "A new source review establishes exact fragment identities on a held partial-duplicate page; admit it in a separate reversible layer without another vote group.",
+     "New occurrence-specific scan evidence resolves a remaining reading; preserve its contrary readings and original locus in a later review."
+    ],
+    "qualification": "Reading-disagreement slots are not an OCR error count or an accuracy rate. The orthographic-only category folds case, combining marks, final sigma, and elision using the frozen alignment key. The one-group count overlaps the other three categories. All contrary readings remain available; unreviewed spellings are not certified."
+   },
+   "why_no_bulk_action_remains": "All ten delimiter-bearing candidate pages were inspected in both scans. Seven exact cell permutations exhaust that approved repair class. Three partial duplicate-column layouts require fragment-level occurrence association. Other disagreements need source-specific reading review; a normalized form or a lexicon match cannot decide the edition's printed letters.",
+   "reopen_when": "A source capture or occurrence anchor is invalidated; remove this layer by literal undo before replacing its authority. A new source review establishes exact fragment identities on a held partial-duplicate page; admit it in a separate reversible layer without another vote group. New occurrence-specific scan evidence resolves a remaining reading; preserve its contrary readings and original locus in a later review."
   }
  ]
 }

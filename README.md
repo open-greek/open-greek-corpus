@@ -939,6 +939,10 @@ commit ID and commit date may differ after committing release metadata. Checks
 default to the version and date declared in `CITATION.cff`, preserving a suffix
 such as `.1`; explicit identity options must agree with those declarations.
 Creation still uses `corpus-<date>` unless `--release-id` is supplied.
+Set the final release identity with `--sync-citation` before regenerating the
+completeness review and known-limitations registry. Both reports include the
+declared release, so changing `CITATION.cff` requires rebuilding them before
+their freshness checks can pass.
 
 `make reports` refreshes the corpus polytonic report, the date comparison, and
 the five-work completeness review when their inputs change. For the latter,
