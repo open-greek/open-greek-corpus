@@ -1,24 +1,24 @@
 {
   "headline": {
-    "works": 11089,
-    "authors": 3318,
-    "editions": 10268,
+    "works": 11101,
+    "authors": 3326,
+    "editions": 10290,
     "pct_works_with_canonical_locus": 36.5,
     "pct_works_with_logical_served_locus": 12.5,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.2,
-    "pct_authors_with_wikidata": 42.3,
-    "served_works": 3926,
-    "pct_served_in_registry": 74.5,
+    "pct_authors_with_wikidata": 42.2,
+    "served_works": 3939,
+    "pct_served_in_registry": 74.8,
     "pct_served_with_work_qid": 13.2,
-    "pct_served_with_author_qid": 73.4,
-    "pct_served_with_any_anchor": 85.2,
-    "pct_served_with_logical_served_locus": 53.8
+    "pct_served_with_author_qid": 73.3,
+    "pct_served_with_any_anchor": 84.9,
+    "pct_served_with_logical_served_locus": 53.5
   },
   "work_aliases": {
     "cts": {
-      "count": 11076,
-      "pct": 99.9
+      "count": 11071,
+      "pct": 99.7
     },
     "wikidata": {
       "count": 579,
@@ -40,27 +40,27 @@
   "work_cts_by_namespace": {
     "greekLit": {
       "count": 7197,
-      "pct": 64.9,
+      "pct": 64.8,
       "external": true
     },
     "cogGreek": {
-      "count": 3879,
-      "pct": 35.0,
+      "count": 3874,
+      "pct": 34.9,
       "external": false
     }
   },
   "author_aliases": {
     "wikidata": {
       "count": 1402,
-      "pct": 42.3
+      "pct": 42.2
     },
     "viaf": {
       "count": 1355,
-      "pct": 40.8
+      "pct": 40.7
     },
     "gnd": {
       "count": 1333,
-      "pct": 40.2
+      "pct": 40.1
     },
     "isni": {
       "count": 757,
@@ -103,11 +103,11 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4053,
+    "works_with_logical_locus": 4057,
     "pct": 36.5,
-    "works_only_physical_or_none": 3186,
+    "works_only_physical_or_none": 3199,
     "by_scheme": {
-      "(none)": 1565,
+      "(none)": 1560,
       "fragment.line": 1444,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -141,6 +141,7 @@
       "centuria.section.line": 18,
       "codex page.line": 18,
       "fragment.column.line": 18,
+      "source-page.row.region": 18,
       "book.chapter.line": 17,
       "alphabetic letter.entry.line": 16,
       "original-scan-page.row": 14,
@@ -149,6 +150,7 @@
       "fable.line": 12,
       "morel page.section.line": 12,
       "scan-page.line": 12,
+      "section": 11,
       "alphabetic letter.page.line": 10,
       "book.fragment.line": 9,
       "lexical entry.line": 9,
@@ -159,7 +161,6 @@
       "argumentum.dramatis personae.scholion.verse.line": 7,
       "oration.section.line": 7,
       "page.column.line": 7,
-      "section": 7,
       "olearius page.line": 6,
       "part.volume.fascicle.page.line": 6,
       "play.verse.line": 6,
@@ -175,6 +176,7 @@
       "chapter": 4,
       "demonstratio.line": 4,
       "epistle.chapter.section.line": 4,
+      "former-work.source-section": 4,
       "fragment, section": 4,
       "fragment.scholion.line": 4,
       "homily.chapter.section.line": 4,
@@ -345,6 +347,7 @@
       "play.scholion.line": 1,
       "play.verse of play.line": 1,
       "praefatio.poem.line": 1,
+      "printed-column": 1,
       "progymnasma.section.subsection.line": 1,
       "prolegomenon.anecdote.poem.section.verse.line": 1,
       "prolegomenon.scholion.page.verse.line": 1,
@@ -381,10 +384,10 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1385,
+    "works_with_logical_served_locus": 1389,
     "pct": 12.5,
     "served_logical_depth_distribution": {
-      "1": 306,
+      "1": 310,
       "2": 694,
       "3": 315,
       "4": 65,
@@ -393,7 +396,7 @@
     },
     "default_edition_physical_only": {
       "what": "default edition cites only by page/volume; promote a logical locus",
-      "count": 594,
+      "count": 612,
       "examples": [
         "adrianus.declamatio",
         "aelius-aristides.ai-gu-ptios",
@@ -448,7 +451,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9110,
+      "count": 9100,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -506,11 +509,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3926,
-    "in_registry": 2926,
+    "served_works": 3939,
+    "in_registry": 2947,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 1000,
+      "count": 992,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -565,12 +568,12 @@
       ]
     },
     "with_work_qid": 518,
-    "with_author_qid": 2881,
+    "with_author_qid": 2887,
     "with_any_external_anchor": 3344,
-    "with_logical_served_locus": 2111,
+    "with_logical_served_locus": 2107,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2363,
+      "count": 2369,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -628,7 +631,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5436,
+      "count": 5442,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -933,7 +936,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1916,
+      "count": 1924,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -989,7 +992,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3186,
+      "count": 3199,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

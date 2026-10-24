@@ -31,9 +31,9 @@
    "works": 528
   },
   "first1k": {
-   "analysis_tokens": 21867616,
-   "passages": 269491,
-   "works": 1045
+   "analysis_tokens": 21866171,
+   "passages": 269485,
+   "works": 1041
   },
   "galenus_verbatim": {
    "analysis_tokens": 318470,
@@ -56,9 +56,9 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24808580,
-   "passages": 1290968,
-   "works": 1229
+   "analysis_tokens": 24726860,
+   "passages": 1284483,
+   "works": 1246
   },
   "perseus": {
    "analysis_tokens": 9695795,
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+ "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -810,6 +810,15 @@
   "bemarchius-caesariensis.fragmenta.jsonl": "e9e5f4f7b2143bb750f8da2b77ffbfe914fa3a4eef48cb51175c3785b4553472",
   "beros-s-us.fragmenta.jsonl": "dfbb1503dbf84b4f74cef4a8498dcea78d22af152ace508b102132fdf4f89f97",
   "berosus-chaldaeus.fragmenta.jsonl": "a2eadddc96edfb118ca5e57e9f3c836b56c32555d292f94008efd2f662d1793a",
+  "biographi-anonymi.antiphon-anonymous-westermann.jsonl": "09e5d9d52ef6ce5c0c747b1b1af5c736b932ab0bd4e11306bd7826fdc0219bdb",
+  "biographi-anonymi.aristides-anonymous-westermann.jsonl": "05380d9da66f3fa4814a93223ab5affe756fb740bb5cb4bcda55c1e283e0c902",
+  "biographi-anonymi.aristophanes-anonymous-westermann.jsonl": "7e71b6834387b87065dbea4b063d178788326c78ebdbed017ce10063026d17cd",
+  "biographi-anonymi.aristotle-anonymous-westermann.jsonl": "1060260abfd589218a06ff3127f503f416e31eeba08bb2e6b2b664873a23722d",
+  "biographi-anonymi.dionysius-life-westermann.jsonl": "827a7f02a81f7d29c7e2c1c48911d6707a55887ef96fa2a04a02c5d92d0a995c",
+  "biographi-anonymi.isaeus-anonymous-westermann.jsonl": "4e8dac03e4d22ba2ee85107e685dff7d450955395e0923dd9d111974a012d371",
+  "biographi-anonymi.plato-anonymous-westermann.jsonl": "21f2b655f8cee0aaab7c35cd99e335673c71efc4af3e7e101c80a21caf7cf06d",
+  "biographi-anonymi.sophocles-life-westermann.jsonl": "31e294c259802f67144a68a6838795538567d8041243c441304546a06a404146",
+  "biographi-anonymi.thucydides-anonymous-westermann.jsonl": "c50edbc92ad1253e3eefaa0ce6a6ccbcfad912b648a71d24aaaa3b958a4ff97d",
   "bion-bucolic.epitaphius-adonis.jsonl": "3565b0f37d90689b70199fe1b5b6a200a1af60340f6dd882948c714cfac43832",
   "bion-bucolic.epithalamium-achillis-et-deidameiae-sp.jsonl": "67ad8f00b1040c543eb0168e27be0575936c268a3a83b63752bcc04fd899100e",
   "bion-bucolic.fragmenta.jsonl": "b42e18461d3d94556d8bc24d1bf599498412e6e74712bce523ee96d5aea69bcd",
@@ -995,6 +1004,7 @@
   "comica-adespota-caf.fragmenta-incertorum-poetarum.jsonl": "055f3cfcff80802083a402d17afa3f5c21d9b414d2171b8e5a6b063a2a5f6a29",
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana.jsonl": "6b0e3259a6c41a5ac8602928302a6864c274b5b1d568835b242727780aceb0f9",
   "conon.fragmenta.jsonl": "60dec4856ca53ebe5aec11df3e3e111e12e3ee6836bbd0a8b411b88a9dec0c2f",
+  "constantinus-manasses.oppian-manasses-westermann.jsonl": "3ead3dcb231f7bdd134acc8fbcbee19a1898e0c1aa7701ddf6c17ed74a7604e8",
   "constantinus-siculus.versus-in-leonem-philosophum.jsonl": "e1bac9e5e5f6c48ae3b1730bdab80b19d6e23beda2a1ad7078ffca89c176143c",
   "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio.jsonl": "bd1c26446293acb9625f5e65e0f616eb36570b58aab58473af5928db144aa96d",
   "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl": "d8676d8240c2b479a0f67e00d5c51df4bf33f365918bbefb36797a2fa1a1b2a9",
@@ -1399,6 +1409,7 @@
   "euclides-geom.sectio-canonis-sp.jsonl": "eb4bcc2fd5cbee60f6884d25d7536c4c035d4cae58888f28de1ec5d5eba5e350",
   "eucrates.fragmenta.jsonl": "11971e1b20ea1ee93c761924b1172043aecfbafcb00a8783b39f80a19b6d396d",
   "eudemus-philosophy.fragmenta.jsonl": "f4d9f3fcdac535f540271c519ea120732a81c84756c39a2b5338fa064254cb27",
+  "eudocia-printed-ionia.antiphon-eudocia-westermann.jsonl": "dfc844819d8d55d642687b27ae4a4c2b38620b65723307985d15dec9a4b92f72",
   "eudoxus-astronomy.fragmenta.jsonl": "62fa86710d4db53d8b76fa0787ff21fed204f3af563ac5ad6a910e5df507bb9c",
   "eudoxus-rhodius.fragmenta.jsonl": "64f26a9a171a85e2201c5ccffbe070ad52462f00246d2dee9ed6a085b282bf55",
   "eudoxus.fragmenta.jsonl": "389d6707fdff00854be93f382f920bd051afa5d933185cd715d70df63795b37f",
@@ -1473,6 +1484,7 @@
   "eustathius-epiphaniensis.fragmenta.jsonl": "0d2313c7f947b25e5e8d9207a35801c7b5cbd9b32f12796877ee262125ea7c53",
   "eustathius-philol.commentarii-ad-homeri-iliadem.jsonl": "8ce79fef62854211252c822e9d5f5a84fb0bfa3ba1fea50cb6a55a499ecf295e",
   "eustathius-philol.commentarii-ad-homeri-odysseam.jsonl": "e025f08bcc0e321fa1835cc794b1609e6e8a00694031338943875371f10da547",
+  "eustathius-thessalonicensis.pindar-eustathius-westermann.jsonl": "38258281c607ac8d94fffa76ed4a7007c8d831e785dbccd18bb3b91588e8f27d",
   "eustochius-cappadox.fragmenta.jsonl": "615f70f1e33cd3bd3f3e8f96809ac239386ca74894b94b32d2c81efa939b7b16",
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium.jsonl": "24d7586ec5737de577698c727d119e6918870b6676ed4c0bc0a5d9ec0cd9549a",
   "eustratius.in-aristotelis-ethica-nicomachea-i-commentaria.jsonl": "60b9a192291aa16193edc65076134aa393f832f38f8bde1024bf26cd7b1825f5",
@@ -1901,7 +1913,7 @@
   "hesiodus.theogonia.jsonl": "9a19e73bf538b7da18edb6130f7a826e61916ce93b74e44c8c7abd64828f7c06",
   "hesychius-illustrius.fragmenta.jsonl": "e9f4cd1339ca29a4a3b870439f2c4a35caca26897e2524916581a690613ebaad",
   "hesychius-lexicography.epistula-ad-eulogium.jsonl": "c9b5295e84004f1f8cf22b61f01727da3163dfe6eaf04dec730c514cf13277ae",
-  "hesychius-lexicography.lexicon-o.jsonl": "fbcd34f636c2586b3f59ae9142e77e675e5144a7e20d2333cee70aff99a76257",
+  "hesychius-lexicography.lexicon-o.jsonl": "22e558269963ad917d9e452e87ce5e7df9811853ac0b511e6f0b2873518a632c",
   "hesychius-lexicography.lexicon-p-w.jsonl": "ba41855d01d850ff230f2cca068f9fc41523e7bb2be8dd309d5030908496edd6",
   "hesychius-of-jerusalem.commentarius-magnus-in-psalmos.jsonl": "089e144fbae4ed7e52fd1cce6a72e3b49689c6d744fbbf7c91b297287edb2bc4",
   "hexapla-anonymi.lectiones.jsonl": "d3b8c015cd7994e6812f745c355dcb1c9a66819201c846743a4dbaf931d51140",
@@ -2306,6 +2318,7 @@
   "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous.jsonl": "8af495e1dd84ad54cfbbfa407d2526c1d94c1606d0c20d319c3e9d786688e85a",
   "joannes-stobaeus-anthologus.anthologium.jsonl": "9eb2234f472e6ec3142b1829864227b2643fd4d1a22a476d2e24f706119c9e78",
   "joannes-tzetzes.epitome-rhetorikes.jsonl": "c2a12f6efaedd145f24c3a6b18f08b32fed7b3ca497b074bd1896697c8459af6",
+  "joannes-tzetzes.lycophron-tzetzes-westermann.jsonl": "d4c5c2f119c8668ecace3ea358df9b739eb64e4bc4d8625bc440af6706077bd2",
   "joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": "6c2053451b7a0e6ec6f74e0bfba4f5b7e98c99d6cafffef0d6de4d016ca4340d",
   "joannes-vi-cantacuzenus.historiae.jsonl": "a2ceaadbf312ba9ef8c2805081dab0f61e6a8a9ffb25dafa7e43b966dcc29815",
   "joannes-zonaras.argumenta.jsonl": "e2977f56902d750d0457f0b2a4fc8923355e52c5268a9cd6822715f48fe24163",
@@ -2407,6 +2420,7 @@
   "libanius.declamatio-8.jsonl": "140641868809bdbb9164082a82be9b2ffa00d0d4c55dc422b153efa57f4ed3f0",
   "libanius.declamatio-9.jsonl": "ea9c02c564bb4380d286c2c959131914926ab474297fc5f883122199e2c507e3",
   "libanius.declamatio-i.jsonl": "e34c6186275e7019e4ef8d670a3f2ff4a7396c110ac80b4dc7fc0f190dcc404a",
+  "libanius.demosthenes-libanius-westermann.jsonl": "f2ebef4e90c1946286972066ccd1a6a98a2f9930e4d36f9ea6a13eabf3cf594e",
   "libanius.epistulae-1-1544.jsonl": "33979cdcf7845c987715a77ef8a70050e1e012c7ed220bfaea89b471a57f4030",
   "libanius.oratio-10.jsonl": "7991b15812c92f5b1ae39613fbab024eb4f30de23e782f0c6d0615bb66e7e401",
   "libanius.oratio-11.jsonl": "b15004c819cecfb6458b62bad2b1b2f8ad8ebf67cf31346df5fc0ddee7ea18eb",
@@ -2596,7 +2610,7 @@
   "manetho-sebennyta.fragmenta.jsonl": "c19b83b8927c9d0489d57d42d39f82ff91ec265d730749454f61ee60328c2190",
   "manetho.fragmenta.jsonl": "2e6399dcccb9407cbab66af022db4f19780048e8d4c2d62dde61aaca1ece2439",
   "mantissa-proverbiorum.mantissa-proverbiorum.jsonl": "c4bb88311d5b8ee7aa9276cc623e4263f8744138412061a8119e68ad488c007e",
-  "marcellinus.vita-thucydidis.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+  "marcellinus.vita-thucydidis.jsonl": "5774fab4a0ff70bf97e9b5c87aff868fb81990528fa4df6f18059dd15f8d4ad5",
   "marcellus-theology.expositio-fidei.jsonl": "d76e350b1feb7469505406535454aae371c460e10b0664e5392099e4af178385",
   "marcellus-theology.fragmenta.jsonl": "4efc78e535bcd8f84942dbac6ea4a2bbbd1e59596538d02cad842ba1271555f8",
   "marcellus.fragmenta.jsonl": "6c55a789f7215eba8cfb7996de3e0644f29770d4e61230e98706cdf87db05661",
@@ -2846,6 +2860,7 @@
   "olympichus.fragmenta.jsonl": "cba495f863750a015e0436056c8b4f9869ab3caf4a384287210caf3fcd6278b0",
   "olympiodorus-philosophy.in-aristotelis-categorias-commentarium.jsonl": "54ce379ec4a3addc656b14d06ab034fa371be7b9c4a516441992868fb29a04ae",
   "olympiodorus-philosophy.in-aristotelis-meteora-commentaria.jsonl": "21ed6446b3b683a8bceda6b1a41e91c4db61088e8f687728506364251433d6d7",
+  "olympiodorus-philosophy.plato-olympiodorus-westermann.jsonl": "8ea7f942761e0b52e7247192d97040c9d30fed225ed09e64ca6048aa94d3ca86",
   "olympiodorus-philosophy.prolegomena.jsonl": "b98096c75e7b87475b5a741e19a28ce5bec4cfd2e9dca9c0174045e8ded4a0b7",
   "olympiodorus-thebaeus.fragmenta.jsonl": "2fe04c8cc3f19134922c837f5af121e673e51b1c24f881300efaa216916aba69",
   "olympus.fragmenta.jsonl": "e4dce23e5e4b3114ba49a3989b9c15fd269d5cfc6532b5804a2e032affc4e155",
@@ -3346,6 +3361,7 @@
   "protagorides.fragmenta.jsonl": "426b12f132726d470ea3f3e3de72eadf45139cac9f95189f17b8494ed3163bdb",
   "protarchus-trallianus.fragmenta.jsonl": "7afd320ed7bf7a5761f41a141970c537eabc3bc16236e2ef8506c8140cdbbe60",
   "proxenus.fragmenta.jsonl": "21c285784e146b93e0651ac4c5c0c51e663e176db7b1424bb7bd6b9ddaf84b84",
+  "pseudo-ammonius.aristotle-ammonius-westermann.jsonl": "a3c3184e3f1be58b726ca3513631456d5ce3a3a6e0bf3ae4c9fc2901710b84fe",
   "pseudo-apollodorus.bibliotheca-sub-nomine-apollodori.jsonl": "e80e09d9dd5d92223c126f55860d959254ca3615819dfb186e75f51aa35840ab",
   "pseudo-apollodorus.tlg0548-tlg002.jsonl": "ee3c0d4b310510dee764c52877c73be841a8723675e160c636ac6c42ff647b62",
   "pseudo-archytas.fragmenta.jsonl": "9228b2e0bcde63b77e792295acb995207663a37649dbb2d3aaca2f255fe0c100",
@@ -3877,6 +3893,7 @@
   "theseus.fragmenta-fhg4.jsonl": "82093a4b32217f4ff043725d6f851663fbde26d5770a83ce9588b50cb286161c",
   "theseus.fragmenta.jsonl": "263b103166d38dd113700c1effd34ca3731a14acb6b05cec116e9bcdc79fc7e8",
   "thespis.fragmenta.jsonl": "2068fabd4142684ab531c32446a1c465d4dba9e8fc7d9987dac66e50949d8c5d",
+  "thomas-magister.aristophanes-thomas-westermann.jsonl": "24558ebe893f3f27e65efd9a022cda6e80d1130b6d4fc63952233084edd1e436",
   "thrasyllus.fragmenta.jsonl": "51100e2e1112e8c9ecaaaf4a14e8d3e8b9c38e2e356d9f2b6781fe8589bf8ceb",
   "thrasymachus.testimonia.jsonl": "43203989ff9d7d0dc3c829746831b24970ea8cb34a899aba490d713f71562eac",
   "thucydides.historiae.jsonl": "f89c7c5c5e74a76fb09a63e283e617427c54ed88ff2050e4c77f00519d181820",
@@ -3933,10 +3950,6 @@
   "tlg2637.fragmenta.jsonl": "5b9f311cdc69d211ed5431a546fbb658e19728928df055f4a39c2f35513c8cf1",
   "tlg4049.tlg001.jsonl": "e6e38165249b6ab7e927faf273b113b42102e84450b19ed8b364c555449bbd89",
   "tlg4075.tlg001.jsonl": "10737d8be1ec296c3183b58d4f1a798d897a52108736a28673af49bee27f0dcc",
-  "tlg4170.tlg001a.jsonl": "5ba3a876364f1c068cf78e807a93686becdd1fe7c35d7d20fd9781ebc87f995b",
-  "tlg4170.tlg001b.jsonl": "e7e3c91912e77d86be39bc9b98ff1eea5b26f0b609339387e81b9034acdcaa7c",
-  "tlg4170.tlg001c.jsonl": "d4997334f6946c5f19d4717bbbf97dce578555e4af7ee09e80f576af87536384",
-  "tlg4170.tlg001d.jsonl": "d42c9ad4042dd8676a84612e0437c905d8a5eccc8e51d778be58554b6e1fc3dc",
   "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351.jsonl": "02faee85115b52cc8fd03e9796960fd7fa9de019b23c8caf14458566d28170c2",
   "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem.jsonl": "769045ee40fa0091932df180337293fe163698d065c4f18dc4e0e5bd8e959678",
   "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum.jsonl": "4df96761c90a7fb63e390fc3c34dacd4f5f5ac6ee8f0f9411f9c4e64ab92d91a",
@@ -4030,7 +4043,9 @@
   "capture_dubner_layouts.py": "d2895cb9c481ff1bf25dda7f129e8055334b28564355821bd751ee2ed598076f",
   "capture_dubner_readings.py": "c356483a0e9ea14799ec50ffedb4a8982947af9b2a50e53e78b0c0781a413d45",
   "capture_dubner_sources.py": "d9e97184906e0972bfbdbfe59e03f34792f9792d053bd9ad8151a2c70e08d679",
+  "capture_hesychius_gap.py": "eade2062bf30eecb313c321b508e0654fed7182021eb073d109f2909b2f5a3bc",
   "capture_reviewed_duplicate_sources.py": "8a1cc6414bc253bbff49c587ca1c14e219afd50735749b125c98324c7d3cdaf5",
+  "capture_westermann_sources.py": "2be941bf7b50e1f43a67f116266c491cf46d2b4c6f7d54b9a4db47698eefa7d6",
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
   "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
@@ -4043,7 +4058,7 @@
   "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
   "experiment_dubner_alignment.py": "17970bb7ea35d226fcd6619379a3db026f5d96c4051d3de0ac7a3cd167f6c6d3",
   "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
-  "frequency_projection.py": "af06193136d0a701ca124dbdfee2af1e97ee3a427ebbf2dbcaf48be902ec2885",
+  "frequency_projection.py": "f97113dffff5b25694bcc0a189d37a45d31f4f6c8d6c1fd1c283a2850adecbfb",
   "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
   "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
   "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
@@ -4056,6 +4071,7 @@
   "herodas_review_state.py": "c0c0ebadef4bf2ae0e12ec0e863ed235bfca96523427f1013432d368cdf3af44",
   "herodas_source_observations.py": "406885c8e3e73d9e127f2d05ac1c436ac95c2d2284ef8d8717434c1614503c33",
   "herodas_uncertainty_readings.py": "a73ea947288c13f27c3780eb71001f638fd658b987e807d25d6a93fd48dd79c4",
+  "hesychius_gap_observations.py": "1b316b901dbfacdef99eca1aa1c332221a3d219fdb1565beb7ee0a2e22cc768c",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
   "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
@@ -4084,6 +4100,7 @@
   "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
   "repair_herodas_body.py": "07e6c8d8b0d7636ae17cd10055aaf573a641e1e1c0ea457dcdd9dfc91e4a05a2",
   "repair_herodas_readings.py": "ccf47d3380f09ccb044613cb285f5264e818ac0457ae01a25f03b598eb94fed3",
+  "repair_hesychius_missing_columns.py": "1e100b0c168ffa8a8a37803bfc421889507be42f811c486e45f3c2d09570f49e",
   "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
   "repair_photius_apparatus.py": "81167bb6febfc1a8433190c57a5efa3d9a128b5a09b3cad826eb10b4c4654583",
   "repair_photius_body.py": "cdec501910a0eed9aed96318b56fb4df87145f2bcdf07666818579e636970075",
@@ -4098,21 +4115,25 @@
   "repair_photius_uncertainties.py": "7c31f8f8d8b8db53e6752bcb8541109f6137b5a98705a76d146afb1bdc916674",
   "repair_photius_uncertainty_admission.py": "88f773352e5bd7bbf5081a7ea21335100240bb4c9f424b0be472ff6003eae18c",
   "repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
+  "repair_westermann_scope.py": "d77c5ad43f0cbc4017667dc51b8378c4bef0389b685a6cdc26d24181d3e14fd7",
   "reviewed_duplicate_block_observations.py": "9e895c8bb3402f5bbfb7e7262f6a47d910a656281efee4c1b0455786729157d1",
+  "reviewed_duplicate_state.py": "1256d6a577e9e9b4a54d7df6bcb87951a075aa001c1dfbbe1faf7e360a21f738",
+  "run_hesychius_gap_ocr.py": "7fea137c8aeedec8cb2077ce37175e68d745ea32a13046822df22242b32c80b6",
   "run_scan_ocr.py": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
-  "scan_ocr_bundle.py": "eb70e94494749e83c77a493f6669c2777c6b089d21ce1bfa5147ae553f80838e"
+  "scan_ocr_bundle.py": "eb70e94494749e83c77a493f6669c2777c6b089d21ce1bfa5147ae553f80838e",
+  "westermann_source_observations.py": "30fb62355a9b2daa4b921ece36a2fe09dd667afde55d1d69d874ae38a8bb8bbb"
  },
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65292022,
+  "analysis_tokens": 65208857,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29159940,
-  "ocr_passages": 1302382,
-  "ocr_works": 1428,
-  "passages": 1920154,
-  "works": 3926
+  "ocr_analysis_tokens": 29078220,
+  "ocr_passages": 1295897,
+  "ocr_works": 1445,
+  "passages": 1913663,
+  "works": 3939
  },
  "works": {
   "abas.fragmenta": {
@@ -22220,6 +22241,231 @@
     }
    }
   },
+  "biographi-anonymi.antiphon-anonymous-westermann": {
+   "analysis_tokens": 238,
+   "components": [
+    {
+     "analysis_tokens": 238,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 7,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 238,
+   "ocr_passages": 7,
+   "passages": 7,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 238,
+     "passages": 7
+    }
+   }
+  },
+  "biographi-anonymi.aristides-anonymous-westermann": {
+   "analysis_tokens": 1155,
+   "components": [
+    {
+     "analysis_tokens": 1155,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 42,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 1155,
+   "ocr_passages": 42,
+   "passages": 42,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 1155,
+     "passages": 42
+    }
+   }
+  },
+  "biographi-anonymi.aristophanes-anonymous-westermann": {
+   "analysis_tokens": 638,
+   "components": [
+    {
+     "analysis_tokens": 638,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 23,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 638,
+   "ocr_passages": 23,
+   "passages": 23,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 638,
+     "passages": 23
+    }
+   }
+  },
+  "biographi-anonymi.aristotle-anonymous-westermann": {
+   "analysis_tokens": 823,
+   "components": [
+    {
+     "analysis_tokens": 823,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 38,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 823,
+   "ocr_passages": 38,
+   "passages": 38,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 823,
+     "passages": 38
+    }
+   }
+  },
+  "biographi-anonymi.dionysius-life-westermann": {
+   "analysis_tokens": 57,
+   "components": [
+    {
+     "analysis_tokens": 57,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 1,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 57,
+   "ocr_passages": 1,
+   "passages": 1,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 57,
+     "passages": 1
+    }
+   }
+  },
+  "biographi-anonymi.isaeus-anonymous-westermann": {
+   "analysis_tokens": 315,
+   "components": [
+    {
+     "analysis_tokens": 315,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 2,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 315,
+   "ocr_passages": 2,
+   "passages": 2,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 315,
+     "passages": 2
+    }
+   }
+  },
+  "biographi-anonymi.plato-anonymous-westermann": {
+   "analysis_tokens": 2000,
+   "components": [
+    {
+     "analysis_tokens": 2000,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 67,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 2000,
+   "ocr_passages": 67,
+   "passages": 67,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 2000,
+     "passages": 67
+    }
+   }
+  },
+  "biographi-anonymi.sophocles-life-westermann": {
+   "analysis_tokens": 959,
+   "components": [
+    {
+     "analysis_tokens": 959,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 49,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 959,
+   "ocr_passages": 49,
+   "passages": 49,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 959,
+     "passages": 49
+    }
+   }
+  },
+  "biographi-anonymi.thucydides-anonymous-westermann": {
+   "analysis_tokens": 766,
+   "components": [
+    {
+     "analysis_tokens": 766,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 13,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 766,
+   "ocr_passages": 13,
+   "passages": 13,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 766,
+     "passages": 13
+    }
+   }
+  },
   "bion-bucolic.epitaphius-adonis": {
    "analysis_tokens": 717,
    "components": [
@@ -26902,6 +27148,31 @@
     "dfhg": {
      "analysis_tokens": 98,
      "passages": 1
+    }
+   }
+  },
+  "constantinus-manasses.oppian-manasses-westermann": {
+   "analysis_tokens": 353,
+   "components": [
+    {
+     "analysis_tokens": 353,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 30,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 353,
+   "ocr_passages": 30,
+   "passages": 30,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 353,
+     "passages": 30
     }
    }
   },
@@ -37128,6 +37399,31 @@
     }
    }
   },
+  "eudocia-printed-ionia.antiphon-eudocia-westermann": {
+   "analysis_tokens": 147,
+   "components": [
+    {
+     "analysis_tokens": 147,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 17,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 147,
+   "ocr_passages": 17,
+   "passages": 17,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 147,
+     "passages": 17
+    }
+   }
+  },
   "eudoxus-astronomy.fragmenta": {
    "analysis_tokens": 3807,
    "components": [
@@ -38996,6 +39292,31 @@
     "ocr": {
      "analysis_tokens": 539821,
      "passages": 559
+    }
+   }
+  },
+  "eustathius-thessalonicensis.pindar-eustathius-westermann": {
+   "analysis_tokens": 1461,
+   "components": [
+    {
+     "analysis_tokens": 1461,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 74,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 1461,
+   "ocr_passages": 74,
+   "passages": 74,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 1461,
+     "passages": 74
     }
    }
   },
@@ -49728,7 +50049,7 @@
    }
   },
   "hesychius-lexicography.lexicon-o": {
-   "analysis_tokens": 147352,
+   "analysis_tokens": 147561,
    "components": [
     {
      "analysis_tokens": 147086,
@@ -49743,19 +50064,26 @@
      "license": "PD",
      "passages": 1,
      "source": "ocr"
+    },
+    {
+     "analysis_tokens": 209,
+     "edition": "schmidt-1867-gap-consensus-2026-10",
+     "license": "PD",
+     "passages": 2,
+     "source": "ocr"
     }
    ],
    "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 147352,
-   "ocr_passages": 32118,
-   "passages": 32118,
+   "ocr_analysis_tokens": 147561,
+   "ocr_passages": 32120,
+   "passages": 32120,
    "sources": {
     "ocr": {
-     "analysis_tokens": 147352,
-     "passages": 32118
+     "analysis_tokens": 147561,
+     "passages": 32120
     }
    }
   },
@@ -59915,6 +60243,31 @@
     }
    }
   },
+  "joannes-tzetzes.lycophron-tzetzes-westermann": {
+   "analysis_tokens": 185,
+   "components": [
+    {
+     "analysis_tokens": 185,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 2,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 185,
+   "ocr_passages": 2,
+   "passages": 2,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 185,
+     "passages": 2
+    }
+   }
+  },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "analysis_tokens": 99576,
    "components": [
@@ -62444,6 +62797,31 @@
     "first1k": {
      "analysis_tokens": 14790,
      "passages": 129
+    }
+   }
+  },
+  "libanius.demosthenes-libanius-westermann": {
+   "analysis_tokens": 993,
+   "components": [
+    {
+     "analysis_tokens": 993,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 5,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 993,
+   "ocr_passages": 5,
+   "passages": 5,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 993,
+     "passages": 5
     }
    }
   },
@@ -67180,13 +67558,13 @@
    }
   },
   "marcellinus.vita-thucydidis": {
-   "analysis_tokens": 97683,
+   "analysis_tokens": 3112,
    "components": [
     {
-     "analysis_tokens": 97683,
-     "edition": "migne-ocr-qwen36",
+     "analysis_tokens": 3112,
+     "edition": "westermann-1845-source-scoped",
      "license": "PD",
-     "passages": 7013,
+     "passages": 40,
      "source": "ocr"
     }
    ],
@@ -67194,13 +67572,13 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 97683,
-   "ocr_passages": 7013,
-   "passages": 7013,
+   "ocr_analysis_tokens": 3112,
+   "ocr_passages": 40,
+   "passages": 40,
    "sources": {
     "ocr": {
-     "analysis_tokens": 97683,
-     "passages": 7013
+     "analysis_tokens": 3112,
+     "passages": 40
     }
    }
   },
@@ -73531,6 +73909,31 @@
     "first1k": {
      "analysis_tokens": 110698,
      "passages": 338
+    }
+   }
+  },
+  "olympiodorus-philosophy.plato-olympiodorus-westermann": {
+   "analysis_tokens": 1477,
+   "components": [
+    {
+     "analysis_tokens": 1477,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 103,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 1477,
+   "ocr_passages": 103,
+   "passages": 103,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 1477,
+     "passages": 103
     }
    }
   },
@@ -86172,6 +86575,31 @@
     "dfhg": {
      "analysis_tokens": 271,
      "passages": 6
+    }
+   }
+  },
+  "pseudo-ammonius.aristotle-ammonius-westermann": {
+   "analysis_tokens": 909,
+   "components": [
+    {
+     "analysis_tokens": 909,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 10,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 909,
+   "ocr_passages": 10,
+   "passages": 10,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 909,
+     "passages": 10
     }
    }
   },
@@ -99492,6 +99920,31 @@
     }
    }
   },
+  "thomas-magister.aristophanes-thomas-westermann": {
+   "analysis_tokens": 166,
+   "components": [
+    {
+     "analysis_tokens": 166,
+     "edition": "westermann-1845-source-scoped",
+     "license": "PD",
+     "passages": 3,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 166,
+   "ocr_passages": 3,
+   "passages": 3,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 166,
+     "passages": 3
+    }
+   }
+  },
   "thrasyllus.fragmenta": {
    "analysis_tokens": 751,
    "components": [
@@ -100896,106 +101349,6 @@
     "ocr": {
      "analysis_tokens": 21561,
      "passages": 1663
-    }
-   }
-  },
-  "tlg4170.tlg001a": {
-   "analysis_tokens": 526,
-   "components": [
-    {
-     "analysis_tokens": 526,
-     "edition": "1st1K-grc1",
-     "license": "CC-BY-SA-4.0",
-     "passages": 2,
-     "source": "first1k"
-    }
-   ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 526,
-   "non_ocr_passages": 2,
-   "ocr_analysis_tokens": 0,
-   "ocr_passages": 0,
-   "passages": 2,
-   "sources": {
-    "first1k": {
-     "analysis_tokens": 526,
-     "passages": 2
-    }
-   }
-  },
-  "tlg4170.tlg001b": {
-   "analysis_tokens": 535,
-   "components": [
-    {
-     "analysis_tokens": 535,
-     "edition": "1st1K-grc1",
-     "license": "CC-BY-SA-4.0",
-     "passages": 1,
-     "source": "first1k"
-    }
-   ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 535,
-   "non_ocr_passages": 1,
-   "ocr_analysis_tokens": 0,
-   "ocr_passages": 0,
-   "passages": 1,
-   "sources": {
-    "first1k": {
-     "analysis_tokens": 535,
-     "passages": 1
-    }
-   }
-  },
-  "tlg4170.tlg001c": {
-   "analysis_tokens": 201,
-   "components": [
-    {
-     "analysis_tokens": 201,
-     "edition": "1st1K-grc1",
-     "license": "CC-BY-SA-4.0",
-     "passages": 1,
-     "source": "first1k"
-    }
-   ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 201,
-   "non_ocr_passages": 1,
-   "ocr_analysis_tokens": 0,
-   "ocr_passages": 0,
-   "passages": 1,
-   "sources": {
-    "first1k": {
-     "analysis_tokens": 201,
-     "passages": 1
-    }
-   }
-  },
-  "tlg4170.tlg001d": {
-   "analysis_tokens": 183,
-   "components": [
-    {
-     "analysis_tokens": 183,
-     "edition": "1st1K-grc1",
-     "license": "CC-BY-SA-4.0",
-     "passages": 2,
-     "source": "first1k"
-    }
-   ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 183,
-   "non_ocr_passages": 2,
-   "ocr_analysis_tokens": 0,
-   "ocr_passages": 0,
-   "passages": 2,
-   "sources": {
-    "first1k": {
-     "analysis_tokens": 183,
-     "passages": 2
     }
    }
   },

@@ -31,7 +31,7 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
-  "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+  "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
   "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
@@ -308,6 +308,15 @@
     "basilius-theology.sermo-ob-sacerdotum-instructionem-recensio-brevior-sp.jsonl": "67434a0bbc6747b2b4f219c72aed97f88ec59641e7ac9c1db019c26c254a4899",
     "basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti.jsonl": "06ef9e81c695644ee1eb9bd27842617e057eaa0d611af97ae71bbe945673c8fb",
     "beros-s-us.fragmenta.jsonl": "dfbb1503dbf84b4f74cef4a8498dcea78d22af152ace508b102132fdf4f89f97",
+    "biographi-anonymi.antiphon-anonymous-westermann.jsonl": "09e5d9d52ef6ce5c0c747b1b1af5c736b932ab0bd4e11306bd7826fdc0219bdb",
+    "biographi-anonymi.aristides-anonymous-westermann.jsonl": "05380d9da66f3fa4814a93223ab5affe756fb740bb5cb4bcda55c1e283e0c902",
+    "biographi-anonymi.aristophanes-anonymous-westermann.jsonl": "7e71b6834387b87065dbea4b063d178788326c78ebdbed017ce10063026d17cd",
+    "biographi-anonymi.aristotle-anonymous-westermann.jsonl": "1060260abfd589218a06ff3127f503f416e31eeba08bb2e6b2b664873a23722d",
+    "biographi-anonymi.dionysius-life-westermann.jsonl": "827a7f02a81f7d29c7e2c1c48911d6707a55887ef96fa2a04a02c5d92d0a995c",
+    "biographi-anonymi.isaeus-anonymous-westermann.jsonl": "4e8dac03e4d22ba2ee85107e685dff7d450955395e0923dd9d111974a012d371",
+    "biographi-anonymi.plato-anonymous-westermann.jsonl": "21f2b655f8cee0aaab7c35cd99e335673c71efc4af3e7e101c80a21caf7cf06d",
+    "biographi-anonymi.sophocles-life-westermann.jsonl": "31e294c259802f67144a68a6838795538567d8041243c441304546a06a404146",
+    "biographi-anonymi.thucydides-anonymous-westermann.jsonl": "c50edbc92ad1253e3eefaa0ce6a6ccbcfad912b648a71d24aaaa3b958a4ff97d",
     "bion-history.fragmenta.jsonl": "1b7e4c85e03d54107b1460c5504a7b1ad86e3777def17090135fb7be7bba2be3",
     "bion-mathematics.testimonia.jsonl": "280ee9971806a0e34b4a765670742f0aca50d6c8df5d6945db47714953342614",
     "bion-philosophy.fragmenta.jsonl": "0fa479f1f4d2cd10e2f57f1367604b26d31cabae06b2cdf4c5de25ac0577701b",
@@ -353,6 +362,7 @@
     "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e.jsonl": "2211002baf4b44fbad7dac654cd39c3c3887362bf03f98155a17edd6c73dcc63",
     "comica-adespota-caf.fragmenta-incertorum-poetarum.jsonl": "055f3cfcff80802083a402d17afa3f5c21d9b414d2171b8e5a6b063a2a5f6a29",
     "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana.jsonl": "6b0e3259a6c41a5ac8602928302a6864c274b5b1d568835b242727780aceb0f9",
+    "constantinus-manasses.oppian-manasses-westermann.jsonl": "3ead3dcb231f7bdd134acc8fbcbee19a1898e0c1aa7701ddf6c17ed74a7604e8",
     "constantinus-siculus.versus-in-leonem-philosophum.jsonl": "e1bac9e5e5f6c48ae3b1730bdab80b19d6e23beda2a1ad7078ffca89c176143c",
     "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": "ff35a7527824a77c76a07ff820816f888c703f9b8e9b63802168ac638cf2cb06",
     "constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis.jsonl": "571ed169824853373651a631224f124a6c45b454fb906287277b9e465f8076df",
@@ -496,6 +506,7 @@
     "eubulides.fragmentum.jsonl": "a3c9729ec5a51180864d07b48baa2e323a439ecf0e1381e711e152cd98f574c9",
     "eubulus.fragmenta.jsonl": "dd9ca6ccf20f2fe04d74fb48aa6790e4b9031cddf1f6c37d8d00c86a463cb402",
     "eudemus-philosophy.fragmenta.jsonl": "f4d9f3fcdac535f540271c519ea120732a81c84756c39a2b5338fa064254cb27",
+    "eudocia-printed-ionia.antiphon-eudocia-westermann.jsonl": "dfc844819d8d55d642687b27ae4a4c2b38620b65723307985d15dec9a4b92f72",
     "eudoxus-astronomy.fragmenta.jsonl": "62fa86710d4db53d8b76fa0787ff21fed204f3af563ac5ad6a910e5df507bb9c",
     "eudoxus.fragmenta.jsonl": "389d6707fdff00854be93f382f920bd051afa5d933185cd715d70df63795b37f",
     "eudromus.fragmenta.jsonl": "99ce678948862415dc05e39ab9d7fd4c655aece74a7b91a8c3dad731bf45fc71",
@@ -518,6 +529,7 @@
     "eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum.jsonl": "a0d83f4d065ecb0e364bd121d034aafaedb30ba0f07fc27575add5f380cc2b22",
     "eustathius-philol.commentarii-ad-homeri-iliadem.jsonl": "8ce79fef62854211252c822e9d5f5a84fb0bfa3ba1fea50cb6a55a499ecf295e",
     "eustathius-philol.commentarii-ad-homeri-odysseam.jsonl": "e025f08bcc0e321fa1835cc794b1609e6e8a00694031338943875371f10da547",
+    "eustathius-thessalonicensis.pindar-eustathius-westermann.jsonl": "38258281c607ac8d94fffa76ed4a7007c8d831e785dbccd18bb3b91588e8f27d",
     "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium.jsonl": "24d7586ec5737de577698c727d119e6918870b6676ed4c0bc0a5d9ec0cd9549a",
     "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio.jsonl": "6bd38cdd4d6243146b3c022d4d8784e53683690674440360fa703bca597c43f2",
     "euthalius-diaconus.apodemiai-pauli.jsonl": "2240fc56ef856140edaa83b1939089952b7c5190dc877f7ac65c81afd5e4b451",
@@ -716,7 +728,7 @@
     "heron.geometrica.jsonl": "1f139d1efbc66d47e83a155bd83e10e0e1e81bdc218c50885641171e1132a397",
     "hesiodus.fragmenta.jsonl": "f8f05d3ac0a91714c38969bf4374429c4f6f635c27afd7d2f5862a9638570230",
     "hesychius-lexicography.epistula-ad-eulogium.jsonl": "c9b5295e84004f1f8cf22b61f01727da3163dfe6eaf04dec730c514cf13277ae",
-    "hesychius-lexicography.lexicon-o.jsonl": "fbcd34f636c2586b3f59ae9142e77e675e5144a7e20d2333cee70aff99a76257",
+    "hesychius-lexicography.lexicon-o.jsonl": "22e558269963ad917d9e452e87ce5e7df9811853ac0b511e6f0b2873518a632c",
     "hesychius-lexicography.lexicon-p-w.jsonl": "ba41855d01d850ff230f2cca068f9fc41523e7bb2be8dd309d5030908496edd6",
     "hexapla-anonymi.lectiones.jsonl": "d3b8c015cd7994e6812f745c355dcb1c9a66819201c846743a4dbaf931d51140",
     "hicetas.testimonia.jsonl": "de913f61c89fad7d5e09424753eed278b748f2f9ecb9eec406b83ce0f3816bf1",
@@ -932,6 +944,7 @@
     "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous.jsonl": "8af495e1dd84ad54cfbbfa407d2526c1d94c1606d0c20d319c3e9d786688e85a",
     "joannes-stobaeus-anthologus.anthologium.jsonl": "9eb2234f472e6ec3142b1829864227b2643fd4d1a22a476d2e24f706119c9e78",
     "joannes-tzetzes.epitome-rhetorikes.jsonl": "c2a12f6efaedd145f24c3a6b18f08b32fed7b3ca497b074bd1896697c8459af6",
+    "joannes-tzetzes.lycophron-tzetzes-westermann.jsonl": "d4c5c2f119c8668ecace3ea358df9b739eb64e4bc4d8625bc440af6706077bd2",
     "joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": "6c2053451b7a0e6ec6f74e0bfba4f5b7e98c99d6cafffef0d6de4d016ca4340d",
     "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub.jsonl": "41c65f32daaadddba3904adf1c4b51b184895588304e7c9350157009de3371fc",
     "joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": "fd781161268d48b75da411950a603ba19526e15f0f149e86de3a2fa0164b7cdc",
@@ -957,6 +970,7 @@
     "lesbonax-rhetoric.politiko-s.jsonl": "649c6df3ad73a23c8b7fdf04cc4fef32d4df087a2e41fab879d1a2d7613c10e9",
     "leucippus.testimonia.jsonl": "9ede1478a7f18a14a539c6e74dc84c4a4eb0a3bb200616002e56251d41d3156e",
     "lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137.jsonl": "adf043e5aeeec3c28cb87c46b2ef84a2004d48925382a568a788887eef6ff164",
+    "libanius.demosthenes-libanius-westermann.jsonl": "f2ebef4e90c1946286972066ccd1a6a98a2f9930e4d36f9ea6a13eabf3cf594e",
     "licymnius.fragmenta.jsonl": "1520cb8688843b6610daac2213d8d411919df5c56cbd1230487b9ca3c2caa778",
     "limenius.paean-delphicus-ii-et-prosodium-in-apollinem.jsonl": "52fff7d659b1ce1b0056625e4f365038fbf9f19de66a5f9b13cb5cd16111fd80",
     "lucius-annaeus-cornutus.cornutus-lang.jsonl": "82f762069ab787064b7b83acee802de895b65f711afc90e5e5988373c6eb1079",
@@ -970,7 +984,7 @@
     "magnus.fragmentum.jsonl": "97df7ffa2850c3959d196ae5418496174a843d4a95342c17f5df02d0edbfe94c",
     "manetho.fragmenta.jsonl": "2e6399dcccb9407cbab66af022db4f19780048e8d4c2d62dde61aaca1ece2439",
     "mantissa-proverbiorum.mantissa-proverbiorum.jsonl": "c4bb88311d5b8ee7aa9276cc623e4263f8744138412061a8119e68ad488c007e",
-    "marcellinus.vita-thucydidis.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+    "marcellinus.vita-thucydidis.jsonl": "5774fab4a0ff70bf97e9b5c87aff868fb81990528fa4df6f18059dd15f8d4ad5",
     "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum.jsonl": "e047d8c74bd5eee2b9d8ca7c2c9e50a878904788a996c88e5a759ef5ce4e6c61",
     "matthaeus-camariota.rhetorikes-epitome.jsonl": "6e2a31b0cf470775ca02c71cbab5e99112f73056b8cf706be97ab0784b91a48b",
     "maximus-planudes.peri-ton-alyton-antitheseon.jsonl": "f1b6728503cb4417d6f67e712f2ee05881f915191bc9d54cbe51d1ca57aa4d9c",
@@ -1081,6 +1095,7 @@
     "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis.jsonl": "ad17358395a985a603d6492cba3de361eb469d042adfaab3e763adb2b02e6294",
     "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl": "d96803ce60d93e8d7576df0fe022b840110268cb2f48649713731dd7f642e8e3",
     "oenopides.testimonia.jsonl": "c00c6836a3b56d6757baf0f4ec4ccbc5e82fcf7ccade88b1df127fc3833a0a5b",
+    "olympiodorus-philosophy.plato-olympiodorus-westermann.jsonl": "8ea7f942761e0b52e7247192d97040c9d30fed225ed09e64ca6048aa94d3ca86",
     "onatas.fragmenta.jsonl": "db923dff8677b180401418b25003b4396d305336a4b6b6c95c22dfa1776d2d94",
     "ophelio.fragmenta.jsonl": "7da9d23a4d25f3dcdb2762209ccb959caa55876f925dfff93eeec92353220672",
     "oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo.jsonl": "723c1e4e695b7797118deb8d33ab6777ddd3ea9a3c8a366cdd7d6f65f42a16c0",
@@ -1204,6 +1219,7 @@
     "prodicus.testimonia.jsonl": "0c23dce20a39caa1fe05f8dfbfab64be79c654c6fcc97d83d0d19788518e4979",
     "proros-amyclas-clinias.testimonia-et-fragmenta.jsonl": "e657aa53b46f32bc7aab26a7f83dcb189924c29387a7f3e7f4ba03c9609e76e6",
     "protagoras.testimonia.jsonl": "c6a38a7121951db72d66f6d1eca8381ccaf158179ec7711cbd4ddc97f02584cf",
+    "pseudo-ammonius.aristotle-ammonius-westermann.jsonl": "a3c3184e3f1be58b726ca3513631456d5ce3a3a6e0bf3ae4c9fc2901710b84fe",
     "pseudo-archytas.fragmenta.jsonl": "9228b2e0bcde63b77e792295acb995207663a37649dbb2d3aaca2f255fe0c100",
     "pseudo-codinus.de-annis-ab-orbe-condito.jsonl": "fa75df852b24afc3fcd823c0e6a8dc15206470914ee0b667f136ef6c2264804e",
     "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos.jsonl": "66247213c43305a924bfce8e81ad488000c81a7071d239b67d36712b93606405",
@@ -1405,6 +1421,7 @@
     "theopompus-comedy.fragmenta.jsonl": "ee17b5ce938c873a5139b6e32c83b0c928b3e2fe5c74216070e9941f09e75b6a",
     "theopompus-history.testimonia.jsonl": "54d677cdcdcd435f2671f267664d26cedea9281e80d38bc7a7dbf4b4c5e380ce",
     "thespis.fragmenta.jsonl": "2068fabd4142684ab531c32446a1c465d4dba9e8fc7d9987dac66e50949d8c5d",
+    "thomas-magister.aristophanes-thomas-westermann.jsonl": "24558ebe893f3f27e65efd9a022cda6e80d1130b6d4fc63952233084edd1e436",
     "thrasymachus.testimonia.jsonl": "43203989ff9d7d0dc3c829746831b24970ea8cb34a899aba490d713f71562eac",
     "thugenides.fragmenta.jsonl": "a60a0f268b5287e6cc34cac3fa44f754efab83c429c6f3c7a89ec609d39aafed",
     "tiberianus.epistula-ad-trajanum-de-christianis.jsonl": "18955170660881acbb8860acfcd98055162e5571f249a657401e28c618ce3be0",
@@ -1463,12 +1480,12 @@
     "zonaeus.peri-schematon-ton-kata-logon.jsonl": "11bfa2251238929d54c2afb31347c9807d1a6c6d7e68916c4a78a7f4c813b898",
     "zosimus-alchemista.opera.jsonl": "9a86a7651e2857f579a48e1c1e96d3e89b67133bd3aa0351d9764a13c1ba2c94"
   },
-  "page_readings_sha256": "908343d79a960bac27cdae9c4aec74f9ac02d78ffe6ae6f8f0ea316b64dfcc07",
+  "page_readings_sha256": "d51cd5dbc0edd42c2bac074dff5b6091ee63341adb6c7594b2a469da15215681",
   "counts": {
-    "readings": 130410,
-    "unassessable": 52159,
-    "unflagged": 77651,
-    "flagged": 600
+    "readings": 130454,
+    "unassessable": 52692,
+    "unflagged": 77165,
+    "flagged": 597
   },
   "by_source": {
     "cgpg": {
@@ -1480,8 +1497,8 @@
       "flagged": 0
     },
     "ocr": {
-      "readings": 119699,
-      "flagged": 600
+      "readings": 119743,
+      "flagged": 597
     }
   },
   "flagged_pages": [
@@ -5534,37 +5551,6 @@
       "witness": "qwen36-mantissa_proverbiorum_paroemiogr2-masked",
       "accented_letter_rate": 0.1306532663316583,
       "breathing_letter_rate": 0.002512562814070352,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "marcellinus.vita-thucydidis",
-      "page": "marcellinus_westermann_0456",
-      "witness": "migne-ocr-qwen36",
-      "accented_letter_rate": 0.003568242640499554,
-      "breathing_letter_rate": 0.003568242640499554,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "marcellinus.vita-thucydidis",
-      "page": "marcellinus_westermann_0510",
-      "witness": "migne-ocr-qwen36",
-      "accented_letter_rate": 0.13003663003663005,
-      "breathing_letter_rate": 0.01098901098901099,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "marcellinus.vita-thucydidis",
-      "page": "marcellinus_westermann_0511",
-      "witness": "migne-ocr-qwen36",
-      "accented_letter_rate": 0.12333333333333334,
-      "breathing_letter_rate": 0.011666666666666667,
       "reasons": [
         "low-breathing-letter-rate"
       ]
