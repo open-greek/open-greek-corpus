@@ -32563,23 +32563,222 @@
           "title_paratext": 4,
           "held_other_works": 474
         },
+        "later_duplicate_review": {
+          "authority": {
+            "path": "data/corpus_changes/reviewed-duplicate-blocks/changes.json",
+            "sha256": "9dfc8146a5b65b8cf0564b8299c529e361f7eae5f28c91fc0422e859d8c71f03"
+          },
+          "groups": [
+            {
+              "analysis_greek_tokens": 395,
+              "key": "cyril:PG073.483",
+              "literal_witness_rows": 2,
+              "original_greek_tokens": 850,
+              "original_rows": 2,
+              "primary_rows": 1,
+              "reading_statuses": {
+                "single-witness": 395,
+                "unresolved": 31
+              },
+              "slug": "cyrillus-theology.commentarii-in-joannem",
+              "surface_greek_tokens": 457
+            },
+            {
+              "analysis_greek_tokens": 438,
+              "key": "cyril:PG073.484",
+              "literal_witness_rows": 2,
+              "original_greek_tokens": 968,
+              "original_rows": 2,
+              "primary_rows": 1,
+              "reading_statuses": {
+                "single-witness": 438,
+                "unresolved": 55
+              },
+              "slug": "cyrillus-theology.commentarii-in-joannem",
+              "surface_greek_tokens": 553
+            },
+            {
+              "analysis_greek_tokens": 426,
+              "key": "cyril:PG073.485",
+              "literal_witness_rows": 2,
+              "original_greek_tokens": 878,
+              "original_rows": 2,
+              "primary_rows": 1,
+              "reading_statuses": {
+                "single-witness": 426,
+                "unresolved": 31
+              },
+              "slug": "cyrillus-theology.commentarii-in-joannem",
+              "surface_greek_tokens": 490
+            },
+            {
+              "analysis_greek_tokens": 407,
+              "key": "cyril:PG073.486",
+              "literal_witness_rows": 2,
+              "original_greek_tokens": 841,
+              "original_rows": 2,
+              "primary_rows": 1,
+              "reading_statuses": {
+                "single-witness": 407,
+                "unresolved": 22
+              },
+              "slug": "cyrillus-theology.commentarii-in-joannem",
+              "surface_greek_tokens": 454
+            }
+          ],
+          "counts": {
+            "original_rows": 8,
+            "primary_rows": 4,
+            "literal_witness_rows": 8,
+            "original_greek_tokens": 3537,
+            "surface_greek_tokens": 1954,
+            "analysis_greek_tokens": 1666,
+            "collated_passages": 4,
+            "primary_rows_removed": 4,
+            "reading_statuses": {
+              "single-witness": 1666,
+              "unresolved": 139
+            }
+          },
+          "sources": [
+            {
+              "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+              "filename": "patrologiaecurs43hopfgoog.pdf",
+              "id": "cyril-pg73",
+              "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+              "pdf_pages": 575,
+              "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+              "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+            }
+          ],
+          "upstream_texts": [
+            {
+              "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+              "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+              "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+              "license": "CC-BY-4.0",
+              "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+            }
+          ],
+          "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+          "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
+          "components": [
+            {
+              "provider": "cgpg",
+              "license": "CC-BY-4.0",
+              "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+              "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+              "source_pins": {
+                "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+                "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+              },
+              "source_preimage_archive": {
+                "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+                "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+              },
+              "sources": [
+                {
+                  "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+                  "filename": "patrologiaecurs43hopfgoog.pdf",
+                  "id": "cyril-pg73",
+                  "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+                  "pdf_pages": 575,
+                  "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+                  "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+                }
+              ],
+              "upstream_texts": [
+                {
+                  "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+                  "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+                  "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+                  "license": "CC-BY-4.0",
+                  "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+                }
+              ],
+              "edition": "reviewed-duplicate-block-consensus-2026-10",
+              "storage": "primary",
+              "path": "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl",
+              "sha256": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc",
+              "role": "reviewed-duplicate-block-projection",
+              "passages": 4,
+              "loci": [
+                "reviewed-duplicate.PG073.483",
+                "reviewed-duplicate.PG073.484",
+                "reviewed-duplicate.PG073.485",
+                "reviewed-duplicate.PG073.486"
+              ],
+              "surface_greek_tokens": 1954,
+              "analysis_greek_tokens": 1666
+            },
+            {
+              "provider": "cgpg",
+              "license": "CC-BY-4.0",
+              "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+              "attribution": "Calfa, Patrologia Graeca OCR, PG073",
+              "source_pins": {
+                "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+                "data/reference/calfa-pg73/PG073_text.txt.gz": "61b8dde6ec8da1cdedb456150fbbd16cd7a6994e60afa34acd4581cb279514f9"
+              },
+              "source_preimage_archive": {
+                "path": "data/corpus_changes/reviewed-duplicate-blocks/before.json.gz",
+                "sha256": "e7ec8b20feb74dc1590e356fe3c003b33d343eeb557c50017f52f19c078c89da"
+              },
+              "sources": [
+                {
+                  "artifact_url": "https://archive.org/download/patrologiaecurs43hopfgoog/patrologiaecurs43hopfgoog.pdf",
+                  "filename": "patrologiaecurs43hopfgoog.pdf",
+                  "id": "cyril-pg73",
+                  "label": "Patrologia Graeca 73, Cyril's Commentary on John, reference scan",
+                  "pdf_pages": 575,
+                  "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+                  "url": "https://archive.org/details/patrologiaecurs43hopfgoog"
+                }
+              ],
+              "upstream_texts": [
+                {
+                  "label": "Calfa Patrologia Graeca 73 text, revision 5895ab908dd4cac5ee06cfc0e36f2ef77723e143",
+                  "url": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+                  "sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+                  "license": "CC-BY-4.0",
+                  "local_artifact": "data/reference/calfa-pg73/PG073_text.txt.gz"
+                }
+              ],
+              "edition": "reviewed-duplicate-block-literal-witnesses-2026-10",
+              "storage": "secondary",
+              "path": "data/corpus_secondary/cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses.jsonl",
+              "sha256": "b290b731b366ac19c7f0a3e30792061f9a0e5b0d7aab4fae67426cafd0da3029",
+              "role": "literal-duplicate-readings",
+              "passages": 8,
+              "original_editions": [
+                "calfa-pg73-5895ab908dd4"
+              ],
+              "original_greek_tokens": 3537,
+              "counts_toward_primary_frequency": false
+            }
+          ],
+          "work_file_accounting": {
+            "original_primary_rows": 3109,
+            "current_primary_rows": 3105
+          }
+        },
         "publication": {
           "declared_release": "corpus-2026-10-24",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
       },
-      "corpus_file_sha256": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+      "corpus_file_sha256": "2c85d94877d7ddf6412dc251fe56548f8abc86c9c0d8e8982bb86f29dcfdedfc",
       "edition": {
         "edition": "calfa-pg73-5895ab908dd4",
         "id": "ogc000940",
         "license": "CC-BY-4.0",
-        "n_analysis_tokens": 392251,
-        "n_passages": 3109,
-        "n_tokens": 392203,
+        "n_analysis_tokens": 390380,
+        "n_passages": 3105,
+        "n_tokens": 390621,
         "source": "cgpg"
       },
-      "passages": 3109,
+      "passages": 3105,
       "opening": [
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
@@ -32657,7 +32856,8 @@
         }
       ],
       "locus_prefixes": {
-        "PG073": 528,
+        "PG073": 520,
+        "reviewed-duplicate": 4,
         "pg074_0009": 2,
         "PG074": 3,
         "pg074_0011": 3,

@@ -6,8 +6,8 @@
     "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.89,
-    "pct_ingested_actual": 67.5,
-    "ingested_words_actual": 50605544,
+    "pct_ingested_actual": 67.49,
+    "ingested_words_actual": 50603770,
     "ingested_complete_works": 2924,
     "ingested_partial_works": 116,
     "pct_reachable_not_ingested": 13.88,
@@ -19,7 +19,7 @@
     },
     "underfilled_50_90_works": 450,
     "underfilled_50_90_missing_words": {
-      "actionable": 1512804,
+      "actionable": 1512996,
       "structural": 179837
     }
   },
@@ -14260,10 +14260,10 @@
       "author": "Hesychius",
       "title": "Lexicon (Α-Ο)",
       "word_count": 235261,
-      "ingested_tokens": 143419,
-      "coverage_ratio": 0.61,
+      "ingested_tokens": 143254,
+      "coverage_ratio": 0.609,
       "source": "ocr",
-      "missing_words": 91842
+      "missing_words": 92007
     },
     {
       "tlg_id": "tlg3136",
@@ -14751,10 +14751,10 @@
       "author": "Scholia In Aristophanem",
       "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
       "word_count": 31740,
-      "ingested_tokens": 26838,
-      "coverage_ratio": 0.846,
+      "ingested_tokens": 26811,
+      "coverage_ratio": 0.845,
       "source": "ocr",
-      "missing_words": 4902
+      "missing_words": 4929
     },
     {
       "tlg_id": "tlg0087",
@@ -19414,7 +19414,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 787,
-    "n_tokens": 8350522,
+    "n_tokens": 8349002,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19737,20 +19737,20 @@
         "n_tokens": 60981
       },
       {
-        "key": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
-        "edition": "dubner-1855-collated",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 65,
-        "n_tokens": 57608
-      },
-      {
         "key": "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
         "edition": "qwen36-walz_rhetores_v7pt2",
         "source": "ocr",
         "license": "PD",
         "n_passages": 3466,
         "n_tokens": 57537
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 65,
+        "n_tokens": 57360
       },
       {
         "key": "michael-glycas.epistolae",
@@ -19897,20 +19897,20 @@
         "n_tokens": 40753
       },
       {
-        "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
-        "edition": "dubner-1855-collated",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 45,
-        "n_tokens": 40523
-      },
-      {
         "key": "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 106,
         "n_tokens": 40247
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 45,
+        "n_tokens": 40004
       },
       {
         "key": "aristobulus.fhg3",
@@ -19961,20 +19961,20 @@
         "n_tokens": 38229
       },
       {
-        "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
-        "edition": "dubner-1855-collated",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 40,
-        "n_tokens": 37727
-      },
-      {
         "key": "mullach-fpg2.paratexta",
         "edition": "qwen36-archytas_mullach_fpg2",
         "source": "ocr",
         "license": "PD",
         "n_passages": 929,
         "n_tokens": 37442
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 40,
+        "n_tokens": 37170
       },
       {
         "key": "leo-vi-sapiens.novellae-constitutiones",
@@ -20014,7 +20014,7 @@
         "source": "ocr",
         "license": "PD",
         "n_passages": 42,
-        "n_tokens": 36401
+        "n_tokens": 36243
       },
       {
         "key": "nicolaus-rhetoric.progymnasmata-walz-i-263",
@@ -20033,20 +20033,20 @@
         "n_tokens": 35395
       },
       {
-        "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
-        "edition": "dubner-1855-collated",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 39,
-        "n_tokens": 34512
-      },
-      {
         "key": "scholia-in-callimachum.schol-callim-schneider",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
         "license": "PD",
         "n_passages": 6756,
         "n_tokens": 34499
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 39,
+        "n_tokens": 34474
       },
       {
         "key": "kaibel-cgf-1899.volume-witness-s",

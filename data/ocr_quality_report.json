@@ -32,8 +32,8 @@
    "ocr_works": 1427,
    "ocr_works_ranked": 831,
    "ocr_works_with_witness": 210,
-   "secondary_files": 554,
-   "skipped": 132,
+   "secondary_files": 556,
+   "skipped": 134,
    "tei_primary_ocr_secondary_pairs": 212
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -152,6 +152,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.crossfile-duplicate"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "cyrillus-theology.commentarii-in-joannem.reviewed-duplicate-witnesses"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -288,6 +292,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "hesychius-lexicography.lexicon-o.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "hesychius-lexicography.lexicon-o.reviewed-duplicate-witnesses"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -4524,22 +4532,22 @@
    "consensus": {
     "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
     "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
-    "rows_with_counted_consensus": 3,
-    "rows_without_counted_consensus": 3106,
+    "rows_with_counted_consensus": 7,
+    "rows_without_counted_consensus": 3098,
     "slot_counts": {
      "agreement": 1166,
      "incomplete-reading": 2,
-     "single-witness": 1,
-     "unresolved": 313
+     "single-witness": 1667,
+     "unresolved": 452
     }
    },
    "edition": "calfa-pg73-5895ab908dd4",
-   "n_surface_tokens": 392780,
-   "n_tokens": 392251,
-   "n_tokens_checked": 233362,
-   "n_unattested": 22849,
+   "n_surface_tokens": 391197,
+   "n_tokens": 390380,
+   "n_tokens_checked": 232202,
+   "n_unattested": 22745,
    "source": "cgpg",
-   "unattested_rate": 0.097912,
+   "unattested_rate": 0.097954,
    "witness": null
   },
   "cyrillus-theology.commentarii-in-lucam-in-catenis": {
@@ -8115,13 +8123,24 @@
    "witness": null
   },
   "hesychius-lexicography.lexicon-o": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 1,
+    "rows_without_counted_consensus": 32117,
+    "slot_counts": {
+     "damaged-reading": 1,
+     "single-witness": 266,
+     "unresolved": 10
+    }
+   },
    "edition": "qwen36-hesychius_schmidt_masked",
-   "n_surface_tokens": 147538,
-   "n_tokens": 147538,
-   "n_tokens_checked": 106671,
-   "n_unattested": 25849,
+   "n_surface_tokens": 147373,
+   "n_tokens": 147352,
+   "n_tokens_checked": 106543,
+   "n_unattested": 25813,
    "source": "ocr",
-   "unattested_rate": 0.242325,
+   "unattested_rate": 0.242278,
    "witness": null
   },
   "hesychius-lexicography.lexicon-p-w": {
@@ -27133,16 +27152,17 @@
     "slot_counts": {
      "agreement": 15215,
      "incomplete-reading": 1,
-     "unresolved": 6424
+     "source-reviewed": 25,
+     "unresolved": 6396
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 26854,
-   "n_tokens": 15215,
-   "n_tokens_checked": 8099,
+   "n_surface_tokens": 26827,
+   "n_tokens": 15240,
+   "n_tokens_checked": 8123,
    "n_unattested": 418,
    "source": "ocr",
-   "unattested_rate": 0.051611,
+   "unattested_rate": 0.051459,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -27158,20 +27178,21 @@
     "rows_with_counted_consensus": 39,
     "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "agreement": 18508,
+     "agreement": 18521,
      "damaged-reading": 4,
      "incomplete-reading": 7,
      "single-witness": 1467,
-     "unresolved": 7962
+     "source-reviewed": 4,
+     "unresolved": 7916
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 34530,
-   "n_tokens": 19975,
-   "n_tokens_checked": 10926,
-   "n_unattested": 660,
+   "n_surface_tokens": 34492,
+   "n_tokens": 19992,
+   "n_tokens_checked": 10941,
+   "n_unattested": 661,
    "source": "ocr",
-   "unattested_rate": 0.060406,
+   "unattested_rate": 0.060415,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -27215,20 +27236,21 @@
     "rows_with_counted_consensus": 45,
     "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "agreement": 22620,
+     "agreement": 23107,
      "damaged-reading": 2,
      "incomplete-reading": 4,
      "single-witness": 9,
-     "unresolved": 10575
+     "source-reviewed": 4,
+     "unresolved": 9380
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 40678,
-   "n_tokens": 22630,
-   "n_tokens_checked": 12451,
-   "n_unattested": 644,
+   "n_surface_tokens": 40159,
+   "n_tokens": 23121,
+   "n_tokens_checked": 12697,
+   "n_unattested": 658,
    "source": "ocr",
-   "unattested_rate": 0.051723,
+   "unattested_rate": 0.051823,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -27301,19 +27323,19 @@
     "rows_with_counted_consensus": 40,
     "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "agreement": 20561,
+     "agreement": 21087,
      "incomplete-reading": 6,
      "single-witness": 1004,
-     "unresolved": 9404
+     "unresolved": 8141
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 37794,
-   "n_tokens": 21566,
-   "n_tokens_checked": 11700,
-   "n_unattested": 592,
+   "n_surface_tokens": 37237,
+   "n_tokens": 22092,
+   "n_tokens_checked": 12004,
+   "n_unattested": 604,
    "source": "ocr",
-   "unattested_rate": 0.050598,
+   "unattested_rate": 0.050317,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -27329,19 +27351,19 @@
     "rows_with_counted_consensus": 65,
     "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "agreement": 33691,
+     "agreement": 33922,
      "incomplete-reading": 7,
      "single-witness": 2,
-     "unresolved": 12625
+     "unresolved": 12086
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 57634,
-   "n_tokens": 33693,
-   "n_tokens_checked": 18498,
-   "n_unattested": 1177,
+   "n_surface_tokens": 57386,
+   "n_tokens": 33924,
+   "n_tokens_checked": 18641,
+   "n_unattested": 1191,
    "source": "ocr",
-   "unattested_rate": 0.063629,
+   "unattested_rate": 0.063891,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -27357,20 +27379,20 @@
     "rows_with_counted_consensus": 42,
     "rows_without_counted_consensus": 0,
     "slot_counts": {
-     "agreement": 20882,
+     "agreement": 21027,
      "damaged-reading": 4,
      "incomplete-reading": 5,
      "single-witness": 1071,
-     "unresolved": 7642
+     "unresolved": 7306
     }
    },
    "edition": "dubner-1855-collated",
-   "n_surface_tokens": 36425,
-   "n_tokens": 21953,
-   "n_tokens_checked": 11982,
-   "n_unattested": 614,
+   "n_surface_tokens": 36267,
+   "n_tokens": 22098,
+   "n_tokens_checked": 12066,
+   "n_unattested": 617,
    "source": "ocr",
-   "unattested_rate": 0.051244,
+   "unattested_rate": 0.051135,
    "witness": {
     "agreement_primary_in_secondary": null,
     "agreement_secondary_in_primary": 0.0,
@@ -30521,8 +30543,8 @@
   "procopius-rhetoric.in-proverbia",
   "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
   "joel.chronographia-compendiaria",
-  "basilius-theology.de-humilitate",
   "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
+  "basilius-theology.de-humilitate",
   "symeon-thessalonicensis.expositio-de-sacro-symbolo",
   "basilius-theology.in-illud-in-principio-erat-verbum",
   "athanasius-theology.symbolum-quicumque-sp",
@@ -30562,12 +30584,12 @@
   "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
   "theophylactus-achridensis.enarratio-in-evangelium-joannis",
   "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
-  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
   "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
   "theophylactus-achridensis.enarratio-in-evangelium-lucae",
   "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
-  "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
   "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351",
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
   "ocr.pg026",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
