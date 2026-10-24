@@ -6,7 +6,7 @@
   "works": 3926
  },
  "generated_from": {
-  "commit": "e9842fb69e06198376fb511e95278d38366ca4eb",
+  "commit": "2435e9f18addfda1fcdb23785c3912ba5ed4c39a",
   "commit_date": "2026-10-24",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -68,19 +68,19 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3926,
-  "catalog_sha256": "944f26b20b20b5dbdc316f957205256e4141ae06d9ed10f8d67150dec043782a",
+  "catalog_sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be",
   "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20255311,
-    "works": 895
+    "tokens": 20256407,
+    "works": 897
    },
    "manual": {
-    "tokens": 5810745,
-    "works": 140
+    "tokens": 5806079,
+    "works": 135
    },
    "mixed-unassessed": {
     "tokens": 805136,
@@ -91,8 +91,8 @@
     "works": 2498
    },
    "raw-ocr": {
-    "tokens": 2541507,
-    "works": 389
+    "tokens": 2545077,
+    "works": 392
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -297,9 +297,9 @@
    "legacy_homogeneous_work_bucket": {
     "ocr_tokens": 28607563,
     "ocr_works": 1424,
-    "raw_share_of_corpus_tokens": 0.0389,
-    "raw_tokens": 2541507,
-    "raw_works": 389,
+    "raw_share_of_corpus_tokens": 0.039,
+    "raw_tokens": 2545077,
+    "raw_works": 392,
     "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
    },
    "mixed_ocr_tokens": 552999,
@@ -759,15 +759,15 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "944f26b20b20b5dbdc316f957205256e4141ae06d9ed10f8d67150dec043782a",
+     "catalog_sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be",
      "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5"
     },
     "pairs": 43580,
     "raw_share_lower_bound": 0.0317,
     "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.0389,
-    "raw_tokens_lower_bound": 2069146,
-    "raw_tokens_upper_bound": 2541507,
+    "raw_share_upper_bound": 0.039,
+    "raw_tokens_lower_bound": 2072716,
+    "raw_tokens_upper_bound": 2545077,
     "raw_works_in_doubt": 22,
     "scope": "Bounds within the homogeneous works classified raw by the catalog; not global raw-OCR bounds. Mixed-component correction coverage is unassessed.",
     "stale": true,
