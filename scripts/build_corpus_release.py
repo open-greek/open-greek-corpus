@@ -689,6 +689,10 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
     dubner = dubner_measurement(DATA.parent)
     if dubner is not None:
         release["quality"]["dubner_reading_review"] = dubner
+    from source_recovery_quality import measurement as source_recovery_measurement
+    source_recovery = source_recovery_measurement(DATA.parent)
+    if source_recovery is not None:
+        release["quality"]["source_recovery"] = source_recovery
     if uncommitted_corpus:
         # A release generated over a dirty data/corpus names a commit that does
         # not contain the text it just hashed, and the tag would pin the wrong

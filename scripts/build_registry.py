@@ -837,6 +837,8 @@ def build() -> Registry:
     dubner_definitions = dubner_identity_metadata(REPO)
     dubner_slugs = set(dubner_definitions)
     dubner_retired = dubner_retired_work_slugs(REPO, identities=dubner_definitions)
+    from westermann_manifestations import identity_metadata as westermann_identity_metadata
+    westermann_slugs = set(westermann_identity_metadata(REPO))
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
         # function's downstream logic expects from each work's cts alias (non-tlg
@@ -1032,7 +1034,7 @@ def build() -> Registry:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
-        if work_cts in MUSICAL_IDENTITIES or work_cts in dubner_slugs:
+        if work_cts in MUSICAL_IDENTITIES or work_cts in dubner_slugs or work_cts in westermann_slugs:
             continue  # explicit served identity is registered below
         # curated whole-volume works are keyed by their SERVED corpus key: the
         # reader resolves works[<corpus_editions slug>] directly (registry ->

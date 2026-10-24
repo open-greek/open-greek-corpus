@@ -778,7 +778,7 @@ def _cyril(root):
     primary = f"data/corpus/{slug}.jsonl"
     if _sha(root / primary) == audit["inputs"][primary]:
         return {}
-    from repair_reviewed_duplicate_blocks import historical_bytes
+    from reviewed_duplicate_state import historical_bytes
     primary_raw = historical_bytes(root, primary)
     if primary_raw is None:
         primary_raw = _verify(root, primary, audit["outputs"][primary]).read_bytes()
@@ -967,6 +967,10 @@ def register_reviewed_manifestations(registry, root=ROOT):
         work.best_source = "open_corpus"
     from reviewed_duplicate_manifestations import register as register_duplicate_manifestations
     register_duplicate_manifestations(registry, root)
+    from westermann_manifestations import register as register_westermann
+    from hesychius_gap_manifestations import register as register_hesychius_gap
+    register_westermann(registry, root)
+    register_hesychius_gap(registry, root)
     return metadata
 
 

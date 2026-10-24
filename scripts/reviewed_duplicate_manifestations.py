@@ -19,6 +19,7 @@ WITNESS_EDITION = "reviewed-duplicate-block-literal-witnesses-2026-10"
 
 
 def _signature(root):
+    from reviewed_duplicate_state import authority_paths
     authority = root / repair.AUDIT / "changes.json"
     audit = json.loads(authority.read_bytes())
     capture_path = repair.AUDIT + "/source-evidence.json"
@@ -27,6 +28,7 @@ def _signature(root):
         capture_path, *audit["inputs"], *audit["outputs"],
         *(item["path"] for item in capture["files"]),
         *("scripts/" + name for name in audit["recipe_sha256"])}
+    names.update(authority_paths(root))
     return tuple((name, (root / name).stat().st_size, (root / name).stat().st_mtime_ns)
         if (root / name).is_file() else (name, None, None) for name in sorted(names))
 
@@ -40,7 +42,8 @@ def _edition(key, name, *, provider, license_value, source, scheme, storage, not
 @lru_cache(maxsize=2)
 def _verified_metadata(root_name, signature):
     root = Path(root_name)
-    audit, before = repair.verify(root, replay=True)
+    from reviewed_duplicate_state import verify
+    audit, before = verify(root, replay=True)
     authority = {"path": repair.AUDIT + "/changes.json",
                  "sha256": repair.sha((root / repair.AUDIT / "changes.json").read_bytes())}
     output = {}

@@ -333,7 +333,7 @@ def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_pat
                 {"url": "https://example.org/PG073"}, {"url": "https://example.org/PG074"}]}})
     if later_duplicate_review:
         put(tmp_path, corpus, b'{"text":"collated"}\n' * 3105)
-        import repair_reviewed_duplicate_blocks as duplicate_review
+        import reviewed_duplicate_state as duplicate_review
         monkeypatch.setattr(duplicate_review, "historical_bytes", lambda root, path: original)
         # Exercise the predecessor credit in isolation; the duplicate registry
         # component has its own source-qualified authority tests.

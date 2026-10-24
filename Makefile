@@ -120,11 +120,21 @@ DUBNER_INPUTS += scripts/dubner_layers.py scripts/repair_dubner_readings.py \
                             data/corpus_changes/dubner-reading-review/* \
                             data/corpus_changes/dubner-reading-review/evidence/*)
 DUPLICATE_INPUTS := scripts/repair_reviewed_duplicate_blocks.py \
+                    scripts/reviewed_duplicate_state.py \
                     scripts/reviewed_duplicate_block_observations.py \
                     scripts/capture_reviewed_duplicate_sources.py \
                     scripts/reviewed_duplicate_manifestations.py \
                     $(wildcard data/corpus_changes/reviewed-duplicate-blocks/* \
                                data/corpus_changes/reviewed-duplicate-blocks/source-evidence/*)
+SOURCE_RECOVERY_INPUTS := scripts/repair_westermann_scope.py scripts/westermann_source_observations.py \
+                         scripts/capture_westermann_sources.py scripts/westermann_manifestations.py \
+                         scripts/repair_hesychius_missing_columns.py scripts/hesychius_gap_observations.py \
+                         scripts/capture_hesychius_gap.py scripts/run_hesychius_gap_ocr.py \
+                         scripts/hesychius_gap_manifestations.py scripts/repair_pindar_duplicate_primaries.py \
+                         $(shell find data/corpus_changes/westermann-source-review \
+                             data/corpus_changes/westermann-1845-scope \
+                             data/corpus_changes/hesychius-missing-columns \
+                             data/corpus_changes/pindar-duplicate-primaries -type f 2>/dev/null)
 HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas_readings.py \
                          scripts/fetch_herodas_reading_sources.py scripts/herodas_uncertainty_readings.py \
                          $(wildcard scripts/herodas_excerpt_readings*.py) \
@@ -134,6 +144,7 @@ HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(DUBNER_INPUTS) \
                     $(DUPLICATE_INPUTS) \
+                    $(SOURCE_RECOVERY_INPUTS) \
                     $(HERODAS_READING_INPUTS) \
                     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
                     scripts/phoenix_crusius_witnesses.py \
@@ -276,6 +287,7 @@ data/served_scheme_inference.json: $(CORPUS_EDITIONS) scripts/infer_served_schem
 
 $(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json data/served_scheme_inference.json source_identity.py
 $(REGISTRY): $(REVIEWED_MANIFESTATIONS) $(CORPUS_FILES)
+$(REGISTRY): $(SOURCE_RECOVERY_INPUTS)
 $(REGISTRY): scripts/gutenberg_source_metadata.py data/gutenberg_historical_sources.json \
              data/corpus_changes/gutenberg-historical/changes.json
 	$(PY) scripts/build_registry.py
@@ -422,7 +434,8 @@ data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
                 data/correction_stamp_gap.json $(SOURCE_COMPONENTS) scripts/build_known_limitations.py \
                 scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py \
-                scripts/dubner_review_quality.py $(DUBNER_INPUTS)
+                scripts/dubner_review_quality.py $(DUBNER_INPUTS) \
+                scripts/source_recovery_quality.py $(SOURCE_RECOVERY_INPUTS)
 	$(PY) scripts/build_known_limitations.py --write
 
 # Quoted on issue #34, so it rebuilds whenever the text it counts changes.
@@ -477,6 +490,7 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
+           $(SOURCE_RECOVERY_INPUTS) \
            scripts/correction_quality_claims.py scripts/check_corrections_mirror_fresh.py \
            $(DUP_LEAVES) $(DUP_PAGES) \
            data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS) \
@@ -512,6 +526,7 @@ capital-positions:
 # These validators read the frozen artifacts independently; use make -j4 check
 # to check them concurrently. Every command remains a required prerequisite.
 .PHONY: check-ocr-ledgers \
+        check-westermann-scope check-hesychius-gap check-pindar-duplicates \
         check-dubner-scope \
         check-reviewed-duplicates \
         check-phoenix-crusius \
@@ -540,6 +555,7 @@ capital-positions:
 # Start the longest measured checks first so they do not wait behind short ones
 # when the independent prerequisites run concurrently.
 check: check-photius-complete-review \
+       check-westermann-scope check-hesychius-gap check-pindar-duplicates \
        check-dubner-scope \
        check-reviewed-duplicates \
        check-phoenix-crusius \
@@ -587,7 +603,16 @@ check-dubner-scope:
 	$(PY) scripts/dubner_layers.py --check
 
 check-reviewed-duplicates:
-	$(PY) scripts/repair_reviewed_duplicate_blocks.py verify
+	$(PY) scripts/reviewed_duplicate_state.py --check
+
+check-westermann-scope:
+	$(PY) scripts/repair_westermann_scope.py verify
+
+check-hesychius-gap:
+	$(PY) scripts/repair_hesychius_missing_columns.py verify
+
+check-pindar-duplicates:
+	$(PY) scripts/repair_pindar_duplicate_primaries.py verify
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

@@ -63,6 +63,17 @@ def reviewed_run_metadata(row, root):
     if row.get("urn") == "herodas.mimiambi":
         from editorial_role_manifestations import reviewed_run_metadata as role_metadata
         return role_metadata(row, root)
+    if row.get("urn") == "marcellinus.vita-thucydidis":
+        import repair_westermann_scope as westermann
+        if westermann.active(root):
+            westermann.checked_state(root)
+            from westermann_source_observations import REVIEW_PATH, SOURCE
+            review = json.loads((root / REVIEW_PATH).read_bytes())
+            return {"pages": sum(bool(page["original_rows"]) for page in review["pages"]),
+                "source_url": SOURCE["url"],
+                "scope_note": "Historical whole-anthology OCR, not this many pages of Marcellinus. "
+                    "The source partition and preserved original rows are recorded in "
+                    "data/corpus_changes/westermann-1845-scope/changes.json."}
     if (row.get("urn") != "phoenix.fragmenta"
             or row.get("edition") != "qwen36-phoenix_choliambi_crusius"
             or not (root / "data/corpus_changes/phoenix-crusius-review/changes.json").exists()):

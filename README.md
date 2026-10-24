@@ -63,6 +63,33 @@ original rows and the 35 additional Hesychius lines remain in literal witnesses
 and checked word networks. Old citations still resolve. Run
 `make check-reviewed-duplicates` to replay the source-supported collation.
 
+The [missing Hesychius columns](docs/hesychius-missing-columns.md), 259–260,
+are recovered from Harvard and Ghent copies of Schmidt's 1867 edition. Eight
+literal OCR witnesses and the full word networks preserve contrary readings.
+Only readings supported by both model groups enter lexical counts; unresolved
+readings remain available. Run `make check-hesychius-gap` to replay the addition
+and verify its exact predecessor and source evidence.
+
+Westermann's 1845 biography anthology is partitioned by printed work and text
+role. `marcellinus.vita-thucydidis` retains Marcellinus's actual life; other
+admitted biographies have source-specific identities. Already served lives,
+Suda excerpts, and unaligned parallel recensions remain comparative witnesses.
+Headings, modern notes, and indexes remain outside primary lexical counts.
+Every original character and citation is retained, including mixed rows split
+at exact character offsets. `make check-westermann-scope` verifies the source
+review, comparative evidence, complete partition, and reversible audit. Source
+scope review does not certify the remaining OCR spellings.
+
+Four identical First1K Pindar units now count once under their titled work
+slugs. Their literal former rows remain secondary witnesses, and the original
+opaque identifiers remain retired with explicit canonical redirects. The
+First1K ingester uses the same reviewed routes, including when a generated
+crosswalk is absent. Run `make check-pindar-duplicates` to verify the exact
+duplicate comparison and undo archive.
+The release quality block exposes the verified counts for all three repairs;
+the known-limitations artifact retains the recovered Hesychius columns' reading
+uncertainty separately from their repaired coverage.
+
 GlossAPI historical datasets are staged separately under the admission rules
 in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).
 `python3 scripts/stage_glossapi_ekklisiastika.py` verifies the pinned source,
