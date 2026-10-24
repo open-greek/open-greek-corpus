@@ -134,6 +134,48 @@ def test_no_extension_preserves_the_historical_map_and_metadata_shape(citations,
     assert authorities == []
 
 
+def test_retired_primary_destination_resolves_to_its_proved_literal_witness(citations):
+    path, works, fragment = citations
+    original = path.read_bytes()
+    (index.REPO / "data/corpus/current.jsonl").write_text('{"locus":"new","text":"λόγος"}\n')
+    literal = {"path": "data/corpus_secondary/current.jsonl", "slug": "current",
+               "storage": "secondary", "locus": "1"}
+    fragment["aliases"] = {"current": {"1": literal}}
+    aliases, _ = index.load_active_passage_aliases(path, works)
+    assert aliases["old"]["old.1"]["path"] == literal["path"]
+    assert aliases["old"]["old.1"]["locus"] == "1"
+    history = aliases["old"]["old.1"]["alias_history"]
+    assert history == [{"destination": json.loads(original)["aliases"]["old"]["old.1"],
+                        "authority": fragment["authority"]}]
+    assert aliases["current"]["1"] == literal
+    assert path.read_bytes() == original
+    with pytest.raises(ValueError, match="Missing passage alias destination"):
+        index.load_passage_aliases(path, works)
+
+
+def test_a_new_destination_cannot_hide_an_unrelated_missing_alias(citations):
+    path, works, fragment = citations
+    shared = json.loads(path.read_bytes())
+    shared["aliases"]["old"]["missing"] = {
+        "path": "data/corpus/current.jsonl", "slug": "current", "locus": "absent"}
+    path.write_text(json.dumps(shared))
+    fragment["aliases"] = {"current": {"1": {
+        "path": "data/corpus_secondary/current.jsonl", "slug": "current",
+        "storage": "secondary", "locus": "1"}}}
+    with pytest.raises(ValueError, match="Missing passage alias destination"):
+        index.load_active_passage_aliases(path, works)
+
+
+def test_active_destination_cycles_are_rejected(citations):
+    path, works, fragment = citations
+    primary = index.REPO / "data/corpus/current.jsonl"
+    primary.write_text('{"locus":"1","text":"λόγος"}\n{"locus":"2","text":"ἄλλος"}\n')
+    target = {"path": "data/corpus/current.jsonl", "slug": "current", "locus": "1"}
+    fragment["aliases"] = {"current": {"1": {**target, "locus": "2"}, "2": target}}
+    with pytest.raises(ValueError, match="destination cycle"):
+        index.load_active_passage_aliases(path, works)
+
+
 def test_named_producer_receives_the_repository_and_can_recognize_undo(tmp_path, monkeypatch):
     observed = []
     def inactive(root):

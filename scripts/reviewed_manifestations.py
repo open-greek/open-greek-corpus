@@ -128,7 +128,7 @@ def _edition(key, name, *, provider="ocr", scheme="", source="", license="PD",
 
 def dubner_identity_metadata(root):
     """Obtain work identities only from the verified active source partition."""
-    from repair_dubner_scholias import metadata
+    from dubner_layers import metadata
     return metadata(Path(root))
 
 
@@ -960,6 +960,8 @@ def register_reviewed_manifestations(registry, root=ROOT):
                 composition["components"].insert(0, component)
         work.coverage_composition = composition
         work.best_source = "open_corpus"
+    from reviewed_duplicate_manifestations import register as register_duplicate_manifestations
+    register_duplicate_manifestations(registry, root)
     return metadata
 
 

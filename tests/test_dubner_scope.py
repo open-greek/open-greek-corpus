@@ -11,6 +11,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import dubner_source_observations as observations
+import dubner_layers as dispatcher
 import frequency_projection
 import repair_dubner_scholias as repair
 from ocr_consensus import compact_corpus_consensus, restore_corpus_consensus
@@ -36,7 +37,7 @@ def jsonl(raw):
 
 
 def retained_admission(destination):
-    """Copy the frozen authority and postimages without rerunning collation."""
+    """Copy exact scope postimages through any checked later reading archive."""
     authority = ROOT / repair.AUDIT / "changes.json"
     if not authority.exists():
         pytest.skip("The source repair has not been applied yet")
@@ -48,6 +49,11 @@ def retained_admission(destination):
     names.update(item["path"] for item in capture["files"])
     for name in names:
         source = ROOT / name
+        if name.startswith("data/corpus/") and audit["outputs"].get(name) is not None:
+            target = destination / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(dispatcher.scope_postimage_bytes(ROOT, name))
+            continue
         if source.is_file():
             target = destination / name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -167,7 +173,7 @@ def test_ties_survive_both_full_and_compact_archives_and_supply_no_scalar_tokens
     {"text": "λόγος", "analysis_text": "forged", "edition": "dubner-1855-collated"},
 ])
 def test_frequency_projection_cannot_bypass_checked_admission_with_generic_analysis_text(row):
-    with patch.object(repair, "validate_projection", side_effect=ValueError("checked admission")) as checked:
+    with patch.object(dispatcher, "validate_projection", side_effect=ValueError("checked admission")) as checked:
         with pytest.raises(ValueError, match="checked admission"):
             frequency_projection.lexical_text(row)
         checked.assert_called_once_with(row)
@@ -181,7 +187,7 @@ def test_page_word_projection_supplies_no_adjacency_after_source_role_filtering(
             {"selected": "λόγος", "lexical_eligible": True},
             {"selected": "ἄλλος", "lexical_eligible": True}]}, **marker}
     projection = frequency_projection.FrequencyProjection(tmp_path / "data")
-    with patch.object(repair, "validate_projection", return_value=row["analysis_text"]) as checked:
+    with patch.object(dispatcher, "validate_projection", return_value=row["analysis_text"]) as checked:
         assert projection.segments(row) == []
         checked.assert_called_once_with(row)
         assert projection.contextual_text(row) is None
@@ -198,7 +204,7 @@ def test_frequency_recipe_pins_every_dubner_admission_layer():
 def test_active_data_replays_from_originals(frozen_scope):
     if not (ROOT / repair.AUDIT / "changes.json").exists():
         pytest.skip("The source repair has not been applied yet")
-    audit, _ = repair.verify(ROOT, replay=True)
+    audit, _ = dispatcher.verify_scope(ROOT, replay=True)
     assert audit["works"] == frozen_scope["works"]
     assert audit["counts"] == frozen_scope["counts"]
 
@@ -207,9 +213,7 @@ def test_active_data_replays_from_originals(frozen_scope):
 def test_active_frequency_rows_reject_tampered_or_missing_admission(frozen_scope):
     if not (ROOT / repair.AUDIT / "changes.json").exists():
         pytest.skip("The source repair has not been applied yet")
-    raw = next(raw for name, raw in frozen_scope["outputs"].items()
-               if name.startswith("data/corpus/") and raw is not None)
-    row = jsonl(raw)[0]
+    row = jsonl((ROOT / repair.A_PATH).read_bytes())[0]
     assert frequency_projection.lexical_text(row) == row["analysis_text"]
     changed = dict(row, analysis_text=row["analysis_text"] + " πλαστός")
     with pytest.raises(ValueError, match="checked admission"):

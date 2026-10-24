@@ -295,7 +295,10 @@ def check(root=ROOT):
     before, (generated, changes) = replay(root)
     audit = json.loads((root / AUDIT / "changes.json").read_text())
     for path in (CORPUS, PARATEXT, WITNESS, NETWORKS):
-        if (root / path).read_bytes() != generated[path]:
+        from repair_reviewed_duplicate_blocks import historical_bytes
+        previous = historical_bytes(root, path) if path == CORPUS else None
+        actual = previous if previous is not None else (root / path).read_bytes()
+        if actual != generated[path]:
             raise ValueError(f"Cyril reading differs from its reproducible source: {path}")
     expected = json.loads(generated["data/passage_aliases.json"])["aliases"][SLUG]
     actual = json.loads((root / "data/passage_aliases.json").read_text())["aliases"][SLUG]

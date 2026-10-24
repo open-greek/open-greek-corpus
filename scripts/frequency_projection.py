@@ -58,12 +58,22 @@ def projection_recipe_pins():
     names += ("repair_dubner_scholias.py", "dubner_source_observations.py",
               "dubner_witness_alignment.py", "dubner_dedup_observations.py",
               "capture_dubner_sources.py")
+    names += ("dubner_layers.py", "repair_dubner_readings.py",
+              "experiment_dubner_alignment.py", "dubner_layout_observations.py",
+              "capture_dubner_layouts.py", "dubner_reading_observations.py",
+              "capture_dubner_readings.py", "repair_reviewed_duplicate_blocks.py",
+              "reviewed_duplicate_block_observations.py", "capture_reviewed_duplicate_sources.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
-    if "dubner_scope_review" in rec or rec.get("edition") == "dubner-1855-collated":
-        from repair_dubner_scholias import validate_projection
+    if ("reviewed_duplicate_block" in rec
+            or rec.get("edition") == "reviewed-duplicate-block-consensus-2026-10"):
+        from repair_reviewed_duplicate_blocks import validate_projection
+        return validate_projection(rec)
+    if ("dubner_reading_review" in rec or "dubner_scope_review" in rec
+            or rec.get("edition") == "dubner-1855-collated"):
+        from dubner_layers import validate_projection
         validate_projection(rec)
         return rec["analysis_text"]
     if rec.get("herodas_reading_review"):
@@ -174,7 +184,11 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
-        if "dubner_scope_review" in rec or rec.get("edition") == "dubner-1855-collated":
+        if ("reviewed_duplicate_block" in rec
+                or rec.get("edition") == "reviewed-duplicate-block-consensus-2026-10"):
+            return []
+        if ("dubner_reading_review" in rec or "dubner_scope_review" in rec
+                or rec.get("edition") == "dubner-1855-collated"):
             # Source-role filtering precedes alignment. The page-word reading
             # does not assert adjacency across removed headings or apparatus.
             return []

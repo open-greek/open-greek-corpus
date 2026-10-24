@@ -44,8 +44,24 @@ Editorial annotation and indexes are outside primary lexical counts; historical
 overlaps remain comparative witnesses. The merged reading preserves unresolved
 alternatives, which do not enter scalar frequencies. Run
 `python3 scripts/capture_dubner_sources.py --check` and
-`python3 scripts/repair_dubner_scholias.py --check` to verify the source evidence,
+`python3 scripts/dubner_layers.py --check` to verify the source evidence,
 literal replay, boundaries, and accounting.
+
+The later reading review corrects 45 historical OCR occurrences and seven
+source-verified column orders above that frozen partition. It reduces unresolved
+word-alignment slots from 75,797 to 72,390 while preserving every contrary
+reading. The remaining counts are extraction disagreements, not an OCR error
+rate. Three partial duplicate-column layouts need occurrence-level association.
+The source prints **Ληναίοις**, superseding the pilot's mistaken proposed
+**Ἀθηναίοις**; that earlier observation remains archived. Current measurements
+and reopening conditions appear in `data/known_limitations.json` and the tagged
+release's quality block.
+
+The [reviewed duplicate repair](docs/reviewed-duplicates.md) represents Cyril's
+four repeated PG073 passages and Hesychius's overlapping page once. All 119
+original rows and the 35 additional Hesychius lines remain in literal witnesses
+and checked word networks. Old citations still resolve. Run
+`make check-reviewed-duplicates` to replay the source-supported collation.
 
 GlossAPI historical datasets are staged separately under the admission rules
 in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).

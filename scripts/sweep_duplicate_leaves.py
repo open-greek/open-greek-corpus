@@ -37,6 +37,7 @@ import re
 import sys
 import unicodedata
 from collections import Counter, defaultdict
+from difflib import SequenceMatcher
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -69,6 +70,30 @@ def bigrams(text: str) -> set:
     return set(zip(w, w[1:]))
 
 
+def overlap_diagnostics(a: str, b: str) -> dict:
+    """Describe a partial repeated block without authorizing either deletion.
+
+    Containment alone can make a half-page look like a dispensable full page.
+    Directional coverage and ordered matched spans expose the unshared text.
+    """
+    wa, wb = words(a), words(b)
+    ba, bb = bigrams(a), bigrams(b)
+    shared = len(ba & bb)
+    blocks = [block for block in SequenceMatcher(None, wa, wb, autojunk=False).get_matching_blocks()
+              if block.size]
+    aligned = sum(block.size for block in blocks)
+    spans = ([blocks[0].a, blocks[-1].a + blocks[-1].size],
+             [blocks[0].b, blocks[-1].b + blocks[-1].size]) if blocks else ([0, 0], [0, 0])
+    return {"bigram_coverage_a": round(shared / len(ba), 4) if ba else 0,
+            "bigram_coverage_b": round(shared / len(bb), 4) if bb else 0,
+            "partial_overlap": bool(ba and bb and shared / min(len(ba), len(bb)) >= 0.8
+                                    and shared / max(len(ba), len(bb)) < 0.8),
+            "ordered_overlap": {"matched_tokens": aligned, "tokens_a": len(wa),
+                "tokens_b": len(wb), "span_a": spans[0], "span_b": spans[1],
+                "unmatched_tokens_a": len(wa) - aligned,
+                "unmatched_tokens_b": len(wb) - aligned}}
+
+
 # In the line-level `ocr` source a printed page is a RUN of rows keyed
 # <item>_<page>.<line>, not a single row, so the unit has to be the page or the
 # whole class is invisible. This is the gap that hid 64 byte-identical duplicate
@@ -86,6 +111,20 @@ def page_units(rows: list[dict]) -> list[tuple[str, str]] | None:
     for r in rows:
         m = PAGE_LOCUS.match(str(r["locus"]))
         if not m:
+            # The reviewed duplicate repair replaces a physical page with one
+            # explicitly marked word projection. Its new citation must not
+            # hide every remaining page of an otherwise page-keyed OCR file.
+            # This exception is diagnostic only; it grants no counting or
+            # deletion authority and never interprets generic book citations.
+            marker = r.get("reviewed_duplicate_block")
+            network = r.get("ocr_consensus", {})
+            if (isinstance(marker, dict)
+                    and marker.get("authority") == "data/corpus_changes/reviewed-duplicate-blocks/changes.json"
+                    and r.get("edition") == "reviewed-duplicate-block-consensus-2026-10"
+                    and str(r["locus"]).startswith("reviewed-duplicate.")
+                    and network.get("storage") == "compact-slots-v1"):
+                out.setdefault(str(r["locus"]), []).append(r.get("text") or "")
+                continue
             return None
         out.setdefault(m.group(1), []).append(r.get("text") or "")
     return [(k, " ".join(v)) for k, v in out.items()]
@@ -169,16 +208,20 @@ def scan_file(fp: Path) -> list[dict]:
                             "words_absent_from_a": sum(1 for w in wb if w not in wa),
                             "words_b": len(wb),
                             "unique_runs_if_b_dropped": runs,
-                            "unique_runs_if_a_dropped": runs_a})
+                            "unique_runs_if_a_dropped": runs_a,
+                            **overlap_diagnostics(a, b)})
     return out
 
 
 PAGE_KEY = re.compile(r"^(.*?)_(\d{2,})$")
+PG_PAGE_KEY = re.compile(r"^(PG\d{3})\.(\d+)$")
 MIN_RUN_LINKS = 3    # pairs in a row at one offset before it counts as a run
 
 
 def page_of(key: str) -> tuple[str, int] | None:
-    m = PAGE_KEY.match(str(key))
+    # Calfa's explicit PG volume markers are also extraction-page identities.
+    # Generic dotted citations remain excluded: 3.2 may mean book/chapter.
+    m = PAGE_KEY.fullmatch(str(key)) or PG_PAGE_KEY.fullmatch(str(key))
     return (m.group(1), int(m.group(2))) if m else None
 
 
@@ -261,7 +304,8 @@ def cross_file_hits(files: list[Path]) -> list[dict]:
                         "words_absent_from_a": sum(1 for w in wb if w not in wa),
                         "words_b": len(wb),
                         "unique_runs_if_b_dropped": unique_runs(b, a),
-                        "unique_runs_if_a_dropped": unique_runs(a, b)})
+                        "unique_runs_if_a_dropped": unique_runs(a, b),
+                        **overlap_diagnostics(a, b)})
     return out
 
 
@@ -376,22 +420,25 @@ def main() -> None:
     runs = find_runs(hits)
     served_runs = [r for r in runs if r["served"]]
 
-    # A pair with no unique run is a clean second copy: dropping it costs
-    # nothing. A pair with unique runs overlaps without being a copy, and
-    # dropping either side would lose text, so it is NOT a candidate for the
-    # drop tool no matter how high the containment.
+    # Keep the historical diagnostic categories, but do not mistake a missing
+    # normalized unique run for permission to discard a literal OCR reading.
+    # A partial scan can lack one column, and small contrary readings can fail
+    # the run-length threshold. Both require source review and preservation.
     clean = [h for h in hits
              if not (h["unique_runs_if_b_dropped"] and h["unique_runs_if_a_dropped"])]
     overlapping = [h for h in hits
                    if h["unique_runs_if_b_dropped"] and h["unique_runs_if_a_dropped"]]
     served_clean = [h for h in clean if h["served"]]
+    partial = [h for h in hits if h.get("partial_overlap")]
     by_file = Counter(h["file"] for h in hits)
     print(f"scanned {scanned:,} files at containment gate {args.gate}")
     print(f"candidate row pairs: {len(hits):,} in {len(by_file)} files")
-    print(f"  droppable one way (one side holds nothing the other lacks): {len(clean)}, "
+    print(f"  no unique run in at least one reading: {len(clean)}, "
           f"{sum(h['tokens_b'] for h in clean):,} tok")
     print(f"    of those in SERVED text: {len(served_clean)}, "
           f"{sum(h['tokens_b'] for h in served_clean):,} tok")
+    print(f"  asymmetric partial overlaps: {len(partial)}, "
+          f"{sum(h['served'] for h in partial)} in served text; preserve unshared text")
     print(f"  leaf-runs (consecutive pages repeating at a fixed offset): "
           f"{len(runs)}, of which {len(served_runs)} touch served text, "
           f"{sum(r['tokens_b'] for r in served_runs):,} tok in second reads")
@@ -436,6 +483,8 @@ def main() -> None:
         "clean_second_copies_served_tokens": sum(h["tokens_b"] for h in served_clean),
         "overlapping_not_copies": len(overlapping),
         "overlapping_not_copies_tokens": sum(h["tokens_b"] for h in overlapping),
+        "partial_overlap_candidates": len(partial),
+        "partial_overlap_candidates_served": sum(h["served"] for h in partial),
         # By band, because a single total would mislead: containment falls off
         # continuously. Split same-item from cross-item, because both drop
         # tools refuse a cross-item pair by rule, so a combined figure counts

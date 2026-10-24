@@ -685,6 +685,10 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
     polytonic = polytonic_quality(expected_corpus_sha=corpus_sha)
     if polytonic:
         release["quality"]["polytonic_loss"] = polytonic
+    from dubner_review_quality import measurement as dubner_measurement
+    dubner = dubner_measurement(DATA.parent)
+    if dubner is not None:
+        release["quality"]["dubner_reading_review"] = dubner
     if uncommitted_corpus:
         # A release generated over a dirty data/corpus names a commit that does
         # not contain the text it just hashed, and the tag would pin the wrong

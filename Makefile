@@ -110,6 +110,21 @@ DUBNER_INPUTS := scripts/repair_dubner_scholias.py scripts/dubner_source_observa
                  scripts/capture_dubner_sources.py \
                  $(wildcard data/corpus_changes/dubner-1855-scope/* \
                             data/corpus_changes/dubner-1855-scope/source-evidence/*)
+DUBNER_INPUTS += scripts/dubner_layers.py scripts/repair_dubner_readings.py \
+                 scripts/experiment_dubner_alignment.py scripts/dubner_layout_observations.py \
+                 scripts/capture_dubner_layouts.py scripts/dubner_reading_observations.py \
+                 scripts/capture_dubner_readings.py scripts/dubner_review_quality.py \
+                 $(wildcard data/corpus_changes/dubner-1855-readings/* \
+                            data/corpus_changes/dubner-layout-review/* \
+                            data/corpus_changes/dubner-layout-review/pages/* \
+                            data/corpus_changes/dubner-reading-review/* \
+                            data/corpus_changes/dubner-reading-review/evidence/*)
+DUPLICATE_INPUTS := scripts/repair_reviewed_duplicate_blocks.py \
+                    scripts/reviewed_duplicate_block_observations.py \
+                    scripts/capture_reviewed_duplicate_sources.py \
+                    scripts/reviewed_duplicate_manifestations.py \
+                    $(wildcard data/corpus_changes/reviewed-duplicate-blocks/* \
+                               data/corpus_changes/reviewed-duplicate-blocks/source-evidence/*)
 HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas_readings.py \
                          scripts/fetch_herodas_reading_sources.py scripts/herodas_uncertainty_readings.py \
                          $(wildcard scripts/herodas_excerpt_readings*.py) \
@@ -118,6 +133,7 @@ HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(DUBNER_INPUTS) \
+                    $(DUPLICATE_INPUTS) \
                     $(HERODAS_READING_INPUTS) \
                     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
                     scripts/phoenix_crusius_witnesses.py \
@@ -144,6 +160,7 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     $(DUBNER_INPUTS) \
+    $(DUPLICATE_INPUTS) \
     $(HERODAS_READING_INPUTS) \
     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
@@ -495,6 +512,7 @@ capital-positions:
 # to check them concurrently. Every command remains a required prerequisite.
 .PHONY: check-ocr-ledgers \
         check-dubner-scope \
+        check-reviewed-duplicates \
         check-phoenix-crusius \
         check-editorial-roles \
         check-herodas-body \
@@ -522,6 +540,7 @@ capital-positions:
 # when the independent prerequisites run concurrently.
 check: check-photius-complete-review \
        check-dubner-scope \
+       check-reviewed-duplicates \
        check-phoenix-crusius \
        check-editorial-roles \
        check-herodas-body \
@@ -564,7 +583,10 @@ check-acharnians-source-pilot:
 
 check-dubner-scope:
 	$(PY) scripts/capture_dubner_sources.py --check
-	$(PY) scripts/repair_dubner_scholias.py --check
+	$(PY) scripts/dubner_layers.py --check
+
+check-reviewed-duplicates:
+	$(PY) scripts/repair_reviewed_duplicate_blocks.py verify
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

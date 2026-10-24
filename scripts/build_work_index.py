@@ -59,9 +59,24 @@ def load_passage_aliases(path: Path, works: dict) -> dict:
 
 def _active_passage_alias_fragments(root: Path):
     """Ask named admission producers for their verified active extensions."""
-    from repair_dubner_scholias import alias_fragment
-    fragment = alias_fragment(root)
-    return [] if fragment is None else [fragment]
+    from dubner_layers import alias_fragment
+    import repair_reviewed_duplicate_blocks as duplicates
+    fragments = [fragment for fragment in (alias_fragment(root), duplicates.alias_fragment(root))
+                 if fragment is not None]
+    for fragment in fragments:
+        if fragment["authority"]["path"] == duplicates.AUDIT + "/changes.json":
+            # This named producer already replayed and checked every output.
+            audit = json.loads((root / fragment["authority"]["path"]).read_bytes())
+            permitted = {}
+            for slug, passages in fragment["aliases"].items():
+                for target in passages.values():
+                    name = target["path"]
+                    if (target.get("storage") == "secondary" and target.get("slug") == slug
+                            and name in audit["outputs"] and audit["outputs"][name] is not None):
+                        permitted.setdefault(slug, []).append(name)
+            fragment["secondary_witness_paths"] = {slug: sorted(set(names))
+                                                    for slug, names in permitted.items()}
+    return fragments
 
 
 def _retired_passage_alias_sources(root: Path, declared: dict, works: dict) -> dict:
@@ -93,8 +108,14 @@ def load_active_passage_aliases(path: Path, works: dict) -> tuple[dict, list[dic
     checks its authority hash, refuses collisions, and validates all destinations.
     The historical loader above deliberately continues to read just its file.
     """
-    aliases = load_passage_aliases(path, works)
+    # A later verified migration may retire an earlier primary destination.
+    # Compose its literal-witness redirect before checking live destinations;
+    # the shared historical alias file remains byte-for-byte unchanged.
+    aliases = load_json(path, {}).get("aliases", {})
     authorities = []
+    redirects = {}
+    all_retired_sources = {}
+    secondary_paths = {}
     root = Path(path).parent.parent
     for fragment in _active_passage_alias_fragments(root):
         if (not isinstance(fragment, dict) or not isinstance(fragment.get("aliases"), dict)
@@ -113,8 +134,17 @@ def load_active_passage_aliases(path: Path, works: dict) -> tuple[dict, list[dic
                 or hashlib.sha256(authority_path.read_bytes()).hexdigest() != digest):
             raise ValueError("Active passage alias authority changed: " + relative)
         additions = fragment["aliases"]
+        declared_secondary = fragment.get("secondary_witness_paths", {})
+        for slug, names in declared_secondary.items():
+            if (slug not in works or not isinstance(names, list) or any(
+                    not isinstance(name, str) or Path(name).is_absolute() or ".." in Path(name).parts
+                    or "\\" in name or not name.startswith(f"data/corpus_secondary/{slug}.")
+                    or not name.endswith(".jsonl") for name in names)):
+                raise ValueError("Invalid declared secondary witness paths")
+            secondary_paths.setdefault(slug, set()).update(names)
         declared_retired = fragment.get("retired_sources", {})
         retired_sources = _retired_passage_alias_sources(root, declared_retired, works)
+        all_retired_sources.update(retired_sources)
         if set(retired_sources) - set(additions):
             raise ValueError("A retired passage alias source has no declared aliases")
         for old, passages in additions.items():
@@ -124,17 +154,43 @@ def load_active_passage_aliases(path: Path, works: dict) -> tuple[dict, list[dic
             if collision:
                 raise ValueError("Active passage alias collision: " + old + ", "
                                  + sorted(collision)[0])
-        validate_passage_aliases(additions, works, source_works={**works, **retired_sources})
+        validate_passage_aliases(additions, works, source_works={**works, **retired_sources},
+                                secondary_paths=secondary_paths)
         for old, passages in additions.items():
             aliases.setdefault(old, {}).update(passages)
+            if old in works:
+                for locus, target in passages.items():
+                    redirects[(f"data/corpus/{old}.jsonl", locus)] = (target, dict(authority))
         exported_authority = {"path": relative, "sha256": digest}
         if declared_retired:
             exported_authority["retired_sources"] = dict(declared_retired)
         authorities.append(exported_authority)
+    for old, passages in aliases.items():
+        for locus, target in list(passages.items()):
+            initial = target
+            history = []
+            seen = set()
+            key = (target["path"], target["locus"])
+            while key in redirects:
+                if key in seen:
+                    raise ValueError("Active passage destination cycle: " + old + ", " + locus)
+                seen.add(key)
+                next_target, authority = redirects[key]
+                if next_target == target:
+                    break
+                history.append({"destination": dict(target), "authority": authority})
+                target = next_target
+                key = (target["path"], target["locus"])
+            if history:
+                passages[locus] = {**target,
+                    "alias_history": [*initial.get("alias_history", []), *history]}
+    validate_passage_aliases(aliases, works, source_works={**works, **all_retired_sources},
+                            secondary_paths=secondary_paths)
     return aliases, authorities
 
 
-def validate_passage_aliases(aliases: dict, works: dict, *, source_works: dict | None = None) -> dict:
+def validate_passage_aliases(aliases: dict, works: dict, *, source_works: dict | None = None,
+                            secondary_paths: dict | None = None) -> dict:
     source_works = works if source_works is None else source_works
     destinations = {}
     for old, passages in aliases.items():
@@ -148,7 +204,10 @@ def validate_passage_aliases(aliases: dict, works: dict, *, source_works: dict |
                 slug = target["slug"]
                 storage = target.get("storage", "primary")
                 directory = "corpus_secondary" if storage == "secondary" else "corpus"
-                if storage not in {"primary", "secondary"} or slug not in works or relative.as_posix() != f"data/{directory}/{slug}.jsonl":
+                allowed = {f"data/{directory}/{slug}.jsonl"}
+                if storage == "secondary":
+                    allowed.update((secondary_paths or {}).get(slug, []))
+                if storage not in {"primary", "secondary"} or slug not in works or relative.as_posix() not in allowed:
                     raise ValueError(f"Invalid passage alias work: {slug}")
             elif not relative.as_posix().startswith(("data/paratext/", "data/ocr_witnesses/")):
                 raise ValueError(f"Invalid passage alias destination: {relative}")
