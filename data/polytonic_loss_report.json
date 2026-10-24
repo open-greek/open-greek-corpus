@@ -31,7 +31,7 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
-  "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
+  "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
   "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
@@ -1178,7 +1178,6 @@
     "pindarus.fragmenta.jsonl": "3a0729e53647387086653d1f5ef2f9f829daabaa42883f7f76d83d93835ed0aa",
     "pisander-epic.heraclea-fragmenta.jsonl": "e4a8fb5ba2806ebcb979375a8bede4e195600d6ec7f3c7e870fb94eb3bec15b1",
     "plato-comedy.fragmenta.jsonl": "46f03152bcf0c4022f1bfe584611c4731a217499fb4e9acb124d4726e0f19838",
-    "platonius.fragmenta-de-comoedia-graeca.jsonl": "9e2caeeb7764f10c01b21b404efbf9a8c516d06116e6b855e4615d1af09c01d5",
     "poliochus.fragmenta.jsonl": "1b843d40cbbd5209a9749a8530b7cd8de27a6e6eefb75cfe7b1aeee31b24d0a3",
     "polus-lucanus.fragmentum.jsonl": "662f626d7a91b8932b82a3a5c035563a625df015d59c3c507ba7c14b87c360ec",
     "polybius-sardianus.peri-schematismou.jsonl": "78204e326f83b3d656e271a41d5931c926db26c979bce6e745d54ce9a3c13086",
@@ -1241,7 +1240,20 @@
     "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": "1e20e9b5423e2ed14bc2e96ce564bca36a420590ed70c5b1292904bc8f2ab7ce",
     "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera.jsonl": "1015197e79d35d08c9dcad246b26238156fd4ca63b8f56d3ff9e0471d21d18cd",
     "scholia-in-aratum.scholia-in-aratum-scholia-vetera.jsonl": "5ee0603a9ecc9389f3df5f05d13458249ddb461c17a758f685696c3fb144b650",
-    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+    "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6e63a452c71aa5ddc52384185d01e0be02527b208eaebc1ef3acc4c20d10a5fc",
+    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "33e315dde7b27400441986bd0c2f8680e21933d7740f6fcf9d3a12b423eb52cd",
+    "scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "d17e7b2fde7a0cf1272d761b8159a69d9e6f12bf43d923f5b81a402599cb4f33",
+    "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "d40f1f9d1edad476e680c47928a5c53cf8eaca2f888b5fbe5d97b75bbdac6214",
+    "scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "3ccffc0e097a4680e62a349325cfeacda703d67fe4faeec6be02b3a1a76f2924",
+    "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "77a78b9baa2ac396bdd2140c42d1ccd6cc3b425d74a1d2b65cb92b68ef1cf981",
+    "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "0feeffbf7d294ea7ef5b9c1a63486a67d1ec22dd7b8a0cd352c15aea8a78e691",
+    "scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "9feff804d2a8e1fe4770437947f23889366657618ebe8f65c5ca3d209ffba6a4",
+    "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "38214487df31297d88d0a15c0fa58c2e0974d89461aa0de76e07f1d6c30bf8fb",
+    "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "bf8137282ea9af5d213578aec88ee93916b90665830cdf3832389710abfa689a",
+    "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "d4590ca7515bbaeed6ef82d14a0bbcb72629c4e7c27a177ba1bf73b67b7305a7",
+    "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "56c755337189f426bb544546e0a4e301452f03b8207f00442c88b9e257cc7cc7",
+    "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "98ffde68052353d2428a69a33a00f458eeee0a7a7e3251ef4714b343258c0568",
+    "scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "484cfdf1083c0a81c05159f1ac5c99254cb7985414732d0a43db1d43eb3eabc6",
     "scholia-in-callimachum.schol-callim-schneider.jsonl": "816c821916cc90cfd1d9b54b46aedad6e25253496b4e8546cb820cd819eab1e8",
     "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": "d7911397bbea6f8d099f16dea492ee21841302e542436ff8807a485000bfe41e",
     "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera.jsonl": "ae73ab2abd2765531ee8e0e2435087016a00709e80cd6cbac5e748984fd0def7",
@@ -1451,12 +1463,12 @@
     "zonaeus.peri-schematon-ton-kata-logon.jsonl": "11bfa2251238929d54c2afb31347c9807d1a6c6d7e68916c4a78a7f4c813b898",
     "zosimus-alchemista.opera.jsonl": "9a86a7651e2857f579a48e1c1e96d3e89b67133bd3aa0351d9764a13c1ba2c94"
   },
-  "page_readings_sha256": "5e6091ef523e67ea8684f99b62a0da51ca2243c3d1916cd5d421021a22148cab",
+  "page_readings_sha256": "ac8e450ae01579b9f011dcaee8c5cb72641c4b86005ee8f88631c2cc00ae9f08",
   "counts": {
-    "readings": 130875,
-    "unassessable": 51328,
-    "unflagged": 78937,
-    "flagged": 610
+    "readings": 130410,
+    "unassessable": 52157,
+    "unflagged": 77653,
+    "flagged": 600
   },
   "by_source": {
     "cgpg": {
@@ -1468,8 +1480,8 @@
       "flagged": 0
     },
     "ocr": {
-      "readings": 120164,
-      "flagged": 610
+      "readings": 119699,
+      "flagged": 600
     }
   },
   "flagged_pages": [
@@ -6277,56 +6289,6 @@
       ]
     },
     {
-      "work": "platonius.fragmenta-de-comoedia-graeca",
-      "page": "platonius_duebner_scholaristoph1_0779",
-      "witness": "qwen36-platonius_duebner_scholaristoph1",
-      "accented_letter_rate": 0.12345679012345678,
-      "breathing_letter_rate": 0.00977366255144033,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "platonius.fragmenta-de-comoedia-graeca",
-      "page": "platonius_duebner_scholaristoph1_0783",
-      "witness": "qwen36-platonius_duebner_scholaristoph1",
-      "accented_letter_rate": 0.11224489795918367,
-      "breathing_letter_rate": 0.006316812439261419,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "platonius.fragmenta-de-comoedia-graeca",
-      "page": "platonius_duebner_scholaristoph1_0785",
-      "witness": "qwen36-platonius_duebner_scholaristoph1",
-      "accented_letter_rate": 0.12732394366197183,
-      "breathing_letter_rate": 0.008450704225352112,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "platonius.fragmenta-de-comoedia-graeca",
-      "page": "platonius_duebner_scholaristoph1_0788",
-      "witness": "qwen36-platonius_duebner_scholaristoph1",
-      "accented_letter_rate": 0.11895551257253385,
-      "breathing_letter_rate": 0.010638297872340425,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "platonius.fragmenta-de-comoedia-graeca",
-      "page": "platonius_duebner_scholaristoph1_0790",
-      "witness": "qwen36-platonius_duebner_scholaristoph1",
-      "accented_letter_rate": 0.11684782608695653,
-      "breathing_letter_rate": 0.010869565217391304,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
       "work": "porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma",
       "page": "bub_gb_QQjv6qFa-QoC_0303",
       "witness": "qwen36-porphyry-in-ptol-bub",
@@ -6833,56 +6795,6 @@
       "breathing_letter_rate": 0.01837270341207349,
       "reasons": [
         "low-accented-letter-rate"
-      ]
-    },
-    {
-      "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-      "page": "scholia_aristoph_dubner_0754",
-      "witness": "qwen36-scholia_aristoph_dubner-masked",
-      "accented_letter_rate": 0.12289395441030723,
-      "breathing_letter_rate": 0.010901883052527254,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-      "page": "scholia_aristoph_dubner_0758",
-      "witness": "qwen36-scholia_aristoph_dubner-masked",
-      "accented_letter_rate": 0.12030798845043311,
-      "breathing_letter_rate": 0.006737247353224254,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-      "page": "scholia_aristoph_dubner_0760",
-      "witness": "qwen36-scholia_aristoph_dubner-masked",
-      "accented_letter_rate": 0.132903981264637,
-      "breathing_letter_rate": 0.008782201405152224,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-      "page": "scholia_aristoph_dubner_0763",
-      "witness": "qwen36-scholia_aristoph_dubner-masked",
-      "accented_letter_rate": 0.11884865366759517,
-      "breathing_letter_rate": 0.009749303621169917,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-      "page": "scholia_aristoph_dubner_0765",
-      "witness": "qwen36-scholia_aristoph_dubner-masked",
-      "accented_letter_rate": 0.11727559765448804,
-      "breathing_letter_rate": 0.010374379792512404,
-      "reasons": [
-        "low-breathing-letter-rate"
       ]
     },
     {

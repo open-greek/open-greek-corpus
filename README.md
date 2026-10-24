@@ -37,6 +37,16 @@ a gap and gets sourced from a public-domain edition instead
 
 ## Source precedence
 
+The [Dübner source review](docs/dubner-source-split.md) separates the eleven
+Aristophanes play sections and historical prolegomena formerly served under
+Acharnians and Platonius. Both OCR extractions and old citations are preserved.
+Editorial annotation and indexes are outside primary lexical counts; historical
+overlaps remain comparative witnesses. The merged reading preserves unresolved
+alternatives, which do not enter scalar frequencies. Run
+`python3 scripts/capture_dubner_sources.py --check` and
+`python3 scripts/repair_dubner_scholias.py --check` to verify the source evidence,
+literal replay, boundaries, and accounting.
+
 GlossAPI historical datasets are staged separately under the admission rules
 in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).
 `python3 scripts/stage_glossapi_ekklisiastika.py` verifies the pinned source,
@@ -694,10 +704,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 569 of the 3,914 served works have no
+distinct `ogc` ids sharing one TLG anchor. 582 of the 3,926 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,345 works, `tlg` on 3,306,
+`work_index.json` under `work_anchors` (`cts` on 3,344 works, `tlg` on 3,305,
 `wikidata` on 518), so joins against citation and lexicon data still work.
 The crosswalk builder reads bibliographic facts from the committed
 `data/inventory/work_inventory.json`; rebuilding it requires no external
@@ -2498,7 +2508,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1397 listed works/volumes containing OCR: 127 manually corrected, 879 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 387 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1409 listed works/volumes containing OCR: 128 manually corrected, 891 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 386 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -2540,7 +2550,7 @@ not agree with it.
 | anaximenis-milesii-epistulae.epistulae | Anaximenis Milesii Epistulae - Epistulae | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
 | anaxippus.fragmenta | ANAXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
 | andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
-| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,300 | auto-corrected |
+| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,300 | manual |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
 | anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei | Anonymi - De essentia et operatione Dei (PG151 loci 603-628) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,989 | raw OCR |
 | anonymi-delectus-legum.delectus-legum-compendiarius | Anonymi - Delectus legum compendiarius (PG113 loci 238-283) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 17,645 | raw OCR |
@@ -3627,7 +3637,6 @@ not agree with it.
 | pindarus.fragmenta | Pindarus - Fragmenta | [Pindar, ed. Schroeder (Teubner)](https://archive.org/search?query=Pindari+carmina+Schroeder) | Qwen3.6-27B | 12,139 | auto-corrected |
 | pisander-epic.heraclea-fragmenta | Pisander - Heraclea (Fragmenta) | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 28 | raw OCR |
 | plato-comedy.fragmenta | Plato - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 5,848 | auto-corrected |
-| platonius.fragmenta-de-comoedia-graeca | Platonius - Fragmenta De Comoedia Graeca | qwen36-platonius_duebner_scholaristoph1 | Qwen3.6-27B | 337,096 | auto-corrected |
 | poliochus.fragmenta | POLIOCHUS - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 193 | auto-corrected |
 | polus-lucanus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 184 | raw OCR |
 | polybius-sardianus.peri-schematismou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 756 | auto-corrected |
@@ -3690,7 +3699,20 @@ not agree with it.
 | scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera | Scholia In Aeschylum - Scholia In Aeschylum (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
 | scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | auto-corrected |
 | scholia-in-aratum.scholia-in-aratum-scholia-vetera | Scholia In Aratum - Scholia In Aratum (Scholia Vetera) | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,686 | raw OCR |
-| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii) | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | raw OCR |
+| scholia-in-aristophanem.andronicus-poet-order-dubner-1855 | Scholia In Aristophanem - Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 107 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Hypotheses and scholia to Acharnians (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 15,215 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-aves-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Birds (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 19,975 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Assemblywomen (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 2,781 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-equites-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Knights (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 22,630 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Lysistrata (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 6,755 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-nubes-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Clouds (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 31,380 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-pax-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Peace (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 21,566 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-plutus-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Wealth (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 33,693 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-ranae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Frogs (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 21,953 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Thesmophoriazusae (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 3,580 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-vespae-dubner-1855 | Scholia In Aristophanem - Hypotheses and scholia to Wasps (Dübner 1855) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 17,814 | auto-corrected |
+| scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855 | Scholia In Aristophanem - Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 356 | auto-corrected |
+| scholia-in-aristophanem.triclinius-meters-dubner-1855 | Scholia In Aristophanem - Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων] (Dübner 1855 source witness) | [toronto](https://archive.org/details/scholiagraecaina00dbuoft), [harvard](https://archive.org/details/scholiagraecain01dbgoog) | Qwen3.6-27B (collated same-edition OCR; unresolved readings excluded) | 181 | auto-corrected |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,582 | auto-corrected |
 | scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 109,808 | auto-corrected |
 | scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,892 | auto-corrected |
@@ -3903,7 +3925,7 @@ not agree with it.
 
 ## Status
 
-- 3,914 works served, 65.8M Greek tokens in the checked lexical projection, 17 source categories.
+- 3,926 works served, 65.3M Greek tokens in the checked lexical projection, 17 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

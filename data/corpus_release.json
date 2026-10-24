@@ -1,13 +1,13 @@
 {
  "corpus": {
-  "passages": 1964140,
-  "tokens": 65785809,
-  "tokens_lemmatized": 63953491,
-  "works": 3914
+  "passages": 1920268,
+  "tokens": 65292644,
+  "tokens_lemmatized": 63500937,
+  "works": 3926
  },
  "generated_from": {
-  "commit": "680bb6e7e4680fc490489e6140a7e7c408828c78",
-  "commit_date": "2026-10-22",
+  "commit": "e9842fb69e06198376fb511e95278d38366ca4eb",
+  "commit_date": "2026-10-24",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -25,8 +25,8 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 26407968,
-   "works": 1233
+   "tokens": 25914803,
+   "works": 1245
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
    "tokens": 7519,
@@ -67,20 +67,20 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3914,
-  "catalog_sha256": "112c6dc5abe41c6700f70981f0f8cf98ece6f8850f6ba72ac6bcae94255d0b34",
-  "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
+  "catalog_rows": 3926,
+  "catalog_sha256": "944f26b20b20b5dbdc316f957205256e4141ae06d9ed10f8d67150dec043782a",
+  "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20610972,
-    "works": 886
+    "tokens": 20255311,
+    "works": 895
    },
    "manual": {
-    "tokens": 5589303,
-    "works": 132
+    "tokens": 5810745,
+    "works": 140
    },
    "mixed-unassessed": {
     "tokens": 805136,
@@ -91,17 +91,17 @@
     "works": 2498
    },
    "raw-ocr": {
-    "tokens": 2900453,
-    "works": 394
+    "tokens": 2541507,
+    "works": 389
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "polytonic_loss": {
    "counts": {
-    "flagged": 610,
-    "readings": 130875,
-    "unassessable": 51328,
-    "unflagged": 78937
+    "flagged": 600,
+    "readings": 130410,
+    "unassessable": 52157,
+    "unflagged": 77653
    },
    "fresh_validation": [
     {
@@ -285,9 +285,9 @@
     "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
    ],
    "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
-   "page_readings_sha256": "5e6091ef523e67ea8684f99b62a0da51ca2243c3d1916cd5d421021a22148cab",
+   "page_readings_sha256": "ac8e450ae01579b9f011dcaee8c5cb72641c4b86005ee8f88631c2cc00ae9f08",
    "report": "data/polytonic_loss_report.json",
-   "report_sha256": "66ea2364d14d41c9c75e445173447d84ef761ee57534e05d010fe275bc45246e",
+   "report_sha256": "695cb9f32e2050d008b08bd9d5ca34697f864f48cb3f5d9d573630038fc16e0f",
    "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
    "selection_rule": null
   },
@@ -295,17 +295,17 @@
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "global_raw_token_bounds": null,
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 29100728,
-    "ocr_works": 1412,
-    "raw_share_of_corpus_tokens": 0.0441,
-    "raw_tokens": 2900453,
-    "raw_works": 394,
+    "ocr_tokens": 28607563,
+    "ocr_works": 1424,
+    "raw_share_of_corpus_tokens": 0.0389,
+    "raw_tokens": 2541507,
+    "raw_works": 389,
     "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29653727,
-   "ocr_works": 1416,
+   "ocr_tokens": 29160562,
+   "ocr_works": 1428,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "source_components": {
@@ -367,9 +367,9 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 25300496,
-     "passages": 1334950,
-     "works": 1217
+     "analysis_tokens": 24807331,
+     "passages": 1291078,
+     "works": 1229
     },
     "perseus": {
      "analysis_tokens": 9695795,
@@ -397,7 +397,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
+   "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -581,16 +581,16 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "5dc745a820230e0535d5c803cdd2cdf9e895779918f5e818796fcc0c96fb70ad",
+   "sha256": "9e59276f62dfeac19efb2185fc124ae156b2adcbca19e08acf4f3cc9ee501cc5",
    "totals": {
-    "analysis_tokens": 65785809,
+    "analysis_tokens": 65292644,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29653727,
-    "ocr_passages": 1346368,
-    "ocr_works": 1416,
-    "passages": 1964140,
-    "works": 3914
+    "ocr_analysis_tokens": 29160562,
+    "ocr_passages": 1302496,
+    "ocr_works": 1428,
+    "passages": 1920268,
+    "works": 3926
    }
   },
   "wrong_corrections": {
@@ -750,31 +750,33 @@
     "artifact": "data/correction_stamp_gap.json",
     "by_method": {
      "agent": 1154,
-     "confusion": 738,
+     "confusion": 700,
      "freq": 9104,
      "llm": 32106,
      "prosodia": 516
     },
-    "correction_population_checked": false,
+    "correction_population_checked": true,
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "112c6dc5abe41c6700f70981f0f8cf98ece6f8850f6ba72ac6bcae94255d0b34",
-     "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546"
+     "catalog_sha256": "944f26b20b20b5dbdc316f957205256e4141ae06d9ed10f8d67150dec043782a",
+     "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5"
     },
-    "pairs": 43618,
-    "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
-    "raw_share_lower_bound": 0.0369,
+    "pairs": 43580,
+    "raw_share_lower_bound": 0.0317,
     "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.0441,
-    "raw_tokens_lower_bound": 2428092,
-    "raw_tokens_upper_bound": 2900453,
+    "raw_share_upper_bound": 0.0389,
+    "raw_tokens_lower_bound": 2069146,
+    "raw_tokens_upper_bound": 2541507,
     "raw_works_in_doubt": 22,
     "scope": "Bounds within the homogeneous works classified raw by the catalog; not global raw-OCR bounds. Mixed-component correction coverage is unassessed.",
-    "stale": false,
+    "stale": true,
+    "stale_reasons": [
+     "active correction population changed"
+    ],
     "tool": "scripts/measure_stamp_gap.py",
     "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
-    "works_affected": 261,
+    "works_affected": 260,
     "works_under_the_floor_only_because_of_it": 24
    },
    "measured_on": [
@@ -792,8 +794,10 @@
     "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
    },
    "population_check": {
-    "checked": false,
-    "why": "data/corrections_log/ is a local audit mirror and is not published in this repository"
+    "checked": true,
+    "records_now": 234185,
+    "records_when_measured": 228866,
+    "stale": true
    },
    "precision_by_corrector": {
     "agent/accepted": 0.941,
@@ -841,8 +845,8 @@
    "wrong_rows_estimate": 20400
   }
  },
- "release_date": "2026-10-22",
- "release_id": "corpus-2026-10-22.2",
+ "release_date": "2026-10-24",
+ "release_id": "corpus-2026-10-24",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -889,8 +893,8 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 25042185,
-   "works": 1215
+   "tokens": 24549020,
+   "works": 1227
   },
   "perseus": {
    "tokens": 9850877,

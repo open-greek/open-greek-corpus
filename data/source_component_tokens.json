@@ -56,9 +56,9 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25300496,
-   "passages": 1334950,
-   "works": 1217
+   "analysis_tokens": 24807331,
+   "passages": 1291078,
+   "works": 1229
   },
   "perseus": {
    "analysis_tokens": 9695795,
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
+ "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3130,7 +3130,6 @@
   "plato-philosophy.theaetetus.jsonl": "ccc4d42f20cec04c328e9ef5d6bedc80f5866958b2bb7720204f36e516f6ab80",
   "plato-philosophy.theages-sp.jsonl": "6b5141c1b903c76c22563ca496472bc9c4c5ff01d98a0c837224ca521ca89cdb",
   "plato-philosophy.timaeus.jsonl": "6b7596610ba3e371681c4de2bc2f286764c4e368107244966e4f5b2fbaa5a502",
-  "platonius.fragmenta-de-comoedia-graeca.jsonl": "9e2caeeb7764f10c01b21b404efbf9a8c516d06116e6b855e4615d1af09c01d5",
   "plotinus.enneades.jsonl": "79de5759e08181e36ed73da43effb25e50aaa0ee7c84f41bf7bec3305dda86bc",
   "plutarchus.ad-principem-ineruditum-779d-782f.jsonl": "a18bac29ad71a33b2de2560f2ad0683b402b101266513c13a430952efde55a55",
   "plutarchus.adversus-colotem-1107d-1127e.jsonl": "85e90755cb4ba8c7fb91939775756bdcd71fa9847d1387caebc6ac3ef4e8ab2d",
@@ -3447,7 +3446,20 @@
   "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": "1e20e9b5423e2ed14bc2e96ce564bca36a420590ed70c5b1292904bc8f2ab7ce",
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera.jsonl": "1015197e79d35d08c9dcad246b26238156fd4ca63b8f56d3ff9e0471d21d18cd",
   "scholia-in-aratum.scholia-in-aratum-scholia-vetera.jsonl": "5ee0603a9ecc9389f3df5f05d13458249ddb461c17a758f685696c3fb144b650",
-  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6e63a452c71aa5ddc52384185d01e0be02527b208eaebc1ef3acc4c20d10a5fc",
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "33e315dde7b27400441986bd0c2f8680e21933d7740f6fcf9d3a12b423eb52cd",
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "d17e7b2fde7a0cf1272d761b8159a69d9e6f12bf43d923f5b81a402599cb4f33",
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "d40f1f9d1edad476e680c47928a5c53cf8eaca2f888b5fbe5d97b75bbdac6214",
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "3ccffc0e097a4680e62a349325cfeacda703d67fe4faeec6be02b3a1a76f2924",
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "77a78b9baa2ac396bdd2140c42d1ccd6cc3b425d74a1d2b65cb92b68ef1cf981",
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "0feeffbf7d294ea7ef5b9c1a63486a67d1ec22dd7b8a0cd352c15aea8a78e691",
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "9feff804d2a8e1fe4770437947f23889366657618ebe8f65c5ca3d209ffba6a4",
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "38214487df31297d88d0a15c0fa58c2e0974d89461aa0de76e07f1d6c30bf8fb",
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "bf8137282ea9af5d213578aec88ee93916b90665830cdf3832389710abfa689a",
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "d4590ca7515bbaeed6ef82d14a0bbcb72629c4e7c27a177ba1bf73b67b7305a7",
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "56c755337189f426bb544546e0a4e301452f03b8207f00442c88b9e257cc7cc7",
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "98ffde68052353d2428a69a33a00f458eeee0a7a7e3251ef4714b343258c0568",
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "484cfdf1083c0a81c05159f1ac5c99254cb7985414732d0a43db1d43eb3eabc6",
   "scholia-in-callimachum.schol-callim-schneider.jsonl": "816c821916cc90cfd1d9b54b46aedad6e25253496b4e8546cb820cd819eab1e8",
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": "d7911397bbea6f8d099f16dea492ee21841302e542436ff8807a485000bfe41e",
   "scholia-in-dionysium-periegetam.scholia-in-dionysii-periegetae-orbis-descriptionem-scholia-vetera-2.jsonl": "08dc3a446fa57cbd771b86524ae63f0b2685a0287cea3a71d5e0d68a6eb1c961",
@@ -4015,12 +4027,16 @@
   "assess_photius_historical.py": "afd191d3c022f57e859bfa79d329e83db5237ad55db3906624e8eba088b67463",
   "audit_compression.py": "d2504998f18d7d69fb009312eede80ffc83667e07e5450134eceb2361d101d21",
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
+  "capture_dubner_sources.py": "d9e97184906e0972bfbdbfe59e03f34792f9792d053bd9ad8151a2c70e08d679",
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
   "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
+  "dubner_dedup_observations.py": "5d63acfa420334ac5f74e32158676e37723318b0bf1a07397c20e5da4d938207",
+  "dubner_source_observations.py": "83335029d97bb695c39d5f29de6fad6b5eb96c33f034e0313c1a1dc01008ad76",
+  "dubner_witness_alignment.py": "dd61bd3d79157e7632e10fa6ab56d291afb3c224d3ff06c8c94185e7c19abeae",
   "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
   "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
-  "frequency_projection.py": "658bd9319c9bd7b06d6cf9a4d5ded5c9ec2d8c0369b1a4d68a1505afc4cd65ff",
+  "frequency_projection.py": "5df48de79c5d195d349ef892cb99b9056a342ece0a34934fcc2892e28d2d8872",
   "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
   "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
   "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
@@ -4056,6 +4072,7 @@
   "prepare_photius_editorial_substitutions.py": "79d070b5d8f4460dfa92f8b48c2e780ac700395fce1264a0948ee22a16ea8b8c",
   "prepare_photius_review_campaign.py": "4ef586e6bb30bcb07a7e0222b851bb3b13c8cc7f6b99301f5c0698f7e5b6e516",
   "prepare_photius_uncertainty_pilot.py": "55f59e5e2ccd3125e435804fbcbecfc55c50c584b491125ba611f527438c8ed4",
+  "repair_dubner_scholias.py": "34402ea2b81a5761e1d51451146608bc227246fa32a0e52f3ccd1ca27aec3fe3",
   "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
   "repair_herodas_body.py": "07e6c8d8b0d7636ae17cd10055aaf573a641e1e1c0ea457dcdd9dfc91e4a05a2",
   "repair_herodas_readings.py": "ccf47d3380f09ccb044613cb285f5264e818ac0457ae01a25f03b598eb94fed3",
@@ -4078,14 +4095,14 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65785809,
+  "analysis_tokens": 65292644,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29653727,
-  "ocr_passages": 1346368,
-  "ocr_works": 1416,
-  "passages": 1964140,
-  "works": 3914
+  "ocr_analysis_tokens": 29160562,
+  "ocr_passages": 1302496,
+  "ocr_works": 1428,
+  "passages": 1920268,
+  "works": 3926
  },
  "works": {
   "abas.fragmenta": {
@@ -80706,31 +80723,6 @@
     }
    }
   },
-  "platonius.fragmenta-de-comoedia-graeca": {
-   "analysis_tokens": 337096,
-   "components": [
-    {
-     "analysis_tokens": 337096,
-     "edition": "qwen36-platonius_duebner_scholaristoph1",
-     "license": "PD",
-     "passages": 19278,
-     "source": "ocr"
-    }
-   ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 0,
-   "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 337096,
-   "ocr_passages": 19278,
-   "passages": 19278,
-   "sources": {
-    "ocr": {
-     "analysis_tokens": 337096,
-     "passages": 19278
-    }
-   }
-  },
   "plotinus.enneades": {
    "analysis_tokens": 211383,
    "components": [
@@ -88680,14 +88672,14 @@
     }
    }
   },
-  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
-   "analysis_tokens": 354055,
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855": {
+   "analysis_tokens": 107,
    "components": [
     {
-     "analysis_tokens": 354055,
-     "edition": "qwen36-scholia_aristoph_dubner-masked",
+     "analysis_tokens": 107,
+     "edition": "dubner-1855-collated",
      "license": "PD",
-     "passages": 24985,
+     "passages": 1,
      "source": "ocr"
     }
    ],
@@ -88695,13 +88687,338 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 354055,
-   "ocr_passages": 24985,
-   "passages": 24985,
+   "ocr_analysis_tokens": 107,
+   "ocr_passages": 1,
+   "passages": 1,
    "sources": {
     "ocr": {
-     "analysis_tokens": 354055,
-     "passages": 24985
+     "analysis_tokens": 107,
+     "passages": 1
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
+   "analysis_tokens": 15215,
+   "components": [
+    {
+     "analysis_tokens": 15215,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 31,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 15215,
+   "ocr_passages": 31,
+   "passages": 31,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 15215,
+     "passages": 31
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
+   "analysis_tokens": 19975,
+   "components": [
+    {
+     "analysis_tokens": 19975,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 39,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 19975,
+   "ocr_passages": 39,
+   "passages": 39,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 19975,
+     "passages": 39
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855": {
+   "analysis_tokens": 2781,
+   "components": [
+    {
+     "analysis_tokens": 2781,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 8,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 2781,
+   "ocr_passages": 8,
+   "passages": 8,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 2781,
+     "passages": 8
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
+   "analysis_tokens": 22630,
+   "components": [
+    {
+     "analysis_tokens": 22630,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 45,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 22630,
+   "ocr_passages": 45,
+   "passages": 45,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 22630,
+     "passages": 45
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855": {
+   "analysis_tokens": 6755,
+   "components": [
+    {
+     "analysis_tokens": 6755,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 16,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 6755,
+   "ocr_passages": 16,
+   "passages": 16,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 6755,
+     "passages": 16
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855": {
+   "analysis_tokens": 31380,
+   "components": [
+    {
+     "analysis_tokens": 31380,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 58,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 31380,
+   "ocr_passages": 58,
+   "passages": 58,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 31380,
+     "passages": 58
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855": {
+   "analysis_tokens": 21566,
+   "components": [
+    {
+     "analysis_tokens": 21566,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 40,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 21566,
+   "ocr_passages": 40,
+   "passages": 40,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 21566,
+     "passages": 40
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855": {
+   "analysis_tokens": 33693,
+   "components": [
+    {
+     "analysis_tokens": 33693,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 65,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 33693,
+   "ocr_passages": 65,
+   "passages": 65,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 33693,
+     "passages": 65
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855": {
+   "analysis_tokens": 21953,
+   "components": [
+    {
+     "analysis_tokens": 21953,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 42,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 21953,
+   "ocr_passages": 42,
+   "passages": 42,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 21953,
+     "passages": 42
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855": {
+   "analysis_tokens": 3580,
+   "components": [
+    {
+     "analysis_tokens": 3580,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 9,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 3580,
+   "ocr_passages": 9,
+   "passages": 9,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 3580,
+     "passages": 9
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
+   "analysis_tokens": 17814,
+   "components": [
+    {
+     "analysis_tokens": 17814,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 34,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 17814,
+   "ocr_passages": 34,
+   "passages": 34,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 17814,
+     "passages": 34
+    }
+   }
+  },
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855": {
+   "analysis_tokens": 356,
+   "components": [
+    {
+     "analysis_tokens": 356,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 2,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 356,
+   "ocr_passages": 2,
+   "passages": 2,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 356,
+     "passages": 2
+    }
+   }
+  },
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855": {
+   "analysis_tokens": 181,
+   "components": [
+    {
+     "analysis_tokens": 181,
+     "edition": "dubner-1855-collated",
+     "license": "PD",
+     "passages": 1,
+     "source": "ocr"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 0,
+   "non_ocr_passages": 0,
+   "ocr_analysis_tokens": 181,
+   "ocr_passages": 1,
+   "passages": 1,
+   "sources": {
+    "ocr": {
+     "analysis_tokens": 181,
+     "passages": 1
     }
    }
   },
