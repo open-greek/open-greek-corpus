@@ -105,6 +105,11 @@ DATE_COMPARISON := data/oga_glaux_date_comparison.json
 # data/corpus without touching it. ocr_quality_report.json sat 524 corpus-file
 # changes behind, while the OCR pipeline gates on it.
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
+DUBNER_INPUTS := scripts/repair_dubner_scholias.py scripts/dubner_source_observations.py \
+                 scripts/dubner_witness_alignment.py scripts/dubner_dedup_observations.py \
+                 scripts/capture_dubner_sources.py \
+                 $(wildcard data/corpus_changes/dubner-1855-scope/* \
+                            data/corpus_changes/dubner-1855-scope/source-evidence/*)
 HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas_readings.py \
                          scripts/fetch_herodas_reading_sources.py scripts/herodas_uncertainty_readings.py \
                          $(wildcard scripts/herodas_excerpt_readings*.py) \
@@ -112,6 +117,7 @@ HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas
                          $(wildcard data/corpus_changes/herodas-reading-sources/*)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    $(DUBNER_INPUTS) \
                     $(HERODAS_READING_INPUTS) \
                     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
                     scripts/phoenix_crusius_witnesses.py \
@@ -137,6 +143,7 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    $(DUBNER_INPUTS) \
     $(HERODAS_READING_INPUTS) \
     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
@@ -324,7 +331,8 @@ $(SOURCE_COMPONENTS): $(CORPUS_FILES) scripts/build_source_components.py $(FREQU
 # drag the whole ingest chain into `reports`.
 $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
             $(QUALITY_REPORT) $(SOURCE_COMPONENTS) data/work_token_totals.json \
-            scripts/build_corpus_catalog.py
+            scripts/build_corpus_catalog.py scripts/correction_quality_claims.py \
+            scripts/check_corrections_mirror_fresh.py
 	$(PY) scripts/build_corpus_catalog.py
 
 # Needs the Dilemma lemmatizer, like $(LEMMA_FREQ). Writes the .tsv.gz and its
@@ -451,6 +459,8 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
+           scripts/correction_quality_claims.py scripts/check_corrections_mirror_fresh.py \
+           $(DUP_LEAVES) $(DUP_PAGES) \
            data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS) \
            data/ocr_works.json data/inventory/ocr_edition_sources.json
 	$(PY) scripts/build_provenance.py
@@ -484,6 +494,7 @@ capital-positions:
 # These validators read the frozen artifacts independently; use make -j4 check
 # to check them concurrently. Every command remains a required prerequisite.
 .PHONY: check-ocr-ledgers \
+        check-dubner-scope \
         check-phoenix-crusius \
         check-editorial-roles \
         check-herodas-body \
@@ -510,6 +521,7 @@ capital-positions:
 # Start the longest measured checks first so they do not wait behind short ones
 # when the independent prerequisites run concurrently.
 check: check-photius-complete-review \
+       check-dubner-scope \
        check-phoenix-crusius \
        check-editorial-roles \
        check-herodas-body \
@@ -549,6 +561,10 @@ check-herodas-readings:
 
 check-acharnians-source-pilot:
 	$(PY) scripts/audit_acharnians_source_pilot.py --check
+
+check-dubner-scope:
+	$(PY) scripts/capture_dubner_sources.py --check
+	$(PY) scripts/repair_dubner_scholias.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

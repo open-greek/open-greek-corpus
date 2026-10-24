@@ -5571,10 +5571,6 @@
    "name": "anon-plato-philosophy",
    "aliases": {}
   },
-  "anon-platonius": {
-   "name": "anon-platonius",
-   "aliases": {}
-  },
   "anon-plotinus": {
    "name": "anon-plotinus",
    "aliases": {}
@@ -67574,17 +67570,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-platonius.platonius-fragmenta-de-comoedia-graeca": {
-   "author": "anon-platonius",
-   "title": "platonius.fragmenta-de-comoedia-graeca",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:platonius.fragmenta-de-comoedia-graeca"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-plotinus.plotinus-enneades": {
    "author": "anon-plotinus",
    "title": "plotinus.enneades",
@@ -71055,17 +71040,6 @@
    "title": "scholia-in-aratum.scholia-in-aratum-scholia-vetera",
    "aliases": {
     "cts": "urn:cts:cogGreek:scholia-in-aratum.scholia-in-aratum-scholia-vetera"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
-  "anon-scholia-in-aristophanem.scholia-in-aristophanem-scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
-   "author": "anon-scholia-in-aristophanem",
-   "title": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -289265,11 +289239,41 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg1615.tlg001"
    },
-   "default_edition": "platonius.fragmenta-de-comoedia-graeca.qwen36-platonius_duebner_scholaristoph1",
+   "default_edition": null,
    "best_source": "pd_edition",
    "tags": [
     "genre:grammar"
    ],
+   "coverage_composition": {
+    "policy": "retired-whole-volume-assignment-with-literal-witnesses-retained",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "qualification": "Retired misassigned whole-volume OCR, with no single successor Work. Original rows and citations remain in per-work secondary witnesses and source-role archives. Overlapping prolegomena remain comparative witnesses outside primary lexical counts at data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl.",
+    "primary_rows": 0,
+    "analysis_tokens": 0,
+    "components": [
+     {
+      "storage": "ocr_witnesses",
+      "path": "data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl",
+      "role": "comparative-prolegomena",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
    "editions": {
     "platonius.fragmenta-de-comoedia-graeca.kaibel-1899": {
      "name": "Comicorum Graecorum fragmenta, vol. 1.1",
@@ -289284,16 +289288,18 @@
      "aliases": {}
     },
     "platonius.fragmenta-de-comoedia-graeca.qwen36-platonius_duebner_scholaristoph1": {
-     "name": "cog OCR (qwen36-platonius_duebner_scholaristoph1)",
+     "name": "Dübner 1855, retired whole-volume OCR assignment",
      "provider": "ocr",
      "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecain01dbgoog",
+     "servable": false,
      "license": "PD",
      "scheme_inferred": false,
-     "aliases": {}
+     "aliases": {},
+     "note": "Retired misassigned whole-volume OCR, with no single successor Work. Original rows and citations remain in per-work secondary witnesses and source-role archives. Overlapping prolegomena remain comparative witnesses outside primary lexical counts at data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl.",
+     "storage": "secondary"
     }
    }
   },
@@ -308698,6 +308704,122 @@
     }
    }
   },
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
+    "counts": {
+     "agreement": 107,
+     "unresolved": 42
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
+     "passages": 1,
+     "analysis_tokens": 107,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl",
+      "passages": 1,
+      "analysis_tokens": 107,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl",
+      "passages": 2,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.dubner-1855-collated": {
+     "name": "Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.argumentum-in-equites-argumentum-tzetzianum": {
    "author": "scholia-in-aristophanem",
    "title": "Argumentum In Equites (Argumentum Tzetzianum)",
@@ -308914,29 +309036,138 @@
   },
   "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
    "author": "scholia-in-aristophanem",
-   "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
+   "title": "Hypotheses and scholia to Acharnians (Dübner 1855)",
    "aliases": {
     "cts": "urn:cts:greekLit:tlg5014.tlg001"
    },
-   "default_edition": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.qwen36-scholia_aristoph_dubner-masked",
-   "best_source": "duplicate",
+   "default_edition": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.dubner-1855-collated",
+   "best_source": "open_corpus",
    "tags": [
     "genre:epigram",
     "genre:hypothesis",
     "genre:scholia"
    ],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
+    "counts": {
+     "agreement": 15215,
+     "incomplete-reading": 1,
+     "unresolved": 6424
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
+     "passages": 31,
+     "analysis_tokens": 15215,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+      "passages": 31,
+      "analysis_tokens": 15215,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+      "passages": 2373,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
    "editions": {
-    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.qwen36-scholia_aristoph_dubner-masked": {
-     "name": "cog OCR (qwen36-scholia_aristoph_dubner-masked)",
+    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Acharnians (Dübner 1855) (Dübner 1855, collated OCR)",
      "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
-     "aliases": {}
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    },
+    "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.qwen36-scholia_aristoph_dubner-masked": {
+     "name": "Dübner 1855, former whole-volume OCR assignment",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": false,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical whole-volume OCR assignment. The corrected source partition retains the literal original rows and citations in its audit and outside the primary; this edition no longer represents the served Work.",
+     "storage": "secondary"
     },
     "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.wilson-1975": {
      "name": "Prolegomena de comoedia. Scholia in Acharnenses, Equites, Nubes",
@@ -308978,6 +309209,125 @@
     }
    }
   },
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Birds (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-aves-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
+    "counts": {
+     "agreement": 18508,
+     "damaged-reading": 4,
+     "incomplete-reading": 7,
+     "single-witness": 1467,
+     "unresolved": 7962
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
+     "passages": 39,
+     "analysis_tokens": 19975,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
+      "passages": 39,
+      "analysis_tokens": 19975,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
+      "passages": 2700,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-aves-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Birds (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-aves-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.scholia-in-aves-scholia-vetera": {
    "author": "scholia-in-aristophanem",
    "title": "Scholia In Aves (Scholia Vetera)",
@@ -309003,6 +309353,124 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Assemblywomen (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
+    "counts": {
+     "agreement": 2331,
+     "damaged-reading": 2,
+     "single-witness": 450,
+     "unresolved": 1022
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
+     "passages": 8,
+     "analysis_tokens": 2781,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl",
+      "passages": 8,
+      "analysis_tokens": 2781,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl",
+      "passages": 964,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Assemblywomen (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
     }
    }
   },
@@ -309034,6 +309502,125 @@
     }
    }
   },
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Knights (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-equites-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
+    "counts": {
+     "agreement": 22620,
+     "damaged-reading": 2,
+     "incomplete-reading": 4,
+     "single-witness": 9,
+     "unresolved": 10575
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
+     "passages": 45,
+     "analysis_tokens": 22630,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+      "passages": 45,
+      "analysis_tokens": 22630,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+      "passages": 3219,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-equites-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Knights (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-equites-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.scholia-in-equites-scholia-vetera-et-recentiora-triclinii": {
    "author": "scholia-in-aristophanem",
    "title": "Scholia In Equites (Scholia Vetera Et Recentiora Triclinii)",
@@ -309062,6 +309649,124 @@
     }
    }
   },
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Lysistrata (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
+    "counts": {
+     "agreement": 6754,
+     "damaged-reading": 4,
+     "single-witness": 1,
+     "unresolved": 2297
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
+     "passages": 16,
+     "analysis_tokens": 6755,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+      "passages": 16,
+      "analysis_tokens": 6755,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+      "passages": 1613,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Lysistrata (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.scholia-in-lysistratam-scholia-vetera": {
    "author": "scholia-in-aristophanem",
    "title": "Scholia In Lysistratam (Scholia Vetera)",
@@ -309087,6 +309792,125 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Clouds (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
+    "counts": {
+     "agreement": 31379,
+     "damaged-reading": 22,
+     "incomplete-reading": 7,
+     "single-witness": 1,
+     "unresolved": 10233
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
+     "passages": 58,
+     "analysis_tokens": 31380,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+      "passages": 58,
+      "analysis_tokens": 31380,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+      "passages": 3544,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Clouds (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
     }
    }
   },
@@ -309225,6 +310049,124 @@
     }
    }
   },
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Peace (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-pax-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
+    "counts": {
+     "agreement": 20561,
+     "incomplete-reading": 6,
+     "single-witness": 1004,
+     "unresolved": 9404
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
+     "passages": 40,
+     "analysis_tokens": 21566,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+      "passages": 40,
+      "analysis_tokens": 21566,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+      "passages": 2434,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-pax-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Peace (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-pax-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.scholia-in-plutum-scholia-vetera-et-fort-recentiora-sub-auctore": {
    "author": "scholia-in-aristophanem",
    "title": "Scholia In Plutum (Scholia Vetera Et Fort. Recentiora Sub Auctore Moschopulo)",
@@ -309250,6 +310192,243 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Wealth (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
+    "counts": {
+     "agreement": 33691,
+     "incomplete-reading": 7,
+     "single-witness": 2,
+     "unresolved": 12625
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
+     "passages": 65,
+     "analysis_tokens": 33693,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+      "passages": 65,
+      "analysis_tokens": 33693,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+      "passages": 3961,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Wealth (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Frogs (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
+    "counts": {
+     "agreement": 20882,
+     "damaged-reading": 4,
+     "incomplete-reading": 5,
+     "single-witness": 1071,
+     "unresolved": 7642
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
+     "passages": 42,
+     "analysis_tokens": 21953,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+      "passages": 42,
+      "analysis_tokens": 21953,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+      "passages": 2683,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Frogs (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
     }
    }
   },
@@ -309281,6 +310460,122 @@
     }
    }
   },
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Thesmophoriazusae (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
+    "counts": {
+     "agreement": 3580,
+     "unresolved": 1227
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
+     "passages": 9,
+     "analysis_tokens": 3580,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl",
+      "passages": 9,
+      "analysis_tokens": 3580,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl",
+      "passages": 1199,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Thesmophoriazusae (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
   "scholia-in-aristophanem.scholia-in-thesmophoriazusas-scholia-vetera": {
    "author": "scholia-in-aristophanem",
    "title": "Scholia In Thesmophoriazusas (Scholia Vetera)",
@@ -309304,6 +310599,124 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    }
+   }
+  },
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Hypotheses and scholia to Wasps (Dübner 1855)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
+    "counts": {
+     "agreement": 17727,
+     "incomplete-reading": 3,
+     "single-witness": 87,
+     "unresolved": 6151
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
+     "passages": 34,
+     "analysis_tokens": 17814,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+      "passages": 34,
+      "analysis_tokens": 17814,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+      "passages": 3210,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.dubner-1855-collated": {
+     "name": "Hypotheses and scholia to Wasps (Dübner 1855) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
     }
    }
   },
@@ -309332,6 +310745,238 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    }
+   }
+  },
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
+    "counts": {
+     "agreement": 356,
+     "unresolved": 109
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
+     "passages": 2,
+     "analysis_tokens": 356,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl",
+      "passages": 2,
+      "analysis_tokens": 356,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl",
+      "passages": 8,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.dubner-1855-collated": {
+     "name": "Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
+    }
+   }
+  },
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855": {
+   "author": "scholia-in-aristophanem",
+   "title": "Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων] (Dübner 1855 source witness)",
+   "aliases": {},
+   "default_edition": "scholia-in-aristophanem.triclinius-meters-dubner-1855.dubner-1855-collated",
+   "best_source": "open_corpus",
+   "tags": [],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
+    "manifest": "data/corpus_changes/dubner-1855-scope/changes.json",
+    "manifest_sha256": "9fd816ecec397ef3b703bc1d39de4ab164377c3ae255b1768281063066282e02",
+    "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
+    "counts": {
+     "agreement": 181,
+     "unresolved": 84
+    },
+    "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+    "sources": [
+     {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+     },
+     {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog"
+     }
+    ],
+    "primary_quality": {
+     "status": "source-role-reviewed-collated-ocr",
+     "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
+     "passages": 1,
+     "analysis_tokens": 181,
+     "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading."
+    },
+    "components": [
+     {
+      "edition": "dubner-1855-collated",
+      "storage": "primary",
+      "path": "data/corpus/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl",
+      "passages": 1,
+      "analysis_tokens": 181,
+      "role": "source-reviewed-historical-text",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     },
+     {
+      "edition": "dubner-1855-legacy-witnesses",
+      "storage": "secondary",
+      "path": "data/corpus_secondary/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl",
+      "passages": 3,
+      "role": "literal-same-edition-ocr-witnesses",
+      "license": "PD",
+      "sources": [
+       {
+        "id": "toronto",
+        "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+        "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+       },
+       {
+        "id": "harvard",
+        "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+        "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+        "url": "https://archive.org/details/scholiagraecain01dbgoog"
+       }
+      ]
+     }
+    ]
+   },
+   "editions": {
+    "scholia-in-aristophanem.triclinius-meters-dubner-1855.dubner-1855-collated": {
+     "name": "Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων] (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "provider": "ocr",
+     "scheme": "source-page.region",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired."
+    },
+    "scholia-in-aristophanem.triclinius-meters-dubner-1855.dubner-1855-legacy-witnesses": {
+     "name": "Dübner 1855, retained raw OCR witnesses",
+     "provider": "ocr",
+     "scheme": "original-scan-page.row",
+     "editor": "Dübner, Friedrich",
+     "year": 1855,
+     "source": "https://archive.org/details/scholiagraecaina00dbuoft",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+     "storage": "secondary"
     }
    }
   },

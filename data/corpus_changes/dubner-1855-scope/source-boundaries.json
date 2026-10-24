@@ -1,0 +1,1241 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-24",
+  "edition": {
+    "title": "Scholia graeca in Aristophanem",
+    "editor": "Friedrich Dübner",
+    "place": "Paris",
+    "publisher": "Ambroise Firmin-Didot",
+    "year": 1855
+  },
+  "review_method": "Full-page visual inspection of every retained transition page and all prolegomena pages in both scans. No new OCR or textual corrections. Boundaries are supported by the printed source, independently of token overlap.",
+  "sources": [
+    {
+      "id": "toronto",
+      "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "url": "https://archive.org/details/scholiagraecaina00dbuoft",
+      "artifact_url": "https://archive.org/download/scholiagraecaina00dbuoft/scholiagraecaina00dbuoft.pdf",
+      "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+      "pdf_pages": 776
+    },
+    {
+      "id": "harvard",
+      "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+      "url": "https://archive.org/details/scholiagraecain01dbgoog",
+      "artifact_url": "https://archive.org/download/scholiagraecain01dbgoog/scholiagraecain01dbgoog.pdf",
+      "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+      "pdf_pages": 801
+    }
+  ],
+  "renderer": {
+    "name": "PyMuPDF",
+    "version": "1.28.2",
+    "scale": 1.25,
+    "alpha": false
+  },
+  "front_fingerprints": {
+    "toronto": "afb988561813bcccaf7516f9e281ed0969b45e2d473ccd914e6de533774320b3",
+    "harvard": "434eb213e38fa2fb366787771c16f9580dccad843f8e4f3f85b7fdfffa2a5f1b"
+  },
+  "front_fingerprint_encoding": "SHA256 of UTF8 JSON sorted(locus,text) pairs, ensure_ascii=False, separators=(comma,colon)",
+  "prolegomena_units": [
+    {
+      "source_section": "I",
+      "title": "Ἐκ τῶν Πλατωνίου Περὶ διαφορᾶς κωμῳδιῶν",
+      "pdf_pages": [
+        23,
+        24
+      ],
+      "work": "platonius",
+      "evidence": "Printed attribution to Platonius. PDF24 left column ends before II."
+    },
+    {
+      "source_section": "II",
+      "title": "Τοῦ αὐτοῦ Περὶ διαφορᾶς χαρακτήρων",
+      "pdf_pages": [
+        24,
+        24
+      ],
+      "work": "platonius",
+      "evidence": "Begins lower left column and ends upper right column before III; apparatus row24.5 is excluded."
+    },
+    {
+      "source_section": "III",
+      "title": "Περὶ κωμῳδίας",
+      "pdf_pages": [
+        24,
+        25
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "No author printed. Starts right column after II."
+    },
+    {
+      "source_section": "IV",
+      "title": "Ἄλλως περὶ κωμῳδίας",
+      "pdf_pages": [
+        25,
+        26
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "No author printed; begins at bottom of PDF25 right column."
+    },
+    {
+      "source_section": "V",
+      "title": "Ἄλλως περὶ κωμῳδίας",
+      "pdf_pages": [
+        26,
+        26
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "No author printed; left lower column through upper right column."
+    },
+    {
+      "source_section": "VI",
+      "title": "Ἄλλως περὶ κωμῳδίας",
+      "pdf_pages": [
+        26,
+        27
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "No author printed; right column through next page left upper column."
+    },
+    {
+      "source_section": "VII",
+      "title": "Untitled note on the comic chorus",
+      "pdf_pages": [
+        27,
+        27
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "Printed VII; starts Ὁ χορὸς ὁ κωμικός. No author printed."
+    },
+    {
+      "source_section": "VIII",
+      "title": "Τῶν τῆς ἀρχαίας κωμῳδίας ποιητῶν ὀνόματα καὶ δράματα",
+      "pdf_pages": [
+        27,
+        27
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "List of poets and drama counts; anonymous historical list, not an editorial index."
+    },
+    {
+      "source_section": "IXa",
+      "title": "Περὶ κωμῳδίας",
+      "pdf_pages": [
+        27,
+        30
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "Printed source note cites Cramer Anecdota Parisiensia I p3; no author printed. Lower apparatus is separate."
+    },
+    {
+      "source_section": "IXb",
+      "title": "Περὶ κωμῳδίας",
+      "pdf_pages": [
+        30,
+        32
+      ],
+      "work": "anonymous-comedy-prolegomena",
+      "evidence": "Printed source note cites scholia to Dionysius Thrax and Bekker p747–748; source text includes an unheaded related continuation from Baroccianus116 per apparatus. Preserve collection, do not fabricate individual authorship."
+    },
+    {
+      "source_section": "X",
+      "title": "Ἀνδρονίκου Περὶ τάξεως ποιητῶν",
+      "pdf_pages": [
+        32,
+        32
+      ],
+      "work": "andronicus-poet-order",
+      "evidence": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν."
+    },
+    {
+      "source_section": "Xa",
+      "title": "Scholion Plautinum",
+      "pdf_pages": [
+        32,
+        32
+      ],
+      "work": "anonymous-latin-scholion",
+      "evidence": "Historical Latin scholion edited from a Roman manuscript, not Dübner Latin commentary. No Toronto Greek rows correspond; do not invent missing transcription."
+    },
+    {
+      "source_section": "Xb",
+      "title": "Ἰωάννου τοῦ Τζέτζου Στίχοι περὶ διαφορᾶς ποιητῶν",
+      "pdf_pages": [
+        33,
+        35
+      ],
+      "work": "tzetzes-poet-differences",
+      "evidence": "Explicit printed attribution to John Tzetzes. Embedded apparatus and its extended quotations are excluded."
+    },
+    {
+      "source_section": "Xc",
+      "title": "Τοῦ αὐτοῦ ἴαμβοι τεχνικοὶ περὶ κωμῳδίας",
+      "pdf_pages": [
+        35,
+        36
+      ],
+      "work": "tzetzes-technical-iambics",
+      "evidence": "Printed Τοῦ αὐτοῦ refers to Tzetzes. Preserve edition attribution; no independent authorship adjudication."
+    },
+    {
+      "source_section": "Xd",
+      "title": "Anonymous comedy treatise from Codex Coislinianus",
+      "pdf_pages": [
+        36,
+        37
+      ],
+      "work": "anonymous-coislinianus",
+      "evidence": "Printed Ex codice Coisliniano apud Cramer Anecd. Paris I403. Two schematic diagrams on PDF36 have scrambled OCR retained as unresolved historical witnesses, not modern apparatus."
+    },
+    {
+      "source_section": "XI",
+      "title": "Ἀριστοφάνους βίος",
+      "pdf_pages": [
+        37,
+        38
+      ],
+      "work": "anonymous-aristophanes-lives",
+      "evidence": "Anonymous biography; ends PDF38 left before XII."
+    },
+    {
+      "source_section": "XII",
+      "title": "Ἄλλως [βίος Ἀριστοφάνους]",
+      "pdf_pages": [
+        38,
+        39
+      ],
+      "work": "anonymous-aristophanes-lives",
+      "evidence": "Printed source note Ex codice Veneto474; no author printed."
+    },
+    {
+      "source_section": "XIII",
+      "title": "Ἄλλως [βίος Ἀριστοφάνους]",
+      "pdf_pages": [
+        39,
+        39
+      ],
+      "work": "anonymous-aristophanes-lives",
+      "evidence": "Printed source note scholia on Plato Apology, Porson Miscellanea p268 Kidd; no author printed."
+    },
+    {
+      "source_section": "XIV",
+      "title": "Ἄλλως [βίος Ἀριστοφάνους]",
+      "pdf_pages": [
+        39,
+        39
+      ],
+      "work": "suda-aristophanes-excerpt",
+      "evidence": "Printed source note Ex Suida; should deduplicate against already served Suda rather than create a new anonymous primary."
+    },
+    {
+      "source_section": "XV",
+      "title": "Θωμᾶ τοῦ Μαγίστρου [βίος Ἀριστοφάνους]",
+      "pdf_pages": [
+        39,
+        40
+      ],
+      "work": "thomas-magister-aristophanes-life",
+      "evidence": "Explicit Thomas Magister attribution. Also includes the following unheaded comedy-origin paragraph on PDF40 before XVI; keep its relation visible."
+    },
+    {
+      "source_section": "XVIa",
+      "title": "Ἀντιπάτρου Θεσσαλονικέως εἰς Ἀριστοφάνην",
+      "pdf_pages": [
+        40,
+        40
+      ],
+      "work": "antipater-thessalonica-aristophanes-epigram",
+      "evidence": "Printed Anthologia Palatina IX186. Entire epigram omitted from Toronto extraction; Harvard has it. Deduplicate against AP source."
+    },
+    {
+      "source_section": "XVIb",
+      "title": "Διοδώρου ἐπιτύμβιον [εἰς Ἀριστοφάνην]",
+      "pdf_pages": [
+        40,
+        40
+      ],
+      "work": "diodorus-aristophanes-epitaph",
+      "evidence": "Printed Anthologia Palatina VII38. Entire epigram omitted from Toronto extraction; Harvard has it. Deduplicate against AP source."
+    },
+    {
+      "source_section": "XVIIa",
+      "title": "Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων]",
+      "pdf_pages": [
+        40,
+        40
+      ],
+      "work": "triclinius-meters",
+      "evidence": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ."
+    },
+    {
+      "source_section": "XVIIb",
+      "title": "Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου",
+      "pdf_pages": [
+        40,
+        41
+      ],
+      "work": "triclinius-common-syllable-signs",
+      "evidence": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42."
+    }
+  ],
+  "play_boundaries": [
+    {
+      "source": "toronto",
+      "play": "acharnians",
+      "pdf_pages": [
+        43,
+        73
+      ],
+      "printed_pages": [
+        1,
+        31
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0043.21",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0043.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0073.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "knights",
+      "pdf_pages": [
+        74,
+        118
+      ],
+      "printed_pages": [
+        32,
+        76
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0075.6",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0074.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0118.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0075.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "clouds",
+      "pdf_pages": [
+        119,
+        176
+      ],
+      "printed_pages": [
+        77,
+        134
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0121.3",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0119.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0176.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0121.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "wasps",
+      "pdf_pages": [
+        177,
+        210
+      ],
+      "printed_pages": [
+        135,
+        168
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0177.16",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0177.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0210.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "peace",
+      "pdf_pages": [
+        211,
+        250
+      ],
+      "printed_pages": [
+        169,
+        208
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0212.4",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0211.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0250.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0212.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "birds",
+      "pdf_pages": [
+        251,
+        289
+      ],
+      "printed_pages": [
+        209,
+        247
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0252.24",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0251.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0289.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0252.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "lysistrata",
+      "pdf_pages": [
+        290,
+        305
+      ],
+      "printed_pages": [
+        248,
+        263
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0290.16",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0290.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0305.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "thesmophoriazusae",
+      "pdf_pages": [
+        306,
+        314
+      ],
+      "printed_pages": [
+        264,
+        272
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0306.2",
+      "notes": "No separate hypotheses printed; scholia begin after the title.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0306.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0314.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "frogs",
+      "pdf_pages": [
+        315,
+        356
+      ],
+      "printed_pages": [
+        273,
+        314
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0316.6",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0315.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0356.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0316.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "assemblywomen",
+      "pdf_pages": [
+        357,
+        364
+      ],
+      "printed_pages": [
+        315,
+        322
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0357.7",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0357.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0364.png"
+      ]
+    },
+    {
+      "source": "toronto",
+      "play": "wealth",
+      "pdf_pages": [
+        365,
+        429
+      ],
+      "printed_pages": [
+        323,
+        387
+      ],
+      "scholia_begin": "scholia_aristoph_dubner_0366.13",
+      "notes": "Hypotheses remain historical text. Metrical introductions below the scholia heading belong with the scholia.",
+      "evidence": [
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0365.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0429.png",
+        "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0366.png"
+      ]
+    }
+  ],
+  "editorial_regions": [
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        11,
+        12
+      ],
+      "role": "Dübner preface (Latin)"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        13,
+        20
+      ],
+      "role": "Dindorf preface (Latin with quoted historical Greek)"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        21,
+        22
+      ],
+      "role": "Editorial manuscript sigla explanation"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        431,
+        656
+      ],
+      "role": "Modern critical annotation; last page includes Corrigenda"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        657,
+        658
+      ],
+      "role": "Index title and blank verso"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        659,
+        660
+      ],
+      "role": "Modern index preface signed F. D."
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        661,
+        745
+      ],
+      "role": "Index nominum et rerum"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        746,
+        750
+      ],
+      "role": "Index scriptorum"
+    },
+    {
+      "source": "toronto",
+      "pdf_pages": [
+        751,
+        768
+      ],
+      "role": "Index graecus in scholia"
+    }
+  ],
+  "play_heading_loci": {
+    "toronto": [
+      "scholia_aristoph_dubner_0043.1",
+      "scholia_aristoph_dubner_0043.2",
+      "scholia_aristoph_dubner_0043.9",
+      "scholia_aristoph_dubner_0043.10",
+      "scholia_aristoph_dubner_0074.1",
+      "scholia_aristoph_dubner_0074.3",
+      "scholia_aristoph_dubner_0074.9",
+      "scholia_aristoph_dubner_0074.10",
+      "scholia_aristoph_dubner_0119.1",
+      "scholia_aristoph_dubner_0119.6",
+      "scholia_aristoph_dubner_0119.7",
+      "scholia_aristoph_dubner_0120.3",
+      "scholia_aristoph_dubner_0177.1",
+      "scholia_aristoph_dubner_0177.4",
+      "scholia_aristoph_dubner_0177.5",
+      "scholia_aristoph_dubner_0211.1",
+      "scholia_aristoph_dubner_0211.2",
+      "scholia_aristoph_dubner_0211.4",
+      "scholia_aristoph_dubner_0212.1",
+      "scholia_aristoph_dubner_0212.2",
+      "scholia_aristoph_dubner_0251.1",
+      "scholia_aristoph_dubner_0251.5",
+      "scholia_aristoph_dubner_0252.12",
+      "scholia_aristoph_dubner_0252.13",
+      "scholia_aristoph_dubner_0290.1",
+      "scholia_aristoph_dubner_0290.2",
+      "scholia_aristoph_dubner_0290.4",
+      "scholia_aristoph_dubner_0290.5",
+      "scholia_aristoph_dubner_0306.1",
+      "scholia_aristoph_dubner_0306.46",
+      "scholia_aristoph_dubner_0315.1",
+      "scholia_aristoph_dubner_0315.8",
+      "scholia_aristoph_dubner_0315.9",
+      "scholia_aristoph_dubner_0315.20",
+      "scholia_aristoph_dubner_0316.3",
+      "scholia_aristoph_dubner_0357.1",
+      "scholia_aristoph_dubner_0357.2",
+      "scholia_aristoph_dubner_0357.4",
+      "scholia_aristoph_dubner_0357.5",
+      "scholia_aristoph_dubner_0357.10",
+      "scholia_aristoph_dubner_0365.1",
+      "scholia_aristoph_dubner_0365.2",
+      "scholia_aristoph_dubner_0365.5",
+      "scholia_aristoph_dubner_0366.1",
+      "scholia_aristoph_dubner_0366.2"
+    ],
+    "harvard": [
+      "platonius_duebner_scholaristoph1_0044.1",
+      "platonius_duebner_scholaristoph1_0044.2",
+      "platonius_duebner_scholaristoph1_0044.4",
+      "platonius_duebner_scholaristoph1_0044.5",
+      "platonius_duebner_scholaristoph1_0075.1",
+      "platonius_duebner_scholaristoph1_0075.2",
+      "platonius_duebner_scholaristoph1_0075.4",
+      "platonius_duebner_scholaristoph1_0075.9",
+      "platonius_duebner_scholaristoph1_0120.1",
+      "platonius_duebner_scholaristoph1_0120.2",
+      "platonius_duebner_scholaristoph1_0120.6",
+      "platonius_duebner_scholaristoph1_0120.7",
+      "platonius_duebner_scholaristoph1_0121.3",
+      "platonius_duebner_scholaristoph1_0186.1",
+      "platonius_duebner_scholaristoph1_0186.2",
+      "platonius_duebner_scholaristoph1_0186.5",
+      "platonius_duebner_scholaristoph1_0186.6",
+      "platonius_duebner_scholaristoph1_0238.1",
+      "platonius_duebner_scholaristoph1_0238.2",
+      "platonius_duebner_scholaristoph1_0239.1",
+      "platonius_duebner_scholaristoph1_0239.2",
+      "platonius_duebner_scholaristoph1_0278.1",
+      "platonius_duebner_scholaristoph1_0279.67",
+      "platonius_duebner_scholaristoph1_0279.68",
+      "platonius_duebner_scholaristoph1_0317.1",
+      "platonius_duebner_scholaristoph1_0317.2",
+      "platonius_duebner_scholaristoph1_0317.4",
+      "platonius_duebner_scholaristoph1_0317.5",
+      "platonius_duebner_scholaristoph1_0333.1",
+      "platonius_duebner_scholaristoph1_0342.1",
+      "platonius_duebner_scholaristoph1_0342.2",
+      "platonius_duebner_scholaristoph1_0342.4",
+      "platonius_duebner_scholaristoph1_0342.5",
+      "platonius_duebner_scholaristoph1_0342.7",
+      "platonius_duebner_scholaristoph1_0343.25",
+      "platonius_duebner_scholaristoph1_0390.1",
+      "platonius_duebner_scholaristoph1_0390.2",
+      "platonius_duebner_scholaristoph1_0391.1",
+      "platonius_duebner_scholaristoph1_0391.2"
+    ]
+  },
+  "same_page_mixed_row": {
+    "locus": "platonius_duebner_scholaristoph1_0031.3",
+    "partitions": [
+      {
+        "start": 0,
+        "end": 179,
+        "role": "editorial-source-note",
+        "lexical_eligible": false
+      },
+      {
+        "start": 179,
+        "end": 324,
+        "role": "historical-prolegomena",
+        "lexical_eligible": true
+      }
+    ],
+    "evidence": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0031.png",
+    "notes": "The italic editorial citation precedes the historical definition."
+  },
+  "images": [
+    {
+      "source": "toronto",
+      "pdf_page": 9,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0009.png",
+      "sha256": "a380f3e0ef4360eda74ac55bdfe6da19bd7bd4a5c9656b4ccea66885bb42ce88"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 11,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0011.png",
+      "sha256": "0a1795ff2d21dc241f013726ecf9706d2ad8dafd2804064d5fe530d80f5c5cb9"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 12,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0012.png",
+      "sha256": "2849ab564536f217af8b85c1028a9616befe777774663243dc5c3850c13f5d4a"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 13,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0013.png",
+      "sha256": "f6b44526b0b2bbace5058a330358edfee84510c8eb6c75caa1d66f64ec46c33d"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 14,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0014.png",
+      "sha256": "e4a8a65b8b8c1622206844cb2e01f1117874dee1e91c2ffb191e590c188a7566"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 15,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0015.png",
+      "sha256": "8e081704f6741650ed1c6786ff9eaf7b74e24f57ef28950a9d557ebf442e7086"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 16,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0016.png",
+      "sha256": "32dfe65b270cba326c5f21d82ebabe0fb6152514ca81a6c73068d42e77c79277"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 17,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0017.png",
+      "sha256": "ea07b71d5d0a32d03fd5e2c1ee60567ff11231e10a06176de0e2ef5a2829c608"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 18,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0018.png",
+      "sha256": "163d9341da39fe01c0216a40216df463b221918326e6e6cd2eb1b5d54b277d6a"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 19,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0019.png",
+      "sha256": "adb99a38ee6eff4e64dea556e25a09a6050d5e5b22a4d4098f339dc4b533807b"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 20,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0020.png",
+      "sha256": "402df9dd68a2bb2caa477a0a6dc80618472c630b037d9b162c52eb1f4d5c5861"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 21,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0021.png",
+      "sha256": "6140ca9f925cb2c8c3c92038eb6fa508b8aefa1828778c0c6d9cbb6a37e1cb95"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 22,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0022.png",
+      "sha256": "0f03b388793f0ea62c472ab6c9cf1107a63e99fd44048727627778793e93df6d"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 23,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0023.png",
+      "sha256": "077c5424514038a7af90fad243dbf8f3b759d5c75a9d067c7599410f417d033f"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 24,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0024.png",
+      "sha256": "2e6898d4d93704fff1fd4e0e14fb7940279dd7c02edd1365060e72d7907be912"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 25,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0025.png",
+      "sha256": "92b69fe9edbe7440ea0aa70745e93f989ace32a5cd2ed81be0ff04dae600a69c"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 26,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0026.png",
+      "sha256": "33cdbcb6ed9142baf94ca4fdf4fc42f1b2f13ee7701181c88b5d740f7139e413"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 27,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0027.png",
+      "sha256": "7e36ee8706916b2256487a21700193789e16e35db55803e5f3d90ebf8d74e06f"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 28,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0028.png",
+      "sha256": "59bbaf63c55d59c4538e057e4429f74d7acc1e21f398f8d68879f438b62a91b3"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 29,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0029.png",
+      "sha256": "1c975719126ec2c559b9698947a856a2c72b1f5e6bde446b60229ebc3108212e"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 30,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0030.png",
+      "sha256": "8aa55f6660ca66212f19d4403c594d867762012c8b80e599000da6de9dd1f961"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 31,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0031.png",
+      "sha256": "18ee06f17e1ef41eb1b3a0104c6ca1ea52540f103cd47296dcfcc6032492260a"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 32,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0032.png",
+      "sha256": "6d170a169ea9591c60f56ce57f18b7c7a5123ce4b34584c0b294106f315738b1"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 33,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0033.png",
+      "sha256": "304a23df23914c399caa2385525ac72219c7e61fd0f5f3792c023ffee5d2c690"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 34,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0034.png",
+      "sha256": "d4a3ab133f2e4f02d3fa13e32d9c82f48e6f3630d659090d9e3d8334545db53f"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 35,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0035.png",
+      "sha256": "702f58e9d2f63c80a1352e8cd412cd81093a43c529fcff8ec1a66f671d1fd88d"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 36,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0036.png",
+      "sha256": "4846b7b68342e8d21dce3f7c125c90c72912c3cf850de3a4a4a350e05e006900"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 37,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0037.png",
+      "sha256": "fa9542d24fec21ee43b6af3b9dabe62d0f2df6c901ced106d119104c18a7ee2d"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 38,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0038.png",
+      "sha256": "c98a01817716ebd7a5c3b69937a42d2eeb3e565c17804e29e8a663a633373c0b"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 39,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0039.png",
+      "sha256": "76c72bf6a31055268fab3a6e1b2fc4ee701a58cc8ba2ab6bbaa91805199b3c8c"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 40,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0040.png",
+      "sha256": "fe4425a5ef2e6591c3adc74aa33d222575a0446e3f0bf90877e1a8d4cfb06133"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 41,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0041.png",
+      "sha256": "c1c757cdcc948d3a971a9eb1fbbcc525897d4d9c2d8c69e39915df0b2454568a"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 43,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0043.png",
+      "sha256": "18773accaa49cd86a7b28106fa1576333cbebd833598813985a41c778bbc9568"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 73,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0073.png",
+      "sha256": "23d4c5d2a8e478306f31b6de6413ef0dc50dda0b98935bfd515be052b3b11f09"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 74,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0074.png",
+      "sha256": "6ec8ea99efb8f189097e897d2e65c08246534750a82711b2f0056234bf02e7d3"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 75,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0075.png",
+      "sha256": "0377f8a42622804502e00ca9aaee9b457d2bfd46b402840bb7d9013107a54bc1"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 118,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0118.png",
+      "sha256": "05e47b6ef3012838492c9e6debb0e590a567ab37eb78d6749d7f44296fda2298"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 119,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0119.png",
+      "sha256": "0f2c36c7216560b5212375628b95059512487580bf104d03ecfdd6b033b15568"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 120,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0120.png",
+      "sha256": "18ad5a93bea7abb78510a23f2c355bf41e50fb6037547f8e7e0bf5cb3d9bfcee"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 121,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0121.png",
+      "sha256": "4aba5b926ed87519399c594304bddb961241ca12f50ffc29efc0cea385c082fc"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 176,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0176.png",
+      "sha256": "2d6ef1ac37f53e185eb39fb9b8700fb483c0acc5ae1c91024a99e5c5ac03ef66"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 177,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0177.png",
+      "sha256": "15a51579ae2d2f59b54bb58843e7f20d6f81feee26f78aba61af10e779ba6ba4"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 178,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0178.png",
+      "sha256": "63bf409daa4f92ef4d21ddf637984636d0bd51eb01681d59227c7b2bde06e287"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 210,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0210.png",
+      "sha256": "692da762d0dcf20452176e8c462c7df5bec025873a8f2b23d71b24c07e0e4d30"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 211,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0211.png",
+      "sha256": "f725e744f03a7c97a0bf08bfa54d1be9bd1aa076cb60418b8cc63bb16f78f1e2"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 212,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0212.png",
+      "sha256": "3136f4bce79a349fc4dd09090cd594f8e771fc445b5ee44325c965a76e612978"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 250,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0250.png",
+      "sha256": "82ebf7715b458a2679fb72e8ea8167f96c053598d85bd365fd64e9c09b846183"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 251,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0251.png",
+      "sha256": "3ddbd8629b895e8113870daa141c69e9be431d834355897ea243e0bbbbbbe841"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 252,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0252.png",
+      "sha256": "028504706252cb1e28661ab331a6b3697f13dff4f06050ed9c912d68df22fb64"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 289,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0289.png",
+      "sha256": "121204ab3c3b4d78710d674c479df8ac115c10f6e0a5ba7181eab865a33e8648"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 290,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0290.png",
+      "sha256": "02ee92e6ec93276a5d9245bce829429564726b5d0055be71269a34e6c107ba59"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 305,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0305.png",
+      "sha256": "a10210df84f5c7f08aff8098ce8122501469a37897e9a01359f2a4981c7cff17"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 306,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0306.png",
+      "sha256": "f25024af19f9d33a6d81b9ac3cd8628becdb8ed908d88eb9ea54f0e794072db2"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 314,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0314.png",
+      "sha256": "1494e49f444e24c2246f12c0527813a9e41ecefbdf8cac663a7efd0554243c9b"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 315,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0315.png",
+      "sha256": "b833ebbb100bffeceacaaad2a5f3f44fad369da4bcc090e4130db257773bd0e9"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 316,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0316.png",
+      "sha256": "1335a5ce516c8161c1c517e165077e4fd144fcecd62f97d5ee390c2a3893693f"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 356,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0356.png",
+      "sha256": "f2763b08d3a1413de6b5c16e1f1898a540938e3582fc99c0b015c2b705ab7690"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 357,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0357.png",
+      "sha256": "5cc2476106f97648ecb86ddef2ee7e9dd17d6f85256038db069f1c5c9cd50a36"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 364,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0364.png",
+      "sha256": "229b728162f4cf76c16e8b98a53c5c32a2b74b47d0a42f38fd7cc333d6162ce5"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 365,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0365.png",
+      "sha256": "02cf0372c614a092c1de792313fc82c865cf2262bc40cf659c53004748081d69"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 366,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0366.png",
+      "sha256": "1c14cdf390e8b10cd49633c40e5505abf7ead5f532f0984bcaf57d9b5f9134c9"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 429,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0429.png",
+      "sha256": "f8d25c8b6ed25b0acb5c019bf8f633782e2a0a5a6052964a00977a3bc06d30f2"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 430,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0430.png",
+      "sha256": "b47b578447930156f467c29aee868548e62deb40e69dd2763d3754395ce78a77"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 431,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0431.png",
+      "sha256": "cba3ad2a7b2473c1578670a938c14336c73508b39f91b824bf3a1a30ce95567e"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 656,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0656.png",
+      "sha256": "c452af0a3b86d3b8fb8d71c9f29c7bc37e869ea130f8617a7d89d8b86c14863b"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 657,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0657.png",
+      "sha256": "a2daabe5dad1a3ee9bce0d731a33329a6ef34c3e6c5504b86d2a267c0c2ddb83"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 658,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0658.png",
+      "sha256": "725ea84129362e9dd471379718f44db59c7d26091d0d24a43778e38715eb9c26"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 659,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0659.png",
+      "sha256": "053010bec4fc602f3f974c2b26fb6d1c2ec63c81710e36eb015ee3a6d6269849"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 660,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0660.png",
+      "sha256": "74bf7976f045e2beb513311b183445883055bb420cde0cef1792dddbfd1ee81e"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 661,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0661.png",
+      "sha256": "0a676b177fa7a6410abeccfd8702d3698d36b05877e8f1af4a201685285cc395"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 745,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0745.png",
+      "sha256": "be29e7b923dbf856c743fea728672e43b36bf72edeff949b3e9783730c07d9b6"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 746,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0746.png",
+      "sha256": "416867dabfef272c3d58575571fb375c3281df2252b60d621292a6da241704e6"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 750,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0750.png",
+      "sha256": "3e75bc8c6fd63f1721dcf7834d5eb914679e9af8abc82c34121f076107debc71"
+    },
+    {
+      "source": "toronto",
+      "pdf_page": 751,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/toronto-pdf-0751.png",
+      "sha256": "d2fe971538acf4bb8a243c098ac75f438482908fa82ef60155f1bc51dd8999b4"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 24,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0024.png",
+      "sha256": "e8d2250dd63e82bcba509e3a2ae263fc0e54cc64103b16fe7604f8b8298797e7"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 25,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0025.png",
+      "sha256": "96854adb4650f39a9e04a04101314cfadfaee4a9f38b8ef84118936e4a62e4d2"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 26,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0026.png",
+      "sha256": "5f6750fbec08772b0d5233e06a3ae461b804baf19ceaf5782887bd662d217667"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 27,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0027.png",
+      "sha256": "bd96cc4e02dcc793ea360548df4717d39203df2483b155f90a28af10a3b0c751"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 28,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0028.png",
+      "sha256": "a5e7c57b3bfd219db6bf592ca8312a7e0a6442090d2166b9ebc190c0389aa87d"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 29,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0029.png",
+      "sha256": "ae4047d4002af5c3cd8ec5b297186472f45ffadfca88eb652375a8441dd59523"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 30,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0030.png",
+      "sha256": "8681081140f986edae510f67692591e7b45b963b70d8a19f1c2e67074c70da7a"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 31,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0031.png",
+      "sha256": "00d3ab8be7c4dd0658b111031dace0dc4227eab794ff5fcc757acf902e592296"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 32,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0032.png",
+      "sha256": "f038f9a228976abf06a85bd60aff28c329c929df553dcbea44ad35bec4e9287f"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 33,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0033.png",
+      "sha256": "4247ab3137579b5e7a123a7b7176adae4f8114d2c076e7a1ecf338c2af4c3ee2"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 34,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0034.png",
+      "sha256": "3711bcca6b63d581c12a5260809d0fe1a696dbd914ad1ffa25d8c0b9d0da9687"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 35,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0035.png",
+      "sha256": "11945fd098b8766c161428207036f842c4876f0bedff2fff3b230b8eaaa7896e"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 36,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0036.png",
+      "sha256": "53a26ab0273a18566c05d5ea47433d63518e3fbc9713243c0a09ec0d69174aa4"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 37,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0037.png",
+      "sha256": "ddf67cbbcc4c0f75dba2ec1bf1b58ee38b8dd70b3f40f39c247e7887fb1c58e6"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 38,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0038.png",
+      "sha256": "07fb3a5b0196395a8adc7c5afdd38f656e02c313ad5e7a6ffc69f0d3470fb6d6"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 39,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0039.png",
+      "sha256": "57b9c4adb70ed6b64fb87e95f5b19c08db5474df34e9995c1a972bdca8dd8a5d"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 40,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0040.png",
+      "sha256": "3ed190effcb15ff767cf09fbdf7b339493de067282df9f280345d7bc794e1f1a"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 41,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0041.png",
+      "sha256": "9d060668e574c8578d4bd55ff3f6c8d60eed46a5ffcfe7c05eec7427afa06dda"
+    },
+    {
+      "source": "harvard",
+      "pdf_page": 42,
+      "path": "data/corpus_changes/dubner-1855-scope/source-evidence/harvard-pdf-0042.png",
+      "sha256": "0fc632a99375978122a93c9e50e609b0f45cb1aba04a66f487770a642a129c3f"
+    }
+  ],
+  "limitations": [
+    "Source-boundary review is not exhaustive OCR proofreading or an accuracy measurement.",
+    "In-line manuscript sigla, variant readings, historical quotations, and extraction defects remain unchanged; this inventory makes no clean transcription claim.",
+    "Greek in modern apparatus remains preserved as source evidence and attributed variant readings, not admitted historical running text.",
+    "Toronto front order sometimes interleaves lower apparatus before right-column body; row-index ranges are explicit rather than sequential heading heuristics.",
+    "All named attributions are source claims; conflicting Andronicus/Caecius/Tzetzes claims must be retained.",
+    "Anonymous units use an explicitly labeled collective source identity rather than invented authors.",
+    "Harvard is another scan of the same edition, not an independent textual edition."
+  ]
+}

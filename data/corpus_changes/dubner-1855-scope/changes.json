@@ -1,0 +1,407 @@
+{
+ "before_sha256": "f7b254af8bca61ae39306997b5d9e4e915ec76853596141781ca0ca5dcccbd9b",
+ "counts": {
+  "analysis_tokens": 197986,
+  "comparative_historical_rows": 911,
+  "constructed_fallback_rows": 476,
+  "editorial_rows": 16488,
+  "held_historical_rows": 69,
+  "historical_witness_rows": 27913,
+  "mixed_original_rows": 1,
+  "original_primary_greek_tokens": 691151,
+  "original_primary_rows": 44263,
+  "original_rows": 45380,
+  "partition_rows": 45381,
+  "primary_rows": 391,
+  "reading_statuses": {
+   "agreement": 193892,
+   "damaged-reading": 38,
+   "incomplete-reading": 40,
+   "single-witness": 4092,
+   "unresolved": 75797
+  },
+  "works": 14
+ },
+ "inputs": {
+  "data/corpus/anthologia-graeca.anthologia-graeca.jsonl": "178370e7d2e0a4b92c72b5eef0bb084f4a3cb71178c28e70d62a45de5ce051ff",
+  "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+  "data/corpus/kaibel-cgf-1899.volume-witness-s.jsonl": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+  "data/corpus/marcellinus.vita-thucydidis.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+  "data/corpus/platonius.fragmenta-de-comoedia-graeca.jsonl": "9e2caeeb7764f10c01b21b404efbf9a8c516d06116e6b855e4615d1af09c01d5",
+  "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+  "data/corpus/suda.lexicon.jsonl": "ff6951bbc6959baf37b794c3232f669b6428e2d15a09057e17aab1cc17f599c9",
+  "data/corpus_changes/ocr.duplicate-read-merge.json": "7f9ff1cd1e258fa63ff0c7c8b24dde0750a7f23e95a1e939c36b299050f72551",
+  "data/corpus_secondary/kaibel-cgf-1899.volume-witness-s.jsonl": "2df7625d3629610d6de369c4673ec292980a9ab5f1ee09177b110a758abd9218",
+  "data/corpus_secondary/platonius.fragmenta-de-comoedia-graeca.duplicate-read-merged.jsonl": "28c3dcc1b1e1b6d55ed40dfb7fe3d9278c6af0071016acdf06e5f03c1b48d58d",
+  "data/corpus_secondary/platonius.fragmenta-de-comoedia-graeca.jsonl": "a7fd9c346538459198375b282156474371f0efb2adbce9a6f2627c514f6fa958",
+  "data/duplicate_read_merge_guesses.json": "eae993c4e89566b59720c98e38f57d3556e3c6a9ab40129022956604c6df4ff2"
+ },
+ "issue": "https://github.com/open-greek/open-greek-corpus/issues/102",
+ "outputs": {
+  "data/corpus/platonius.fragmenta-de-comoedia-graeca.jsonl": null,
+  "data/corpus/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6e63a452c71aa5ddc52384185d01e0be02527b208eaebc1ef3acc4c20d10a5fc",
+  "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "33e315dde7b27400441986bd0c2f8680e21933d7740f6fcf9d3a12b423eb52cd",
+  "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "d17e7b2fde7a0cf1272d761b8159a69d9e6f12bf43d923f5b81a402599cb4f33",
+  "data/corpus/scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "d40f1f9d1edad476e680c47928a5c53cf8eaca2f888b5fbe5d97b75bbdac6214",
+  "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "3ccffc0e097a4680e62a349325cfeacda703d67fe4faeec6be02b3a1a76f2924",
+  "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "77a78b9baa2ac396bdd2140c42d1ccd6cc3b425d74a1d2b65cb92b68ef1cf981",
+  "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "0feeffbf7d294ea7ef5b9c1a63486a67d1ec22dd7b8a0cd352c15aea8a78e691",
+  "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "9feff804d2a8e1fe4770437947f23889366657618ebe8f65c5ca3d209ffba6a4",
+  "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "38214487df31297d88d0a15c0fa58c2e0974d89461aa0de76e07f1d6c30bf8fb",
+  "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "bf8137282ea9af5d213578aec88ee93916b90665830cdf3832389710abfa689a",
+  "data/corpus/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "d4590ca7515bbaeed6ef82d14a0bbcb72629c4e7c27a177ba1bf73b67b7305a7",
+  "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "56c755337189f426bb544546e0a4e301452f03b8207f00442c88b9e257cc7cc7",
+  "data/corpus/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "98ffde68052353d2428a69a33a00f458eeee0a7a7e3251ef4714b343258c0568",
+  "data/corpus/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "484cfdf1083c0a81c05159f1ac5c99254cb7985414732d0a43db1d43eb3eabc6",
+  "data/corpus_changes/dubner-1855-scope/collations.jsonl.gz": "c1e3356c57c363e4eb7bc14a64cab3a72f05981c813678a334293f551f8c1798",
+  "data/corpus_changes/dubner-1855-scope/passage-aliases.json": "8527ce373698a5731949ae2b82f6f08d577af8f2ff056b20a8bb94c001281455",
+  "data/corpus_changes/dubner-1855-scope/records.jsonl.gz": "f88464097b1bce75aa787b9e0445ef690824a4a2dea8edfcf83eb40d7ff16e54",
+  "data/corpus_changes/dubner-1855-scope/word-networks.json.gz": "0baced2c3ce49099f7964f2ae274a32746782c3df959f536816acbf7a3253863",
+  "data/corpus_secondary/platonius.fragmenta-de-comoedia-graeca.duplicate-read-merged.jsonl": null,
+  "data/corpus_secondary/platonius.fragmenta-de-comoedia-graeca.jsonl": null,
+  "data/corpus_secondary/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6d59a502e0ba1fb62cd6e8f7600416269d9461ac66463f0547c73a6ec393f9a4",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "19565a6845b40a7cf1c508f51cd6b44869cb555b34bf9315cffde23c2b0bb79e",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "0fd17ef8b15bec543625857e5f454872c5033fae284f33d6c2a728d36d8d4880",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "5b1d47a3f2589cbebf68833d3e03b844fa39460343653cb6d902195c22e558d4",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "bc52ab5da51edd70be1c8ef7a17ca849546e606f55ee24c989ab9045736596eb",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "e76c46f129efefa5d543f0796c1b0185fced51bc418855b9a0abb9b496d4b733",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "c9d233759bdf1d240389b05a07f00dd7bdc2e0dd3f44f2da18ac1107d1b70a3e",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "5b30e7de36703dda53e0edd24ca12877d4ecc2e7f7f4a106b9d0869f92c8bb54",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "de77fd209670af439a03011086fa6ecdb4c1d46a792aabd8a0e2040f0c624dcb",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "888be6a2812b67a8837fb5cb8076ac8a0634facd18978982740be11a6a1e322e",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "85ef9e29b0d876a79f8b1fd202c819f0a693a3e51049938db77faf548a446134",
+  "data/corpus_secondary/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "ae0b0012ffd9d76aebd6e6b2996b5abcb2bd223efe80229b7dd650620eff8f11",
+  "data/corpus_secondary/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "8d5285d8ba9ba5354a7fa466ccd615ffadb84821e345a310eb5e1b449c4018ef",
+  "data/corpus_secondary/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "47a273effc3daee028a6137eac0b88bf6f63ba3048f69be9355bce8a46bf02bb",
+  "data/ocr_witnesses/dubner-1855-comparative-prolegomena.jsonl": "85a129491b02b0befe7a96ff6a7474e200b4640baf9dd0c200b45256a7f4e6f5",
+  "data/ocr_witnesses/dubner-1855-mixed-rows.jsonl": "88abb84748dd940b53e02b029f2f07698006666d201ed27285947c187de58828",
+  "data/ocr_witnesses/dubner-1855-unassigned.jsonl": "d8579a6cf0e97c554ec6c19132fe5d1fc12a52f34cf14ebcb43d368a61505e0d",
+  "data/paratext/dubner-1855-editorial.jsonl": "dc5dc04f90fc80ff053ece84d8ee3764591aca94dedc5233bfa6dff7dc7c13ee"
+ },
+ "overlap_measurements": {
+  "front_units": {
+   "anonymous-aristophanes-lives": {
+    "overlaps": [
+     {
+      "path": "data/corpus/marcellinus.vita-thucydidis.jsonl",
+      "sha256": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+      "shared_unique_normalized_8grams": 292
+     }
+    ],
+    "source_greek_tokens": 1144,
+    "source_unique_normalized_8grams": 1094
+   },
+   "anonymous-coislinianus": {
+    "overlaps": [
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl",
+      "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+      "shared_unique_normalized_8grams": 60
+     },
+     {
+      "path": "data/corpus_secondary/kaibel-cgf-1899.volume-witness-s.jsonl",
+      "sha256": "2df7625d3629610d6de369c4673ec292980a9ab5f1ee09177b110a758abd9218",
+      "shared_unique_normalized_8grams": 31
+     }
+    ],
+    "source_greek_tokens": 248,
+    "source_unique_normalized_8grams": 241
+   },
+   "anonymous-comedy-prolegomena": {
+    "overlaps": [
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl",
+      "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+      "shared_unique_normalized_8grams": 801
+     },
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-s.jsonl",
+      "sha256": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+      "shared_unique_normalized_8grams": 694
+     }
+    ],
+    "source_greek_tokens": 4098,
+    "source_unique_normalized_8grams": 3984
+   },
+   "platonius": {
+    "overlaps": [
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl",
+      "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+      "shared_unique_normalized_8grams": 265
+     },
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-s.jsonl",
+      "sha256": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+      "shared_unique_normalized_8grams": 356
+     }
+    ],
+    "source_greek_tokens": 853,
+    "source_unique_normalized_8grams": 846
+   },
+   "suda-aristophanes-excerpt": {
+    "overlaps": [
+     {
+      "path": "data/corpus/suda.lexicon.jsonl",
+      "sha256": "ff6951bbc6959baf37b794c3232f669b6428e2d15a09057e17aab1cc17f599c9",
+      "shared_unique_normalized_8grams": 45
+     }
+    ],
+    "source_greek_tokens": 68,
+    "source_unique_normalized_8grams": 61
+   },
+   "thomas-magister-aristophanes-life": {
+    "overlaps": [
+     {
+      "path": "data/corpus/marcellinus.vita-thucydidis.jsonl",
+      "sha256": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+      "shared_unique_normalized_8grams": 134
+     }
+    ],
+    "source_greek_tokens": 297,
+    "source_unique_normalized_8grams": 290
+   },
+   "tzetzes-poet-differences": {
+    "overlaps": [
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl",
+      "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+      "shared_unique_normalized_8grams": 233
+     },
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-s.jsonl",
+      "sha256": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+      "shared_unique_normalized_8grams": 173
+     }
+    ],
+    "source_greek_tokens": 957,
+    "source_unique_normalized_8grams": 950
+   },
+   "tzetzes-technical-iambics": {
+    "overlaps": [
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl",
+      "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+      "shared_unique_normalized_8grams": 168
+     },
+     {
+      "path": "data/corpus/kaibel-cgf-1899.volume-witness-s.jsonl",
+      "sha256": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+      "shared_unique_normalized_8grams": 75
+     }
+    ],
+    "source_greek_tokens": 562,
+    "source_unique_normalized_8grams": 555
+   }
+  },
+  "method": "Unique normalized Greek eight-word shingles; NFD casefold, combining marks removed, final and lunate sigma folded. A retrieval diagnostic, not OCR accuracy or full edition equivalence.",
+  "westermann_existing_scope": {
+   "aristophanes_source_pages": [
+    183,
+    184,
+    185,
+    186,
+    187,
+    188
+   ],
+   "greek_tokens": 97683,
+   "path": "data/corpus/marcellinus.vita-thucydidis.jsonl",
+   "qualification": "The current Marcellinus/Vita Thucydidis file includes other biographies from the Westermann volume. These counts measure the published file, not the authentic length of Marcellinus's work. Its separate scope repair is outside the Dübner migration.",
+   "rows": 7013,
+   "sha256": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+   "source_pdf_page_max": 516,
+   "source_pdf_page_min": 5
+  }
+ },
+ "qualification": "Source-supported work and text-role boundaries, followed by a word collation of two OCR extractions of Dübner's 1855 edition. They are not independent textual editions or independent model families. Every literal input and contrary reading remains available; unresolved readings do not enter scalar lexical counts. The merged Greek-word display is a reading projection, not a diplomatic transcription: original punctuation, Latin sigla, verse numbers, and row order remain in the citable secondary witnesses. Source omissions and OCR spellings have not been exhaustively repaired.",
+ "recipe_sha256": {
+  "capture_dubner_sources.py": "d9e97184906e0972bfbdbfe59e03f34792f9792d053bd9ad8151a2c70e08d679",
+  "dubner_dedup_observations.py": "5d63acfa420334ac5f74e32158676e37723318b0bf1a07397c20e5da4d938207",
+  "dubner_source_observations.py": "83335029d97bb695c39d5f29de6fad6b5eb96c33f034e0313c1a1dc01008ad76",
+  "dubner_witness_alignment.py": "dd61bd3d79157e7632e10fa6ab56d291afb3c224d3ff06c8c94185e7c19abeae",
+  "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+  "repair_dubner_scholias.py": "34402ea2b81a5761e1d51451146608bc227246fa32a0e52f3ccd1ca27aec3fe3"
+ },
+ "recorded_at": "2026-10-24T12:52:21.420067+00:00",
+ "schema_version": 1,
+ "source_capture_sha256": "875cf85ab4c2a09d264109269875119fd723b95155646ff5fdb5374687dd6ef4",
+ "sources": [
+  {
+   "id": "toronto",
+   "label": "University of Toronto scan of Dübner, Scholia graeca in Aristophanem (1855)",
+   "sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "url": "https://archive.org/details/scholiagraecaina00dbuoft"
+  },
+  {
+   "id": "harvard",
+   "label": "Harvard scan of Dübner, Scholia graeca in Aristophanem (1855)",
+   "sha256": "61c07b9dbde80569c6e54238f2cbb0897d8bb33386a9ecad389836bd67e0c600",
+   "url": "https://archive.org/details/scholiagraecain01dbgoog"
+  }
+ ],
+ "works": {
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855": {
+   "analysis_tokens": 107,
+   "counts": {
+    "agreement": 107,
+    "unresolved": 42
+   },
+   "primary_rows": 1,
+   "secondary_rows": 2,
+   "surface_tokens": 188
+  },
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
+   "analysis_tokens": 15215,
+   "counts": {
+    "agreement": 15215,
+    "incomplete-reading": 1,
+    "unresolved": 6424
+   },
+   "primary_rows": 31,
+   "secondary_rows": 2373,
+   "surface_tokens": 26854
+  },
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
+   "analysis_tokens": 19975,
+   "counts": {
+    "agreement": 18508,
+    "damaged-reading": 4,
+    "incomplete-reading": 7,
+    "single-witness": 1467,
+    "unresolved": 7962
+   },
+   "primary_rows": 39,
+   "secondary_rows": 2700,
+   "surface_tokens": 34530
+  },
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855": {
+   "analysis_tokens": 2781,
+   "counts": {
+    "agreement": 2331,
+    "damaged-reading": 2,
+    "single-witness": 450,
+    "unresolved": 1022
+   },
+   "primary_rows": 8,
+   "secondary_rows": 964,
+   "surface_tokens": 4706
+  },
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
+   "analysis_tokens": 22630,
+   "counts": {
+    "agreement": 22620,
+    "damaged-reading": 2,
+    "incomplete-reading": 4,
+    "single-witness": 9,
+    "unresolved": 10575
+   },
+   "primary_rows": 45,
+   "secondary_rows": 3219,
+   "surface_tokens": 40678
+  },
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855": {
+   "analysis_tokens": 6755,
+   "counts": {
+    "agreement": 6754,
+    "damaged-reading": 4,
+    "single-witness": 1,
+    "unresolved": 2297
+   },
+   "primary_rows": 16,
+   "secondary_rows": 1613,
+   "surface_tokens": 11279
+  },
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855": {
+   "analysis_tokens": 31380,
+   "counts": {
+    "agreement": 31379,
+    "damaged-reading": 22,
+    "incomplete-reading": 7,
+    "single-witness": 1,
+    "unresolved": 10233
+   },
+   "primary_rows": 58,
+   "secondary_rows": 3544,
+   "surface_tokens": 51564
+  },
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855": {
+   "analysis_tokens": 21566,
+   "counts": {
+    "agreement": 20561,
+    "incomplete-reading": 6,
+    "single-witness": 1004,
+    "unresolved": 9404
+   },
+   "primary_rows": 40,
+   "secondary_rows": 2434,
+   "surface_tokens": 37794
+  },
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855": {
+   "analysis_tokens": 33693,
+   "counts": {
+    "agreement": 33691,
+    "incomplete-reading": 7,
+    "single-witness": 2,
+    "unresolved": 12625
+   },
+   "primary_rows": 65,
+   "secondary_rows": 3961,
+   "surface_tokens": 57634
+  },
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855": {
+   "analysis_tokens": 21953,
+   "counts": {
+    "agreement": 20882,
+    "damaged-reading": 4,
+    "incomplete-reading": 5,
+    "single-witness": 1071,
+    "unresolved": 7642
+   },
+   "primary_rows": 42,
+   "secondary_rows": 2683,
+   "surface_tokens": 36425
+  },
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855": {
+   "analysis_tokens": 3580,
+   "counts": {
+    "agreement": 3580,
+    "unresolved": 1227
+   },
+   "primary_rows": 9,
+   "secondary_rows": 1199,
+   "surface_tokens": 5944
+  },
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
+   "analysis_tokens": 17814,
+   "counts": {
+    "agreement": 17727,
+    "incomplete-reading": 3,
+    "single-witness": 87,
+    "unresolved": 6151
+   },
+   "primary_rows": 34,
+   "secondary_rows": 3210,
+   "surface_tokens": 30316
+  },
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855": {
+   "analysis_tokens": 356,
+   "counts": {
+    "agreement": 356,
+    "unresolved": 109
+   },
+   "primary_rows": 2,
+   "secondary_rows": 8,
+   "surface_tokens": 566
+  },
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855": {
+   "analysis_tokens": 181,
+   "counts": {
+    "agreement": 181,
+    "unresolved": 84
+   },
+   "primary_rows": 1,
+   "secondary_rows": 3,
+   "surface_tokens": 296
+  }
+ }
+}

@@ -63,6 +63,36 @@ from build_ocr_quality_report import build_attestation, greek_tokens, MIN_SUSPEC
 from collapse_duplicate_reads import norm_elision, score, PAGE  # noqa: E402
 
 
+def post_merge_bytes(repo: Path, path: str | Path) -> bytes:
+    """Read a merge result, including a checked later retirement archive.
+
+    This is a historical read adapter, not an unapply input. A later Dübner
+    scope repair intentionally retires the mislabeled whole-volume files while
+    retaining their exact post-merge bytes. Only those named inputs may resolve
+    through its verified archive; an unrelated missing file remains an error.
+    """
+    repo = Path(repo)
+    relative = Path(path)
+    if relative.is_absolute():
+        relative = relative.relative_to(repo)
+    if ".." in relative.parts:
+        raise ValueError("A historical merge path must stay inside its repository")
+    current = repo / relative
+    if current.is_file():
+        return current.read_bytes()
+    from dubner_witness_alignment import B_PRIMARY, B_CROSSWORK, B_DUPLICATE
+    if relative.as_posix() not in {B_PRIMARY, B_CROSSWORK, B_DUPLICATE}:
+        raise FileNotFoundError(current)
+    from repair_dubner_scholias import active, verify
+    if not active(repo):
+        raise FileNotFoundError(current)
+    _, before = verify(repo)
+    raw = before.get(relative.as_posix())
+    if not isinstance(raw, bytes):
+        raise ValueError("The checked Dübner archive lacks a literal merge result")
+    return raw
+
+
 def groups() -> dict:
     """(file, item, offset) -> the page keys of one leaf-run, in page order."""
     cand = json.loads((DATA / "duplicate_page_candidates.json").read_text(encoding="utf-8"))

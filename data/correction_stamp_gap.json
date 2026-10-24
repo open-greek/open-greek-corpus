@@ -1,15 +1,15 @@
 {
  "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
  "tool": "scripts/measure_stamp_gap.py",
- "pairs": 43618,
+ "pairs": 43580,
  "by_method": {
   "llm": 32106,
   "freq": 9104,
   "agent": 1154,
-  "confusion": 738,
+  "confusion": 700,
   "prosodia": 516
  },
- "works_affected": 261,
+ "works_affected": 260,
  "works_under_the_floor_only_because_of_it": 24,
  "works": [
   {
@@ -186,17 +186,17 @@
  "schema_version": 1,
  "measured_against": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_sha256": "112c6dc5abe41c6700f70981f0f8cf98ece6f8850f6ba72ac6bcae94255d0b34",
-  "corpus_sha256": "8a1324fbcef264cbd3afc7fb1c0c717b3fe6fb37a97db2401efc5adb7e5ce546",
+  "catalog_sha256": "f192418328465cd6f58063656856cffa76bb36d77d563f523ae66795204628be",
+  "corpus_sha256": "54d3c8a117df65a15d456d77f10a04397f123b0b034b5cb07602f52f57f3b1b5",
   "active_correction_records": 228866
  },
  "raw_ocr": {
-  "upper_bound_works": 394,
-  "upper_bound_tokens": 2900453,
-  "upper_bound_share_of_corpus_tokens": 0.0441,
-  "lower_bound_works": 372,
-  "lower_bound_tokens": 2428092,
-  "lower_bound_share_of_corpus_tokens": 0.0369,
+  "upper_bound_works": 392,
+  "upper_bound_tokens": 2545077,
+  "upper_bound_share_of_corpus_tokens": 0.039,
+  "lower_bound_works": 370,
+  "lower_bound_tokens": 2072716,
+  "lower_bound_share_of_corpus_tokens": 0.0317,
   "works_in_doubt": 22,
   "tokens_in_doubt": 472361,
   "in_doubt": [

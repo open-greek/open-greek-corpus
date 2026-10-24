@@ -81,7 +81,7 @@ def test_span_stream_is_the_stream_the_merge_decided_on():
     checked = 0
     for f, blk in sorted(rec["files"].items()):
         rows = [json.loads(l) for l in
-                (REPO / f).read_text(encoding="utf-8").splitlines() if l.strip()]
+                mg.post_merge_bytes(REPO, f).decode("utf-8").splitlines() if l.strip()]
         texts = mg.page_text(rows)
         spans = mg.page_spans(rows)
         for page, toks in spans.items():
@@ -98,11 +98,11 @@ def test_components_never_merge_into_a_page_they_also_displace():
     rec = _audit()
     for f, blk in sorted(rec["files"].items()):
         served = {json.loads(l)["locus"].rsplit(".", 1)[0] for l in
-                  (REPO / f).read_text(encoding="utf-8").splitlines() if l.strip()}
+                  mg.post_merge_bytes(REPO, f).decode("utf-8").splitlines() if l.strip()}
         wit = REPO / "data" / "corpus_secondary" / (
             Path(f).name[:-len(".jsonl")] + f".{mg.WITNESS_SUFFIX}.jsonl")
         moved = {json.loads(l)["locus"].rsplit(".", 1)[0] for l in
-                 wit.read_text(encoding="utf-8").splitlines() if l.strip()}
+                 mg.post_merge_bytes(REPO, wit.relative_to(REPO)).decode("utf-8").splitlines() if l.strip()}
         assert not (served & moved), f"{f} serves and witnesses the same page"
 
 
@@ -121,7 +121,7 @@ def test_every_guess_names_a_token_that_is_actually_served():
     n = 0
     for f, blk in sorted(rec["files"].items()):
         rows = [json.loads(l) for l in
-                (REPO / f).read_text(encoding="utf-8").splitlines() if l.strip()]
+                mg.post_merge_bytes(REPO, f).decode("utf-8").splitlines() if l.strip()]
         rows = _rows_before_reviewed_page_displacements(f, rows)
         # row indices in the audit are pre-removal, so rebuild that numbering
         by_index = {}
@@ -145,10 +145,54 @@ def test_marked_rows_carry_the_counts_they_claim():
     rec = _audit()
     for f, blk in sorted(rec["files"].items()):
         rows = {json.loads(l)["locus"]: json.loads(l) for l in
-                (REPO / f).read_text(encoding="utf-8").splitlines() if l.strip()}
+                mg.post_merge_bytes(REPO, f).decode("utf-8").splitlines() if l.strip()}
         marked = [r for r in rows.values() if "merged_read" in r]
         assert marked, f"{f} recorded marked rows but serves none"
         for r in marked:
             mr = r["merged_read"]
             assert mr["substituted"] or mr["guessed"]
             assert isinstance(mr["with"], list) and mr["with"]
+
+
+def test_historical_reader_uses_current_bytes_without_an_archive(tmp_path, monkeypatch):
+    path = "data/corpus/current.jsonl"
+    current = tmp_path / path
+    current.parent.mkdir(parents=True)
+    current.write_bytes(b"current literal bytes\n")
+    import repair_dubner_scholias as repair
+    monkeypatch.setattr(repair, "verify", lambda root: pytest.fail("Current files need no archive fallback"))
+    assert mg.post_merge_bytes(tmp_path, path) == current.read_bytes()
+
+
+def test_historical_reader_never_recovers_an_unrelated_missing_file(tmp_path, monkeypatch):
+    import repair_dubner_scholias as repair
+    monkeypatch.setattr(repair, "active", lambda root: pytest.fail("Unrelated paths cannot use the Dübner archive"))
+    with pytest.raises(FileNotFoundError):
+        mg.post_merge_bytes(tmp_path, "data/corpus/unrelated.jsonl")
+
+
+def test_historical_reader_requires_an_active_and_valid_retirement(tmp_path, monkeypatch):
+    import repair_dubner_scholias as repair
+    from dubner_witness_alignment import B_PRIMARY
+    monkeypatch.setattr(repair, "active", lambda root: False)
+    monkeypatch.setattr(repair, "verify", lambda root: pytest.fail("An inactive layer cannot supply historical bytes"))
+    with pytest.raises(FileNotFoundError):
+        mg.post_merge_bytes(tmp_path, B_PRIMARY)
+    monkeypatch.setattr(repair, "active", lambda root: True)
+    def changed_authority(root):
+        raise ValueError("changed retirement authority")
+    monkeypatch.setattr(repair, "verify", changed_authority)
+    with pytest.raises(ValueError, match="changed retirement authority"):
+        mg.post_merge_bytes(tmp_path, B_PRIMARY)
+
+
+def test_historical_adapter_does_not_enable_unapply_through_a_later_retirement(tmp_path, monkeypatch):
+    from dubner_witness_alignment import B_PRIMARY
+    audit = tmp_path / "merge-audit.json"
+    audit.write_text(json.dumps({"files": {B_PRIMARY: {"sha256_after": "not-current"}}}))
+    monkeypatch.setattr(mg, "REPO", tmp_path)
+    monkeypatch.setattr(mg, "AUDIT", audit)
+    monkeypatch.setattr(mg, "post_merge_bytes", lambda *args: pytest.fail("Unapply must require the current literal file"))
+    with pytest.raises(SystemExit, match="no longer exists"):
+        mg.do_unapply()
+    assert not (tmp_path / B_PRIMARY).exists()

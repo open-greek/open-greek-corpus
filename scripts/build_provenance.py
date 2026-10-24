@@ -6,8 +6,9 @@ Reads source_component_tokens.json (every row's source and eligible tokens),
 corpus_editions.json (dominant descriptive edition), cgpg_works.json / ocr_works.json
 (human descriptions), work_index.json (the served title, for the many OCR works whose
 ledger description is blank or is a scan's running head), and
-data/corrections_log/provenance.json (the list of works that have had a correction
-pass, delivered by the OCR pipeline - a plain list of urns, nothing about how).
+the optional corrections-log mirror. Manual mirror claims require a standing
+manual correction at its exact current primary locus; work-level flags alone
+do not establish the current text's quality.
 Rewrites the table between the OCR-PROVENANCE markers in README.md and the
 identity anchor counts derived from the current work index.
 
@@ -22,6 +23,7 @@ import sys
 from pathlib import Path
 from build_readme_figures import sync_identity_counts as sync_anchor_counts
 from build_source_components import MIXED_STATUS, load_verified
+from correction_quality_claims import verified_manual_works
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -154,13 +156,15 @@ def main() -> None:
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
+    from repair_dubner_scholias import metadata as dubner_metadata
+    dubner = dubner_metadata(REPO)
     if set(ce) != set(components):
         raise ValueError("Corpus editions and source components describe different works")
     # The component report pins every corpus file and the eligibility recipe;
     # its whole-work totals avoid stale delivery-ledger or modification-time counts.
     prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
-    corrected = set(prov.get("corrected_works", []))
+    corrected = verified_manual_works(DATA)
     auto_corrected = set(prov.get("auto_corrected_works", []))
     # Authoritative edit status comes from the rows' own `corrections` stamps
     # (every edit method - confusion, dehyphenation, freq, ... - stamps the row),
@@ -175,11 +179,9 @@ def main() -> None:
     # processed sit around 15% of rows stamped, works it merely grazed sit under
     # 1%.
     #
-    # The threshold does NOT gate the manual promotion. "Manually corrected"
-    # claims a person reviewed the text, which edit volume does not measure: a
-    # clean work rightly comes back with few edits, and four walz_rhetores
-    # volumes read near zero only because a per-treatise split re-keyed the rows
-    # their corrections were stamped on.
+    # The threshold does not gate manual stamps or verified manual mirror
+    # claims. A sparse standing manual edit is still evidence of that method;
+    # an old record whose locus was re-keyed is not current-primary evidence.
     MIN_AUTO_COVERAGE = 0.01
     corpus_dir = DATA / "corpus"
     if corpus_dir.is_dir():
@@ -208,9 +210,10 @@ def main() -> None:
                 auto_corrected.add(urn)
             else:
                 auto_corrected.discard(urn)
-                corrected.discard(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
+        if urn in dubner:
+            return ", ".join(f"[{item['id']}]({item['url']})" for item in dubner[urn]["sources"])
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
         # archive.org) from the visible text but keep the link target
         url = (ocr.get(urn, {}).get("source_url")
@@ -252,7 +255,9 @@ def main() -> None:
         # ones where they exist (they carry the Migne column range, the attribution
         # note, what a catena actually covers), so preferring the index wholesale
         # would flatten 316 good rows into a bare title.
-        if not desc.strip() or looks_like_page_header(desc):
+        if urn in dubner:
+            desc = indexed_desc(urn, index)
+        elif not desc.strip() or looks_like_page_header(desc):
             desc = indexed_desc(urn, index) or desc
         status = (MIXED_STATUS if mixed else "manual" if urn in corrected
                   else "auto-corrected" if urn in auto_corrected
@@ -278,6 +283,8 @@ def main() -> None:
             # older campaign model.
             ed = srcs.get(m.get("edition", ""), {})
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
+        if urn in dubner:
+            model += " (collated same-edition OCR; unresolved readings excluded)"
         words = component["analysis_tokens"]
         rows.append((name, desc, dl, model, f"{words:,}", status))
 

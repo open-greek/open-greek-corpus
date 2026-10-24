@@ -54,7 +54,8 @@ from source_identity import (  # noqa: E402
     Registry, IdentityError, normalize_slug, ALWAYS_QUALIFY, era_for_century)
 from source_precedence import load_overrides, resolve  # noqa: E402
 from critical_text import load_critical_editions, register_critical_editions  # noqa: E402
-from reviewed_manifestations import MUSICAL_IDENTITIES, register_reviewed_manifestations  # noqa: E402
+from reviewed_manifestations import (MUSICAL_IDENTITIES, dubner_identity_metadata, dubner_retired_work_slugs,
+    register_reviewed_manifestations)  # noqa: E402
 
 
 # Full names for the TLG Canon's genre abbreviations (a leading "2" = a second
@@ -833,6 +834,9 @@ def build() -> Registry:
     critical_editions = load_critical_editions(REPO / "data")
     from gutenberg_source_metadata import admitted_sources, register_gutenberg_editions
     gutenberg_slugs = {source["work"] for source in admitted_sources(REPO)}
+    dubner_definitions = dubner_identity_metadata(REPO)
+    dubner_slugs = set(dubner_definitions)
+    dubner_retired = dubner_retired_work_slugs(REPO, identities=dubner_definitions)
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
         # function's downstream logic expects from each work's cts alias (non-tlg
@@ -1001,7 +1005,8 @@ def build() -> Registry:
     n_attributed = 0
     for work_cts, win in sorted(ingested.items()):
         if (work_cts in by_key or work_cts.startswith("cogByz.")
-                or work_cts in critical_editions or work_cts in gutenberg_slugs):
+                or work_cts in critical_editions or work_cts in gutenberg_slugs
+                or work_cts in dubner_retired):
             continue  # cogByz.* are minted by the Byzantine pass below
         tg = work_cts.split(".")[0]
         group, title = names.get(work_cts, ("", ""))
@@ -1027,7 +1032,7 @@ def build() -> Registry:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
-        if work_cts in MUSICAL_IDENTITIES:
+        if work_cts in MUSICAL_IDENTITIES or work_cts in dubner_slugs:
             continue  # explicit served identity is registered below
         # curated whole-volume works are keyed by their SERVED corpus key: the
         # reader resolves works[<corpus_editions slug>] directly (registry ->
@@ -1129,6 +1134,8 @@ def build() -> Registry:
     n_corpus_default = 0
     corpus_default_by_source: dict[str, int] = {}
     for slug in sorted(corpus_records):
+        if slug in dubner_retired:
+            continue                     # stale derived metadata cannot revive a dissolved volume
         w = reg.works.get(slug)
         if w is None:
             continue                     # served, but not a registry work

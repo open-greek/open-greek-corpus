@@ -7,8 +7,8 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.89,
     "pct_ingested_actual": 67.5,
-    "ingested_words_actual": 50611339,
-    "ingested_complete_works": 2925,
+    "ingested_words_actual": 50605544,
+    "ingested_complete_works": 2924,
     "ingested_partial_works": 116,
     "pct_reachable_not_ingested": 13.88,
     "pct_locked": 11.68,
@@ -17,20 +17,20 @@
       "actionable": 605754,
       "structural": 569499
     },
-    "underfilled_50_90_works": 449,
+    "underfilled_50_90_works": 450,
     "underfilled_50_90_missing_words": {
-      "actionable": 1507902,
+      "actionable": 1512804,
       "structural": 179837
     }
   },
   "buckets": {
     "ingested": {
-      "works": 3041,
-      "word_count": 54648565
+      "works": 3040,
+      "word_count": 54647672
     },
     "reachable_not_ingested": {
-      "works": 1591,
-      "word_count": 10406042
+      "works": 1592,
+      "word_count": 10406935
     },
     "locked": {
       "works": 2173,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2925,
-      "word_count": 53117271
+      "works": 2924,
+      "word_count": 53116378
     },
     "ingested_partial": {
       "works": 116,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1159,
-      "word_count": 8815017
+      "works": 1160,
+      "word_count": 8815910
     },
     "migne_pd": {
       "works": 406,
@@ -6451,6 +6451,14 @@
       "title": "In Sanctum Stephanum Sp.",
       "word_count": 893,
       "best_source": "migne_pd"
+    },
+    {
+      "tlg_id": "tlg1615",
+      "work_id": "001",
+      "author": "Platonius",
+      "title": "Fragmenta De Comoedia Graeca",
+      "word_count": 893,
+      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg0252",
@@ -14738,6 +14746,17 @@
       "missing_words": 5092
     },
     {
+      "tlg_id": "tlg5014",
+      "work_id": "001",
+      "author": "Scholia In Aristophanem",
+      "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
+      "word_count": 31740,
+      "ingested_tokens": 26838,
+      "coverage_ratio": 0.846,
+      "source": "ocr",
+      "missing_words": 4902
+    },
+    {
       "tlg_id": "tlg0087",
       "work_id": "007",
       "author": "Aelius Herodianus Et Pseudo-Herodianus",
@@ -19394,8 +19413,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 774,
-    "n_tokens": 8038981,
+    "works": 787,
+    "n_tokens": 8350522,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19718,6 +19737,14 @@
         "n_tokens": 60981
       },
       {
+        "key": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 65,
+        "n_tokens": 57608
+      },
+      {
         "key": "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
         "edition": "qwen36-walz_rhetores_v7pt2",
         "source": "ocr",
@@ -19788,6 +19815,14 @@
         "license": "PD",
         "n_passages": 2591,
         "n_tokens": 51631
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 58,
+        "n_tokens": 51522
       },
       {
         "key": "gelasius.historia-ecclesiastica",
@@ -19862,6 +19897,14 @@
         "n_tokens": 40753
       },
       {
+        "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 45,
+        "n_tokens": 40523
+      },
+      {
         "key": "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
         "edition": "cgpg",
         "source": "cgpg",
@@ -19918,6 +19961,14 @@
         "n_tokens": 38229
       },
       {
+        "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 40,
+        "n_tokens": 37727
+      },
+      {
         "key": "mullach-fpg2.paratexta",
         "edition": "qwen36-archytas_mullach_fpg2",
         "source": "ocr",
@@ -19958,6 +20009,14 @@
         "n_tokens": 36689
       },
       {
+        "key": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 42,
+        "n_tokens": 36401
+      },
+      {
         "key": "nicolaus-rhetoric.progymnasmata-walz-i-263",
         "edition": "qwen36-walz_rhetores_v1",
         "source": "ocr",
@@ -19972,6 +20031,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 491,
         "n_tokens": 35395
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 39,
+        "n_tokens": 34512
       },
       {
         "key": "scholia-in-callimachum.schol-callim-schneider",
@@ -19996,6 +20063,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 72,
         "n_tokens": 32099
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 34,
+        "n_tokens": 30289
       },
       {
         "key": "symeon-thessalonicensis.de-sacra-precatione",
@@ -20492,6 +20567,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 26,
         "n_tokens": 11418
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 16,
+        "n_tokens": 11271
       },
       {
         "key": "diogenes-sinopensis.fragmenta-et-apophthegmata",
@@ -21030,6 +21113,14 @@
         "n_tokens": 6003
       },
       {
+        "key": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 9,
+        "n_tokens": 5939
+      },
+      {
         "key": "plutarchus.aetia-graeca-capitum-catalogus",
         "edition": "perseus-grc3",
         "source": "perseus",
@@ -21300,6 +21391,14 @@
         "license": "PD",
         "n_passages": 1083,
         "n_tokens": 4723
+      },
+      {
+        "key": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 8,
+        "n_tokens": 4702
       },
       {
         "key": "symeon-thessalonicensis.de-sancto-euchelaeo",
@@ -23054,6 +23153,14 @@
         "n_tokens": 565
       },
       {
+        "key": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2,
+        "n_tokens": 565
+      },
+      {
         "key": "pseudo-polemon.physiognomonica-2",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -23478,6 +23585,14 @@
         "n_tokens": 299
       },
       {
+        "key": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1,
+        "n_tokens": 296
+      },
+      {
         "key": "tatianus.fragmenta",
         "edition": "cgpg",
         "source": "cgpg",
@@ -23772,6 +23887,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 8,
         "n_tokens": 187
+      },
+      {
+        "key": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
+        "edition": "dubner-1855-collated",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1,
+        "n_tokens": 186
       },
       {
         "key": "dinarchus.fragmenta-fhg",
