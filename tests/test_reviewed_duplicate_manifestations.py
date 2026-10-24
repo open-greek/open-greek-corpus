@@ -11,6 +11,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT)]
 import repair_reviewed_duplicate_blocks as repair
+import reviewed_duplicate_state as duplicate_state
 import reviewed_duplicate_manifestations as credits
 from source_identity import Registry
 
@@ -46,7 +47,10 @@ def staged_admission(destination):
     for name in names:
         path = destination / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / name, path)
+        if name in audit["outputs"]:
+            path.write_bytes(duplicate_state.duplicate_postimage_bytes(ROOT, name))
+        else:
+            shutil.copyfile(ROOT / name, path)
     return destination
 
 

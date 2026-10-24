@@ -42,7 +42,7 @@ def test_cyril_coverage_survives_verified_duplicate_collation(monkeypatch):
     assert review["counts"]["literal_witness_rows"] == 8
     assert review["work_file_accounting"] == {
         "original_primary_rows": 3109, "current_primary_rows": 3105}
-    import repair_reviewed_duplicate_blocks as duplicate_review
+    import reviewed_duplicate_state as duplicate_review
     monkeypatch.setattr(duplicate_review, "historical_bytes", lambda *args: b"wrong predecessor\n")
     with pytest.raises(ValueError, match="primary text or preserved witness changed"):
         coverage.resolution(ROOT, slug)

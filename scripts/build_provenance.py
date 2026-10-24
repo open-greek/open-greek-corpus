@@ -158,6 +158,10 @@ def main() -> None:
     srcs = _load("inventory/ocr_edition_sources.json") or {}
     from dubner_layers import metadata as dubner_metadata
     dubner = dubner_metadata(REPO)
+    from westermann_manifestations import identity_metadata as westermann_metadata
+    from hesychius_gap_manifestations import metadata as hesychius_metadata
+    westermann = westermann_metadata(REPO)
+    hesychius_gap = hesychius_metadata(REPO)
     if set(ce) != set(components):
         raise ValueError("Corpus editions and source components describe different works")
     # The component report pins every corpus file and the eligibility recipe;
@@ -212,6 +216,9 @@ def main() -> None:
                 auto_corrected.discard(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
+        if urn in westermann:
+            from westermann_source_observations import SOURCE
+            return f"[Westermann 1845]({SOURCE['url']})"
         if urn in dubner:
             return ", ".join(f"[{item['id']}]({item['url']})" for item in dubner[urn]["sources"])
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
@@ -285,6 +292,12 @@ def main() -> None:
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
         if urn in dubner:
             model += " (collated same-edition OCR; unresolved readings excluded)"
+        if urn in westermann:
+            model += " (source scope reviewed; spellings unreviewed)"
+        if hesychius_gap is not None and urn == "hesychius-lexicography.lexicon-o":
+            dl += "; " + ", ".join(f"[{key} gap leaf]({source['url']})"
+                for key, source in hesychius_gap["sources"].items())
+            model += "; Qwen3.6/3.8-27B collation for columns 259–260"
         words = component["analysis_tokens"]
         rows.append((name, desc, dl, model, f"{words:,}", status))
 

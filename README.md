@@ -63,6 +63,37 @@ original rows and the 35 additional Hesychius lines remain in literal witnesses
 and checked word networks. Old citations still resolve. Run
 `make check-reviewed-duplicates` to replay the source-supported collation.
 
+The [missing Hesychius columns](docs/hesychius-missing-columns.md), 259–260,
+are recovered from Harvard and Ghent copies of Schmidt's 1867 edition. Eight
+literal OCR witnesses and the full word networks preserve contrary readings.
+Only readings supported by both model groups enter lexical counts; unresolved
+readings remain available. Run `make check-hesychius-gap` to replay the addition
+and verify its exact predecessor and source evidence.
+
+Westermann's 1845 biography anthology is partitioned by printed work and text
+role. `marcellinus.vita-thucydidis` retains Marcellinus's actual life; other
+admitted biographies have source-specific identities. Already served lives,
+Suda excerpts, and unaligned parallel recensions remain comparative witnesses.
+Headings, modern notes, and indexes remain outside primary lexical counts.
+Every original character and citation is retained, including mixed rows split
+at exact character offsets. `make check-westermann-scope` verifies the source
+review, comparative evidence, complete partition, and reversible audit. Source
+scope review does not certify the remaining OCR spellings.
+
+Four identical First1K Pindar units now count once under their titled work
+slugs. Their literal former rows remain secondary witnesses, and the original
+opaque identifiers remain retired with explicit canonical redirects. The
+First1K ingester uses the same reviewed routes, including when a generated
+crosswalk is absent. Run `make check-pindar-duplicates` to verify the exact
+duplicate comparison and undo archive.
+The registry derives each unit's title and edition credits from its pinned
+First1K header. The collective catalog attribution does not establish a
+composition date: the four upstream OGA dates remain qualified source readings
+without becoming unit-level century or era tags.
+The release quality block exposes the verified counts for all three repairs;
+the known-limitations artifact retains the recovered Hesychius columns' reading
+uncertainty separately from their repaired coverage.
+
 GlossAPI historical datasets are staged separately under the admission rules
 in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).
 `python3 scripts/stage_glossapi_ekklisiastika.py` verifies the pinned source,
@@ -720,7 +751,7 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 582 of the 3,926 served works have no
+distinct `ogc` ids sharing one TLG anchor. 595 of the 3,939 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
 `work_index.json` under `work_anchors` (`cts` on 3,344 works, `tlg` on 3,305,
@@ -2530,7 +2561,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1409 listed works/volumes containing OCR: 131 manually corrected, 888 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 386 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1426 listed works/volumes containing OCR: 131 manually corrected, 887 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 404 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -2808,6 +2839,15 @@ not agree with it.
 | basilius-theology.sermo-ob-sacerdotum-instructionem-recensio-brevior-sp | Basilius - Sermo Ob Sacerdotum Instructionem (Recensio Brevior) [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 598 | auto-corrected |
 | basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti | Basilius - Sermones De Moribus A Symeone Metaphrasta Collecti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,923 | auto-corrected |
 | beros-s-us.fragmenta | Beros(S)Us - Fragmenta | qwen36-demochares_fhg2-ocr | Qwen3.6-27B | 1,842 | auto-corrected |
+| biographi-anonymi.antiphon-anonymous-westermann | Anonymous - Genus Antiphontis (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 238 | raw OCR |
+| biographi-anonymi.aristides-anonymous-westermann | Anonymous - Vita Aristidis (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 1,155 | raw OCR |
+| biographi-anonymi.aristophanes-anonymous-westermann | Anonymous - Vita Aristophanis (Westermann anonymous life) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 638 | raw OCR |
+| biographi-anonymi.aristotle-anonymous-westermann | Anonymous - Vita Aristotelis et scripta (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 823 | raw OCR |
+| biographi-anonymi.dionysius-life-westermann | Anonymous - Vita Dionysii Periegetae (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 57 | raw OCR |
+| biographi-anonymi.isaeus-anonymous-westermann | Anonymous - Genus Isaei (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 315 | raw OCR |
+| biographi-anonymi.plato-anonymous-westermann | Anonymous - Vita Platonis (Westermann anonymous life) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 2,000 | raw OCR |
+| biographi-anonymi.sophocles-life-westermann | Anonymous - Vita Sophoclis (Westermann) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 959 | raw OCR |
+| biographi-anonymi.thucydides-anonymous-westermann | Anonymous - Vita Thucydidis (Westermann anonymous life) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 766 | raw OCR |
 | bion-history.fragmenta | Bion - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 55 | raw OCR |
 | bion-mathematics.testimonia | Bion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 94 | raw OCR |
 | bion-philosophy.fragmenta | Bion - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,673 | auto-corrected |
@@ -2853,6 +2893,7 @@ not agree with it.
 | comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Comarius - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E Cod. Paris. B.N. Gr. 2327, Fol. 79V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
 | commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana | Commentaria In Dionysii Thracis Artem Grammaticam - Prolegomena Vossiana | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
+| constantinus-manasses.oppian-manasses-westermann | Constantinus Manasses - Genus Oppiani (political verses) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 353 | raw OCR |
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
 | constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske | Constantinus VII Porphyrogenitus - De cerimoniis aulae Byzantinae (lib. 1.84-2.56) (PG112 loci 354-730) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 73,431 | auto-corrected |
 | constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis | Constantinus VII Porphyrogenitus Imperator - De Virtutibus Et Vitiis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 211,764 | manual |
@@ -2996,6 +3037,7 @@ not agree with it.
 | eubulides.fragmentum | Eubulides - Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 72 | raw OCR |
 | eubulus.fragmenta | Eubulus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 4,383 | raw OCR |
 | eudemus-philosophy.fragmenta | Eudemus - Fragmenta | qwen36-eudemus_spengel_1866 | Qwen3.6-27B | 39,732 | auto-corrected |
+| eudocia-printed-ionia.antiphon-eudocia-westermann | Eudocia (Ionia attribution; personal identity uncertain) - Ionia: Antiphon excerpt | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 147 | raw OCR |
 | eudoxus-astronomy.fragmenta | Eudoxus - Fragmenta | qwen36-eudoxus_ars_astronomica_blass | Qwen3.6-27B | 3,807 | raw OCR |
 | eudoxus.fragmenta | EUDOXUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 79 | raw OCR |
 | eudromus.fragmenta | Eudromus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 67 | raw OCR |
@@ -3018,6 +3060,7 @@ not agree with it.
 | eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum | Eusebius - Supplementa Ad Quaestiones Ad Marinum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,492 | auto-corrected |
 | eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis - Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,069,461 | auto-corrected |
 | eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS - Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 539,821 | auto-corrected |
+| eustathius-thessalonicensis.pindar-eustathius-westermann | Eustathius - Prologue to the Pindar commentary (excerpt) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 1,461 | raw OCR |
 | eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS - In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,851 | auto-corrected |
 | eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio | Eutecnius - Paraphrasis In Oppiani Cynegetica (Fort. Auctore Eutecnio) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,965 | auto-corrected |
 | euthalius-diaconus.apodemiai-pauli | Euthalius Diaconus - Apodemiae Pauli (PG118 loci 165-167, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,027 | raw OCR |
@@ -3216,7 +3259,7 @@ not agree with it.
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
-| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 147,352 | auto-corrected |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog); [harvard gap leaf](https://archive.org/details/bub_gb_R-zVabafOucC), [ghent gap leaf](https://archive.org/details/bub_gb_PNI9AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi); Qwen3.6/3.8-27B collation for columns 259–260 | 147,561 | auto-corrected |
 | hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,868 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | raw OCR |
 | hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
@@ -3432,6 +3475,7 @@ not agree with it.
 | joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 105,227 | auto-corrected |
 | joannes-stobaeus-anthologus.anthologium | Joannes Stobaeus Anthologus - Anthologium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 435,325 | manual |
 | joannes-tzetzes.epitome-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,453 | raw OCR |
+| joannes-tzetzes.lycophron-tzetzes-westermann | Joannes Tzetzes - De genere vita et scriptis Lycophronis (excerpt) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 185 | raw OCR |
 | joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 99,576 | raw OCR |
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,568 | manual |
@@ -3457,6 +3501,7 @@ not agree with it.
 | lesbonax-rhetoric.politiko-s | LESBONAX - De figuris | qwen36-lesbonax | Qwen3.6-27B | 970 | raw OCR |
 | leucippus.testimonia | LEUCIPPUS - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,626 | auto-corrected |
 | lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137 | Lexicon Sabbaiticum - Lexicon Sabbaiticum (E Cod. Sabbaitico 137) | [archive.org](https://archive.org/details/lexicon-sabbaiticum-athanasios-papadopulos-kerameus) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 5,134 | raw OCR |
+| libanius.demosthenes-libanius-westermann | Libanius - Vita Demosthenis (letter to Montius and biography) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 993 | raw OCR |
 | licymnius.fragmenta | Licymnius - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,161 | auto-corrected |
 | limenius.paean-delphicus-ii-et-prosodium-in-apollinem | Limenius - Paean Delphicus Ii Et Prosodium In Apollinem | qwen36-limenius_delphic_fairbanks | Qwen3.6-27B | 7,448 | auto-corrected |
 | lucius-annaeus-cornutus.cornutus-lang |  | qwen36-cornutus_lang | Qwen3.6-27B | 23,228 | auto-corrected |
@@ -3470,7 +3515,7 @@ not agree with it.
 | magnus.fragmentum | Magnus - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 793 | auto-corrected |
 | manetho.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 3,034 | auto-corrected |
 | mantissa-proverbiorum.mantissa-proverbiorum | Mantissa Proverbiorum - Mantissa Proverbiorum | [archive.org](https://archive.org/details/corpusparoemiogr02leutuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 167,532 | raw OCR |
-| marcellinus.vita-thucydidis | Marcellinus - Vita Thucydidis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 97,683 | auto-corrected |
+| marcellinus.vita-thucydidis | Marcellinus - Vita Thucydidis | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 3,112 | raw OCR |
 | martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum | Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | auto-corrected |
 | matthaeus-camariota.rhetorikes-epitome |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,874 | auto-corrected |
 | maximus-planudes.peri-ton-alyton-antitheseon |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 3,022 | auto-corrected |
@@ -3562,6 +3607,7 @@ not agree with it.
 | oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 327-461) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,233 | manual |
 | oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 462-555) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 36,971 | manual |
 | oenopides.testimonia | Oenopides - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,451 | auto-corrected |
+| olympiodorus-philosophy.plato-olympiodorus-westermann | Olympiodorus - Vita Platonis (Westermann excerpt) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 1,477 | raw OCR |
 | onatas.fragmenta | Onatas - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 425 | auto-corrected |
 | ophelio.fragmenta | Ophelio - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 132 | auto-corrected |
 | oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo | Oracula Chaldaica - Oracula (Fragmenta) (Olim Sub Auctore Juliano Theurgo) | qwen36-oracula_chaldaica_kroll | Qwen3.6-27B | 8,267 | auto-corrected |
@@ -3685,6 +3731,7 @@ not agree with it.
 | prodicus.testimonia | Prodicus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,709 | auto-corrected |
 | proros-amyclas-clinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 329 | raw OCR |
 | protagoras.testimonia | Protagoras - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,474 | auto-corrected |
+| pseudo-ammonius.aristotle-ammonius-westermann | Ammonius (bracketed printed attribution) - Vita Aristotelis (Westermann bracketed Ammonius life) | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 909 | raw OCR |
 | pseudo-archytas.fragmenta | Pseudo-Archytas - Fragmenta | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 4,651 | auto-corrected |
 | pseudo-codinus.de-annis-ab-orbe-condito | Pseudo-Codinus - De annis ab orbe condito (Chronicon breve, from Adam to 1453) (PG157 loci 325-332) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,653 | manual |
 | pseudo-codinus.de-officiis-officia-palatii-constantinopoleos | Pseudo-Codinus - De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae) (PG157 loci 20-68) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,747 | manual |
@@ -3886,6 +3933,7 @@ not agree with it.
 | theopompus-comedy.fragmenta | Theopompus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
 | theopompus-history.testimonia | Theopompus - Testimonia | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 23,594 | auto-corrected |
 | thespis.fragmenta | Thespis - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 262 | raw OCR |
+| thomas-magister.aristophanes-thomas-westermann | Thomas Magister - Synopsis vitae Aristophanis | [Westermann 1845](https://archive.org/details/biographoivitaru00westuoft) | Qwen3.6-27B (source scope reviewed; spellings unreviewed) | 166 | raw OCR |
 | thrasymachus.testimonia | Thrasymachus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,086 | auto-corrected |
 | thugenides.fragmenta | THUGENIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 144 | raw OCR |
 | tiberianus.epistula-ad-trajanum-de-christianis | Tiberianus (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam) - Epistula Tiberiani ad Trajanum de Christianis (PG005 loci 505-505) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 59 | auto-corrected |
@@ -3947,7 +3995,7 @@ not agree with it.
 
 ## Status
 
-- 3,926 works served, 65.3M Greek tokens in the checked lexical projection, 17 source categories.
+- 3,939 works served, 65.2M Greek tokens in the checked lexical projection, 17 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

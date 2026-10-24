@@ -76,6 +76,7 @@ import lxml.etree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from crosswalk import slug_for  # noqa: E402
+from repair_pindar_duplicate_primaries import ingestion_slug as pindar_ingestion_slug  # noqa: E402
 
 # Reuse build_public_corpus's license detection, Greek-token regex, drop set and
 # whole-body text extraction so dedup and the lexicon rollup stay byte-identical.
@@ -902,7 +903,10 @@ def main() -> None:
         urn = f"{m.group(1)}.{m.group(2)}"
         if urn in consumed_by_consolidation:
             continue
-        key = slug_for(urn)                    # slug is the primary id, not the tlg
+        # Four lettered Pindar units previously survived both under their raw
+        # TLG stem and under their source-supported title. Resolve the reviewed
+        # route even when a partial checkout has no generated crosswalk yet.
+        key = pindar_ingestion_slug(urn, slug_for(urn))
         if re.fullmatch(r"pta\d+\.pta\d+", key):
             # an unresolved pta id: deliberately unmapped in the pta crosswalk
             # (pta9999 = the PTA's vendored Septuaginta, handled by the LXX

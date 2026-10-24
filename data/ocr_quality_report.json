@@ -8,9 +8,9 @@
     "ocr",
     "ocr-masked"
    ],
-   "n_token_occurrences": 36132082,
+   "n_token_occurrences": 36130637,
    "n_unique_forms": 1166483,
-   "n_works": 2502,
+   "n_works": 2498,
    "sources": [
     "byzantine_vernacular",
     "byzantium_gr",
@@ -29,11 +29,11 @@
    ]
   },
   "counts": {
-   "ocr_works": 1427,
-   "ocr_works_ranked": 831,
+   "ocr_works": 1444,
+   "ocr_works_ranked": 832,
    "ocr_works_with_witness": 210,
-   "secondary_files": 556,
-   "skipped": 134,
+   "secondary_files": 561,
+   "skipped": 139,
    "tei_primary_ocr_secondary_pairs": 212
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -292,6 +292,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "hesychius-lexicography.lexicon-o.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "hesychius-lexicography.lexicon-o.missing-columns-witnesses"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -574,6 +578,22 @@
     "slug": "timotheus-history.timotheus-defluviis-ggm2.duplicate-read-review-page-images-2026-09-14"
    },
    {
+    "reason": "secondary is not OCR (sources: first1k); not an OCR-error pair",
+    "slug": "vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis"
+   },
+   {
+    "reason": "secondary is not OCR (sources: first1k); not an OCR-error pair",
+    "slug": "vitae-pindari-et-varia-de-pindaro.vita-ambrosiana"
+   },
+   {
+    "reason": "secondary is not OCR (sources: first1k); not an OCR-error pair",
+    "slug": "vitae-pindari-et-varia-de-pindaro.vita-metrica"
+   },
+   {
+    "reason": "secondary is not OCR (sources: first1k); not an OCR-error pair",
+    "slug": "vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum"
+   },
+   {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "zonaeus-walz-rg8"
    },
@@ -608,9 +628,9 @@
    "max": 0.4788,
    "median": 0.1313,
    "min": 0.0105,
-   "n": 831,
-   "q1": 0.0911,
-   "q3": 0.1652
+   "n": 832,
+   "q1": 0.0909,
+   "q3": 0.1651
   },
   "witness_counting_basis": "Primary bigrams use contiguous eligible runs, never crossing an unresolved or excluded token. Opaque analysis-only projections supply no adjacency evidence. Secondary bigrams measure the archived source surface as a separate witness-quality diagnostic; they are not ordinary corpus attestations."
  },
@@ -3644,6 +3664,96 @@
     "secondary_edition": "qwen36-demochares_fhg2-ocr"
    }
   },
+  "biographi-anonymi.antiphon-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 238,
+   "n_tokens": 238,
+   "n_tokens_checked": 159,
+   "n_unattested": 13,
+   "source": "ocr",
+   "unattested_rate": 0.081761,
+   "witness": null
+  },
+  "biographi-anonymi.aristides-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 1155,
+   "n_tokens": 1155,
+   "n_tokens_checked": 716,
+   "n_unattested": 50,
+   "source": "ocr",
+   "unattested_rate": 0.069832,
+   "witness": null
+  },
+  "biographi-anonymi.aristophanes-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 638,
+   "n_tokens": 638,
+   "n_tokens_checked": 391,
+   "n_unattested": 43,
+   "source": "ocr",
+   "unattested_rate": 0.109974,
+   "witness": null
+  },
+  "biographi-anonymi.aristotle-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 823,
+   "n_tokens": 823,
+   "n_tokens_checked": 544,
+   "n_unattested": 52,
+   "source": "ocr",
+   "unattested_rate": 0.095588,
+   "witness": null
+  },
+  "biographi-anonymi.dionysius-life-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 57,
+   "n_tokens": 57,
+   "n_tokens_checked": 36,
+   "n_unattested": 1,
+   "source": "ocr",
+   "unattested_rate": 0.027778,
+   "witness": null
+  },
+  "biographi-anonymi.isaeus-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 315,
+   "n_tokens": 315,
+   "n_tokens_checked": 200,
+   "n_unattested": 12,
+   "source": "ocr",
+   "unattested_rate": 0.06,
+   "witness": null
+  },
+  "biographi-anonymi.plato-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 2000,
+   "n_tokens": 2000,
+   "n_tokens_checked": 1200,
+   "n_unattested": 115,
+   "source": "ocr",
+   "unattested_rate": 0.095833,
+   "witness": null
+  },
+  "biographi-anonymi.sophocles-life-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 959,
+   "n_tokens": 959,
+   "n_tokens_checked": 583,
+   "n_unattested": 70,
+   "source": "ocr",
+   "unattested_rate": 0.120069,
+   "witness": null
+  },
+  "biographi-anonymi.thucydides-anonymous-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 766,
+   "n_tokens": 766,
+   "n_tokens_checked": 482,
+   "n_unattested": 36,
+   "source": "ocr",
+   "unattested_rate": 0.074689,
+   "witness": null
+  },
   "bion-history.fragmenta": {
    "edition": "qwen36-socrates_hist_fhg4",
    "n_surface_tokens": 55,
@@ -4166,6 +4276,16 @@
    "n_unattested": 16387,
    "source": "ocr",
    "unattested_rate": 0.12411,
+   "witness": null
+  },
+  "constantinus-manasses.oppian-manasses-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 353,
+   "n_tokens": 353,
+   "n_tokens_checked": 225,
+   "n_unattested": 39,
+   "source": "ocr",
+   "unattested_rate": 0.173333,
    "witness": null
   },
   "constantinus-siculus.versus-in-leonem-philosophum": {
@@ -5772,6 +5892,16 @@
    "unattested_rate": 0.073913,
    "witness": null
   },
+  "eudocia-printed-ionia.antiphon-eudocia-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 147,
+   "n_tokens": 147,
+   "n_tokens_checked": 93,
+   "n_unattested": 9,
+   "source": "ocr",
+   "unattested_rate": 0.096774,
+   "witness": null
+  },
   "eudoxus-astronomy.fragmenta": {
    "edition": "qwen36-eudoxus_ars_astronomica_blass",
    "n_surface_tokens": 3807,
@@ -6002,6 +6132,16 @@
    "n_unattested": 83509,
    "source": "ocr",
    "unattested_rate": 0.269267,
+   "witness": null
+  },
+  "eustathius-thessalonicensis.pindar-eustathius-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 1461,
+   "n_tokens": 1461,
+   "n_tokens_checked": 922,
+   "n_unattested": 130,
+   "source": "ocr",
+   "unattested_rate": 0.140998,
    "witness": null
   },
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium": {
@@ -8126,21 +8266,22 @@
    "consensus": {
     "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
     "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
-    "rows_with_counted_consensus": 1,
+    "rows_with_counted_consensus": 3,
     "rows_without_counted_consensus": 32117,
     "slot_counts": {
+     "agreement": 209,
      "damaged-reading": 1,
-     "single-witness": 266,
-     "unresolved": 10
+     "single-witness": 267,
+     "unresolved": 54
     }
    },
    "edition": "qwen36-hesychius_schmidt_masked",
-   "n_surface_tokens": 147373,
-   "n_tokens": 147352,
-   "n_tokens_checked": 106543,
-   "n_unattested": 25813,
+   "n_surface_tokens": 147714,
+   "n_tokens": 147561,
+   "n_tokens_checked": 106685,
+   "n_unattested": 25835,
    "source": "ocr",
-   "unattested_rate": 0.242278,
+   "unattested_rate": 0.242162,
    "witness": null
   },
   "hesychius-lexicography.lexicon-p-w": {
@@ -10377,6 +10518,16 @@
    "unattested_rate": 0.098299,
    "witness": null
   },
+  "joannes-tzetzes.lycophron-tzetzes-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 185,
+   "n_tokens": 185,
+   "n_tokens_checked": 111,
+   "n_unattested": 11,
+   "source": "ocr",
+   "unattested_rate": 0.099099,
+   "witness": null
+  },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "edition": "qwen36-tzetzes_historiae_kiessling",
    "n_surface_tokens": 99576,
@@ -10657,6 +10808,16 @@
    "unattested_rate": 0.20371,
    "witness": null
   },
+  "libanius.demosthenes-libanius-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 993,
+   "n_tokens": 993,
+   "n_tokens_checked": 624,
+   "n_unattested": 41,
+   "source": "ocr",
+   "unattested_rate": 0.065705,
+   "witness": null
+  },
   "licymnius.fragmenta": {
    "edition": "bergk-plg3-ocr-frag",
    "n_surface_tokens": 2161,
@@ -10812,13 +10973,13 @@
    "witness": null
   },
   "marcellinus.vita-thucydidis": {
-   "edition": "migne-ocr-qwen36",
-   "n_surface_tokens": 97683,
-   "n_tokens": 97683,
-   "n_tokens_checked": 62628,
-   "n_unattested": 7791,
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 3112,
+   "n_tokens": 3112,
+   "n_tokens_checked": 1876,
+   "n_unattested": 161,
    "source": "ocr",
-   "unattested_rate": 0.124401,
+   "unattested_rate": 0.085821,
    "witness": null
   },
   "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum": {
@@ -12022,6 +12183,16 @@
     "n_bigrams_secondary": 855,
     "secondary_edition": "migne-ocr-qwen36"
    }
+  },
+  "olympiodorus-philosophy.plato-olympiodorus-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 1477,
+   "n_tokens": 1477,
+   "n_tokens_checked": 918,
+   "n_unattested": 85,
+   "source": "ocr",
+   "unattested_rate": 0.092593,
+   "witness": null
   },
   "onatas.fragmenta": {
    "edition": "qwen36-archytas_mullach_fpg2",
@@ -26733,6 +26904,16 @@
     "secondary_edition": "qwen36-archytas_mullach_fpg2 + qwen36-protagoras_diels_vs1"
    }
   },
+  "pseudo-ammonius.aristotle-ammonius-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 909,
+   "n_tokens": 909,
+   "n_tokens_checked": 541,
+   "n_unattested": 38,
+   "source": "ocr",
+   "unattested_rate": 0.07024,
+   "witness": null
+  },
   "pseudo-archytas.fragmenta": {
    "edition": "qwen36-archytas_mullach_fpg2-ocr",
    "n_surface_tokens": 4651,
@@ -29119,6 +29300,16 @@
    "unattested_rate": 0.168478,
    "witness": null
   },
+  "thomas-magister.aristophanes-thomas-westermann": {
+   "edition": "westermann-1845-source-scoped",
+   "n_surface_tokens": 166,
+   "n_tokens": 166,
+   "n_tokens_checked": 109,
+   "n_unattested": 12,
+   "source": "ocr",
+   "unattested_rate": 0.110092,
+   "witness": null
+  },
   "thrasymachus.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
    "n_surface_tokens": 1086,
@@ -30258,7 +30449,6 @@
   "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
   "cyrillus-theology.libri-v-contra-nestorium",
   "empedocles.testimonia",
-  "marcellinus.vita-thucydidis",
   "dionysius-soph.epistulae",
   "joannes-chrysostomus.in-epistulam-ad-philippenses-homiliae-1-15",
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana",
@@ -30397,6 +30587,7 @@
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
   "basilius-i-macedo.paraenesis-ad-leonem-filium",
   "gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum",
+  "biographi-anonymi.plato-anonymous-westermann",
   "diophantus-mathematics.arithmeticorum-libri-sex",
   "xenophanes.testimonia",
   "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
@@ -30444,6 +30635,7 @@
   "leo-vi-sapiens.tactica",
   "athanasius-theology.epistula-ad-afros-episcopos",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
+  "marcellinus.vita-thucydidis",
   "anaximander.testimonia",
   "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
   "matthaeus-camariota.rhetorikes-epitome",

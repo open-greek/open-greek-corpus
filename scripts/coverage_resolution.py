@@ -190,7 +190,7 @@ def _john_resolution(root):
     if report.get("counts") != expected:
         return _pending(root, "Cyril admission does not contain every reviewed complementary-volume and boundary component.")
     from repair_john_coverage import CORPUS, PARATEXT, WITNESS, SOURCE, RAW_SHA, fresh_blobs
-    from repair_reviewed_duplicate_blocks import historical_bytes
+    from reviewed_duplicate_state import historical_bytes
     import gzip
     predecessor = historical_bytes(root, CORPUS)
     for relative in (CORPUS, PARATEXT, WITNESS):

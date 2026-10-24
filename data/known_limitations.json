@@ -3,21 +3,21 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+  "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "5fbac97e1ae00db06ecf7a661913a9e59db39a935b83d0015f7f63b0fe42f34d",
-   "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+   "sha256": "114a25b4650904749e560ded9560f9732cf92bb336ca3c85f048cec77d9c5b71",
+   "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65292022,
+    "analysis_tokens": 65208857,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29159940,
-    "ocr_passages": 1302382,
-    "ocr_works": 1428,
-    "passages": 1920154,
-    "works": 3926
+    "ocr_analysis_tokens": 29078220,
+    "ocr_passages": 1295897,
+    "ocr_works": 1445,
+    "passages": 1913663,
+    "works": 3939
    },
    "by_source": {
     "byzantine_vernacular": {
@@ -51,9 +51,9 @@
      "works": 528
     },
     "first1k": {
-     "analysis_tokens": 21867616,
-     "passages": 269491,
-     "works": 1045
+     "analysis_tokens": 21866171,
+     "passages": 269485,
+     "works": 1041
     },
     "galenus_verbatim": {
      "analysis_tokens": 318470,
@@ -76,9 +76,9 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24808580,
-     "passages": 1290968,
-     "works": 1229
+     "analysis_tokens": 24726860,
+     "passages": 1284483,
+     "works": 1246
     },
     "perseus": {
      "analysis_tokens": 9695795,
@@ -291,19 +291,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1"
+   "sha256": "8e3c4eeb353045c9030ed25366331120e3cfafdbc71d71b2902a888a7d9cc42e"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "8f879ae1bc92a402ec1edfdfde3b744b040490f3b8c0a7438e5e55247085bc04"
+   "sha256": "5aff4cee7defc36e40de9f878fca9afc06e38ecbc6926d1002eaa506c4c9c6a1"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "389825847e12be5efdf11bdaea77bfcbdb460d6fdcb06c92dc2dfacc286dda39"
+   "sha256": "dee8b7dd36b0de4ae24ef9849e028045d24ffa8db3faeb52855abb2904215458"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "0bac99a3c4b5006c9f79d83349f2c8b38e88482ef75d7bea82a21b43ae918437"
+   "sha256": "a27e6d9e5f2248587983d488db569e7b55b6505cd949cb896958846aeb9592f6"
   }
  },
  "active_coverage_findings": [],
@@ -15893,7 +15893,7 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-24.1",
+     "declared_release": "corpus-2026-10-24.2",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16126,7 +16126,7 @@
      }
     },
     "publication": {
-     "declared_release": "corpus-2026-10-24.1",
+     "declared_release": "corpus-2026-10-24.2",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16227,7 +16227,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-24.1",
+     "declared_release": "corpus-2026-10-24.2",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16327,7 +16327,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-24.1",
+     "declared_release": "corpus-2026-10-24.2",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16579,7 +16579,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-24.1",
+     "declared_release": "corpus-2026-10-24.2",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16607,19 +16607,19 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29159940,
+    "ocr_component_tokens": 29078220,
     "mixed_works": 4,
     "mixed_ocr_tokens": 552999,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
     "global_raw_token_bounds": null,
     "legacy_homogeneous_work_bucket": {
      "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
-     "lower_bound_works": 370,
-     "lower_bound_tokens": 2072716,
-     "lower_bound_share": 0.0317,
-     "upper_bound_works": 392,
-     "upper_bound_tokens": 2545077,
-     "upper_bound_share": 0.039,
+     "lower_bound_works": 388,
+     "lower_bound_tokens": 2088470,
+     "lower_bound_share": 0.032,
+     "upper_bound_works": 410,
+     "upper_bound_tokens": 2560831,
+     "upper_bound_share": 0.0393,
      "works_in_stamp_gap": 22,
      "tokens_in_stamp_gap": 472361
     }
@@ -16632,10 +16632,10 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "forms": 26055,
-    "tokens": 41936,
+    "forms": 26040,
+    "tokens": 41894,
     "share": 0.000642,
-    "works": 1645
+    "works": 1651
    },
    "why_no_bulk_action_remains": "All forms clearing the approved corpus-skeleton gates were repaired, and four scan-backed review rounds applied only exact readings. The residue is distributed over thousands of source pages; changing grave to acute blindly is known to choose the wrong word in common cases.",
    "reopen_when": "Page images, an aligned independent edition, or another approved evidence type makes a bounded set of occurrences deterministically repairable."
@@ -16712,6 +16712,63 @@
    },
    "why_no_bulk_action_remains": "All ten delimiter-bearing candidate pages were inspected in both scans. Seven exact cell permutations exhaust that approved repair class. Three partial duplicate-column layouts require fragment-level occurrence association. Other disagreements need source-specific reading review; a normalized form or a lexicon match cannot decide the edition's printed letters.",
    "reopen_when": "A source capture or occurrence anchor is invalidated; remove this layer by literal undo before replacing its authority. A new source review establishes exact fragment identities on a held partial-duplicate page; admit it in a separate reversible layer without another vote group. New occurrence-specific scan evidence resolves a remaining reading; preserve its contrary readings and original locus in a later review."
+  },
+  {
+   "key": "hesychius-recovered-columns-reading-uncertainty",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
+   "status": "accepted-measured-limitation",
+   "current_measurement": {
+    "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
+    "repair_status": "missing-main-text-leaf-recovered",
+    "authority": {
+     "path": "data/corpus_changes/hesychius-missing-columns/changes.json",
+     "sha256": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02"
+    },
+    "source_evidence": {
+     "path": "data/corpus_changes/hesychius-missing-columns/source-evidence.json",
+     "sha256": "f3511900b922544cd41a809f3e306e10c015666d83b5ee28b0b16052ee83689a"
+    },
+    "recovered_printed_columns": [
+     259,
+     260
+    ],
+    "counts": {
+     "analysis_greek_tokens": 209,
+     "column_reading_statuses": {
+      "259": {
+       "agreement": 105,
+       "single-witness": 1,
+       "unresolved": 28
+      },
+      "260": {
+       "agreement": 104,
+       "unresolved": 16
+      }
+     },
+     "current_rows": 32120,
+     "literal_witnesses": 8,
+     "predecessor_rows": 32118,
+     "primary_columns_added": 2,
+     "reading_statuses": {
+      "agreement": 209,
+      "single-witness": 1,
+      "unresolved": 44
+     },
+     "single_checkpoint_slots_excluded": 1,
+     "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
+     "surface_greek_tokens": 341
+    },
+    "remaining_reading_uncertainty": {
+     "unresolved_alignment_slots": 44,
+     "single_checkpoint_slots_excluded": 1,
+     "total_slots_excluded": 45,
+     "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the two recovered main-text columns. These are not OCR error counts or an error rate."
+    },
+    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
+    "qualification": "Recovery of the two missing main-text columns from independent Harvard and Ghent copies of the same public-domain 1867 edition. Two pinned OCR checkpoints transcribe each column from both physical copies; outputs from one checkpoint share one vote group. Contrary readings remain explicit and unresolved readings do not enter scalar lexical counts. The literal predictions, both full-page images, title pages, and neighboring boundaries remain auditable. The printed COD./HES. apparatus below the main columns is outside this bounded addition; it remains visible in retained full-page source evidence. Critical signs and Latin citations are not lexical observations, and no context n-grams are inferred from the alignment projection."
+   },
+   "why_no_bulk_action_remains": "The previously missing main-text leaf is recovered from two independent physical copies of the same edition. Both pinned OCR checkpoints have transcribed both columns in both copies. Exact voting and source-reviewed critical-scope exclusions exhaust this bounded automatic repair. Remaining disagreements require occurrence review of the printed source; a normalized form or dictionary match cannot select the edition's letters.",
+   "reopen_when": "Reopen reading review when occurrence-level inspection of the pinned Harvard and Ghent columns, or a better independently retained transcription, establishes a specific unresolved reading. Reopen the missing-leaf defect only if the recovered edition identity, physical boundary, or source evidence is invalidated."
   }
  ]
 }

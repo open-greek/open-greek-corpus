@@ -22,7 +22,8 @@ WEMI leveling (FRBR) of the id anchors it records, per served work-unit:
                  concrete embodiment cog serves.
 
 The index also carries a ``redirects`` map (former slug -> current slug) so a
-citation of a renamed work still resolves, and keeps the opaque id as the
+citation of a renamed work still resolves. Verified duplicate-expression
+concordances also redirect retired slugs while keeping both ledger IDs. The index keeps the opaque id as the
 canonical anchor while the human-readable slug stays the resolvable handle /
 filename.
 """
@@ -60,11 +61,15 @@ def load_passage_aliases(path: Path, works: dict) -> dict:
 def _active_passage_alias_fragments(root: Path):
     """Ask named admission producers for their verified active extensions."""
     from dubner_layers import alias_fragment
-    import repair_reviewed_duplicate_blocks as duplicates
-    fragments = [fragment for fragment in (alias_fragment(root), duplicates.alias_fragment(root))
+    import reviewed_duplicate_state as duplicates
+    import repair_reviewed_duplicate_blocks as duplicate_recipe
+    import repair_westermann_scope as westermann
+    import repair_pindar_duplicate_primaries as pindar
+    fragments = [fragment for fragment in (alias_fragment(root), duplicates.alias_fragment(root),
+                 westermann.alias_fragment(root), pindar.alias_fragment(root))
                  if fragment is not None]
     for fragment in fragments:
-        if fragment["authority"]["path"] == duplicates.AUDIT + "/changes.json":
+        if fragment["authority"]["path"] == duplicate_recipe.AUDIT + "/changes.json":
             # This named producer already replayed and checked every output.
             audit = json.loads((root / fragment["authority"]["path"]).read_bytes())
             permitted = {}
@@ -77,6 +82,35 @@ def _active_passage_alias_fragments(root: Path):
             fragment["secondary_witness_paths"] = {slug: sorted(set(names))
                                                     for slug, names in permitted.items()}
     return fragments
+
+
+def active_canonical_redirects(root: Path, works: dict, redirects: dict) -> dict:
+    """Redirect exact duplicate expressions while keeping their IDs retired.
+
+    Renames preserve one ID. This separate, source-verified concordance connects
+    two distinct ledger IDs and never reassigns the former expression's ID.
+    """
+    import repair_pindar_duplicate_primaries as pindar
+    fragment = pindar.alias_fragment(root)
+    if fragment is None:
+        return {}
+    declarations = fragment.get("canonical_redirects", {})
+    retired = _retired_passage_alias_sources(root, fragment["retired_sources"], works)
+    ledger = load_json(root / "data/work_ids.json", {}).get("works", {})
+    result = {}
+    for old, target in declarations.items():
+        slug, identifier = target.get("slug"), target.get("target_id")
+        entry = ledger.get(identifier, {})
+        if (old not in retired or target.get("source_id") != retired[old]["id"]
+                or slug not in works or works[slug].get("id") != identifier
+                or entry.get("slug") != slug or entry.get("status") != "served"
+                or identifier == retired[old]["id"] or slug in declarations
+                or (old in redirects and redirects[old] != slug)):
+            raise ValueError("Canonical duplicate redirect differs from its ledger: " + str(old))
+        result[old] = slug
+    if set(result) != set(retired):
+        raise ValueError("Canonical duplicate redirect accounting differs from retired sources")
+    return result
 
 
 def _retired_passage_alias_sources(root: Path, declared: dict, works: dict) -> dict:
@@ -697,6 +731,7 @@ def build(write: bool = True) -> dict:
         for fs in e.get("former_slugs", []):
             redirects[fs] = slug
 
+    redirects.update(active_canonical_redirects(REPO, works, redirects))
     passage_aliases, passage_alias_authorities = load_active_passage_aliases(PASSAGE_ALIASES, works)
     out = {
         "passage_aliases": passage_aliases,
