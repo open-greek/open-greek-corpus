@@ -1,13 +1,13 @@
 {
  "corpus": {
   "passages": 1913663,
-  "tokens": 65208899,
-  "tokens_lemmatized": 63419450,
+  "tokens": 65208961,
+  "tokens_lemmatized": 63419511,
   "works": 3939
  },
  "generated_from": {
-  "commit": "dcee2f059205ebcac054329da08b455cbc846efc",
-  "commit_date": "2026-10-24",
+  "commit": "7f49d16eec5f6ec15d6c93fe48b5c9ecba773c24",
+  "commit_date": "2026-10-25",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -25,7 +25,7 @@
    "works": 2417
   },
   "PD": {
-   "tokens": 25834374,
+   "tokens": 25834436,
    "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -68,19 +68,19 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3939,
-  "catalog_sha256": "93de0e26cd718c7cad32d11cfb9c7e084c9712bd0b83195e00d233513ac0ecf0",
-  "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4",
+  "catalog_sha256": "3de03f4d1a6aaaab70ee277efe07e45459a3d19e173c0e5f2a60a4de90b5c102",
+  "corpus_sha256": "e91816ad8d211b0993aa3806c2609790a145471ef20e6e27dc1bb66619ca2cef",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20100000,
-    "works": 893
+    "tokens": 20082187,
+    "works": 892
    },
    "manual": {
-    "tokens": 5864432,
-    "works": 138
+    "tokens": 5882307,
+    "works": 139
    },
    "mixed-unassessed": {
     "tokens": 805136,
@@ -97,30 +97,17 @@
   },
   "dubner_reading_review": {
    "assessment": {
-    "path": "data/corpus_changes/dubner-1855-readings/assessment.json",
-    "sha256": "5947be16012d68e4f7dd4843f5d6e56277b40d4475e88521fbb9eeff1e2f5a3e"
+    "path": "data/corpus_changes/dubner-evidence-review/assessment.json",
+    "sha256": "bb6cf4c620f38136acc15fdca495084913682a082855ed05b47337114047dd2f"
    },
    "authority": {
-    "path": "data/corpus_changes/dubner-1855-readings/changes.json",
-    "sha256": "384b11420e68a046812aa17cb1f640fc2e1607063d960620afcc9bb2e1288327"
+    "path": "data/corpus_changes/dubner-evidence-review/changes.json",
+    "sha256": "9e5de34ed13f878d8f74d810ecfb2fb20981b074ac68eba58676abfe32bac599"
    },
    "counts": {
-    "analysis_tokens": 199421,
-    "approved_layout_pages": 7,
+    "analysis_tokens": 199482,
+    "approved_layout_pages": 10,
     "baseline_reading_statuses": {
-     "agreement": 193892,
-     "damaged-reading": 38,
-     "incomplete-reading": 40,
-     "single-witness": 4092,
-     "unresolved": 75797
-    },
-    "changed_pages": 12,
-    "held_layout_pages": 3,
-    "lane_occurrence_edits": 45,
-    "outside_primary_observations": 4,
-    "primary_rows": 391,
-    "primary_source_observations": 45,
-    "reading_statuses": {
      "agreement": 195294,
      "damaged-reading": 38,
      "incomplete-reading": 40,
@@ -128,38 +115,83 @@
      "source-reviewed": 33,
      "unresolved": 72390
     },
-    "remaining_unresolved_categories": {
-     "accent_case_or_elision_only": 19796,
-     "different_word_readings": 42366,
-     "omission_tie": 10228,
-     "one_group_internal_disagreement": 10238
+    "changed_pages": 4,
+    "held_layout_pages": 0,
+    "layout_only_reading_statuses": {
+     "agreement": 195306,
+     "damaged-reading": 38,
+     "incomplete-reading": 40,
+     "single-witness": 4092,
+     "source-reviewed": 33,
+     "unresolved": 72135
     },
-    "source_observations": 49,
-    "source_reviewed_slots": 33,
-    "unresolved_reduction": 3407,
+    "new_source_reviewed_slots": 49,
+    "outside_primary_observations": 4,
+    "partial_duplicate_layouts_reviewed": 3,
+    "previous_review_counts": {
+     "analysis_tokens": 199421,
+     "approved_layout_pages": 7,
+     "baseline_reading_statuses": {
+      "agreement": 193892,
+      "damaged-reading": 38,
+      "incomplete-reading": 40,
+      "single-witness": 4092,
+      "unresolved": 75797
+     },
+     "changed_pages": 12,
+     "held_layout_pages": 3,
+     "lane_occurrence_edits": 45,
+     "outside_primary_observations": 4,
+     "primary_rows": 391,
+     "primary_source_observations": 45,
+     "reading_statuses": {
+      "agreement": 195294,
+      "damaged-reading": 38,
+      "incomplete-reading": 40,
+      "single-witness": 4092,
+      "source-reviewed": 33,
+      "unresolved": 72390
+     },
+     "remaining_unresolved_categories": {
+      "accent_case_or_elision_only": 19796,
+      "different_word_readings": 42366,
+      "omission_tie": 10228,
+      "one_group_internal_disagreement": 10238
+     },
+     "source_observations": 49,
+     "source_reviewed_slots": 33,
+     "unresolved_reduction": 3407,
+     "works": 14
+    },
+    "primary_rows": 391,
+    "primary_source_observations": 94,
+    "reading_statuses": {
+     "agreement": 195306,
+     "damaged-reading": 38,
+     "incomplete-reading": 40,
+     "single-witness": 4092,
+     "source-reviewed": 82,
+     "unresolved": 72086
+    },
+    "remaining_unresolved_categories": {
+     "accent_case_or_elision_only": 19797,
+     "different_word_readings": 42307,
+     "omission_tie": 9982,
+     "one_group_internal_disagreement": 9992
+    },
+    "retained_duplicate_fragments": 144,
+    "source_observations": 98,
+    "source_reviewed_slots": 82,
+    "unresolved_reduction": 304,
     "works": 14
    },
-   "held_layouts": [
-    {
-     "page_key": "aves:0271",
-     "reason": "Truncated right-column cells coexist with a full right-column transcription. The exact occurrence association and treatment of partial readings require a separate fragment review."
-    },
-    {
-     "page_key": "equites:0094",
-     "reason": "The OCR combines full column text with partial repeated column snippets. A cell permutation would retain duplicate word occurrences; fragment-level source association is required."
-    },
-    {
-     "page_key": "equites:0107",
-     "reason": "The right-column snippets repeat parts of a later full transcription of that column. Their truncated readings remain contrary evidence; a permutation alone cannot deduplicate their votes."
-    }
-   ],
-   "qualification": "Reading-disagreement slots are not an OCR error count or an accuracy rate. The orthographic-only category folds case, combining marks, final sigma, and elision using the frozen alignment key. The one-group count overlaps the other three categories. All contrary readings remain available; unreviewed spellings are not certified.",
+   "held_layouts": [],
+   "qualification": "Three source-reviewed partial-duplicate column extractions are separated into complete column projections and literal clipped-snippet evidence. The latter supplies neither extra occurrences nor reading or omission votes. Complete extracts retain both original extraction groups and every unresolved full-column variant. Forty-nine printed reading decisions retain original slots and contrary readings. The notes and indexes are locators, not additional historical attestations or independent editions. No editorial emendation is adopted. Other spellings remain unassessed; disagreement is not an error rate.",
    "reopen_when": [
-    "A source capture or occurrence anchor is invalidated; remove this layer by literal undo before replacing its authority.",
-    "A new source review establishes exact fragment identities on a held partial-duplicate page; admit it in a separate reversible layer without another vote group.",
-    "New occurrence-specific scan evidence resolves a remaining reading; preserve its contrary readings and original locus in a later review."
+    "New occurrence-specific scan evidence resolves a remaining reading.",
+    "A source capture, duplicate-fragment classification, or occurrence anchor is invalidated; unapply this layer before replacing its authority."
    ],
-   "review_scope": "All ten delimiter-bearing candidate pages were inspected in both scans. Seven exact cell permutations exhaust the approved layout decisions; three partial duplicate-column cases have no admitted fragment decision."
+   "review_scope": "Three held partial-duplicate layouts and 49 exact printed occurrences, including the index-linked φορβειά passages; no exhaustive proofreading claim."
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "polytonic_loss": {
@@ -351,9 +383,9 @@
     "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
    ],
    "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
-   "page_readings_sha256": "d51cd5dbc0edd42c2bac074dff5b6091ee63341adb6c7594b2a469da15215681",
+   "page_readings_sha256": "2dd5447364f5f9ef1cc4d5ee2c0199f20b5b675d2409c4e6228e0278dd3f3ffa",
    "report": "data/polytonic_loss_report.json",
-   "report_sha256": "91ad2bd9af93fa265f11211211a4b8d329cb43523d427dfd6da89492a4e8b327",
+   "report_sha256": "75f93842efb83e9b1013c281aff2a899c1e68c1d268b26352b4238160a332753",
    "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
    "selection_rule": null
   },
@@ -361,7 +393,7 @@
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "global_raw_token_bounds": null,
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28525263,
+    "ocr_tokens": 28525325,
     "ocr_works": 1441,
     "raw_share_of_corpus_tokens": 0.0393,
     "raw_tokens": 2560831,
@@ -370,7 +402,7 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29078262,
+   "ocr_tokens": 29078324,
    "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
@@ -433,7 +465,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24726902,
+     "analysis_tokens": 24726964,
      "passages": 1284483,
      "works": 1246
     },
@@ -463,7 +495,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4",
+   "corpus_sha256": "e91816ad8d211b0993aa3806c2609790a145471ef20e6e27dc1bb66619ca2cef",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -647,12 +679,12 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "afb99ae4df7773944a6ead269d593bde5b5146958aeaf581e66e561b9310e97f",
+   "sha256": "48b6085ad0eda7de29ddfaf6679bc3424117b6f4cf178982023d2d47e8dc11c6",
    "totals": {
-    "analysis_tokens": 65208899,
+    "analysis_tokens": 65208961,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29078262,
+    "ocr_analysis_tokens": 29078324,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
     "passages": 1913663,
@@ -662,17 +694,17 @@
   "source_recovery": {
    "hesychius_missing_columns": {
     "authority": {
-     "path": "data/corpus_changes/hesychius-gap-reading-review/changes.json",
-     "sha256": "d04d3b6a2bddd776da63f903867e7990c2fdb7da748cf275fbf49c54f27e72a8"
+     "path": "data/corpus_changes/hesychius-latte-reading/changes.json",
+     "sha256": "292362d397d12e9241aaf030a4b19acf9a788057ecd7bb9bf524946ef41bfade"
     },
     "counts": {
-     "analysis_greek_tokens": 251,
+     "analysis_greek_tokens": 252,
      "column_reading_statuses": {
       "259": {
        "agreement": 95,
+       "editorially-adopted": 1,
        "reviewed-omission": 1,
-       "source-reviewed": 37,
-       "unresolved": 1
+       "source-reviewed": 37
       },
       "260": {
        "agreement": 98,
@@ -681,6 +713,10 @@
       }
      },
      "current_rows": 32120,
+     "editorial_adoption": {
+      "adopted_lexical_slots": 1,
+      "unverified_schmidt_slots": 1
+     },
      "literal_witnesses": 8,
      "predecessor_rows": 32118,
      "primary_columns_added": 2,
@@ -693,17 +729,31 @@
      },
      "reading_statuses": {
       "agreement": 193,
+      "editorially-adopted": 1,
       "reviewed-omission": 2,
-      "source-reviewed": 58,
-      "unresolved": 1
+      "source-reviewed": 58
      },
      "single_checkpoint_slots_excluded": 0,
      "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
-     "surface_greek_tokens": 255
+     "surface_greek_tokens": 252
+    },
+    "editorial_adoption": {
+     "path": "data/corpus_changes/hesychius-latte-reading/changes.json",
+     "schmidt_reading_confirmed": false,
+     "sha256": "292362d397d12e9241aaf030a4b19acf9a788057ecd7bb9bf524946ef41bfade",
+     "source": {
+      "alphabetic_letter": "alpha",
+      "consulted_on": "2026-10-25",
+      "edition": "K. Latte, Hesychii Alexandrini lexicon, volume 1, 1953",
+      "entry": 8275,
+      "reading": "ἀΐαχοι",
+      "url": "https://stephanus.tlg.uci.edu/Iris/indiv/browser.jsp#doc=tlg&aid=4085&wid=002&ct=~x%22alpha%22y8275z1&rt=y&l=40&td=greek&links=tlg",
+      "work": "4085.002"
+     }
     },
     "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
-    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups or explicit occurrence review against both retained Schmidt scans. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
-    "qualification": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency.",
+    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups or explicit occurrence review against both retained Schmidt scans, or a separately credited editorial adoption from a later edition. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
+    "qualification": "Forty-four originally uncertain slots are resolved by the retained Schmidt scans, including two duplicate fragments. One further lexical reading, ἀΐαχοι, is explicitly adopted from Latte alpha 8275 at the owner's direction. Schmidt's diacritics at that occurrence remain unverified. Original OCR alternatives, votes, and the held scan-review decision remain available. This lexical projection establishes no contextual adjacency.",
     "recovered_printed_columns": [
      259,
      260
@@ -714,9 +764,11 @@
     },
     "remaining_reading_uncertainty": {
      "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the two recovered main-text columns. These are not OCR error counts or an error rate.",
+     "editorially_adopted_slots": 1,
      "single_checkpoint_slots_excluded": 0,
-     "total_slots_excluded": 1,
-     "unresolved_alignment_slots": 1
+     "total_slots_excluded": 0,
+     "unresolved_alignment_slots": 0,
+     "unverified_schmidt_slots": 1
     },
     "repair_status": "missing-main-text-leaf-recovered",
     "source_evidence": {
@@ -964,8 +1016,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "93de0e26cd718c7cad32d11cfb9c7e084c9712bd0b83195e00d233513ac0ecf0",
-     "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4"
+     "catalog_sha256": "3de03f4d1a6aaaab70ee277efe07e45459a3d19e173c0e5f2a60a4de90b5c102",
+     "corpus_sha256": "e91816ad8d211b0993aa3806c2609790a145471ef20e6e27dc1bb66619ca2cef"
     },
     "pairs": 43580,
     "raw_share_lower_bound": 0.032,
@@ -1050,8 +1102,8 @@
    "wrong_rows_estimate": 20400
   }
  },
- "release_date": "2026-10-24",
- "release_id": "corpus-2026-10-24.3",
+ "release_date": "2026-10-25",
+ "release_id": "corpus-2026-10-25",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -1098,7 +1150,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24468591,
+   "tokens": 24468653,
    "works": 1244
   },
   "perseus": {

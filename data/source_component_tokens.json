@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24726903,
+   "analysis_tokens": 24726964,
    "passages": 1284483,
    "works": 1246
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "9a853710635538da771b5687db1da739745aa6e541d53f8eaa745289dcd7ca97",
+ "corpus_sha256": "e91816ad8d211b0993aa3806c2609790a145471ef20e6e27dc1bb66619ca2cef",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3464,16 +3464,16 @@
   "scholia-in-aratum.scholia-in-aratum-scholia-vetera.jsonl": "5ee0603a9ecc9389f3df5f05d13458249ddb461c17a758f685696c3fb144b650",
   "scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6e63a452c71aa5ddc52384185d01e0be02527b208eaebc1ef3acc4c20d10a5fc",
   "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "54a5893abb9b4a3e2186cf7dc13e7bc22cf9be338355001b749886d0eff6bcb2",
-  "scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "427f1bb0eb6fc9f4b7159c65b8f0f8960bc229ebfce0b4ec9082dd3f5fec4755",
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "49f821b3895b9dd50f820b86a117d15cf3e5bd28f4e0662e9365268b50c109e0",
   "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "d40f1f9d1edad476e680c47928a5c53cf8eaca2f888b5fbe5d97b75bbdac6214",
-  "scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "be58807a4b5f707ffe81c05eb07e1844ab64bbeb97bdb67d9aaf09f40a77b930",
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "494306e5d639d30b562c610a6d35587a36efbf8bbeb6cfe1f19ece3cb969d4c3",
   "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "77a78b9baa2ac396bdd2140c42d1ccd6cc3b425d74a1d2b65cb92b68ef1cf981",
   "scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "0feeffbf7d294ea7ef5b9c1a63486a67d1ec22dd7b8a0cd352c15aea8a78e691",
   "scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "4af6f427954a870909dc95795554fdde7ec2632ff38c15fbe8fcad1451fd6f45",
   "scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "79a9edce368110a1df15a40c3b14f8f05855dc560b671c5918512f0202c7a35f",
   "scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "99667147efb62b6c1f98f3136fe8916f4d6ab37c257d1f6ea134624f2e965579",
   "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "d4590ca7515bbaeed6ef82d14a0bbcb72629c4e7c27a177ba1bf73b67b7305a7",
-  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "56c755337189f426bb544546e0a4e301452f03b8207f00442c88b9e257cc7cc7",
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "d33740cf9d07100149a4b0350ac17acb1b62058038d29a53a6020f536b383688",
   "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "98ffde68052353d2428a69a33a00f458eeee0a7a7e3251ef4714b343258c0568",
   "scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "484cfdf1083c0a81c05159f1ac5c99254cb7985414732d0a43db1d43eb3eabc6",
   "scholia-in-callimachum.schol-callim-schneider.jsonl": "816c821916cc90cfd1d9b54b46aedad6e25253496b4e8546cb820cd819eab1e8",
@@ -4041,6 +4041,7 @@
   "assess_photius_historical.py": "afd191d3c022f57e859bfa79d329e83db5237ad55db3906624e8eba088b67463",
   "audit_compression.py": "d2504998f18d7d69fb009312eede80ffc83667e07e5450134eceb2361d101d21",
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
+  "capture_dubner_evidence.py": "d091426756d47767f775a18be95b15aba614d21f033eb7928d062c0fe8e2e8a5",
   "capture_dubner_layouts.py": "d2895cb9c481ff1bf25dda7f129e8055334b28564355821bd751ee2ed598076f",
   "capture_dubner_readings.py": "c356483a0e9ea14799ec50ffedb4a8982947af9b2a50e53e78b0c0781a413d45",
   "capture_dubner_sources.py": "d9e97184906e0972bfbdbfe59e03f34792f9792d053bd9ad8151a2c70e08d679",
@@ -4050,7 +4051,9 @@
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
   "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
+  "dubner_current_state.py": "96b58c6dfcee7dbc57fc51dc676658358767a332f5cc65b865d89572d20ed5e8",
   "dubner_dedup_observations.py": "5d63acfa420334ac5f74e32158676e37723318b0bf1a07397c20e5da4d938207",
+  "dubner_evidence_observations.py": "920b8987c073020baef8b4d15836a4384745746884341be7e0aeff80c77b3ec4",
   "dubner_layers.py": "1ddddb9d3338b30279c677b0c658d2efe466b4ffc32bf5808d3643e0ac36260f",
   "dubner_layout_observations.py": "4e697be778de3158d12b35aa9629e30822329ca0d7288b47288c126d421f86ed",
   "dubner_reading_observations.py": "3b45a8edc55f3f516f04694253f528157d4f4756f600669cfb65be2410f8afd2",
@@ -4059,7 +4062,7 @@
   "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
   "experiment_dubner_alignment.py": "17970bb7ea35d226fcd6619379a3db026f5d96c4051d3de0ac7a3cd167f6c6d3",
   "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
-  "frequency_projection.py": "a59b29685a8d82d7a29e99f9d60779e779947fbc19089bf186276d0274a03323",
+  "frequency_projection.py": "d2ff6b73594a9a50156a3e776ee0856ec0ef60e656e5e518106c58f4a3ed713b",
   "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
   "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
   "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
@@ -4120,6 +4123,7 @@
   "repair_photius_uncertainty_admission.py": "88f773352e5bd7bbf5081a7ea21335100240bb4c9f424b0be472ff6003eae18c",
   "repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
   "repair_westermann_scope.py": "d77c5ad43f0cbc4017667dc51b8378c4bef0389b685a6cdc26d24181d3e14fd7",
+  "review_dubner_evidence.py": "43832c35592b9b9923d0aa503a253acf1c0f15820d83703aa9b22e155e62c85c",
   "reviewed_duplicate_block_observations.py": "9e895c8bb3402f5bbfb7e7262f6a47d910a656281efee4c1b0455786729157d1",
   "reviewed_duplicate_state.py": "61ab9c3dc9fa6cbaf634aa0cb3d8e452890f5b95b5da87e7444ca76a433438ff",
   "run_hesychius_gap_ocr.py": "7fea137c8aeedec8cb2077ce37175e68d745ea32a13046822df22242b32c80b6",
@@ -4130,10 +4134,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65208900,
+  "analysis_tokens": 65208961,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29078263,
+  "ocr_analysis_tokens": 29078324,
   "ocr_passages": 1295897,
   "ocr_works": 1445,
   "passages": 1913663,
@@ -89179,10 +89183,10 @@
    }
   },
   "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
-   "analysis_tokens": 19992,
+   "analysis_tokens": 20021,
    "components": [
     {
-     "analysis_tokens": 19992,
+     "analysis_tokens": 20021,
      "edition": "dubner-1855-collated",
      "license": "PD",
      "passages": 39,
@@ -89193,12 +89197,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 19992,
+   "ocr_analysis_tokens": 20021,
    "ocr_passages": 39,
    "passages": 39,
    "sources": {
     "ocr": {
-     "analysis_tokens": 19992,
+     "analysis_tokens": 20021,
      "passages": 39
     }
    }
@@ -89229,10 +89233,10 @@
    }
   },
   "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
-   "analysis_tokens": 23121,
+   "analysis_tokens": 23152,
    "components": [
     {
-     "analysis_tokens": 23121,
+     "analysis_tokens": 23152,
      "edition": "dubner-1855-collated",
      "license": "PD",
      "passages": 45,
@@ -89243,12 +89247,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 23121,
+   "ocr_analysis_tokens": 23152,
    "ocr_passages": 45,
    "passages": 45,
    "sources": {
     "ocr": {
-     "analysis_tokens": 23121,
+     "analysis_tokens": 23152,
      "passages": 45
     }
    }
@@ -89404,10 +89408,10 @@
    }
   },
   "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
-   "analysis_tokens": 17814,
+   "analysis_tokens": 17815,
    "components": [
     {
-     "analysis_tokens": 17814,
+     "analysis_tokens": 17815,
      "edition": "dubner-1855-collated",
      "license": "PD",
      "passages": 34,
@@ -89418,12 +89422,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 17814,
+   "ocr_analysis_tokens": 17815,
    "ocr_passages": 34,
    "passages": 34,
    "sources": {
     "ocr": {
-     "analysis_tokens": 17814,
+     "analysis_tokens": 17815,
      "passages": 34
     }
    }
