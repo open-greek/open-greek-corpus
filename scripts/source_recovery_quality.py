@@ -47,6 +47,9 @@ def _hesychius(root):
             "unresolved_alignment_slots": unresolved,
             "single_checkpoint_slots_excluded": single_checkpoint,
             "total_slots_excluded": unresolved + single_checkpoint,
+            **({"editorially_adopted_slots": counts["editorial_adoption"]["adopted_lexical_slots"],
+                "unverified_schmidt_slots": counts["editorial_adoption"]["unverified_schmidt_slots"]}
+                if "editorial_adoption" in counts else {}),
             "count_basis": (
                 "Unresolved exact-word alignment slots and singly supported readings in the "
                 "two recovered main-text columns. These are not OCR error counts or an error rate."
@@ -54,12 +57,14 @@ def _hesychius(root):
         },
         "lexical_count_policy": (
             "A scalar lexical reading requires both independent checkpoint groups or explicit "
-            "occurrence review against both retained Schmidt scans. Printed "
+            "occurrence review against both retained Schmidt scans, or a separately credited "
+            "editorial adoption from a later edition. Printed "
             "editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. "
             "Literal predictions and contrary readings remain available. The word projection "
             "supplies no context n-grams or positional evidence."
         ),
         "qualification": metadata["qualification"],
+        **({"editorial_adoption": metadata["editorial_adoption"]} if "editorial_adoption" in metadata else {}),
     }
 
 
@@ -137,7 +142,8 @@ def measurement(root):
 def limitations(root):
     """Qualify remaining readings without describing the repaired leaf as absent."""
     current = _hesychius(Path(root))
-    if current is None or not current["remaining_reading_uncertainty"]["total_slots_excluded"]:
+    if current is None or not (current["remaining_reading_uncertainty"]["total_slots_excluded"]
+            or current["remaining_reading_uncertainty"].get("unverified_schmidt_slots", 0)):
         return []
     reviewed = "reading_review" in current["counts"]
     return [{
@@ -146,6 +152,13 @@ def limitations(root):
         "status": "accepted-measured-limitation",
         "current_measurement": current,
         "why_no_bulk_action_remains": (
+            "The last excluded lexical occurrence is explicitly adopted as ἀΐαχοι from "
+            "Latte alpha 8275 at the owner's direction. No uncertain recovered-column "
+            "occurrences remain excluded from lexical counts. Duplicate fragments stay "
+            "omitted. Schmidt's printed breathing and iota marks at "
+            "this occurrence remain unverified; the separate adoption retains that "
+            "uncertainty and every original alternative."
+        ) if "editorial_adoption" in current else (
             "All 45 originally excluded alignment slots have now received occurrence review "
             "against both retained Schmidt copies with TLG comparison references. Forty-four "
             "slots are resolved, including two duplicate fragments reconstructed once. The "

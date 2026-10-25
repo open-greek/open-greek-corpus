@@ -56,7 +56,7 @@ def test_metrics_come_from_the_current_source_artifacts(rebuilt):
     assert recovered["repair_status"] == "missing-main-text-leaf-recovered"
     assert recovered["counts"] == recovery["counts"]
     assert recovered["remaining_reading_uncertainty"]["total_slots_excluded"] == (
-        recovery["counts"]["reading_statuses"]["unresolved"]
+        recovery["counts"]["reading_statuses"].get("unresolved", 0)
         + recovery["counts"]["single_checkpoint_slots_excluded"])
 
 

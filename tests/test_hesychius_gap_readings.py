@@ -22,6 +22,11 @@ def reviewed(tmp_path):
             destination = tmp_path / name
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, destination)
+    import adopt_hesychius_latte_reading as adoption
+    if adoption.active(tmp_path):
+        adoption.undo(tmp_path)
+        (tmp_path / adoption.AUTHORITY).unlink()
+        (tmp_path / adoption.PREIMAGE).unlink()
     return tmp_path
 
 
@@ -139,6 +144,12 @@ def test_unowned_base_output_is_still_checked(reviewed):
 
 def test_cached_word_counts_cannot_bypass_invalidated_scan(reviewed, monkeypatch):
     import build_work_lemma_counts as counts
+    import frequency_projection as projection
+    # This fixture deliberately exercises the frozen pre-adoption review.
+    # Its rows must be checked against that fixture rather than the live corpus.
+    live_text = projection.lexical_text
+    monkeypatch.setattr(projection, "lexical_text", lambda row:
+        state.validate_projection(row, reviewed) if row.get("hesychius_gap_recovery") else live_text(row))
     monkeypatch.setattr(counts, "DATA", reviewed / "data")
     monkeypatch.setattr(counts, "MANIFEST", reviewed / "counter-manifest.json")
     monkeypatch.setattr(counts, "WORK_FORMS", reviewed / "counter-cache")

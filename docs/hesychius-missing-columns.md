@@ -78,7 +78,7 @@ columns therefore supply 251 eligible Greek tokens, up from 209. Reviewing the
 same entries also corrects 16 shared OCR mistakes, including missing accents,
 `αὐλίζαι` for printed `αὐλίξαι`, and `αὐλίσχοι` for printed `αὐλίσκοι`.
 
-The second headword inside the `αὐΐαχοι` entry remains unresolved at column 259,
+The scan review leaves the second headword inside the `αὐΐαχοι` entry unresolved at column 259,
 slot 84. The retained copies do not establish its breathing and iota marks
 confidently. Its original alternatives remain visible and excluded from scalar
 frequency counts. The 45-slot figure measures the original alignment campaign,
@@ -87,7 +87,7 @@ not 45 independent erroneous words or an OCR error rate.
 TLG's `4085.002` was consulted on October 24, 2026. It presents Latte's
 1953/1966 edition for Α–Ο. Its alpha entries 8257–8317 identify the corresponding
 material and help interpret rare headwords; they are comparison references,
-not a new OCR vote. Every admitted reading comes from independent inspection
+not a new OCR vote. Every reading admitted by this scan-review layer comes from independent inspection
 of both Schmidt images. In particular, Schmidt's `σπεῖραν`, `διῶρυξ`, and
 `αὐοὶ` are retained despite different Latte readings. No later edition's dagger,
 apparatus, or definition is transferred into Schmidt's main text.
@@ -113,3 +113,32 @@ recovery. The current-state verifier composes these authorities without editing
 the frozen recovery recipe or waiving any of its other output checks.
 Per-work frequency counters revalidate the source-recovery authorities before
 reuse, so a cached count cannot bypass invalidation of a retained scan.
+
+## Adopted Latte reading
+
+On October 25, 2026, the owner selected Latte's `ἀΐαχοι` (alpha 8275, TLG
+`4085.002`) for column 259, slot 84. The separate producer
+`scripts/adopt_hesychius_latte_reading.py` adds it above the frozen scan review.
+The occurrence is marked `editorially-adopted`, with the later edition's exact
+citation and the owner's decision. It is not labeled as a confirmed Schmidt
+reading: the uncertain printed diacritics and the original held decision remain
+in the full word network alongside all original OCR votes and alternatives.
+
+The columns now supply 252 eligible Greek tokens. No uncertain recovered-column
+occurrences remain excluded from lexical counts; the two duplicate fragment
+slots stay omitted. The quality report still identifies
+one unverified Schmidt reading and one credited editorial adoption. The earlier
+review's 44 scan-resolved slots, two merged fragments, and 16 shared-error
+corrections retain their original records.
+
+```sh
+python3 scripts/adopt_hesychius_latte_reading.py apply
+python3 scripts/hesychius_gap_state.py --check
+python3 scripts/adopt_hesychius_latte_reading.py undo
+```
+
+`data/corpus_changes/hesychius-latte-reading/changes.json` records the original
+and adopted text, source citation, timestamp, recipe and source hashes, and
+exact preimage. Undo restores the complete pre-adoption primary byte-for-byte,
+including its excluded slot, without requiring the adoption's evidence to
+remain valid. Unapply this layer before unapplying the earlier scan review.

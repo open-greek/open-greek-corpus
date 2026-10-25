@@ -8,6 +8,7 @@ from pathlib import Path
 
 import repair_hesychius_missing_columns as base
 import repair_hesychius_gap_readings as review
+import adopt_hesychius_latte_reading as adoption
 
 ROOT, PRIMARY, AUDIT, AUTHORITY = base.ROOT, base.PRIMARY, base.AUDIT, base.AUTHORITY
 EDITION, SLUG, WITNESSES, QUALIFICATION = base.EDITION, base.SLUG, base.WITNESSES, base.QUALIFICATION
@@ -16,10 +17,13 @@ recipe_pins = base.recipe_pins
 
 
 def authority_paths(root=ROOT):
-    return review.authority_paths(root) | {"scripts/hesychius_gap_state.py"}
+    return adoption.authority_paths(root) | {"scripts/hesychius_gap_state.py"}
 
 
 def active(root=ROOT):
+    if adoption.active(root):
+        adoption.checked_state(root)
+        return True
     if review.active(root):
         review.checked_state(root)
         return True
@@ -35,7 +39,16 @@ def signature(root):
 @lru_cache(maxsize=2)
 def _checked(root_name, initial):
     root = Path(root_name)
-    if review.active(root):
+    if adoption.active(root):
+        audit, predecessor, rows = adoption.checked_state(root)
+        with adoption.predecessor_view(root, predecessor) as view:
+            original, original_before, _, previous = _state(view)
+        current = {**previous, "authority": adoption.AUTHORITY, "counts": audit["counts"],
+            "qualification": adoption.QUALIFICATION, "output_sha256": audit["outputs"][PRIMARY],
+            "editorial_adoption": {"path": adoption.AUTHORITY,
+                "sha256": sha((root / adoption.AUTHORITY).read_bytes()),
+                "source": audit["changes"][0]["source"], "schmidt_reading_confirmed": False}}
+    elif review.active(root):
         audit, before, rows = review.checked_state(root)
         with review.original_view(root, before[PRIMARY]) as view:
             original, original_before, _ = base.checked_state(view)
@@ -69,6 +82,10 @@ def predecessor_bytes(root=ROOT):
 
 
 def recovery_postimage_bytes(root=ROOT):
+    if adoption.active(root):
+        predecessor = adoption.checked_state(root)[1]
+        with adoption.predecessor_view(root, predecessor) as view:
+            return review.checked_state(view)[1][PRIMARY]
     if review.active(root):
         return review.checked_state(root)[1][PRIMARY]
     base.checked_state(root)

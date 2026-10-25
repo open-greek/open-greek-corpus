@@ -21,6 +21,7 @@ def metadata(root=ROOT):
         "recovery_authority": {"path": repair.AUTHORITY,
             "sha256": repair.sha((root / repair.AUTHORITY).read_bytes())},
         "counts": deepcopy(current["counts"]), "sources": deepcopy(SOURCES),
+        **({"editorial_adoption": deepcopy(current["editorial_adoption"])} if "editorial_adoption" in current else {}),
         "boundary": deepcopy(BOUNDARY), "qualification": current["qualification"],
         "primary": {"path": repair.PRIMARY, "sha256": current["output_sha256"],
                     "loci": [row["locus"] for row in rows.values()] if isinstance(rows, dict)
