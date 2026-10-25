@@ -1,0 +1,83 @@
+{
+  "before_encoding": "base64",
+  "before_sha256": "fc54c53e5276ab923421d4164352e2f5709ef3224a76889ddc473824c77e03ba",
+  "counts": {
+    "analysis_greek_tokens": 251,
+    "column_reading_statuses": {
+      "259": {
+        "agreement": 95,
+        "reviewed-omission": 1,
+        "source-reviewed": 37,
+        "unresolved": 1
+      },
+      "260": {
+        "agreement": 98,
+        "reviewed-omission": 1,
+        "source-reviewed": 21
+      }
+    },
+    "current_rows": 32120,
+    "literal_witnesses": 8,
+    "predecessor_rows": 32118,
+    "primary_columns_added": 2,
+    "reading_review": {
+      "initial_uncertain_slots": 45,
+      "merged_fragment_slots": 2,
+      "newly_admitted_lexical_slots": 42,
+      "remaining_uncertain_slots": 1,
+      "shared_errors_corrected": 16
+    },
+    "reading_statuses": {
+      "agreement": 193,
+      "reviewed-omission": 2,
+      "source-reviewed": 58,
+      "unresolved": 1
+    },
+    "single_checkpoint_slots_excluded": 0,
+    "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
+    "surface_greek_tokens": 255
+  },
+  "outputs": {
+    "data/corpus/hesychius-lexicography.lexicon-o.jsonl": "5049b1ee3bcfa6a8227ddc3c6176ef6df093c3f6f83b33f3abe6c1c7ba493bcc",
+    "data/corpus_changes/hesychius-gap-reading-review/records.jsonl.gz": "b199a46fca4c0e37f163ddd3b8d91c09f92df0d32f489212a7d96d1f91ece3a0",
+    "data/corpus_changes/hesychius-gap-reading-review/word-networks.json.gz": "32706bf0d6aadb8fd73b953cfba3c2b3efacf05a86b35bb61933a872b6954454"
+  },
+  "predecessor_sha256": "22e558269963ad917d9e452e87ce5e7df9811853ac0b511e6f0b2873518a632c",
+  "qualification": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency.",
+  "recipe_sha256": {
+    "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
+    "hesychius_gap_reading_observations.py": "d4523831f4feedbc97857df4c554c669f802d50013596dd757fda1faab8720f5",
+    "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+    "repair_hesychius_gap_readings.py": "f54b47027cac04796be5eb27d4ba4bf3d5ea82873bb46e4187c525912760b2f3"
+  },
+  "recorded_at": "2026-10-25T02:13:32.179732+00:00",
+  "schema_version": 1,
+  "source_sha256": {
+    "data/corpus_changes/hesychius-missing-columns/before.json.gz": "08683daff078e3897c5785c26e81a03b5ae364740cef37d00468d135440ccb55",
+    "data/corpus_changes/hesychius-missing-columns/changes.json": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02",
+    "data/corpus_changes/hesychius-missing-columns/qwen36.jsonl": "9066cbe2d36e377bc6a5338ece7880f86232cf5485a7e521de36006904e979e8",
+    "data/corpus_changes/hesychius-missing-columns/qwen38.jsonl": "70854e294e0d64171efbcc43dbf0de89fc654bdbb39b8648f6bde0b14abee415",
+    "data/corpus_changes/hesychius-missing-columns/records.jsonl.gz": "d2ad4a0371157ad881a73bd149b49ee2abe10944ceb9262c9ec4bde63e3834c6",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence.json": "f3511900b922544cd41a809f3e306e10c015666d83b5ee28b0b16052ee83689a",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-10.png": "48a3e4637d21ddeed94fa0fad520e345719c6537a8d8f09430c2609bfe8587fa",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-178.png": "38152c3a5137fb50058a42d7dab630f7440a62dd7b37af1b4071f19428db2f36",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-179.png": "f572b2c3f4e5415ff3fd93826ed8edf1168f476c1294d1294681f75d7d8982b5",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-180.png": "9d42b5b3218017e8149be9f12255d1d4e8c9ee39b3cfb5dc640cf684f96b3dde",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-column-259.png": "8b8cf23b1499c532a357f7eb4bea9541fe0822c1115188dc956feee636e20c88",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/ghent-column-260.png": "e6297db3ae133c9cf5cf3650e40e81e12e1a65e7893ab9ea6a40f3f94f63402c",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-150.png": "6648d619a59b5c350b43b3ecff4fee7fa5332de67b34c5c5d49904bcbd05fb84",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-151.png": "6bcab042393b29ec92e23734550ac5f955f3062ffc53da23720b3ec7aeb1c80e",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-152.png": "b9da513e8a8e343ac6d8d674bccc3059b95298d89a9dec20287e50d0ead50353",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-8.png": "30bfce14cf91e6f576e833ec3ab9ae9043840480c98c60f3624dd1fe96c6923b",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-column-259.png": "6c9fce9974c7fc073759dd80f44b802b9159ba5291568f721a8094c44ee5565a",
+    "data/corpus_changes/hesychius-missing-columns/source-evidence/harvard-column-260.png": "55f4e4c28beaf1c978f8bb2dce028ac55962857ba74b1dcc8db7cd1785e816c4",
+    "data/corpus_changes/hesychius-missing-columns/word-networks.json.gz": "55e3b5ef4b19d817d9b1d903801265898837c85a1d1569a31ad8dd0f33718fa4",
+    "data/corpus_secondary/hesychius-lexicography.lexicon-o.missing-columns-witnesses.jsonl": "47045ea1d64ed317c4ff701efbb66c23b0f8d4c957ce2e8da272d9978b2bb8eb",
+    "scripts/capture_hesychius_gap.py": "eade2062bf30eecb313c321b508e0654fed7182021eb073d109f2909b2f5a3bc",
+    "scripts/hesychius_gap_observations.py": "1b316b901dbfacdef99eca1aa1c332221a3d219fdb1565beb7ee0a2e22cc768c",
+    "scripts/ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+    "scripts/repair_hesychius_missing_columns.py": "1e100b0c168ffa8a8a37803bfc421889507be42f811c486e45f3c2d09570f49e",
+    "scripts/repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
+    "scripts/run_hesychius_gap_ocr.py": "7fea137c8aeedec8cb2077ce37175e68d745ea32a13046822df22242b32c80b6"
+  }
+}

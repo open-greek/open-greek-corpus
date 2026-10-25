@@ -25,7 +25,8 @@ def corpus(tmp_path):
         path = tmp_path / name
         path.parent.mkdir(parents=True, exist_ok=True)
         if name == repair.PRIMARY and repair.active(ROOT):
-            path.write_bytes(repair.predecessor_bytes(ROOT))
+            from hesychius_gap_state import predecessor_bytes
+            path.write_bytes(predecessor_bytes(ROOT))
         else:
             shutil.copyfile(ROOT / name, path)
     capture = json.loads((ROOT / repair.AUDIT / "source-evidence.json").read_bytes())

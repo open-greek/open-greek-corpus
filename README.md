@@ -66,9 +66,13 @@ and checked word networks. Old citations still resolve. Run
 The [missing Hesychius columns](docs/hesychius-missing-columns.md), 259–260,
 are recovered from Harvard and Ghent copies of Schmidt's 1867 edition. Eight
 literal OCR witnesses and the full word networks preserve contrary readings.
-Only readings supported by both model groups enter lexical counts; unresolved
-readings remain available. Run `make check-hesychius-gap` to replay the addition
-and verify its exact predecessor and source evidence.
+Readings supported by both model groups or verified against both printed copies
+enter lexical counts. A later occurrence review, aided by TLG entry references,
+resolved 44 of 45 uncertain slots and corrected 16 shared OCR mistakes. Two
+resolved slots were duplicate word fragments; one headword's diacritics remain
+uncertain. The reviewed columns supply 251 eligible Greek tokens. Run
+`make check-hesychius-gap` to replay both layers and verify their exact
+predecessors and source evidence.
 
 Westermann's 1845 biography anthology is partitioned by printed work and text
 role. `marcellinus.vita-thucydidis` retains Marcellinus's actual life; other

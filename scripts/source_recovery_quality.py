@@ -23,13 +23,14 @@ def _authority(root, path, before):
 
 
 def _hesychius(root):
-    import repair_hesychius_missing_columns as repair
+    import hesychius_gap_state as repair
     if not repair.active(root):
         return None
-    path = repair.AUTHORITY
+    metadata = repair.current_metadata(root)
+    path = metadata["authority"]
     raw = (root / path).read_bytes()
     audit, _, _ = repair.checked_state(root)
-    counts = deepcopy(audit["counts"])
+    counts = deepcopy(metadata["counts"])
     unresolved = counts["reading_statuses"].get("unresolved", 0)
     single_checkpoint = counts["single_checkpoint_slots_excluded"]
     capture = repair.AUDIT + "/source-evidence.json"
@@ -37,6 +38,8 @@ def _hesychius(root):
         "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
         "repair_status": "missing-main-text-leaf-recovered",
         "authority": _authority(root, path, raw),
+        "recovery_authority": {"path": repair.AUTHORITY,
+            "sha256": _sha((root / repair.AUTHORITY).read_bytes())},
         "source_evidence": {"path": capture, "sha256": audit["source_sha256"][capture]},
         "recovered_printed_columns": deepcopy(audit["boundary"]["recovered_columns"]),
         "counts": counts,
@@ -50,12 +53,13 @@ def _hesychius(root):
             ),
         },
         "lexical_count_policy": (
-            "A scalar lexical reading requires both independent checkpoint groups. Printed "
+            "A scalar lexical reading requires both independent checkpoint groups or explicit "
+            "occurrence review against both retained Schmidt scans. Printed "
             "editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. "
             "Literal predictions and contrary readings remain available. The word projection "
             "supplies no context n-grams or positional evidence."
         ),
-        "qualification": audit["qualification"],
+        "qualification": metadata["qualification"],
     }
 
 
@@ -135,12 +139,20 @@ def limitations(root):
     current = _hesychius(Path(root))
     if current is None or not current["remaining_reading_uncertainty"]["total_slots_excluded"]:
         return []
+    reviewed = "reading_review" in current["counts"]
     return [{
         "key": "hesychius-recovered-columns-reading-uncertainty",
         "issue": current["issue"],
         "status": "accepted-measured-limitation",
         "current_measurement": current,
         "why_no_bulk_action_remains": (
+            "All 45 originally excluded alignment slots have now received occurrence review "
+            "against both retained Schmidt copies with TLG comparison references. Forty-four "
+            "slots are resolved, including two duplicate fragments reconstructed once. The "
+            "remaining headword's breathing and iota marks cannot be established confidently "
+            "in both retained scans. A different edition's diacritics cannot settle this "
+            "printed occurrence."
+        ) if reviewed else (
             "The previously missing main-text leaf is recovered from two independent physical "
             "copies of the same edition. Both pinned OCR checkpoints have transcribed both "
             "columns in both copies. Exact voting and source-reviewed critical-scope exclusions "
