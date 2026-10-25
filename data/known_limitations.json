@@ -8,16 +8,16 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "82a7e53725ab006439679588503d0df6ff7b22b64b1bcddc2db6f4c6cfe02d52"
+   "sha256": "0880246e99169e66e3e4ed894989678b472356d663da89e94fe4c418290d69cc"
   },
-  "corpus_sha256": "45bfdf0d4c12e55ba0a417cfc9150431e3b0a0774b1b9b0eba531fb2a1ce51d3",
+  "corpus_sha256": "327cc22c9ce1d1a159b6f189823ce0f7d7fbf1dd75cfe0fd1a17b1c9bf6eaa6d",
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "aea04df8946f14305b3a709c36dc0173a8204ec478cf9bcedbda631ea6915fef"
+   "sha256": "ff247f9e8a27462ad5b0703ce4185568dafcaa047776d093b0cdeed4bdfc978a"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "c4ad468924fbe1523204b5399d7fcf30c7eded422ac80c5b9d6b339512a13996"
+   "sha256": "3bdc42e9c282df131a48a7c9c7d9c9e0614ad7b235ef8d64233db5f9f3fd099b"
   },
   "source_components": {
    "artifact": "data/source_component_tokens.json",
@@ -78,7 +78,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24726964,
+     "analysis_tokens": 24727005,
      "passages": 1284483,
      "works": 1246
     },
@@ -108,7 +108,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "45bfdf0d4c12e55ba0a417cfc9150431e3b0a0774b1b9b0eba531fb2a1ce51d3",
+   "corpus_sha256": "327cc22c9ce1d1a159b6f189823ce0f7d7fbf1dd75cfe0fd1a17b1c9bf6eaa6d",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -292,12 +292,12 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "61b54bb5fc707d31e0364ebb51f1f2dd5767f8cf30a2cc69001dc9aecd5af820",
+   "sha256": "27efe3dcfdb327994ef42f104ba19d6c07988b555a9494a57cc6cdfdf31a0e49",
    "totals": {
-    "analysis_tokens": 65208961,
+    "analysis_tokens": 65209002,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29078324,
+    "ocr_analysis_tokens": 29078365,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
     "passages": 1913663,
@@ -325,18 +325,18 @@
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
     "legacy_homogeneous_work_bucket": {
      "lower_bound_share": 0.032,
-     "lower_bound_tokens": 2088470,
-     "lower_bound_works": 388,
+     "lower_bound_tokens": 2089791,
+     "lower_bound_works": 389,
      "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
      "tokens_in_stamp_gap": 472361,
      "upper_bound_share": 0.0393,
-     "upper_bound_tokens": 2560831,
-     "upper_bound_works": 410,
+     "upper_bound_tokens": 2562152,
+     "upper_bound_works": 411,
      "works_in_stamp_gap": 22
     },
     "mixed_ocr_tokens": 552999,
     "mixed_works": 4,
-    "ocr_component_tokens": 29078324
+    "ocr_component_tokens": 29078365
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "key": "raw-ocr-coverage",
@@ -360,18 +360,19 @@
   {
    "current_measurement": {
     "counts": {
-     "analysis_tokens": 199482,
+     "analysis_tokens": 199523,
      "approved_layout_pages": 10,
      "baseline_reading_statuses": {
-      "agreement": 195294,
+      "agreement": 195306,
       "damaged-reading": 38,
       "incomplete-reading": 40,
       "single-witness": 4092,
-      "source-reviewed": 33,
-      "unresolved": 72390
+      "source-reviewed": 82,
+      "unresolved": 72086
      },
-     "changed_pages": 4,
+     "changed_pages": 11,
      "held_layout_pages": 0,
+     "held_pilot_boundary_cases": 6,
      "layout_only_reading_statuses": {
       "agreement": 195306,
       "damaged-reading": 38,
@@ -380,7 +381,7 @@
       "source-reviewed": 33,
       "unresolved": 72135
      },
-     "new_source_reviewed_slots": 49,
+     "new_source_reviewed_slots": 0,
      "outside_primary_observations": 4,
      "partial_duplicate_layouts_reviewed": 3,
      "previous_review_counts": {
@@ -419,38 +420,39 @@
       "works": 14
      },
      "primary_rows": 391,
-     "primary_source_observations": 94,
+     "primary_source_observations": 135,
      "reading_statuses": {
-      "agreement": 195306,
+      "agreement": 195347,
       "damaged-reading": 38,
       "incomplete-reading": 40,
       "single-witness": 4092,
       "source-reviewed": 82,
-      "unresolved": 72086
+      "unresolved": 72005
      },
      "remaining_unresolved_categories": {
       "accent_case_or_elision_only": 19797,
-      "different_word_readings": 42307,
-      "omission_tie": 9982,
-      "one_group_internal_disagreement": 9992
+      "different_word_readings": 42265,
+      "omission_tie": 9943,
+      "one_group_internal_disagreement": 9953
      },
      "retained_duplicate_fragments": 144,
-     "source_observations": 98,
+     "reviewed_boundary_spans": 41,
+     "source_observations": 139,
      "source_reviewed_slots": 82,
-     "unresolved_reduction": 304,
+     "unresolved_reduction": 81,
      "works": 14
     },
     "held_layouts": [],
-    "qualification": "Three source-reviewed partial-duplicate column extractions are separated into complete column projections and literal clipped-snippet evidence. The latter supplies neither extra occurrences nor reading or omission votes. Complete extracts retain both original extraction groups and every unresolved full-column variant. Forty-nine printed reading decisions retain original slots and contrary readings. The notes and indexes are locators, not additional historical attestations or independent editions. No editorial emendation is adopted. Other spellings remain unassessed; disagreement is not an error rate.",
+    "qualification": "Scan-reviewed single-word boundaries join identical Greek strings from the two literal independent extraction groups. Every original slot, tokenization, witness, and contrary reading is retained. Letter/accent conflicts, real two-word phrases, and the metrical-symbol case remain held. The prior 82 source reading decisions are preserved.",
     "reopen_when": [
      "New occurrence-specific scan evidence resolves a remaining reading.",
-     "A source capture, duplicate-fragment classification, or occurrence anchor is invalidated; unapply this layer before replacing its authority."
+     "An admitted boundary's scan evidence is invalidated; unapply this layer before replacing its source review."
     ],
-    "review_scope": "Three held partial-duplicate layouts and 49 exact printed occurrences, including the index-linked φορβειά passages; no exhaustive proofreading claim."
+    "review_scope": "41 scan-verified, exact-string single-word boundary admissions from the fixed pilot"
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/105",
    "key": "dubner-1855-unresolved-readings",
-   "reopen_when": "New occurrence-specific scan evidence resolves a remaining reading. A source capture, duplicate-fragment classification, or occurrence anchor is invalidated; unapply this layer before replacing its authority.",
+   "reopen_when": "New occurrence-specific scan evidence resolves a remaining reading. An admitted boundary's scan evidence is invalidated; unapply this layer before replacing its source review.",
    "status": "accepted-measured-limitation",
    "why_no_bulk_action_remains": "The three previously held column layouts have a separate source-reviewed projection; clipped duplicate snippets remain literal evidence outside lexical voting. The bounded occurrence review is complete. Remaining κ/χ pairs include valid alternatives and cannot authorize a global spelling substitution. Further readings need occurrence-specific scan evidence."
   },

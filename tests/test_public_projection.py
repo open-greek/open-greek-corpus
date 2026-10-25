@@ -1,9 +1,12 @@
-import sys
+import importlib.util
 from pathlib import Path
 import unittest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from frequency_projection import FrequencyProjection, lexical_text
+path = Path(__file__).resolve().parents[1] / "scripts/frequency_projection.py"
+spec = importlib.util.spec_from_file_location("published_projection_tests", path)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+FrequencyProjection, lexical_text = module.FrequencyProjection, module.lexical_text
 
 
 class PublicProjectionTests(unittest.TestCase):

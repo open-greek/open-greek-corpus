@@ -1,8 +1,8 @@
 {
  "corpus": {
   "passages": 1913663,
-  "tokens": 65208961,
-  "tokens_lemmatized": 63419511,
+  "tokens": 65209002,
+  "tokens_lemmatized": 63419553,
   "works": 3939
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -20,7 +20,7 @@
    "works": 2417
   },
   "PD": {
-   "tokens": 25834436,
+   "tokens": 25834477,
    "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -61,18 +61,18 @@
   }
  },
  "pin": {
-  "corpus_sha256": "45bfdf0d4c12e55ba0a417cfc9150431e3b0a0774b1b9b0eba531fb2a1ce51d3",
+  "corpus_sha256": "327cc22c9ce1d1a159b6f189823ce0f7d7fbf1dd75cfe0fd1a17b1c9bf6eaa6d",
   "manifest": "data/public_export.json"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20082187,
-    "works": 892
+    "tokens": 20243526,
+    "works": 889
    },
    "manual": {
-    "tokens": 5882307,
-    "works": 139
+    "tokens": 5719688,
+    "works": 141
    },
    "mixed-unassessed": {
     "tokens": 805136,
@@ -83,8 +83,8 @@
     "works": 2494
    },
    "raw-ocr": {
-    "tokens": 2560831,
-    "works": 410
+    "tokens": 2562152,
+    "works": 411
    }
   },
   "known_limitations": "data/known_limitations.json",
@@ -92,23 +92,23 @@
   "raw_ocr": {
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28525325,
+    "ocr_tokens": 28525366,
     "ocr_works": 1441,
     "raw_share_of_corpus_tokens": 0.0393,
-    "raw_tokens": 2560831,
-    "raw_works": 410,
+    "raw_tokens": 2562152,
+    "raw_works": 411,
     "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29078324,
+   "ocr_tokens": 29078365,
    "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "scope": "Correction quality varies by work. Unresolved readings remain excluded from lexical counts."
  },
  "release_date": "2026-10-25",
- "release_id": "corpus-2026-10-25",
+ "release_id": "corpus-2026-10-25.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -155,7 +155,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24468653,
+   "tokens": 24468694,
    "works": 1244
   },
   "perseus": {

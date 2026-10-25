@@ -4,7 +4,7 @@ An openly reusable corpus of Ancient, Medieval, and Modern Greek texts from
 public-domain editions and attributed open sources.
 
 The current export contains **3,939 works**, **1,913,663 passages**, and
-**65,208,961 eligible Greek tokens**. Correction quality varies by work.
+**65,209,002 eligible Greek tokens**. Correction quality varies by work.
 Unresolved readings remain excluded from lexical counts.
 
 ## Reading the corpus
@@ -42,7 +42,11 @@ inputs, and working review records are not distributed with this export.
 
 ## Lexical exports
 
-`data/public_lexicon.tsv` lists eligible surface forms. The public lemma
+[Download the surface-frequency table](https://github.com/open-greek/open-greek-corpus/releases/download/corpus-2026-10-25.1/public_lexicon.tsv.gz)
+for this release. Its decompressed format is `form<TAB>count`; checksums and
+counts are in `data/public_lexicon_release.json`. The surface-frequency
+table excludes duplicate passages and filtered nonlexical forms, so its token
+count is lower than the inclusive corpus total. The public lemma
 frequency tables are derived from this corpus's lexical projection.
 `data/work_lemma_counts.tsv.gz` provides per-work lemma counts. Experimental
 Modern Greek frequencies are separate from these production exports.
