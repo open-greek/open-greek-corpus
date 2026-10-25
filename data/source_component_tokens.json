@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24726860,
+   "analysis_tokens": 24726902,
    "passages": 1284483,
    "works": 1246
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
+ "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -1913,7 +1913,7 @@
   "hesiodus.theogonia.jsonl": "9a19e73bf538b7da18edb6130f7a826e61916ce93b74e44c8c7abd64828f7c06",
   "hesychius-illustrius.fragmenta.jsonl": "e9f4cd1339ca29a4a3b870439f2c4a35caca26897e2524916581a690613ebaad",
   "hesychius-lexicography.epistula-ad-eulogium.jsonl": "c9b5295e84004f1f8cf22b61f01727da3163dfe6eaf04dec730c514cf13277ae",
-  "hesychius-lexicography.lexicon-o.jsonl": "22e558269963ad917d9e452e87ce5e7df9811853ac0b511e6f0b2873518a632c",
+  "hesychius-lexicography.lexicon-o.jsonl": "5049b1ee3bcfa6a8227ddc3c6176ef6df093c3f6f83b33f3abe6c1c7ba493bcc",
   "hesychius-lexicography.lexicon-p-w.jsonl": "ba41855d01d850ff230f2cca068f9fc41523e7bb2be8dd309d5030908496edd6",
   "hesychius-of-jerusalem.commentarius-magnus-in-psalmos.jsonl": "089e144fbae4ed7e52fd1cce6a72e3b49689c6d744fbbf7c91b297287edb2bc4",
   "hexapla-anonymi.lectiones.jsonl": "d3b8c015cd7994e6812f745c355dcb1c9a66819201c846743a4dbaf931d51140",
@@ -4058,7 +4058,7 @@
   "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed",
   "experiment_dubner_alignment.py": "17970bb7ea35d226fcd6619379a3db026f5d96c4051d3de0ac7a3cd167f6c6d3",
   "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
-  "frequency_projection.py": "f97113dffff5b25694bcc0a189d37a45d31f4f6c8d6c1fd1c283a2850adecbfb",
+  "frequency_projection.py": "97aae88195e212829176e57a8127a37fd6dce9b13f49cf741d7490a291e974cc",
   "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
   "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
   "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
@@ -4072,6 +4072,8 @@
   "herodas_source_observations.py": "406885c8e3e73d9e127f2d05ac1c436ac95c2d2284ef8d8717434c1614503c33",
   "herodas_uncertainty_readings.py": "a73ea947288c13f27c3780eb71001f638fd658b987e807d25d6a93fd48dd79c4",
   "hesychius_gap_observations.py": "1b316b901dbfacdef99eca1aa1c332221a3d219fdb1565beb7ee0a2e22cc768c",
+  "hesychius_gap_reading_observations.py": "d4523831f4feedbc97857df4c554c669f802d50013596dd757fda1faab8720f5",
+  "hesychius_gap_state.py": "ee3b6aa6c2e3f1b9e99f3c81bb837776a85e472580f7853c90344a6d08ddc09a",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
   "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
@@ -4100,6 +4102,7 @@
   "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
   "repair_herodas_body.py": "07e6c8d8b0d7636ae17cd10055aaf573a641e1e1c0ea457dcdd9dfc91e4a05a2",
   "repair_herodas_readings.py": "ccf47d3380f09ccb044613cb285f5264e818ac0457ae01a25f03b598eb94fed3",
+  "repair_hesychius_gap_readings.py": "f54b47027cac04796be5eb27d4ba4bf3d5ea82873bb46e4187c525912760b2f3",
   "repair_hesychius_missing_columns.py": "1e100b0c168ffa8a8a37803bfc421889507be42f811c486e45f3c2d09570f49e",
   "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
   "repair_photius_apparatus.py": "81167bb6febfc1a8433190c57a5efa3d9a128b5a09b3cad826eb10b4c4654583",
@@ -4117,7 +4120,7 @@
   "repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
   "repair_westermann_scope.py": "d77c5ad43f0cbc4017667dc51b8378c4bef0389b685a6cdc26d24181d3e14fd7",
   "reviewed_duplicate_block_observations.py": "9e895c8bb3402f5bbfb7e7262f6a47d910a656281efee4c1b0455786729157d1",
-  "reviewed_duplicate_state.py": "1256d6a577e9e9b4a54d7df6bcb87951a075aa001c1dfbbe1faf7e360a21f738",
+  "reviewed_duplicate_state.py": "61ab9c3dc9fa6cbaf634aa0cb3d8e452890f5b95b5da87e7444ca76a433438ff",
   "run_hesychius_gap_ocr.py": "7fea137c8aeedec8cb2077ce37175e68d745ea32a13046822df22242b32c80b6",
   "run_scan_ocr.py": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
   "scan_ocr_bundle.py": "eb70e94494749e83c77a493f6669c2777c6b089d21ce1bfa5147ae553f80838e",
@@ -4126,10 +4129,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65208857,
+  "analysis_tokens": 65208899,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29078220,
+  "ocr_analysis_tokens": 29078262,
   "ocr_passages": 1295897,
   "ocr_works": 1445,
   "passages": 1913663,
@@ -50049,7 +50052,7 @@
    }
   },
   "hesychius-lexicography.lexicon-o": {
-   "analysis_tokens": 147561,
+   "analysis_tokens": 147603,
    "components": [
     {
      "analysis_tokens": 147086,
@@ -50066,7 +50069,7 @@
      "source": "ocr"
     },
     {
-     "analysis_tokens": 209,
+     "analysis_tokens": 251,
      "edition": "schmidt-1867-gap-consensus-2026-10",
      "license": "PD",
      "passages": 2,
@@ -50077,12 +50080,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 147561,
+   "ocr_analysis_tokens": 147603,
    "ocr_passages": 32120,
    "passages": 32120,
    "sources": {
     "ocr": {
-     "analysis_tokens": 147561,
+     "analysis_tokens": 147603,
      "passages": 32120
     }
    }

@@ -3,17 +3,17 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
+  "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "114a25b4650904749e560ded9560f9732cf92bb336ca3c85f048cec77d9c5b71",
-   "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
+   "sha256": "afb99ae4df7773944a6ead269d593bde5b5146958aeaf581e66e561b9310e97f",
+   "corpus_sha256": "8cc7939f38f0c6a4dc0b7a50bf22ee9180bf0083a657dec7655bf1333b1645c4",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65208857,
+    "analysis_tokens": 65208899,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29078220,
+    "ocr_analysis_tokens": 29078262,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
     "passages": 1913663,
@@ -76,7 +76,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24726860,
+     "analysis_tokens": 24726902,
      "passages": 1284483,
      "works": 1246
     },
@@ -291,15 +291,15 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "8e3c4eeb353045c9030ed25366331120e3cfafdbc71d71b2902a888a7d9cc42e"
+   "sha256": "93de0e26cd718c7cad32d11cfb9c7e084c9712bd0b83195e00d233513ac0ecf0"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "5aff4cee7defc36e40de9f878fca9afc06e38ecbc6926d1002eaa506c4c9c6a1"
+   "sha256": "72fbf504bb4bae8476cd47681b3501a30c8e2486f98cf314719dc9260b170d5f"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "dee8b7dd36b0de4ae24ef9849e028045d24ffa8db3faeb52855abb2904215458"
+   "sha256": "5637cd46b0bdf674fa5513a875d28ec71176230d06b7565ace3eb23aa2ea6750"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
@@ -16607,7 +16607,7 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29078220,
+    "ocr_component_tokens": 29078262,
     "mixed_works": 4,
     "mixed_ocr_tokens": 552999,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
@@ -16721,6 +16721,10 @@
     "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
     "repair_status": "missing-main-text-leaf-recovered",
     "authority": {
+     "path": "data/corpus_changes/hesychius-gap-reading-review/changes.json",
+     "sha256": "d04d3b6a2bddd776da63f903867e7990c2fdb7da748cf275fbf49c54f27e72a8"
+    },
+    "recovery_authority": {
      "path": "data/corpus_changes/hesychius-missing-columns/changes.json",
      "sha256": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02"
     },
@@ -16733,41 +16737,51 @@
      260
     ],
     "counts": {
-     "analysis_greek_tokens": 209,
+     "analysis_greek_tokens": 251,
      "column_reading_statuses": {
       "259": {
-       "agreement": 105,
-       "single-witness": 1,
-       "unresolved": 28
+       "agreement": 95,
+       "reviewed-omission": 1,
+       "source-reviewed": 37,
+       "unresolved": 1
       },
       "260": {
-       "agreement": 104,
-       "unresolved": 16
+       "agreement": 98,
+       "reviewed-omission": 1,
+       "source-reviewed": 21
       }
      },
      "current_rows": 32120,
      "literal_witnesses": 8,
      "predecessor_rows": 32118,
      "primary_columns_added": 2,
-     "reading_statuses": {
-      "agreement": 209,
-      "single-witness": 1,
-      "unresolved": 44
+     "reading_review": {
+      "initial_uncertain_slots": 45,
+      "merged_fragment_slots": 2,
+      "newly_admitted_lexical_slots": 42,
+      "remaining_uncertain_slots": 1,
+      "shared_errors_corrected": 16
      },
-     "single_checkpoint_slots_excluded": 1,
+     "reading_statuses": {
+      "agreement": 193,
+      "reviewed-omission": 2,
+      "source-reviewed": 58,
+      "unresolved": 1
+     },
+     "single_checkpoint_slots_excluded": 0,
      "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
-     "surface_greek_tokens": 341
+     "surface_greek_tokens": 255
     },
     "remaining_reading_uncertainty": {
-     "unresolved_alignment_slots": 44,
-     "single_checkpoint_slots_excluded": 1,
-     "total_slots_excluded": 45,
+     "unresolved_alignment_slots": 1,
+     "single_checkpoint_slots_excluded": 0,
+     "total_slots_excluded": 1,
      "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the two recovered main-text columns. These are not OCR error counts or an error rate."
     },
-    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
-    "qualification": "Recovery of the two missing main-text columns from independent Harvard and Ghent copies of the same public-domain 1867 edition. Two pinned OCR checkpoints transcribe each column from both physical copies; outputs from one checkpoint share one vote group. Contrary readings remain explicit and unresolved readings do not enter scalar lexical counts. The literal predictions, both full-page images, title pages, and neighboring boundaries remain auditable. The printed COD./HES. apparatus below the main columns is outside this bounded addition; it remains visible in retained full-page source evidence. Critical signs and Latin citations are not lexical observations, and no context n-grams are inferred from the alignment projection."
+    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups or explicit occurrence review against both retained Schmidt scans. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
+    "qualification": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency."
    },
-   "why_no_bulk_action_remains": "The previously missing main-text leaf is recovered from two independent physical copies of the same edition. Both pinned OCR checkpoints have transcribed both columns in both copies. Exact voting and source-reviewed critical-scope exclusions exhaust this bounded automatic repair. Remaining disagreements require occurrence review of the printed source; a normalized form or dictionary match cannot select the edition's letters.",
+   "why_no_bulk_action_remains": "All 45 originally excluded alignment slots have now received occurrence review against both retained Schmidt copies with TLG comparison references. Forty-four slots are resolved, including two duplicate fragments reconstructed once. The remaining headword's breathing and iota marks cannot be established confidently in both retained scans. A different edition's diacritics cannot settle this printed occurrence.",
    "reopen_when": "Reopen reading review when occurrence-level inspection of the pinned Harvard and Ghent columns, or a better independently retained transcription, establishes a specific unresolved reading. Reopen the missing-leaf defect only if the recovered edition identity, physical boundary, or source evidence is invalidated."
   }
  ]
