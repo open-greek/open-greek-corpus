@@ -4,7 +4,7 @@ from __future__ import annotations
 from copy import deepcopy
 from pathlib import Path
 
-import repair_hesychius_missing_columns as repair
+import hesychius_gap_state as repair
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -15,11 +15,14 @@ def metadata(root=ROOT):
         return None
     from hesychius_gap_observations import SOURCES, BOUNDARY
     audit, _, rows = repair.checked_state(root)
-    return {"authority": {"path": repair.AUTHORITY,
+    current = repair.current_metadata(root)
+    return {"authority": {"path": current["authority"],
+            "sha256": repair.sha((root / current["authority"]).read_bytes())},
+        "recovery_authority": {"path": repair.AUTHORITY,
             "sha256": repair.sha((root / repair.AUTHORITY).read_bytes())},
-        "counts": deepcopy(audit["counts"]), "sources": deepcopy(SOURCES),
-        "boundary": deepcopy(BOUNDARY), "qualification": repair.QUALIFICATION,
-        "primary": {"path": repair.PRIMARY, "sha256": audit["outputs"][repair.PRIMARY],
+        "counts": deepcopy(current["counts"]), "sources": deepcopy(SOURCES),
+        "boundary": deepcopy(BOUNDARY), "qualification": current["qualification"],
+        "primary": {"path": repair.PRIMARY, "sha256": current["output_sha256"],
                     "loci": [row["locus"] for row in rows.values()] if isinstance(rows, dict)
                             else [row["locus"] for row in rows]},
         "literal_witnesses": {"path": repair.WITNESSES,

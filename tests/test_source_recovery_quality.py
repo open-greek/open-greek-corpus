@@ -26,7 +26,11 @@ def sources(tmp_path):
         for name in names:
             path = tmp_path / name
             path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(ROOT / name, path)
+            if repair is hesychius and name == hesychius.PRIMARY:
+                from hesychius_gap_state import recovery_postimage_bytes
+                path.write_bytes(recovery_postimage_bytes(ROOT))
+            else:
+                shutil.copyfile(ROOT / name, path)
     return tmp_path
 
 
@@ -39,17 +43,18 @@ def test_real_current_measurements_replay_their_source_authorities():
     current = quality.measurement(ROOT)
     assert current["schema_version"] == 1
     reading = current["hesychius_missing_columns"]
-    audit = hesychius.verify(ROOT)[0]
-    assert reading["counts"] == audit["counts"]
+    from hesychius_gap_state import current_metadata
+    metadata = current_metadata(ROOT)
+    assert reading["counts"] == metadata["counts"]
     assert reading["recovered_printed_columns"] == [259, 260]
     assert reading["repair_status"] == "missing-main-text-leaf-recovered"
-    assert reading["counts"]["analysis_greek_tokens"] == 209
+    assert reading["counts"]["analysis_greek_tokens"] == 251
     assert reading["remaining_reading_uncertainty"] == {
-        "unresolved_alignment_slots": 44, "single_checkpoint_slots_excluded": 1,
-        "total_slots_excluded": 45,
+        "unresolved_alignment_slots": 1, "single_checkpoint_slots_excluded": 0,
+        "total_slots_excluded": 1,
         "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the "
             "two recovered main-text columns. These are not OCR error counts or an error rate."}
-    assert reading["authority"]["sha256"] == hesychius.sha((ROOT / hesychius.AUTHORITY).read_bytes())
+    assert reading["authority"]["sha256"] == hesychius.sha((ROOT / metadata["authority"]).read_bytes())
     exact = current["pindar_duplicate_primaries"]
     assert exact["counts"] == pindar.verify(ROOT)[0]["counts"]
     assert exact["counts"]["pairs"] == 4

@@ -298,6 +298,8 @@ def main() -> None:
             dl += "; " + ", ".join(f"[{key} gap leaf]({source['url']})"
                 for key, source in hesychius_gap["sources"].items())
             model += "; Qwen3.6/3.8-27B collation for columns 259–260"
+            if "reading_review" in hesychius_gap["counts"]:
+                model += "; occurrence readings checked against both Schmidt copies"
         words = component["analysis_tokens"]
         rows.append((name, desc, dl, model, f"{words:,}", status))
 

@@ -162,6 +162,11 @@ def tokenize_file(fp: Path, frequency=None) -> dict[str, Counter[str]]:
 def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str]]:
     """Per-URN form counters for every corpus file, re-tokenizing only files
     absent from or stale in the work_forms cache."""
+    # Cached counters bypass row projection. Verify the source-recovery layers
+    # before accepting a cache hit, so invalidating a retained scan still stops
+    # the export even when the primary text and eligibility recipe are unchanged.
+    from source_recovery_quality import measurement as verify_source_recoveries
+    verify_source_recoveries(DATA.parent)
     frequency = FrequencyProjection(DATA)
     manifest = json.loads(MANIFEST.read_text()) if (use_cache and MANIFEST.exists()) else {}
     if use_cache:

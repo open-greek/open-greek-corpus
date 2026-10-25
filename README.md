@@ -66,9 +66,13 @@ and checked word networks. Old citations still resolve. Run
 The [missing Hesychius columns](docs/hesychius-missing-columns.md), 259–260,
 are recovered from Harvard and Ghent copies of Schmidt's 1867 edition. Eight
 literal OCR witnesses and the full word networks preserve contrary readings.
-Only readings supported by both model groups enter lexical counts; unresolved
-readings remain available. Run `make check-hesychius-gap` to replay the addition
-and verify its exact predecessor and source evidence.
+Readings supported by both model groups or verified against both printed copies
+enter lexical counts. A later occurrence review, aided by TLG entry references,
+resolved 44 of 45 uncertain slots and corrected 16 shared OCR mistakes. Two
+resolved slots were duplicate word fragments; one headword's diacritics remain
+uncertain. The reviewed columns supply 251 eligible Greek tokens. Run
+`make check-hesychius-gap` to replay both layers and verify their exact
+predecessors and source evidence.
 
 Westermann's 1845 biography anthology is partitioned by printed work and text
 role. `marcellinus.vita-thucydidis` retains Marcellinus's actual life; other
@@ -3259,7 +3263,7 @@ not agree with it.
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
-| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog); [harvard gap leaf](https://archive.org/details/bub_gb_R-zVabafOucC), [ghent gap leaf](https://archive.org/details/bub_gb_PNI9AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi); Qwen3.6/3.8-27B collation for columns 259–260 | 147,561 | auto-corrected |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog); [harvard gap leaf](https://archive.org/details/bub_gb_R-zVabafOucC), [ghent gap leaf](https://archive.org/details/bub_gb_PNI9AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi); Qwen3.6/3.8-27B collation for columns 259–260; occurrence readings checked against both Schmidt copies | 147,603 | auto-corrected |
 | hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,868 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | raw OCR |
 | hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |

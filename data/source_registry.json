@@ -185708,34 +185708,48 @@
     },
     "missing_columns_recovery": {
      "authority": {
+      "path": "data/corpus_changes/hesychius-gap-reading-review/changes.json",
+      "sha256": "d04d3b6a2bddd776da63f903867e7990c2fdb7da748cf275fbf49c54f27e72a8"
+     },
+     "recovery_authority": {
       "path": "data/corpus_changes/hesychius-missing-columns/changes.json",
       "sha256": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02"
      },
      "counts": {
-      "analysis_greek_tokens": 209,
+      "analysis_greek_tokens": 251,
       "column_reading_statuses": {
        "259": {
-        "agreement": 105,
-        "single-witness": 1,
-        "unresolved": 28
+        "agreement": 95,
+        "reviewed-omission": 1,
+        "source-reviewed": 37,
+        "unresolved": 1
        },
        "260": {
-        "agreement": 104,
-        "unresolved": 16
+        "agreement": 98,
+        "reviewed-omission": 1,
+        "source-reviewed": 21
        }
       },
       "current_rows": 32120,
       "literal_witnesses": 8,
       "predecessor_rows": 32118,
       "primary_columns_added": 2,
-      "reading_statuses": {
-       "agreement": 209,
-       "single-witness": 1,
-       "unresolved": 44
+      "reading_review": {
+       "initial_uncertain_slots": 45,
+       "merged_fragment_slots": 2,
+       "newly_admitted_lexical_slots": 42,
+       "remaining_uncertain_slots": 1,
+       "shared_errors_corrected": 16
       },
-      "single_checkpoint_slots_excluded": 1,
+      "reading_statuses": {
+       "agreement": 193,
+       "reviewed-omission": 2,
+       "source-reviewed": 58,
+       "unresolved": 1
+      },
+      "single_checkpoint_slots_excluded": 0,
       "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
-      "surface_greek_tokens": 341
+      "surface_greek_tokens": 255
      },
      "sources": {
       "harvard": {
@@ -185841,10 +185855,10 @@
       "next_entry": "αὐλωπίαι",
       "evidence": "Both title pages identify Schmidt's 1867 editio altera, indice glossarum ethnicarum aucta. Both independent physical copies contain the continuous printed sequence 257–258, 259–260, 261–262. The earlier Harvard source hesychiialexand00schmgoog omits the middle leaf after a repeated gathering. Column 259 begins αὐθέκαστος, immediately after αὐθέκαστα in 258; column 260 ends with the lemma αὐλώνων and its Euripides reference, without a printed definition in that main-text line. Column 261 starts αὐλωπίαι. Do not invent a definition or import the apparatus's alternative assignment of the preceding definitions."
      },
-     "qualification": "Recovery of the two missing main-text columns from independent Harvard and Ghent copies of the same public-domain 1867 edition. Two pinned OCR checkpoints transcribe each column from both physical copies; outputs from one checkpoint share one vote group. Contrary readings remain explicit and unresolved readings do not enter scalar lexical counts. The literal predictions, both full-page images, title pages, and neighboring boundaries remain auditable. The printed COD./HES. apparatus below the main columns is outside this bounded addition; it remains visible in retained full-page source evidence. Critical signs and Latin citations are not lexical observations, and no context n-grams are inferred from the alignment projection.",
+     "qualification": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency.",
      "primary": {
       "path": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
-      "sha256": "22e558269963ad917d9e452e87ce5e7df9811853ac0b511e6f0b2873518a632c",
+      "sha256": "5049b1ee3bcfa6a8227ddc3c6176ef6df093c3f6f83b33f3abe6c1c7ba493bcc",
       "loci": [
        "schmidt-1867.column-259",
        "schmidt-1867.column-260"
@@ -185920,7 +185934,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Recovery of the two missing main-text columns from independent Harvard and Ghent copies of the same public-domain 1867 edition. Two pinned OCR checkpoints transcribe each column from both physical copies; outputs from one checkpoint share one vote group. Contrary readings remain explicit and unresolved readings do not enter scalar lexical counts. The literal predictions, both full-page images, title pages, and neighboring boundaries remain auditable. The printed COD./HES. apparatus below the main columns is outside this bounded addition; it remains visible in retained full-page source evidence. Critical signs and Latin citations are not lexical observations, and no context n-grams are inferred from the alignment projection."
+     "note": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency."
     }
    }
   },

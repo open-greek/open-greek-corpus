@@ -67,3 +67,49 @@ timestamp, recipe hashes, and exact preimages. Undo removes the additions and
 restores the complete predecessor byte-for-byte even if a new correction
 source has been invalidated. Unapply this layer before unapplying the older
 reviewed-duplicate layer.
+
+## Reading review
+
+The later review in `data/corpus_changes/hesychius-gap-reading-review/` inspects
+all 45 excluded alignment slots against both retained Schmidt column images.
+It resolves 44 slots: 42 supply newly admitted words and two are duplicate
+fragments belonging to words reconstructed once at the adjacent slot. The
+columns therefore supply 251 eligible Greek tokens, up from 209. Reviewing the
+same entries also corrects 16 shared OCR mistakes, including missing accents,
+`αὐλίζαι` for printed `αὐλίξαι`, and `αὐλίσχοι` for printed `αὐλίσκοι`.
+
+The second headword inside the `αὐΐαχοι` entry remains unresolved at column 259,
+slot 84. The retained copies do not establish its breathing and iota marks
+confidently. Its original alternatives remain visible and excluded from scalar
+frequency counts. The 45-slot figure measures the original alignment campaign,
+not 45 independent erroneous words or an OCR error rate.
+
+TLG's `4085.002` was consulted on October 24, 2026. It presents Latte's
+1953/1966 edition for Α–Ο. Its alpha entries 8257–8317 identify the corresponding
+material and help interpret rare headwords; they are comparison references,
+not a new OCR vote. Every admitted reading comes from independent inspection
+of both Schmidt images. In particular, Schmidt's `σπεῖραν`, `διῶρυξ`, and
+`αὐοὶ` are retained despite different Latte readings. No later edition's dagger,
+apparatus, or definition is transferred into Schmidt's main text.
+
+The review observations are reproducible inputs in
+`scripts/hesychius_gap_reading_observations.py`. Each generated change record
+retains the original slot and surface, corrected reading or explicit hold,
+both image paths and hashes, printed entry, TLG comparison citation, explanation,
+and timestamp. All original checkpoint readings, support groups, omissions,
+abstentions, and critical-scope exclusions remain unchanged. Neither model
+agreement nor scan review supplies contextual adjacency for this projection.
+
+```sh
+python3 scripts/repair_hesychius_gap_readings.py apply
+python3 scripts/hesychius_gap_state.py --check
+python3 scripts/repair_hesychius_gap_readings.py undo
+```
+
+Undo restores the complete pre-review recovery byte-for-byte without requiring
+the correction evidence to remain valid. Reapplying reproduces the frozen
+postimage and audit. Unapply this reading layer before undoing the missing-leaf
+recovery. The current-state verifier composes these authorities without editing
+the frozen recovery recipe or waiving any of its other output checks.
+Per-work frequency counters revalidate the source-recovery authorities before
+reuse, so a cached count cannot bypass invalidation of a retained scan.

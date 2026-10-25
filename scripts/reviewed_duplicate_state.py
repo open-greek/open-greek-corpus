@@ -19,8 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _recovery():
-    import repair_hesychius_missing_columns
-    return repair_hesychius_missing_columns
+    import hesychius_gap_state
+    return hesychius_gap_state
 
 
 def authority_paths(root=ROOT):

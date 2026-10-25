@@ -67,6 +67,8 @@ def projection_recipe_pins():
               "capture_westermann_sources.py", "reviewed_duplicate_state.py",
               "repair_hesychius_missing_columns.py", "hesychius_gap_observations.py",
               "capture_hesychius_gap.py", "run_hesychius_gap_ocr.py")
+    names += ("hesychius_gap_state.py", "repair_hesychius_gap_readings.py",
+              "hesychius_gap_reading_observations.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
@@ -77,7 +79,7 @@ def lexical_text(rec: dict) -> str:
         return validate_projection(rec)
     if ("hesychius_gap_recovery" in rec
             or rec.get("edition") == "schmidt-1867-gap-consensus-2026-10"):
-        from repair_hesychius_missing_columns import validate_projection
+        from hesychius_gap_state import validate_projection
         return validate_projection(rec)
     if ("reviewed_duplicate_block" in rec
             or rec.get("edition") == "reviewed-duplicate-block-consensus-2026-10"):
