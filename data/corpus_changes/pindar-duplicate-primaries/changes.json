@@ -1,0 +1,143 @@
+{
+ "before_encoding": "base64",
+ "before_sha256": "d416000a4890e6a2e17a5b575affeec023ea03dbd2df8a7a98fbbf4b40ff7c21",
+ "counts": {
+  "analysis_tokens": 1445,
+  "duplicate_analysis_tokens_removed": 1445,
+  "original_primary_analysis_tokens": 2890,
+  "original_primary_rows": 12,
+  "pairs": 4,
+  "primary_rows": 6,
+  "secondary_rows": 6
+ },
+ "inputs": {
+  "data/corpus/tlg4170.tlg001a.jsonl": "5ba3a876364f1c068cf78e807a93686becdd1fe7c35d7d20fd9781ebc87f995b",
+  "data/corpus/tlg4170.tlg001b.jsonl": "e7e3c91912e77d86be39bc9b98ff1eea5b26f0b609339387e81b9034acdcaa7c",
+  "data/corpus/tlg4170.tlg001c.jsonl": "d4997334f6946c5f19d4717bbbf97dce578555e4af7ee09e80f576af87536384",
+  "data/corpus/tlg4170.tlg001d.jsonl": "d42c9ad4042dd8676a84612e0437c905d8a5eccc8e51d778be58554b6e1fc3dc",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis.jsonl": "ab2efdb7f521dd2464131865a4d2b8e09901a07b56dd46e8d1d374276125905a",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": "e205ed723f440220922ff767e0b0d84a57ebd117df17492d2376afcf0149c16c",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-metrica.jsonl": "c692c6f761a900b183f166aa219d43b2383fd03467708a74efe488a817983c51",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": "53a2f049e2e42e6213e0b4bd3ecc5e3354fc3b4156a9881fba880ea3725fd994",
+  "sources/first1k/data/tlg4170/tlg001a/tlg4170.tlg001a.1st1K-grc1.xml": "f86cfbab86a751069f46e1591489e86e64ec0518280254b28998cc144785e459",
+  "sources/first1k/data/tlg4170/tlg001b/tlg4170.tlg001b.1st1K-grc1.xml": "e1ceb1dc3471e51730cac58cf366c5c2e868c2b41e405e30ceed744f1b3546ca",
+  "sources/first1k/data/tlg4170/tlg001c/tlg4170.tlg001c.1st1K-grc1.xml": "9c4f318ad1fd6c95c725844d6e7bdc23a4e3bcb970a21b1d2217852b07c73619",
+  "sources/first1k/data/tlg4170/tlg001d/tlg4170.tlg001d.1st1K-grc1.xml": "6e31ccdebbc1204b5de53fdd07117e8ffd7fe8688c8bccc991c9bfcf80d70bba"
+ },
+ "outputs": {
+  "data/corpus/tlg4170.tlg001a.jsonl": null,
+  "data/corpus/tlg4170.tlg001b.jsonl": null,
+  "data/corpus/tlg4170.tlg001c.jsonl": null,
+  "data/corpus/tlg4170.tlg001d.jsonl": null,
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis.jsonl": "ab2efdb7f521dd2464131865a4d2b8e09901a07b56dd46e8d1d374276125905a",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": "e205ed723f440220922ff767e0b0d84a57ebd117df17492d2376afcf0149c16c",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-metrica.jsonl": "c692c6f761a900b183f166aa219d43b2383fd03467708a74efe488a817983c51",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": "53a2f049e2e42e6213e0b4bd3ecc5e3354fc3b4156a9881fba880ea3725fd994",
+  "data/corpus_changes/pindar-duplicate-primaries/passage-aliases.json": "4f9dc7bab15e04d85f6bac68f8fbf72d8e9b9b726517f086dac5833d3b8a7f2c",
+  "data/corpus_changes/pindar-duplicate-primaries/records.jsonl.gz": "3a3c7ae5036aaea070f68f6fbb9e3560a4a069f3c6ac30308cee1975fddacdc9",
+  "data/corpus_changes/pindar-duplicate-primaries/sources/tlg4170.tlg001a.xml.gz": "2300049d59d75d4da0be1d6e50815986c5e4957762057b20fc4913a545655914",
+  "data/corpus_changes/pindar-duplicate-primaries/sources/tlg4170.tlg001b.xml.gz": "0c8a176a6743acc30101d705c7a9ac2535f38dddf651bab8a20cbcdc0faa5d15",
+  "data/corpus_changes/pindar-duplicate-primaries/sources/tlg4170.tlg001c.xml.gz": "e295cfeb6b7884755ae9ad4bb0e4ae731bfdfd8117c6fdac2c77fa338e392f1c",
+  "data/corpus_changes/pindar-duplicate-primaries/sources/tlg4170.tlg001d.xml.gz": "4ec1438f48cf1d2f432b070531eca8a4ef02853780308b38e193844d357bc4ed",
+  "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis.jsonl": "3b5443fab999485ee44a7c7931bf5453eae4309d674f456de30686285ad56ee1",
+  "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": "73987e18a265a91dd609dba2defbabc29212a70945c1fde5818f90c07718acdf",
+  "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-metrica.jsonl": "6e791935f5d70032d204f29f27c08aa59a8cbe01f9cee1db5024f02ac68e9f10",
+  "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": "76825495fdb01a4203301892a46e01ee8919ca845ef4d471a1d8a5be77086748"
+ },
+ "qualification": "Four duplicate serializations of the same First1K edition are counted once. Equality is exact after removing only the work urn. No Greek text, source license, original citation, or opaque identifier is discarded; the duplicate IDs remain separate retired ledger entries with explicit canonical redirects, rather than being reassigned to another expression.",
+ "recipe_sha256": {
+  "repair_pindar_duplicate_primaries.py": "68ce5de464667ab48b022f8d8d1347212a6213826e9bc08dbdd6bc0cb283950c"
+ },
+ "recorded_at": "2026-10-24T23:13:59.642125+00:00",
+ "schema_version": 1,
+ "works": {
+  "vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis": {
+   "analysis_tokens": 183,
+   "canonical_id": "ogc003673",
+   "primary_rows": 2,
+   "retired_id": "ogc003544",
+   "retired_source": "tlg4170.tlg001d",
+   "secondary_path": "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis.jsonl",
+   "secondary_rows": 2,
+   "source": {
+    "cts": "urn:cts:greekLit:tlg4170.tlg001d",
+    "edition": "1st1K-grc1",
+    "editor": "Drachmann, Anders Bjørn",
+    "license": "CC-BY-SA-4.0",
+    "path": "sources/first1k/data/tlg4170/tlg001d/tlg4170.tlg001d.1st1K-grc1.xml",
+    "provider": "first1k",
+    "revision": "4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c",
+    "sha256": "6e31ccdebbc1204b5de53fdd07117e8ffd7fe8688c8bccc991c9bfcf80d70bba",
+    "title": "Pentathlon et de novem lyricis",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c/data/tlg4170/tlg001d/tlg4170.tlg001d.1st1K-grc1.xml",
+    "year": 1903
+   }
+  },
+  "vitae-pindari-et-varia-de-pindaro.vita-ambrosiana": {
+   "analysis_tokens": 526,
+   "canonical_id": "ogc003674",
+   "primary_rows": 2,
+   "retired_id": "ogc003541",
+   "retired_source": "tlg4170.tlg001a",
+   "secondary_path": "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl",
+   "secondary_rows": 2,
+   "source": {
+    "cts": "urn:cts:greekLit:tlg4170.tlg001a",
+    "edition": "1st1K-grc1",
+    "editor": "Drachmann, Anders Bjørn",
+    "license": "CC-BY-SA-4.0",
+    "path": "sources/first1k/data/tlg4170/tlg001a/tlg4170.tlg001a.1st1K-grc1.xml",
+    "provider": "first1k",
+    "revision": "4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c",
+    "sha256": "f86cfbab86a751069f46e1591489e86e64ec0518280254b28998cc144785e459",
+    "title": "Vita Ambrosiana",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c/data/tlg4170/tlg001a/tlg4170.tlg001a.1st1K-grc1.xml",
+    "year": 1903
+   }
+  },
+  "vitae-pindari-et-varia-de-pindaro.vita-metrica": {
+   "analysis_tokens": 201,
+   "canonical_id": "ogc003675",
+   "primary_rows": 1,
+   "retired_id": "ogc003543",
+   "retired_source": "tlg4170.tlg001c",
+   "secondary_path": "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-metrica.jsonl",
+   "secondary_rows": 1,
+   "source": {
+    "cts": "urn:cts:greekLit:tlg4170.tlg001c",
+    "edition": "1st1K-grc1",
+    "editor": "Drachmann, Anders Bjørn",
+    "license": "CC-BY-SA-4.0",
+    "path": "sources/first1k/data/tlg4170/tlg001c/tlg4170.tlg001c.1st1K-grc1.xml",
+    "provider": "first1k",
+    "revision": "4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c",
+    "sha256": "9c4f318ad1fd6c95c725844d6e7bdc23a4e3bcb970a21b1d2217852b07c73619",
+    "title": "Vita Metrica",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c/data/tlg4170/tlg001c/tlg4170.tlg001c.1st1K-grc1.xml",
+    "year": 1903
+   }
+  },
+  "vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum": {
+   "analysis_tokens": 535,
+   "canonical_id": "ogc003676",
+   "primary_rows": 1,
+   "retired_id": "ogc003542",
+   "retired_source": "tlg4170.tlg001b",
+   "secondary_path": "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl",
+   "secondary_rows": 1,
+   "source": {
+    "cts": "urn:cts:greekLit:tlg4170.tlg001b",
+    "edition": "1st1K-grc1",
+    "editor": "Drachmann, Anders Bjørn",
+    "license": "CC-BY-SA-4.0",
+    "path": "sources/first1k/data/tlg4170/tlg001b/tlg4170.tlg001b.1st1K-grc1.xml",
+    "provider": "first1k",
+    "revision": "4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c",
+    "sha256": "e1ceb1dc3471e51730cac58cf366c5c2e868c2b41e405e30ceed744f1b3546ca",
+    "title": "Vita Thomana et hypothesis Olympiorum",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c/data/tlg4170/tlg001b/tlg4170.tlg001b.1st1K-grc1.xml",
+    "year": 1903
+   }
+  }
+ }
+}

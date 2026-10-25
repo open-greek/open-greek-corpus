@@ -1,0 +1,1453 @@
+{
+ "before_encoding": "base64",
+ "before_sha256": "41b810aebd853200c1f2aceaa3fcde9b836d9032ef7d96f018d5f5586f1f7e08",
+ "counts": {
+  "comparative_greek_tokens": 67764,
+  "comparative_rows": 3350,
+  "editorial_greek_tokens": 14165,
+  "editorial_rows": 3139,
+  "literal_rows": 7013,
+  "original_greek_tokens": 97683,
+  "original_rows": 7013,
+  "partition_rows": 7015,
+  "primary_greek_tokens": 15754,
+  "primary_rows": 526,
+  "primary_works": 18
+ },
+ "deduplication_evidence": {
+  "data/corpus/certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 14,
+   "sha256": "eb42409d53420a17843595b9e8a657fbfb36111ad055d761de362f984df38c5d",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi",
+     "unit": "homer-hesiod-contest"
+    }
+   ]
+  },
+  "data/corpus/dionysius-halicarnassensis-history.ad-ammaeum.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 12,
+   "sha256": "29064922589595fedda14c7c2167d3729af5fa9f5466844fdfdb0e3091f9c6b3",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [
+      "5"
+     ],
+     "relation": "canonical_target",
+     "slug": "dionysius-halicarnassensis-history.ad-ammaeum",
+     "unit": "aristotle-dionysius"
+    }
+   ]
+  },
+  "data/corpus/dionysius-halicarnassensis-history.de-dinarcho.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 13,
+   "sha256": "3ec6fbff917e415e8708d0c3a2e18ed75489a7702a78cf33c3ffb64b09c7fd59",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "dionysius-halicarnassensis-history.de-dinarcho",
+     "unit": "dinarchus-dionysius"
+    }
+   ]
+  },
+  "data/corpus/dionysius-halicarnassensis-history.de-isaeo.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 20,
+   "sha256": "98eb0795a73738bc205df9aa94f31630844e9f4aed00053f2fa8892abd1c7937",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "dionysius-halicarnassensis-history.de-isaeo",
+     "unit": "isaeus-dionysius"
+    }
+   ]
+  },
+  "data/corpus/dionysius-halicarnassensis-history.de-isocrate.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 20,
+   "sha256": "7bd0c935bf310d9615f7f3e57a1b41978ddea71de12c3dd62fd98515545e6f39",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "dionysius-halicarnassensis-history.de-isocrate",
+     "unit": "isocrates-dionysius"
+    }
+   ]
+  },
+  "data/corpus/dionysius-halicarnassensis-history.de-lysia.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 34,
+   "sha256": "115ef1d1685369374fb7d8f416f3e4e9de867b86ca705cc0aec15f0e1e056075",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "dionysius-halicarnassensis-history.de-lysia",
+     "unit": "lysias-dionysius"
+    }
+   ]
+  },
+  "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 4558,
+   "sha256": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [
+      "rhinthon_kaibel_cgf_1899_0029.4"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "kaibel-cgf-1899.volume-witness-r",
+     "unit": "de-comoedia"
+    }
+   ]
+  },
+  "data/corpus/photius.bibliotheca.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 3782,
+   "sha256": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
+   "sources": [
+    "ocr",
+    "reviewed-text-consensus"
+   ],
+   "units": [
+    {
+     "loci": [
+      "photius_bekker1824_0132.1",
+      "photius_bekker1824_0133.1"
+     ],
+     "relation": "canonical_target",
+     "slug": "photius.bibliotheca",
+     "unit": "photius-theopompus"
+    }
+   ]
+  },
+  "data/corpus/plutarchus.vitae-decem-oratorum-sp-832b-852e.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 13,
+   "sha256": "5fae9f348c8b29abb085227e2aea54bd01e8e57eebac2a6a35c16065b6c0a166",
+   "sources": [
+    "perseus"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "aeschines-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "andocides-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "antiphon-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "demosthenes-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "dinarchus-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "hyperides-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "isaeus-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "isocrates-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "lycurgus-plutarch"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+     "unit": "lysias-plutarch"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 2625,
+   "sha256": "0635a7a4abaa22e760fdb8e71a55a4bcc294d07a52c080312a1eb3466792a55a",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
+     "unit": "aeschines-anonymous"
+    },
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
+     "unit": "aeschines-apollonius"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 11414,
+   "sha256": "1e20e9b5423e2ed14bc2e96ce564bca36a420590ed70c5b1292904bc8f2ab7ce",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [
+      "scholia_aeschylum_depauw_stanley_0030.1",
+      "scholia_aeschylum_depauw_stanley_0034.1",
+      "scholia_aeschylum_depauw_stanley_0034.2"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera",
+     "unit": "aeschylus-life"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 8003,
+   "sha256": "d7911397bbea6f8d099f16dea492ee21841302e542436ff8807a485000bfe41e",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+     "unit": "demosthenes-anonymous"
+    },
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+     "unit": "demosthenes-zosimus"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-euripidem.vitae-euripidis.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 5,
+   "sha256": "a45b6da04f31c2571fa9229d19f24bc28ea1753382d07c3ac22ed95797522f96",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-euripidem.vitae-euripidis",
+     "unit": "euripides-anonymous"
+    },
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-euripidem.vitae-euripidis",
+     "unit": "euripides-moschopulus"
+    },
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-euripidem.vitae-euripidis",
+     "unit": "euripides-thomas"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-isocratem.scholia-in-isocratem-scholia-vetera.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 14,
+   "sha256": "886d952058aaf79b853fedab90acfa89699f94a5ea0ccf9927cb984af1c2192a",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-isocratem.scholia-in-isocratem-scholia-vetera",
+     "unit": "isocrates-anonymous"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-nicandrum.scholia-et-glossae-in-nicandri-theriaca-scholia-vetera-et.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 629,
+   "sha256": "0b810af18a09a64a1066e6f40846b9f39499abf44e23b07d6e93953821b50314",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [
+      "0"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-nicandrum.scholia-et-glossae-in-nicandri-theriaca-scholia-vetera-et",
+     "unit": "nicander-life"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 1415,
+   "sha256": "fcc3010865660d3e1d94d0008b6e9b1ff8c3c863865c7e4f0d2be88dc12d7ce2",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [
+      "scholia_oppianum_bussemaker_didot_0265.2",
+      "scholia_oppianum_bussemaker_didot_0265.28"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
+     "unit": "oppian-a"
+    },
+    {
+     "loci": [
+      "scholia_oppianum_bussemaker_didot_0265.2",
+      "scholia_oppianum_bussemaker_didot_0265.28"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
+     "unit": "oppian-b"
+    }
+   ]
+  },
+  "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl": {
+   "licenses": [
+    "PD"
+   ],
+   "rows": 5447,
+   "sha256": "96bc126f30b5f857da380d72ff90907994da4ed5f4e5d651d58502319e212234",
+   "sources": [
+    "ocr"
+   ],
+   "units": [
+    {
+     "loci": [
+      "scholia_oppianum_bussemaker_didot_0023.2"
+     ],
+     "relation": "related_existing_primary",
+     "slug": "scholia-in-theocritum.scholia-vetera-et-recentiora",
+     "unit": "theocritus-life"
+    }
+   ]
+  },
+  "data/corpus/soranus.vita-hippocratis.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "4513abd8bdeaa51bbbc2fc8028d3e32d9c09130947b80a77d78a9755deb102eb",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "soranus.vita-hippocratis",
+     "unit": "hippocrates-soranus"
+    }
+   ]
+  },
+  "data/corpus/suda.lexicon.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 24076,
+   "sha256": "ff6951bbc6959baf37b794c3232f669b6428e2d15a09057e17aab1cc17f599c9",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-aeschines"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-aeschylus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-andocides"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-antiphon"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-apollonius"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-aratus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-aristophanes"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-comic-poets"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-demosthenes"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-dinarchus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-epic-poets"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-grammarians"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-hesiod"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-historians"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-homer"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-hyperides"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-isaeus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-isocrates"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-lycurgus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-lyric-poets"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-lysias"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-nicander"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-oppian"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-philosophers"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-physicians"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-plato"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-rhetors"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-sophocles"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-theocritus-moschus"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-thucydides"
+    },
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "suda.lexicon",
+     "unit": "suda-tragic-poets"
+    }
+   ]
+  },
+  "data/corpus/vitae-hesiodi-particula.vitae-hesiodi-particula.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "0d0573e65f450e554667b3d30ca8c9b7b8768432ea27a3508cea9bd12727a4e5",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-hesiodi-particula.vitae-hesiodi-particula",
+     "unit": "hesiod-proclus"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.plutarchi-vita.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 8,
+   "sha256": "c305f883b2d52a3557e251b7e7ac63638cb02dcb90b58af0c3937599444c3615",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.plutarchi-vita",
+     "unit": "homer-plutarch"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.vita-herodotea.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 37,
+   "sha256": "b74d8b62bade75c3fbebf198766b5190bdf2f8f64f94ec3dfae7d2297e745be5",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.vita-herodotea",
+     "unit": "homer-herodotean"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.vita-proculea-e-chrestomathia.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "346f421ac9a4b13f02f4deb6ef5fbb01bcf28defe556ce3ce0c8d497a5184fd4",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.vita-proculea-e-chrestomathia",
+     "unit": "homer-proclus"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.vita-quarta.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "64b42d4885720d91700f8148d9e4ff809aad4cd8eca38e73b928c2666285adbb",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.vita-quarta",
+     "unit": "homer-anonymous-4"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.vita-quinta.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "dae8fcef87311a7bb5a45dd0fe16e7749c1abdf0d5aefa45c500193a9af30e20",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.vita-quinta",
+     "unit": "homer-anonymous-5"
+    }
+   ]
+  },
+  "data/corpus/vitae-homeri.vita-sexta.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "25f55d8d2db33a1a5ce0a5f5dcdd27fbe95b1182683d8e4dc0f0740a5ce33d62",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-homeri.vita-sexta",
+     "unit": "homer-anonymous-6"
+    }
+   ]
+  },
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 2,
+   "sha256": "e205ed723f440220922ff767e0b0d84a57ebd117df17492d2376afcf0149c16c",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-pindari-et-varia-de-pindaro.vita-ambrosiana",
+     "unit": "pindar-anonymous"
+    }
+   ]
+  },
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": {
+   "licenses": [
+    "CC-BY-SA-4.0"
+   ],
+   "rows": 1,
+   "sha256": "53a2f049e2e42e6213e0b4bd3ecc5e3354fc3b4156a9881fba880ea3725fd994",
+   "sources": [
+    "first1k"
+   ],
+   "units": [
+    {
+     "loci": [],
+     "relation": "canonical_target",
+     "slug": "vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum",
+     "unit": "pindar-thomas"
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "data/corpus/certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi.jsonl": "eb42409d53420a17843595b9e8a657fbfb36111ad055d761de362f984df38c5d",
+  "data/corpus/dionysius-halicarnassensis-history.ad-ammaeum.jsonl": "29064922589595fedda14c7c2167d3729af5fa9f5466844fdfdb0e3091f9c6b3",
+  "data/corpus/dionysius-halicarnassensis-history.de-dinarcho.jsonl": "3ec6fbff917e415e8708d0c3a2e18ed75489a7702a78cf33c3ffb64b09c7fd59",
+  "data/corpus/dionysius-halicarnassensis-history.de-isaeo.jsonl": "98eb0795a73738bc205df9aa94f31630844e9f4aed00053f2fa8892abd1c7937",
+  "data/corpus/dionysius-halicarnassensis-history.de-isocrate.jsonl": "7bd0c935bf310d9615f7f3e57a1b41978ddea71de12c3dd62fd98515545e6f39",
+  "data/corpus/dionysius-halicarnassensis-history.de-lysia.jsonl": "115ef1d1685369374fb7d8f416f3e4e9de867b86ca705cc0aec15f0e1e056075",
+  "data/corpus/kaibel-cgf-1899.volume-witness-r.jsonl": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+  "data/corpus/marcellinus.vita-thucydidis.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+  "data/corpus/photius.bibliotheca.jsonl": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
+  "data/corpus/plutarchus.vitae-decem-oratorum-sp-832b-852e.jsonl": "5fae9f348c8b29abb085227e2aea54bd01e8e57eebac2a6a35c16065b6c0a166",
+  "data/corpus/scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera.jsonl": "0635a7a4abaa22e760fdb8e71a55a4bcc294d07a52c080312a1eb3466792a55a",
+  "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": "1e20e9b5423e2ed14bc2e96ce564bca36a420590ed70c5b1292904bc8f2ab7ce",
+  "data/corpus/scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": "d7911397bbea6f8d099f16dea492ee21841302e542436ff8807a485000bfe41e",
+  "data/corpus/scholia-in-euripidem.vitae-euripidis.jsonl": "a45b6da04f31c2571fa9229d19f24bc28ea1753382d07c3ac22ed95797522f96",
+  "data/corpus/scholia-in-isocratem.scholia-in-isocratem-scholia-vetera.jsonl": "886d952058aaf79b853fedab90acfa89699f94a5ea0ccf9927cb984af1c2192a",
+  "data/corpus/scholia-in-nicandrum.scholia-et-glossae-in-nicandri-theriaca-scholia-vetera-et.jsonl": "0b810af18a09a64a1066e6f40846b9f39499abf44e23b07d6e93953821b50314",
+  "data/corpus/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl": "fcc3010865660d3e1d94d0008b6e9b1ff8c3c863865c7e4f0d2be88dc12d7ce2",
+  "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl": "96bc126f30b5f857da380d72ff90907994da4ed5f4e5d651d58502319e212234",
+  "data/corpus/soranus.vita-hippocratis.jsonl": "4513abd8bdeaa51bbbc2fc8028d3e32d9c09130947b80a77d78a9755deb102eb",
+  "data/corpus/suda.lexicon.jsonl": "ff6951bbc6959baf37b794c3232f669b6428e2d15a09057e17aab1cc17f599c9",
+  "data/corpus/vitae-hesiodi-particula.vitae-hesiodi-particula.jsonl": "0d0573e65f450e554667b3d30ca8c9b7b8768432ea27a3508cea9bd12727a4e5",
+  "data/corpus/vitae-homeri.plutarchi-vita.jsonl": "c305f883b2d52a3557e251b7e7ac63638cb02dcb90b58af0c3937599444c3615",
+  "data/corpus/vitae-homeri.vita-herodotea.jsonl": "b74d8b62bade75c3fbebf198766b5190bdf2f8f64f94ec3dfae7d2297e745be5",
+  "data/corpus/vitae-homeri.vita-proculea-e-chrestomathia.jsonl": "346f421ac9a4b13f02f4deb6ef5fbb01bcf28defe556ce3ce0c8d497a5184fd4",
+  "data/corpus/vitae-homeri.vita-quarta.jsonl": "64b42d4885720d91700f8148d9e4ff809aad4cd8eca38e73b928c2666285adbb",
+  "data/corpus/vitae-homeri.vita-quinta.jsonl": "dae8fcef87311a7bb5a45dd0fe16e7749c1abdf0d5aefa45c500193a9af30e20",
+  "data/corpus/vitae-homeri.vita-sexta.jsonl": "25f55d8d2db33a1a5ce0a5f5dcdd27fbe95b1182683d8e4dc0f0740a5ce33d62",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": "e205ed723f440220922ff767e0b0d84a57ebd117df17492d2376afcf0149c16c",
+  "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": "53a2f049e2e42e6213e0b4bd3ecc5e3354fc3b4156a9881fba880ea3725fd994"
+ },
+ "outputs": {
+  "data/corpus/biographi-anonymi.antiphon-anonymous-westermann.jsonl": "09e5d9d52ef6ce5c0c747b1b1af5c736b932ab0bd4e11306bd7826fdc0219bdb",
+  "data/corpus/biographi-anonymi.aristides-anonymous-westermann.jsonl": "05380d9da66f3fa4814a93223ab5affe756fb740bb5cb4bcda55c1e283e0c902",
+  "data/corpus/biographi-anonymi.aristophanes-anonymous-westermann.jsonl": "7e71b6834387b87065dbea4b063d178788326c78ebdbed017ce10063026d17cd",
+  "data/corpus/biographi-anonymi.aristotle-anonymous-westermann.jsonl": "1060260abfd589218a06ff3127f503f416e31eeba08bb2e6b2b664873a23722d",
+  "data/corpus/biographi-anonymi.dionysius-life-westermann.jsonl": "827a7f02a81f7d29c7e2c1c48911d6707a55887ef96fa2a04a02c5d92d0a995c",
+  "data/corpus/biographi-anonymi.isaeus-anonymous-westermann.jsonl": "4e8dac03e4d22ba2ee85107e685dff7d450955395e0923dd9d111974a012d371",
+  "data/corpus/biographi-anonymi.plato-anonymous-westermann.jsonl": "21f2b655f8cee0aaab7c35cd99e335673c71efc4af3e7e101c80a21caf7cf06d",
+  "data/corpus/biographi-anonymi.sophocles-life-westermann.jsonl": "31e294c259802f67144a68a6838795538567d8041243c441304546a06a404146",
+  "data/corpus/biographi-anonymi.thucydides-anonymous-westermann.jsonl": "c50edbc92ad1253e3eefaa0ce6a6ccbcfad912b648a71d24aaaa3b958a4ff97d",
+  "data/corpus/constantinus-manasses.oppian-manasses-westermann.jsonl": "3ead3dcb231f7bdd134acc8fbcbee19a1898e0c1aa7701ddf6c17ed74a7604e8",
+  "data/corpus/eudocia-printed-ionia.antiphon-eudocia-westermann.jsonl": "dfc844819d8d55d642687b27ae4a4c2b38620b65723307985d15dec9a4b92f72",
+  "data/corpus/eustathius-thessalonicensis.pindar-eustathius-westermann.jsonl": "38258281c607ac8d94fffa76ed4a7007c8d831e785dbccd18bb3b91588e8f27d",
+  "data/corpus/joannes-tzetzes.lycophron-tzetzes-westermann.jsonl": "d4c5c2f119c8668ecace3ea358df9b739eb64e4bc4d8625bc440af6706077bd2",
+  "data/corpus/libanius.demosthenes-libanius-westermann.jsonl": "f2ebef4e90c1946286972066ccd1a6a98a2f9930e4d36f9ea6a13eabf3cf594e",
+  "data/corpus/marcellinus.vita-thucydidis.jsonl": "5774fab4a0ff70bf97e9b5c87aff868fb81990528fa4df6f18059dd15f8d4ad5",
+  "data/corpus/olympiodorus-philosophy.plato-olympiodorus-westermann.jsonl": "8ea7f942761e0b52e7247192d97040c9d30fed225ed09e64ca6048aa94d3ca86",
+  "data/corpus/pseudo-ammonius.aristotle-ammonius-westermann.jsonl": "a3c3184e3f1be58b726ca3513631456d5ce3a3a6e0bf3ae4c9fc2901710b84fe",
+  "data/corpus/thomas-magister.aristophanes-thomas-westermann.jsonl": "24558ebe893f3f27e65efd9a022cda6e80d1130b6d4fc63952233084edd1e436",
+  "data/corpus_changes/westermann-1845-scope/passage-aliases.json": "3d79aee7cebb515d716cee83d22087f6b421827396907da1f5b5c9f2e26e7113",
+  "data/corpus_changes/westermann-1845-scope/records.jsonl.gz": "9bfc8fab925ff1a6c4e244be60bf83431d1161bd00d3d7bfcc6e79f42940b689",
+  "data/ocr_witnesses/westermann-1845-comparative.jsonl": "8d5c6ddc5462f11d304316218a82de62c20fe8320c9ad8db467f37b3792af640",
+  "data/ocr_witnesses/westermann-1845-original-rows.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+  "data/ocr_witnesses/westermann-1845-uncertain.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "data/paratext/westermann-1845-editorial.jsonl": "2b29cbaf607d66001b6e04177deaf9721ffcd7d8d083a3dd0b236b44a89241d3"
+ },
+ "qualification": "Printed work and editorial boundaries repair the historical whole-volume assignment. Every original row and exact character range remains available. Historical material already represented in another primary is comparative, not another lexical occurrence. Ambiguous text roles remain outside primary counts. This source-scope review does not certify unreviewed OCR spellings.",
+ "recipe_sha256": {
+  "capture_westermann_sources.py": "2be941bf7b50e1f43a67f116266c491cf46d2b4c6f7d54b9a4db47698eefa7d6",
+  "repair_westermann_scope.py": "d77c5ad43f0cbc4017667dc51b8378c4bef0389b685a6cdc26d24181d3e14fd7",
+  "westermann_source_observations.py": "30fb62355a9b2daa4b921ece36a2fe09dd667afde55d1d69d874ae38a8bb8bbb"
+ },
+ "recorded_at": "2026-10-24T23:19:25.883615+00:00",
+ "schema": "westermann-source-scope-v1",
+ "source_capture_sha256": "e59e2a6546c20a0b0626640334dc2405f6a6383257d30fcf1e0305fcc6d75bcf",
+ "works": {
+  "aeschines-anonymous": {
+   "comparative_greek_tokens": 267,
+   "comparative_rows": 17,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 1
+  },
+  "aeschines-apollonius": {
+   "comparative_greek_tokens": 578,
+   "comparative_rows": 13,
+   "editorial_greek_tokens": 6,
+   "editorial_rows": 1
+  },
+  "aeschines-plutarch": {
+   "comparative_greek_tokens": 488,
+   "comparative_rows": 4,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1
+  },
+  "aeschylus-life": {
+   "comparative_greek_tokens": 1069,
+   "comparative_rows": 87,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 2
+  },
+  "andocides-plutarch": {
+   "comparative_greek_tokens": 452,
+   "comparative_rows": 3,
+   "editorial_greek_tokens": 9,
+   "editorial_rows": 2
+  },
+  "antiphon-anonymous": {
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 238,
+   "primary_rows": 7
+  },
+  "antiphon-eudocia": {
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 147,
+   "primary_rows": 17
+  },
+  "antiphon-plutarch": {
+   "comparative_greek_tokens": 869,
+   "comparative_rows": 18,
+   "editorial_greek_tokens": 10,
+   "editorial_rows": 3
+  },
+  "apollonius-a": {
+   "comparative_greek_tokens": 103,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 6,
+   "editorial_rows": 2
+  },
+  "apollonius-b": {
+   "comparative_greek_tokens": 98,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "aratus-a": {
+   "comparative_greek_tokens": 840,
+   "comparative_rows": 40,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 1
+  },
+  "aratus-b": {
+   "comparative_greek_tokens": 313,
+   "comparative_rows": 6,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "aratus-c": {
+   "comparative_greek_tokens": 376,
+   "comparative_rows": 22,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "aratus-d": {
+   "comparative_greek_tokens": 232,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "aristides-anonymous": {
+   "editorial_greek_tokens": 1,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 1155,
+   "primary_rows": 42
+  },
+  "aristophanes-anonymous": {
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 638,
+   "primary_rows": 23
+  },
+  "aristophanes-thomas": {
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 166,
+   "primary_rows": 3
+  },
+  "aristotle-ammonius": {
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 909,
+   "primary_rows": 10
+  },
+  "aristotle-anonymous": {
+   "editorial_greek_tokens": 6,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 823,
+   "primary_rows": 38
+  },
+  "aristotle-dionysius": {
+   "comparative_greek_tokens": 141,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 11,
+   "editorial_rows": 2
+  },
+  "de-comoedia": {
+   "comparative_greek_tokens": 591,
+   "comparative_rows": 13,
+   "editorial_greek_tokens": 2,
+   "editorial_rows": 1
+  },
+  "demosthenes-anonymous": {
+   "comparative_greek_tokens": 1541,
+   "comparative_rows": 38,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "demosthenes-libanius": {
+   "editorial_greek_tokens": 21,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 993,
+   "primary_rows": 5
+  },
+  "demosthenes-plutarch": {
+   "comparative_greek_tokens": 2503,
+   "comparative_rows": 38,
+   "editorial_greek_tokens": 9,
+   "editorial_rows": 2
+  },
+  "demosthenes-zosimus": {
+   "comparative_greek_tokens": 1297,
+   "comparative_rows": 39,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 1
+  },
+  "dinarchus-dionysius": {
+   "comparative_greek_tokens": 1253,
+   "comparative_rows": 26,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 2
+  },
+  "dinarchus-plutarch": {
+   "comparative_greek_tokens": 238,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1
+  },
+  "dionysius-life": {
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 2,
+   "primary_greek_tokens": 57,
+   "primary_rows": 1
+  },
+  "euripides-anonymous": {
+   "comparative_greek_tokens": 925,
+   "comparative_rows": 80,
+   "editorial_greek_tokens": 7,
+   "editorial_rows": 2
+  },
+  "euripides-moschopulus": {
+   "comparative_greek_tokens": 281,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 9,
+   "editorial_rows": 1
+  },
+  "euripides-thomas": {
+   "comparative_greek_tokens": 428,
+   "comparative_rows": 5,
+   "editorial_greek_tokens": 9,
+   "editorial_rows": 1
+  },
+  "hesiod-proclus": {
+   "comparative_greek_tokens": 919,
+   "comparative_rows": 71,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 2
+  },
+  "hippocrates-soranus": {
+   "comparative_greek_tokens": 890,
+   "comparative_rows": 26,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 2
+  },
+  "homer-anonymous-4": {
+   "comparative_greek_tokens": 184,
+   "comparative_rows": 25,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "homer-anonymous-5": {
+   "comparative_greek_tokens": 378,
+   "comparative_rows": 30,
+   "editorial_greek_tokens": 2,
+   "editorial_rows": 1
+  },
+  "homer-anonymous-6": {
+   "comparative_greek_tokens": 205,
+   "comparative_rows": 5,
+   "editorial_greek_tokens": 1,
+   "editorial_rows": 1
+  },
+  "homer-herodotean": {
+   "comparative_greek_tokens": 4370,
+   "comparative_rows": 232,
+   "editorial_greek_tokens": 17,
+   "editorial_rows": 2
+  },
+  "homer-hesiod-contest": {
+   "comparative_greek_tokens": 2400,
+   "comparative_rows": 251,
+   "editorial_greek_tokens": 12,
+   "editorial_rows": 3
+  },
+  "homer-plutarch": {
+   "comparative_greek_tokens": 749,
+   "comparative_rows": 55,
+   "editorial_greek_tokens": 11,
+   "editorial_rows": 1
+  },
+  "homer-proclus": {
+   "comparative_greek_tokens": 546,
+   "comparative_rows": 47,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "hyperides-plutarch": {
+   "comparative_greek_tokens": 750,
+   "comparative_rows": 25,
+   "editorial_greek_tokens": 10,
+   "editorial_rows": 2
+  },
+  "isaeus-anonymous": {
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 315,
+   "primary_rows": 2
+  },
+  "isaeus-dionysius": {
+   "comparative_greek_tokens": 120,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 12,
+   "editorial_rows": 2
+  },
+  "isaeus-plutarch": {
+   "comparative_greek_tokens": 130,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1
+  },
+  "isocrates-anonymous": {
+   "comparative_greek_tokens": 1420,
+   "comparative_rows": 80,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "isocrates-dionysius": {
+   "comparative_greek_tokens": 370,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 13,
+   "editorial_rows": 2
+  },
+  "isocrates-plutarch": {
+   "comparative_greek_tokens": 1389,
+   "comparative_rows": 55,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1
+  },
+  "lycophron-tzetzes": {
+   "editorial_greek_tokens": 11,
+   "editorial_rows": 2,
+   "primary_greek_tokens": 185,
+   "primary_rows": 2
+  },
+  "lycurgus-plutarch": {
+   "comparative_greek_tokens": 1740,
+   "comparative_rows": 15,
+   "editorial_greek_tokens": 9,
+   "editorial_rows": 2
+  },
+  "lysias-dionysius": {
+   "comparative_greek_tokens": 161,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 13,
+   "editorial_rows": 2
+  },
+  "lysias-plutarch": {
+   "comparative_greek_tokens": 598,
+   "comparative_rows": 55,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 1
+  },
+  "marcellinus-thucydides": {
+   "editorial_greek_tokens": 16,
+   "editorial_rows": 4,
+   "primary_greek_tokens": 3112,
+   "primary_rows": 40
+  },
+  "nicander-life": {
+   "comparative_greek_tokens": 152,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "oppian-a": {
+   "comparative_greek_tokens": 257,
+   "comparative_rows": 18,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 2
+  },
+  "oppian-b": {
+   "comparative_greek_tokens": 347,
+   "comparative_rows": 24,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "oppian-manasses": {
+   "editorial_greek_tokens": 11,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 353,
+   "primary_rows": 30
+  },
+  "photius-theopompus": {
+   "comparative_greek_tokens": 629,
+   "comparative_rows": 3,
+   "editorial_greek_tokens": 8,
+   "editorial_rows": 2
+  },
+  "pindar-anonymous": {
+   "comparative_greek_tokens": 415,
+   "comparative_rows": 7,
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1
+  },
+  "pindar-eustathius": {
+   "editorial_greek_tokens": 13,
+   "editorial_rows": 4,
+   "primary_greek_tokens": 1461,
+   "primary_rows": 74
+  },
+  "pindar-thomas": {
+   "comparative_greek_tokens": 546,
+   "comparative_rows": 4,
+   "editorial_greek_tokens": 11,
+   "editorial_rows": 1
+  },
+  "plato-anonymous": {
+   "editorial_greek_tokens": 1,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 2000,
+   "primary_rows": 67
+  },
+  "plato-olympiodorus": {
+   "editorial_greek_tokens": 7,
+   "editorial_rows": 3,
+   "primary_greek_tokens": 1477,
+   "primary_rows": 103
+  },
+  "sophocles-life": {
+   "editorial_greek_tokens": 6,
+   "editorial_rows": 2,
+   "primary_greek_tokens": 959,
+   "primary_rows": 49
+  },
+  "suda-aeschines": {
+   "comparative_greek_tokens": 110,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-aeschylus": {
+   "comparative_greek_tokens": 90,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-andocides": {
+   "comparative_greek_tokens": 17,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-antiphon": {
+   "comparative_greek_tokens": 28,
+   "comparative_rows": 4,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-apollonius": {
+   "comparative_greek_tokens": 33,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-aratus": {
+   "comparative_greek_tokens": 122,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-aristophanes": {
+   "comparative_greek_tokens": 67,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-comic-poets": {
+   "comparative_greek_tokens": 2227,
+   "comparative_rows": 169,
+   "editorial_greek_tokens": 159,
+   "editorial_rows": 93
+  },
+  "suda-demosthenes": {
+   "comparative_greek_tokens": 602,
+   "comparative_rows": 6,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-dinarchus": {
+   "comparative_greek_tokens": 53,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-epic-poets": {
+   "comparative_greek_tokens": 2896,
+   "comparative_rows": 136,
+   "editorial_greek_tokens": 112,
+   "editorial_rows": 50
+  },
+  "suda-grammarians": {
+   "comparative_greek_tokens": 3889,
+   "comparative_rows": 214,
+   "editorial_greek_tokens": 101,
+   "editorial_rows": 66
+  },
+  "suda-hesiod": {
+   "comparative_greek_tokens": 118,
+   "comparative_rows": 6,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-historians": {
+   "comparative_greek_tokens": 3440,
+   "comparative_rows": 187,
+   "editorial_greek_tokens": 128,
+   "editorial_rows": 68
+  },
+  "suda-homer": {
+   "comparative_greek_tokens": 441,
+   "comparative_rows": 21,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-hyperides": {
+   "comparative_greek_tokens": 101,
+   "comparative_rows": 6,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-isaeus": {
+   "comparative_greek_tokens": 32,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-isocrates": {
+   "comparative_greek_tokens": 75,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-lycurgus": {
+   "comparative_greek_tokens": 83,
+   "comparative_rows": 1,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-lyric-poets": {
+   "comparative_greek_tokens": 2321,
+   "comparative_rows": 145,
+   "editorial_greek_tokens": 67,
+   "editorial_rows": 40
+  },
+  "suda-lysias": {
+   "comparative_greek_tokens": 96,
+   "comparative_rows": 4,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-nicander": {
+   "comparative_greek_tokens": 54,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-oppian": {
+   "comparative_greek_tokens": 51,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-philosophers": {
+   "comparative_greek_tokens": 7805,
+   "comparative_rows": 371,
+   "editorial_greek_tokens": 182,
+   "editorial_rows": 116
+  },
+  "suda-physicians": {
+   "comparative_greek_tokens": 1096,
+   "comparative_rows": 65,
+   "editorial_greek_tokens": 32,
+   "editorial_rows": 20
+  },
+  "suda-plato": {
+   "comparative_greek_tokens": 292,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-rhetors": {
+   "comparative_greek_tokens": 5225,
+   "comparative_rows": 352,
+   "editorial_greek_tokens": 184,
+   "editorial_rows": 122
+  },
+  "suda-sophocles": {
+   "comparative_greek_tokens": 100,
+   "comparative_rows": 13,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-theocritus-moschus": {
+   "comparative_greek_tokens": 81,
+   "comparative_rows": 2,
+   "editorial_greek_tokens": 6,
+   "editorial_rows": 2
+  },
+  "suda-thucydides": {
+   "comparative_greek_tokens": 118,
+   "comparative_rows": 7,
+   "editorial_greek_tokens": 4,
+   "editorial_rows": 1
+  },
+  "suda-tragic-poets": {
+   "comparative_greek_tokens": 1472,
+   "comparative_rows": 124,
+   "editorial_greek_tokens": 80,
+   "editorial_rows": 42
+  },
+  "theocritus-life": {
+   "comparative_greek_tokens": 81,
+   "comparative_rows": 3,
+   "editorial_greek_tokens": 5,
+   "editorial_rows": 2
+  },
+  "thucydides-anonymous": {
+   "editorial_greek_tokens": 3,
+   "editorial_rows": 1,
+   "primary_greek_tokens": 766,
+   "primary_rows": 13
+  }
+ }
+}
