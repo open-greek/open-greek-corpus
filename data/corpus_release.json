@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 1920154,
-  "tokens": 65292022,
-  "tokens_lemmatized": 63500356,
-  "works": 3926
+  "passages": 1913663,
+  "tokens": 65208857,
+  "tokens_lemmatized": 63419411,
+  "works": 3939
  },
  "generated_from": {
-  "commit": "5ce09e7795aded763fca4d6af99f6fad2eb20e2b",
+  "commit": "2c580271a184e7b8f6d06fe5576d1befd406741b",
   "commit_date": "2026-10-24",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,12 +21,12 @@
    "works": 235
   },
   "CC-BY-SA-4.0": {
-   "tokens": 34164735,
-   "works": 2421
+   "tokens": 34163290,
+   "works": 2417
   },
   "PD": {
-   "tokens": 25916052,
-   "works": 1245
+   "tokens": 25834332,
+   "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
    "tokens": 7519,
@@ -67,16 +67,16 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3926,
-  "catalog_sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1",
-  "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+  "catalog_rows": 3939,
+  "catalog_sha256": "8e3c4eeb353045c9030ed25366331120e3cfafdbc71d71b2902a888a7d9cc42e",
+  "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20197432,
-    "works": 894
+    "tokens": 20099958,
+    "works": 893
    },
    "manual": {
     "tokens": 5864432,
@@ -87,12 +87,12 @@
     "works": 4
    },
    "not-ocr": {
-    "tokens": 35879945,
-    "works": 2498
+    "tokens": 35878500,
+    "works": 2494
    },
    "raw-ocr": {
-    "tokens": 2545077,
-    "works": 392
+    "tokens": 2560831,
+    "works": 410
    }
   },
   "dubner_reading_review": {
@@ -164,10 +164,10 @@
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "polytonic_loss": {
    "counts": {
-    "flagged": 600,
-    "readings": 130410,
-    "unassessable": 52159,
-    "unflagged": 77651
+    "flagged": 597,
+    "readings": 130454,
+    "unassessable": 52692,
+    "unflagged": 77165
    },
    "fresh_validation": [
     {
@@ -351,9 +351,9 @@
     "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
    ],
    "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
-   "page_readings_sha256": "908343d79a960bac27cdae9c4aec74f9ac02d78ffe6ae6f8f0ea316b64dfcc07",
+   "page_readings_sha256": "d51cd5dbc0edd42c2bac074dff5b6091ee63341adb6c7594b2a469da15215681",
    "report": "data/polytonic_loss_report.json",
-   "report_sha256": "daf635fa5563fd598d7b913deea5aeeebff12eee5e9ff7422fcb7f550ef2dbd7",
+   "report_sha256": "9852f050c8bd5dbe87e235b7e06587ab203ffab90f9b97d4c6cadb15b3300460",
    "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
    "selection_rule": null
   },
@@ -361,17 +361,17 @@
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "global_raw_token_bounds": null,
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28606941,
-    "ocr_works": 1424,
-    "raw_share_of_corpus_tokens": 0.039,
-    "raw_tokens": 2545077,
-    "raw_works": 392,
+    "ocr_tokens": 28525221,
+    "ocr_works": 1441,
+    "raw_share_of_corpus_tokens": 0.0393,
+    "raw_tokens": 2560831,
+    "raw_works": 410,
     "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29159940,
-   "ocr_works": 1428,
+   "ocr_tokens": 29078220,
+   "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "source_components": {
@@ -408,9 +408,9 @@
      "works": 528
     },
     "first1k": {
-     "analysis_tokens": 21867616,
-     "passages": 269491,
-     "works": 1045
+     "analysis_tokens": 21866171,
+     "passages": 269485,
+     "works": 1041
     },
     "galenus_verbatim": {
      "analysis_tokens": 318470,
@@ -433,9 +433,9 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24808580,
-     "passages": 1290968,
-     "works": 1229
+     "analysis_tokens": 24726860,
+     "passages": 1284483,
+     "works": 1246
     },
     "perseus": {
      "analysis_tokens": 9695795,
@@ -463,7 +463,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131",
+   "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -647,16 +647,141 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "5fbac97e1ae00db06ecf7a661913a9e59db39a935b83d0015f7f63b0fe42f34d",
+   "sha256": "114a25b4650904749e560ded9560f9732cf92bb336ca3c85f048cec77d9c5b71",
    "totals": {
-    "analysis_tokens": 65292022,
+    "analysis_tokens": 65208857,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29159940,
-    "ocr_passages": 1302382,
-    "ocr_works": 1428,
-    "passages": 1920154,
-    "works": 3926
+    "ocr_analysis_tokens": 29078220,
+    "ocr_passages": 1295897,
+    "ocr_works": 1445,
+    "passages": 1913663,
+    "works": 3939
+   }
+  },
+  "source_recovery": {
+   "hesychius_missing_columns": {
+    "authority": {
+     "path": "data/corpus_changes/hesychius-missing-columns/changes.json",
+     "sha256": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02"
+    },
+    "counts": {
+     "analysis_greek_tokens": 209,
+     "column_reading_statuses": {
+      "259": {
+       "agreement": 105,
+       "single-witness": 1,
+       "unresolved": 28
+      },
+      "260": {
+       "agreement": 104,
+       "unresolved": 16
+      }
+     },
+     "current_rows": 32120,
+     "literal_witnesses": 8,
+     "predecessor_rows": 32118,
+     "primary_columns_added": 2,
+     "reading_statuses": {
+      "agreement": 209,
+      "single-witness": 1,
+      "unresolved": 44
+     },
+     "single_checkpoint_slots_excluded": 1,
+     "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
+     "surface_greek_tokens": 341
+    },
+    "issue": "https://github.com/open-greek/open-greek-corpus/issues/107",
+    "lexical_count_policy": "A scalar lexical reading requires both independent checkpoint groups. Printed editorial or reference scopes, suspect lemmas, and unresolved readings are excluded. Literal predictions and contrary readings remain available. The word projection supplies no context n-grams or positional evidence.",
+    "qualification": "Recovery of the two missing main-text columns from independent Harvard and Ghent copies of the same public-domain 1867 edition. Two pinned OCR checkpoints transcribe each column from both physical copies; outputs from one checkpoint share one vote group. Contrary readings remain explicit and unresolved readings do not enter scalar lexical counts. The literal predictions, both full-page images, title pages, and neighboring boundaries remain auditable. The printed COD./HES. apparatus below the main columns is outside this bounded addition; it remains visible in retained full-page source evidence. Critical signs and Latin citations are not lexical observations, and no context n-grams are inferred from the alignment projection.",
+    "recovered_printed_columns": [
+     259,
+     260
+    ],
+    "remaining_reading_uncertainty": {
+     "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the two recovered main-text columns. These are not OCR error counts or an error rate.",
+     "single_checkpoint_slots_excluded": 1,
+     "total_slots_excluded": 45,
+     "unresolved_alignment_slots": 44
+    },
+    "repair_status": "missing-main-text-leaf-recovered",
+    "source_evidence": {
+     "path": "data/corpus_changes/hesychius-missing-columns/source-evidence.json",
+     "sha256": "f3511900b922544cd41a809f3e306e10c015666d83b5ee28b0b16052ee83689a"
+    }
+   },
+   "pindar_duplicate_primaries": {
+    "authority": {
+     "path": "data/corpus_changes/pindar-duplicate-primaries/changes.json",
+     "sha256": "1a226555797cd74b65a1b50e5de15eecc9bb966c4d611b8000d5f3bbb6bf2ea2"
+    },
+    "counts": {
+     "analysis_tokens": 1445,
+     "duplicate_analysis_tokens_removed": 1445,
+     "original_primary_analysis_tokens": 2890,
+     "original_primary_rows": 12,
+     "pairs": 4,
+     "primary_rows": 6,
+     "secondary_rows": 6
+    },
+    "lexical_count_policy": "Exact duplicate serializations of one digital edition contribute one primary occurrence. Canonical primary bytes remain unchanged; original text, citations, source licenses, and retired identifiers remain available.",
+    "qualification": "Four duplicate serializations of the same First1K edition are counted once. Equality is exact after removing only the work urn. No Greek text, source license, original citation, or opaque identifier is discarded; the duplicate IDs remain separate retired ledger entries with explicit canonical redirects, rather than being reassigned to another expression.",
+    "repair_status": "identical-first1k-serializations-counted-once",
+    "source_license": "CC-BY-SA-4.0",
+    "source_revision": "4c9c843d80ee94b4371f52add5f7d68bbfe7ba4c"
+   },
+   "schema_version": 1,
+   "westermann_source_scope": {
+    "authority": {
+     "path": "data/corpus_changes/westermann-1845-scope/changes.json",
+     "sha256": "7c1b0a6f17ec13e5043af434034bff0e3e792a1f91cf6918c6aed8ce86b2b312"
+    },
+    "counts": {
+     "comparative_greek_tokens": 67764,
+     "comparative_rows": 3350,
+     "editorial_greek_tokens": 14165,
+     "editorial_rows": 3139,
+     "held_greek_tokens": 0,
+     "held_rows": 0,
+     "literal_rows": 7013,
+     "original_greek_tokens": 97683,
+     "original_rows": 7013,
+     "partition_rows": 7015,
+     "primary_greek_tokens": 15754,
+     "primary_rows": 526,
+     "primary_works": 18
+    },
+    "issue": "https://github.com/open-greek/open-greek-corpus/issues/104",
+    "lexical_count_policy": "Only source-supported historical primary units contribute lexical counts. Comparative witnesses of material already represented in a primary, modern editorial text, and held ambiguous text remain outside those counts. Every original row and exact character partition remains reversible.",
+    "qualification": "Printed work and editorial boundaries repair the historical whole-volume assignment. Every original row and exact character range remains available. Historical material already represented in another primary is comparative, not another lexical occurrence. Ambiguous text roles remain outside primary counts. This source-scope review does not certify unreviewed OCR spellings.",
+    "repair_status": "anthology-partitioned-by-source-work-and-text-role",
+    "source": {
+     "artifact_url": "https://archive.org/download/biographoivitaru00westuoft/biographoivitaru00westuoft.pdf",
+     "bytes": 32649726,
+     "editor": "Antonius Westermann",
+     "filename": "biographoivitaru00westuoft.pdf",
+     "id": "westermann-toronto-1845",
+     "license": "PD",
+     "pdf_pages": 520,
+     "place": "Brunsvigae",
+     "printed_to_pdf_offset": 28,
+     "publisher": "Georgius Westermann",
+     "qualification": "The printed attribution is retained, including anonymous and bracketed attributions. Printed biography subjects are not assigned authorship. This is one edition and one scan, not multiple independent witnesses.",
+     "sha256": "01581997fcec0a973d059b9c62727ced6bfff76e3e7b7ea16a06732b236fe1e7",
+     "title": "Βιογράφοι. Vitarum Scriptores Graeci Minores",
+     "url": "https://archive.org/details/biographoivitaru00westuoft",
+     "year": 1845
+    },
+    "source_evidence": {
+     "capture": {
+      "path": "data/corpus_changes/westermann-source-review/capture.json",
+      "sha256": "e59e2a6546c20a0b0626640334dc2405f6a6383257d30fcf1e0305fcc6d75bcf"
+     },
+     "review": {
+      "path": "data/corpus_changes/westermann-source-review/source-review.json",
+      "sha256": "bd9a92ef53c79ef18d0a21afa65a43c74aed914b8bce5b6bf39fa60d2775dcc6"
+     }
+    }
    }
   },
   "wrong_corrections": {
@@ -825,15 +950,15 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "f14096e7caab8a58c7025f9fc78d64e32ddc13227b8b29312d5a229332dad8a1",
-     "corpus_sha256": "83b2f1bfc982e53406fa557b6ddf28563fc5a12f354120b9624b159071583131"
+     "catalog_sha256": "8e3c4eeb353045c9030ed25366331120e3cfafdbc71d71b2902a888a7d9cc42e",
+     "corpus_sha256": "81d2c107abef8fb8412ad45b5a619e6ce55d751459ed560cfc149e88fbab85a9"
     },
     "pairs": 43580,
-    "raw_share_lower_bound": 0.0317,
+    "raw_share_lower_bound": 0.032,
     "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.039,
-    "raw_tokens_lower_bound": 2072716,
-    "raw_tokens_upper_bound": 2545077,
+    "raw_share_upper_bound": 0.0393,
+    "raw_tokens_lower_bound": 2088470,
+    "raw_tokens_upper_bound": 2560831,
     "raw_works_in_doubt": 22,
     "scope": "Bounds within the homogeneous works classified raw by the catalog; not global raw-OCR bounds. Mixed-component correction coverage is unassessed.",
     "stale": true,
@@ -912,7 +1037,7 @@
   }
  },
  "release_date": "2026-10-24",
- "release_id": "corpus-2026-10-24.1",
+ "release_id": "corpus-2026-10-24.2",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -939,8 +1064,8 @@
    "works": 528
   },
   "first1k": {
-   "tokens": 21807261,
-   "works": 1043
+   "tokens": 21805816,
+   "works": 1039
   },
   "galenus_verbatim": {
    "tokens": 318470,
@@ -959,8 +1084,8 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24550269,
-   "works": 1227
+   "tokens": 24468549,
+   "works": 1244
   },
   "perseus": {
    "tokens": 9850877,

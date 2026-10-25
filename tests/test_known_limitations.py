@@ -28,7 +28,7 @@ def test_published_known_limitations_are_current(rebuilt):
 
 def test_every_accepted_limitation_has_a_reopen_condition(rebuilt):
     limitations = rebuilt["limitations"]
-    assert [row["issue"].rsplit("/", 1)[-1] for row in limitations] == ["1", "2", "31", "105"]
+    assert [row["issue"].rsplit("/", 1)[-1] for row in limitations] == ["1", "2", "31", "105", "107"]
     assert all(row["status"] == "accepted-measured-limitation" for row in limitations)
     assert all(row["reopen_when"] for row in limitations)
 
@@ -51,6 +51,13 @@ def test_metrics_come_from_the_current_source_artifacts(rebuilt):
     categories = reading["counts"]["remaining_unresolved_categories"]
     assert sum(categories[key] for key in ("omission_tie", "accent_case_or_elision_only",
         "different_word_readings")) == reading["counts"]["reading_statuses"]["unresolved"]
+    recovered = limitations["hesychius-recovered-columns-reading-uncertainty"]["current_measurement"]
+    recovery = json.loads((REPO / recovered["authority"]["path"]).read_bytes())
+    assert recovered["repair_status"] == "missing-main-text-leaf-recovered"
+    assert recovered["counts"] == recovery["counts"]
+    assert recovered["remaining_reading_uncertainty"]["total_slots_excluded"] == (
+        recovery["counts"]["reading_statuses"]["unresolved"]
+        + recovery["counts"]["single_checkpoint_slots_excluded"])
 
 
 def test_coverage_findings_keep_open_work_distinct_from_verified_repairs(rebuilt):

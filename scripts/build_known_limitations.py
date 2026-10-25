@@ -26,6 +26,7 @@ from build_corpus_release import MEASURED
 from coverage_resolution import resolution
 from build_source_components import load_verified, summary as component_summary, validate_catalog
 from dubner_review_quality import limitation as dubner_limitation
+from source_recovery_quality import limitations as source_recovery_limitations
 
 
 REPO = Path(__file__).resolve().parent.parent
@@ -221,7 +222,7 @@ def build() -> dict:
                     "deterministically repairable."
                 ),
             },
-        ] + dubner_limitation(REPO),
+        ] + dubner_limitation(REPO) + source_recovery_limitations(REPO),
     }
 
 

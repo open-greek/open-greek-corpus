@@ -7,7 +7,7 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.89,
     "pct_ingested_actual": 67.49,
-    "ingested_words_actual": 50603770,
+    "ingested_words_actual": 50604012,
     "ingested_complete_works": 2924,
     "ingested_partial_works": 116,
     "pct_reachable_not_ingested": 13.88,
@@ -19,7 +19,7 @@
     },
     "underfilled_50_90_works": 450,
     "underfilled_50_90_missing_words": {
-      "actionable": 1512996,
+      "actionable": 1512655,
       "structural": 179837
     }
   },
@@ -14260,10 +14260,10 @@
       "author": "Hesychius",
       "title": "Lexicon (Α-Ο)",
       "word_count": 235261,
-      "ingested_tokens": 143254,
-      "coverage_ratio": 0.609,
+      "ingested_tokens": 143595,
+      "coverage_ratio": 0.61,
       "source": "ocr",
-      "missing_words": 92007
+      "missing_words": 91666
     },
     {
       "tlg_id": "tlg3136",
@@ -19413,8 +19413,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 787,
-    "n_tokens": 8349002,
+    "works": 800,
+    "n_tokens": 8360179,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -22177,6 +22177,14 @@
         "n_tokens": 2012
       },
       {
+        "key": "biographi-anonymi.plato-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 67,
+        "n_tokens": 2000
+      },
+      {
         "key": "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -22489,6 +22497,14 @@
         "n_tokens": 1500
       },
       {
+        "key": "olympiodorus-philosophy.plato-olympiodorus-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 103,
+        "n_tokens": 1477
+      },
+      {
         "key": "tlg1595.tlg003",
         "edition": "comparetti-rivfil3-1875",
         "source": "ocr",
@@ -22503,6 +22519,14 @@
         "license": "PD",
         "n_passages": 235,
         "n_tokens": 1473
+      },
+      {
+        "key": "eustathius-thessalonicensis.pindar-eustathius-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 74,
+        "n_tokens": 1460
       },
       {
         "key": "joannes-epiphaniensis.fragmenta",
@@ -22729,6 +22753,14 @@
         "n_tokens": 1153
       },
       {
+        "key": "biographi-anonymi.aristides-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 42,
+        "n_tokens": 1150
+      },
+      {
         "key": "michael-psellus.synopsis-ton-rhetorikon-meron",
         "edition": "qwen36-walz_rhetores_v5",
         "source": "ocr",
@@ -22785,6 +22817,14 @@
         "n_tokens": 997
       },
       {
+        "key": "libanius.demosthenes-libanius-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 5,
+        "n_tokens": 992
+      },
+      {
         "key": "joannes-zonaras.chronologia",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -22801,6 +22841,14 @@
         "n_tokens": 958
       },
       {
+        "key": "biographi-anonymi.sophocles-life-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 49,
+        "n_tokens": 955
+      },
+      {
         "key": "anonymus-pseudo-john-chrysostom-pseudo-basil-of-caesarea.homilia-de-sancta-dominica",
         "edition": "pta-grc1",
         "source": "pta",
@@ -22815,6 +22863,14 @@
         "license": "PD",
         "n_passages": 201,
         "n_tokens": 915
+      },
+      {
+        "key": "pseudo-ammonius.aristotle-ammonius-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 10,
+        "n_tokens": 909
       },
       {
         "key": "menander.fragmenta",
@@ -22905,6 +22961,14 @@
         "n_tokens": 824
       },
       {
+        "key": "biographi-anonymi.aristotle-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 38,
+        "n_tokens": 819
+      },
+      {
         "key": "athanasius-of-alexandria.epistula-ad-jovianum",
         "edition": "pta-grc1",
         "source": "pta",
@@ -22951,6 +23015,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 1,
         "n_tokens": 767
+      },
+      {
+        "key": "biographi-anonymi.thucydides-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 13,
+        "n_tokens": 766
       },
       {
         "key": "critias-atheniensis.fragmenta",
@@ -23063,6 +23135,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 3,
         "n_tokens": 643
+      },
+      {
+        "key": "biographi-anonymi.aristophanes-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 23,
+        "n_tokens": 638
       },
       {
         "key": "ocr.walz_rhetores_v3",
@@ -23193,14 +23273,6 @@
         "n_tokens": 541
       },
       {
-        "key": "tlg4170.tlg001b",
-        "edition": "1st1K-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1,
-        "n_tokens": 535
-      },
-      {
         "key": "vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -23215,14 +23287,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 2,
         "n_tokens": 531
-      },
-      {
-        "key": "tlg4170.tlg001a",
-        "edition": "1st1K-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 2,
-        "n_tokens": 526
       },
       {
         "key": "vitae-pindari-et-varia-de-pindaro.vita-ambrosiana",
@@ -23473,6 +23537,14 @@
         "n_tokens": 354
       },
       {
+        "key": "constantinus-manasses.oppian-manasses-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 30,
+        "n_tokens": 353
+      },
+      {
         "key": "rhodon.fragmenta",
         "edition": "cgpg",
         "source": "cgpg",
@@ -23543,6 +23615,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 6,
         "n_tokens": 317
+      },
+      {
+        "key": "biographi-anonymi.isaeus-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2,
+        "n_tokens": 312
       },
       {
         "key": "joannes-malala.fragmenta",
@@ -23729,6 +23809,14 @@
         "n_tokens": 239
       },
       {
+        "key": "biographi-anonymi.antiphon-anonymous-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 7,
+        "n_tokens": 237
+      },
+      {
         "key": "josephus-ii-patriarcha.confessio-fidei",
         "edition": "cgpg",
         "source": "cgpg",
@@ -23825,14 +23913,6 @@
         "n_tokens": 208
       },
       {
-        "key": "tlg4170.tlg001c",
-        "edition": "1st1K-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1,
-        "n_tokens": 201
-      },
-      {
         "key": "vitae-pindari-et-varia-de-pindaro.vita-metrica",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -23897,6 +23977,14 @@
         "n_tokens": 186
       },
       {
+        "key": "joannes-tzetzes.lycophron-tzetzes-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2,
+        "n_tokens": 185
+      },
+      {
         "key": "dinarchus.fragmenta-fhg",
         "edition": "dfhg",
         "source": "dfhg",
@@ -23918,14 +24006,6 @@
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 5,
-        "n_tokens": 183
-      },
-      {
-        "key": "tlg4170.tlg001d",
-        "edition": "1st1K-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 2,
         "n_tokens": 183
       },
       {
@@ -24033,6 +24113,14 @@
         "n_tokens": 165
       },
       {
+        "key": "thomas-magister.aristophanes-thomas-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3,
+        "n_tokens": 165
+      },
+      {
         "key": "hippostratus.fragmenta-fhg4",
         "edition": "dfhg",
         "source": "dfhg",
@@ -24119,6 +24207,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 4,
         "n_tokens": 148
+      },
+      {
+        "key": "eudocia-printed-ionia.antiphon-eudocia-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 17,
+        "n_tokens": 147
       },
       {
         "key": "numerius-fabius-pictor.fragmenta",
@@ -24855,6 +24951,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 1,
         "n_tokens": 59
+      },
+      {
+        "key": "biographi-anonymi.dionysius-life-westermann",
+        "edition": "westermann-1845-source-scoped",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1,
+        "n_tokens": 57
       },
       {
         "key": "methodius.de-martyribus-fragmenta",

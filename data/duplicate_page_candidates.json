@@ -11,16 +11,16 @@
    "ocr"
   ]
  },
- "files_scanned": 4482,
- "candidates": 2239,
+ "files_scanned": 4500,
+ "candidates": 2238,
  "clean_second_copies": 712,
  "clean_second_copies_tokens": 228963,
  "clean_second_copies_served": 206,
  "clean_second_copies_served_tokens": 60295,
- "overlapping_not_copies": 1527,
- "overlapping_not_copies_tokens": 652161,
- "partial_overlap_candidates": 108,
- "partial_overlap_candidates_served": 45,
+ "overlapping_not_copies": 1526,
+ "overlapping_not_copies_tokens": 651957,
+ "partial_overlap_candidates": 107,
+ "partial_overlap_candidates_served": 44,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -582,7 +582,6 @@
   "data/corpus/joannes-damascenus.passio-sancti-artemii-dub.jsonl": 1,
   "data/corpus/philodemus.tlg1595-tlg289.jsonl": 1,
   "data/corpus/tlg1595.tlg289.jsonl": 1,
-  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": 1,
   "data/corpus/joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum.jsonl": 1,
   "data/corpus/athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp.jsonl": 1,
   "data/corpus/joannes-laurentius-lydus.de-mensibus.jsonl": 1,
@@ -16243,45 +16242,6 @@
    "same_item": true,
    "page_offset": 26,
    "run": "dindorf_aristides_v2+26@745"
-  },
-  {
-   "file": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
-   "served": true,
-   "locus_a": "hesychius_masked_0339",
-   "locus_b": "hesychius_masked_0349",
-   "containment": 0.8069,
-   "bigrams_a": 211,
-   "bigrams_b": 202,
-   "tokens_b": 204,
-   "words_absent_from_a": 21,
-   "words_b": 204,
-   "unique_runs_if_b_dropped": [
-    "ποδ ηρρεν ησφαλισεν"
-   ],
-   "unique_runs_if_a_dropped": [
-    "π ηρεν ησφαλισε"
-   ],
-   "bigram_coverage_a": 0.7725,
-   "bigram_coverage_b": 0.8069,
-   "partial_overlap": true,
-   "ordered_overlap": {
-    "matched_tokens": 183,
-    "tokens_a": 214,
-    "tokens_b": 204,
-    "span_a": [
-     2,
-     214
-    ],
-    "span_b": [
-     0,
-     204
-    ],
-    "unmatched_tokens_a": 31,
-    "unmatched_tokens_b": 21
-   },
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
   },
   {
    "file": "data/corpus_secondary/flavius-justinianus-imperator.novellae.jsonl",

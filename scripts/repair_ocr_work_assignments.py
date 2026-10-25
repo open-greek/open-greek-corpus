@@ -246,7 +246,7 @@ def run(root, mode):
         outputs.update(secondary_outputs)
         changes.extend(secondary_changes)
         for path, raw in outputs.items():
-            from repair_reviewed_duplicate_blocks import historical_bytes
+            from reviewed_duplicate_state import historical_bytes
             previous = historical_bytes(root, path)
             actual = previous if previous is not None else (root / path).read_bytes()
             if actual != raw:

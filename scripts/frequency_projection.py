@@ -63,13 +63,25 @@ def projection_recipe_pins():
               "capture_dubner_layouts.py", "dubner_reading_observations.py",
               "capture_dubner_readings.py", "repair_reviewed_duplicate_blocks.py",
               "reviewed_duplicate_block_observations.py", "capture_reviewed_duplicate_sources.py")
+    names += ("repair_westermann_scope.py", "westermann_source_observations.py",
+              "capture_westermann_sources.py", "reviewed_duplicate_state.py",
+              "repair_hesychius_missing_columns.py", "hesychius_gap_observations.py",
+              "capture_hesychius_gap.py", "run_hesychius_gap_ocr.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if ("westermann_scope_review" in rec
+            or rec.get("edition") == "westermann-1845-source-scoped"):
+        from repair_westermann_scope import validate_projection
+        return validate_projection(rec)
+    if ("hesychius_gap_recovery" in rec
+            or rec.get("edition") == "schmidt-1867-gap-consensus-2026-10"):
+        from repair_hesychius_missing_columns import validate_projection
+        return validate_projection(rec)
     if ("reviewed_duplicate_block" in rec
             or rec.get("edition") == "reviewed-duplicate-block-consensus-2026-10"):
-        from repair_reviewed_duplicate_blocks import validate_projection
+        from reviewed_duplicate_state import validate_projection
         return validate_projection(rec)
     if ("dubner_reading_review" in rec or "dubner_scope_review" in rec
             or rec.get("edition") == "dubner-1855-collated"):
@@ -184,6 +196,10 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if ("westermann_scope_review" in rec or "hesychius_gap_recovery" in rec
+                or rec.get("edition") in {"westermann-1845-source-scoped",
+                                          "schmidt-1867-gap-consensus-2026-10"}):
+            return []
         if ("reviewed_duplicate_block" in rec
                 or rec.get("edition") == "reviewed-duplicate-block-consensus-2026-10"):
             return []
