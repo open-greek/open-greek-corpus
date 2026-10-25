@@ -8,9 +8,10 @@
   "adjudication": "data/oga_dating_adjudication.json",
   "policy": "fill gaps, never clobber; adjudicate genuine divergences, flag the rest (Multi-Source Data)",
   "counts": {
-   "filled": 125,
+   "filled": 121,
    "agreed": 996,
    "conflicts": 466,
+   "qualified_upstream_readings": 4,
    "adjudicated": 39,
    "adjudicated_by_decision": {
     "a": 10,
@@ -635,30 +636,6 @@
    "slug": "anonymi-paradoxographi.de-incredibilibus-excerpta-vaticana",
    "century": 1,
    "era": "imperial"
-  },
-  {
-   "urn": "tlg4170.tlg001a",
-   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001a",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg4170.tlg001b",
-   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001b",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg4170.tlg001c",
-   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001c",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg4170.tlg001d",
-   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001d",
-   "century": -2,
-   "era": "hellenistic"
   },
   {
    "urn": "tlg4174.tlg001",
@@ -7396,6 +7373,108 @@
    "oga_date_label": "p7_1",
    "oga_estimated": "600 AD",
    "delta": 1
+  }
+ ],
+ "qualified_upstream_readings": [
+  {
+   "urn": "tlg4170.tlg001a",
+   "slug": "vitae-pindari-et-varia-de-pindaro.vita-ambrosiana",
+   "source": "Opera Graeca Adnotata v0.2.0",
+   "upstream_record": {
+    "title": "Vita Ambrosiana",
+    "author": "Vitae Pindari et varia de Pindaro",
+    "estimated_work_date": "Hellenistic period (323 BC-31 BC)",
+    "formatted_work_date": "—0322-01/—0030-12",
+    "date_label": "m3_1/m3_2/m2_1/m2_2/m1_1",
+    "is_temporary_work_date": false,
+    "date_source": "Högemann, P. (., Robbins, E. (., & Bartels, J. (. (2006). Pindarus. In Brill's New Pauly Online. Brill",
+    "date_source_link": "https://doi.org/10.1163/1574-9347_bnp_e925700",
+    "comment": "None",
+    "century": -2,
+    "era": "hellenistic",
+    "century_from_label": -2,
+    "cog_slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001a",
+    "in_registry": true,
+    "served": false
+   },
+   "status": "unverified-unit-composition-date",
+   "applied_to_unit": false,
+   "qualification": "The upstream interval is supplied for the collective Pindar biography catalog and cites an article on Pindar. It is not independent evidence for this separate unit's composition date; the same interval also occurs on the explicitly Thomana unit. Keep the source reading without adding a century or era tag."
+  },
+  {
+   "urn": "tlg4170.tlg001b",
+   "slug": "vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum",
+   "source": "Opera Graeca Adnotata v0.2.0",
+   "upstream_record": {
+    "title": "Vita Thomana et hypothesis Olympiorum",
+    "author": "Vitae Pindari et varia de Pindaro",
+    "estimated_work_date": "Hellenistic period (323 BC-31 BC)",
+    "formatted_work_date": "—0322-01/—0030-12",
+    "date_label": "m3_1/m3_2/m2_1/m2_2/m1_1",
+    "is_temporary_work_date": false,
+    "date_source": "Högemann, P. (., Robbins, E. (., & Bartels, J. (. (2006). Pindarus. In Brill's New Pauly Online. Brill",
+    "date_source_link": "https://doi.org/10.1163/1574-9347_bnp_e925700",
+    "comment": "None",
+    "century": -2,
+    "era": "hellenistic",
+    "century_from_label": -2,
+    "cog_slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001b",
+    "in_registry": true,
+    "served": false
+   },
+   "status": "unverified-unit-composition-date",
+   "applied_to_unit": false,
+   "qualification": "The upstream interval is supplied for the collective Pindar biography catalog and cites an article on Pindar. It is not independent evidence for this separate unit's composition date; the same interval also occurs on the explicitly Thomana unit. Keep the source reading without adding a century or era tag."
+  },
+  {
+   "urn": "tlg4170.tlg001c",
+   "slug": "vitae-pindari-et-varia-de-pindaro.vita-metrica",
+   "source": "Opera Graeca Adnotata v0.2.0",
+   "upstream_record": {
+    "title": "Vita metrica",
+    "author": "Vitae Pindari et varia de Pindaro",
+    "estimated_work_date": "Hellenistic period (323 BC-31 BC)",
+    "formatted_work_date": "—0322-01/—0030-12",
+    "date_label": "m3_1/m3_2/m2_1/m2_2/m1_1",
+    "is_temporary_work_date": false,
+    "date_source": "Högemann, P. (., Robbins, E. (., & Bartels, J. (. (2006). Pindarus. In Brill's New Pauly Online. Brill",
+    "date_source_link": "https://doi.org/10.1163/1574-9347_bnp_e925700",
+    "comment": "None",
+    "century": -2,
+    "era": "hellenistic",
+    "century_from_label": -2,
+    "cog_slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001c",
+    "in_registry": true,
+    "served": false
+   },
+   "status": "unverified-unit-composition-date",
+   "applied_to_unit": false,
+   "qualification": "The upstream interval is supplied for the collective Pindar biography catalog and cites an article on Pindar. It is not independent evidence for this separate unit's composition date; the same interval also occurs on the explicitly Thomana unit. Keep the source reading without adding a century or era tag."
+  },
+  {
+   "urn": "tlg4170.tlg001d",
+   "slug": "vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis",
+   "source": "Opera Graeca Adnotata v0.2.0",
+   "upstream_record": {
+    "title": "Pentathlon et de novem lyricis",
+    "author": "Vitae Pindari et varia de Pindaro",
+    "estimated_work_date": "Hellenistic period (323 BC-31 BC)",
+    "formatted_work_date": "—0322-01/—0030-12",
+    "date_label": "m3_1/m3_2/m2_1/m2_2/m1_1",
+    "is_temporary_work_date": false,
+    "date_source": "Högemann, P. (., Robbins, E. (., & Bartels, J. (. (2006). Pindarus. In Brill's New Pauly Online. Brill",
+    "date_source_link": "https://doi.org/10.1163/1574-9347_bnp_e925700",
+    "comment": "None",
+    "century": -2,
+    "era": "hellenistic",
+    "century_from_label": -2,
+    "cog_slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001d",
+    "in_registry": true,
+    "served": false
+   },
+   "status": "unverified-unit-composition-date",
+   "applied_to_unit": false,
+   "qualification": "The upstream interval is supplied for the collective Pindar biography catalog and cites an article on Pindar. It is not independent evidence for this separate unit's composition date; the same interval also occurs on the explicitly Thomana unit. Keep the source reading without adding a century or era tag."
   }
  ],
  "resolved_no_registry_home": [
