@@ -119,6 +119,10 @@ DUBNER_INPUTS += scripts/dubner_layers.py scripts/repair_dubner_readings.py \
                             data/corpus_changes/dubner-layout-review/pages/* \
                             data/corpus_changes/dubner-reading-review/* \
                             data/corpus_changes/dubner-reading-review/evidence/*)
+DUBNER_INPUTS += scripts/dubner_current_state.py scripts/review_dubner_evidence.py \
+                 scripts/dubner_evidence_observations.py scripts/capture_dubner_evidence.py \
+                 $(wildcard data/corpus_changes/dubner-evidence-review/* \
+                            data/corpus_changes/dubner-evidence-review/sources/*)
 DUPLICATE_INPUTS := scripts/repair_reviewed_duplicate_blocks.py \
                     scripts/reviewed_duplicate_state.py \
                     scripts/reviewed_duplicate_block_observations.py \
@@ -606,7 +610,7 @@ check-acharnians-source-pilot:
 
 check-dubner-scope:
 	$(PY) scripts/capture_dubner_sources.py --check
-	$(PY) scripts/dubner_layers.py --check
+	$(PY) scripts/dubner_current_state.py --check
 
 check-reviewed-duplicates:
 	$(PY) scripts/reviewed_duplicate_state.py --check

@@ -63,6 +63,8 @@ def projection_recipe_pins():
               "capture_dubner_layouts.py", "dubner_reading_observations.py",
               "capture_dubner_readings.py", "repair_reviewed_duplicate_blocks.py",
               "reviewed_duplicate_block_observations.py", "capture_reviewed_duplicate_sources.py")
+    names += ("dubner_current_state.py", "review_dubner_evidence.py",
+              "dubner_evidence_observations.py", "capture_dubner_evidence.py")
     names += ("repair_westermann_scope.py", "westermann_source_observations.py",
               "capture_westermann_sources.py", "reviewed_duplicate_state.py",
               "repair_hesychius_missing_columns.py", "hesychius_gap_observations.py",
@@ -87,7 +89,7 @@ def lexical_text(rec: dict) -> str:
         return validate_projection(rec)
     if ("dubner_reading_review" in rec or "dubner_scope_review" in rec
             or rec.get("edition") == "dubner-1855-collated"):
-        from dubner_layers import validate_projection
+        from dubner_current_state import validate_projection
         validate_projection(rec)
         return rec["analysis_text"]
     if rec.get("herodas_reading_review"):

@@ -60,7 +60,7 @@ def load_passage_aliases(path: Path, works: dict) -> dict:
 
 def _active_passage_alias_fragments(root: Path):
     """Ask named admission producers for their verified active extensions."""
-    from dubner_layers import alias_fragment
+    from dubner_current_state import alias_fragment
     import reviewed_duplicate_state as duplicates
     import repair_reviewed_duplicate_blocks as duplicate_recipe
     import repair_westermann_scope as westermann

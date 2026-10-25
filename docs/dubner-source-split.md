@@ -76,7 +76,7 @@ to one arbitrarily. Its individual historical citations remain resolvable.
 
 ```sh
 python3 scripts/capture_dubner_sources.py --check
-python3 scripts/dubner_layers.py --check
+python3 scripts/dubner_current_state.py --check
 ```
 
 The repair can be reproduced from its frozen preimages and reviewed source
@@ -125,3 +125,54 @@ scope output against either its unchanged bytes or the checked later preimage.
 Undo the reading layer before undoing the source partition. Literal undo remains
 possible after a correction source is invalidated; a new source decision must
 be admitted in another layer rather than rewriting either frozen authority.
+
+## Continued evidence review
+
+`scripts/review_dubner_evidence.py` adds a third, separately reversible layer.
+The source review identifies the full-column extracts on the three previously
+held pages: Toronto PDF 94 / Harvard 95, Toronto 107 / Harvard 108, and Toronto
+271 / Harvard 298. Their 144 narrow overlapping snippets remain literal,
+attributed evidence in the full networks and routing records. They supply no
+additional historical occurrence, reading vote, or omission vote. The complete
+column projections still merge the Toronto and Harvard extraction groups;
+unresolved full-column alternatives remain excluded from scalar lexical counts.
+This layout decision does not certify the snippets' individual spellings or
+claim a word-by-word alignment of their truncated readings.
+
+Forty-nine occurrence decisions correct printed readings on those three pages
+and the index-linked Wasps passage on Toronto PDF 190 / Harvard 199. The Greek
+index on printed page 725 points from φορβειά to Wasps 582 and Birds 861, 15,
+and from φόρβιον to Birds 861. Both body passages were inspected directly;
+their accents and inflections follow the print, not the index OCR. The critical
+note on Knights 527 helps locate ἀφελῶν / ἀφελές. Its quoted manuscript variants
+and modern additions remain editorial evidence. The Corrigenda correct
+annotations and references; this layer adopts no editorial emendation.
+
+The continued review reduces unresolved slots from 72,390 to 72,086 and raises
+eligible Greek tokens from 199,421 to 199,482. Layout separation accounts for
+255 fewer unresolved slots and 12 additional eligible tokens; the 49 printed
+reading decisions account for the remainder. These are alignment and lexical
+accounting measurements, not an OCR accuracy estimate.
+
+The generated assessment inventories exact κ/χ disagreements before and after
+review, with named page and slot positions. It also preserves the source-specific
+annotation and index OCR locators used during this review. The baseline has
+3,283 candidate slots on 380 pages; valid pairs such as οὐκ / οὐχ demonstrate
+why this inventory cannot authorize a global substitution. Further source
+decisions require a later layer with occurrence evidence. Remaining uncertainty
+is published through the existing known-limitations registry.
+
+```sh
+python3 scripts/capture_dubner_evidence.py --capture \
+  --toronto-pdf /path/to/scholiagraecaina00dbuoft.pdf \
+  --harvard-pdf /path/to/scholiagraecain01dbgoog.pdf
+python3 scripts/capture_dubner_evidence.py --check
+python3 scripts/dubner_current_state.py --check
+```
+
+Capture requires PyMuPDF 1.28.2 and both checksum-pinned PDFs. The ordinary
+checks are offline and require no renderer. The continuation's `apply`,
+`verify`, and `undo` commands reproduce or reverse its exact primary bytes.
+Undo it before undoing the older reading and scope layers. Old source receipts
+and citation aliases remain frozen and are checked against exact predecessor
+views; the continuation cannot waive a missing or changed earlier output.

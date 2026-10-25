@@ -128,7 +128,7 @@ def _edition(key, name, *, provider="ocr", scheme="", source="", license="PD",
 
 def dubner_identity_metadata(root):
     """Obtain work identities only from the verified active source partition."""
-    from dubner_layers import metadata
+    from dubner_current_state import metadata
     return metadata(Path(root))
 
 

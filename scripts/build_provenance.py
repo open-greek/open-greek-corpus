@@ -156,7 +156,7 @@ def main() -> None:
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
-    from dubner_layers import metadata as dubner_metadata
+    from dubner_current_state import metadata as dubner_metadata
     dubner = dubner_metadata(REPO)
     from westermann_manifestations import identity_metadata as westermann_metadata
     from hesychius_gap_manifestations import metadata as hesychius_metadata

@@ -44,14 +44,17 @@ Editorial annotation and indexes are outside primary lexical counts; historical
 overlaps remain comparative witnesses. The merged reading preserves unresolved
 alternatives, which do not enter scalar frequencies. Run
 `python3 scripts/capture_dubner_sources.py --check` and
-`python3 scripts/dubner_layers.py --check` to verify the source evidence,
+`python3 scripts/dubner_current_state.py --check` to verify the source evidence,
 literal replay, boundaries, and accounting.
 
 The later reading review corrects 45 historical OCR occurrences and seven
 source-verified column orders above that frozen partition. It reduces unresolved
 word-alignment slots from 75,797 to 72,390 while preserving every contrary
 reading. The remaining counts are extraction disagreements, not an OCR error
-rate. Three partial duplicate-column layouts need occurrence-level association.
+rate. A further scan review separates the three partial duplicate-column layouts,
+retains all 144 clipped snippets as attributed nonvoting evidence, and resolves
+49 printed readings using the body scans, critical notes, and Greek index.
+Current unresolved slots total 72,086, with 199,482 eligible Greek tokens.
 The source prints **Ληναίοις**, superseding the pilot's mistaken proposed
 **Ἀθηναίοις**; that earlier observation remains archived. Current measurements
 and reopening conditions appear in `data/known_limitations.json` and the tagged

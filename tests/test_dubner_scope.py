@@ -11,7 +11,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import dubner_source_observations as observations
-import dubner_layers as dispatcher
+import dubner_current_state as dispatcher
 import frequency_projection
 import repair_dubner_scholias as repair
 from ocr_consensus import compact_corpus_consensus, restore_corpus_consensus

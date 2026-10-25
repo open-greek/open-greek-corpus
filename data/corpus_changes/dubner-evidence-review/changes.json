@@ -1,0 +1,305 @@
+{
+ "before_sha256": "b2f34cf08632f1f15248e260639271c2ed0aea0280ef2b2e70776b83c821fa75",
+ "counts": {
+  "analysis_tokens": 199482,
+  "approved_layout_pages": 10,
+  "baseline_reading_statuses": {
+   "agreement": 195294,
+   "damaged-reading": 38,
+   "incomplete-reading": 40,
+   "single-witness": 4092,
+   "source-reviewed": 33,
+   "unresolved": 72390
+  },
+  "changed_pages": 4,
+  "held_layout_pages": 0,
+  "layout_only_reading_statuses": {
+   "agreement": 195306,
+   "damaged-reading": 38,
+   "incomplete-reading": 40,
+   "single-witness": 4092,
+   "source-reviewed": 33,
+   "unresolved": 72135
+  },
+  "new_source_reviewed_slots": 49,
+  "outside_primary_observations": 4,
+  "partial_duplicate_layouts_reviewed": 3,
+  "previous_review_counts": {
+   "analysis_tokens": 199421,
+   "approved_layout_pages": 7,
+   "baseline_reading_statuses": {
+    "agreement": 193892,
+    "damaged-reading": 38,
+    "incomplete-reading": 40,
+    "single-witness": 4092,
+    "unresolved": 75797
+   },
+   "changed_pages": 12,
+   "held_layout_pages": 3,
+   "lane_occurrence_edits": 45,
+   "outside_primary_observations": 4,
+   "primary_rows": 391,
+   "primary_source_observations": 45,
+   "reading_statuses": {
+    "agreement": 195294,
+    "damaged-reading": 38,
+    "incomplete-reading": 40,
+    "single-witness": 4092,
+    "source-reviewed": 33,
+    "unresolved": 72390
+   },
+   "remaining_unresolved_categories": {
+    "accent_case_or_elision_only": 19796,
+    "different_word_readings": 42366,
+    "omission_tie": 10228,
+    "one_group_internal_disagreement": 10238
+   },
+   "source_observations": 49,
+   "source_reviewed_slots": 33,
+   "unresolved_reduction": 3407,
+   "works": 14
+  },
+  "primary_rows": 391,
+  "primary_source_observations": 94,
+  "reading_statuses": {
+   "agreement": 195306,
+   "damaged-reading": 38,
+   "incomplete-reading": 40,
+   "single-witness": 4092,
+   "source-reviewed": 82,
+   "unresolved": 72086
+  },
+  "remaining_unresolved_categories": {
+   "accent_case_or_elision_only": 19797,
+   "different_word_readings": 42307,
+   "omission_tie": 9982,
+   "one_group_internal_disagreement": 9992
+  },
+  "retained_duplicate_fragments": 144,
+  "source_observations": 98,
+  "source_reviewed_slots": 82,
+  "unresolved_reduction": 304,
+  "works": 14
+ },
+ "outputs": {
+  "data/corpus/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl": "6e63a452c71aa5ddc52384185d01e0be02527b208eaebc1ef3acc4c20d10a5fc",
+  "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": "54a5893abb9b4a3e2186cf7dc13e7bc22cf9be338355001b749886d0eff6bcb2",
+  "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl": "49f821b3895b9dd50f820b86a117d15cf3e5bd28f4e0662e9365268b50c109e0",
+  "data/corpus/scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855.jsonl": "d40f1f9d1edad476e680c47928a5c53cf8eaca2f888b5fbe5d97b75bbdac6214",
+  "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl": "494306e5d639d30b562c610a6d35587a36efbf8bbeb6cfe1f19ece3cb969d4c3",
+  "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl": "77a78b9baa2ac396bdd2140c42d1ccd6cc3b425d74a1d2b65cb92b68ef1cf981",
+  "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl": "0feeffbf7d294ea7ef5b9c1a63486a67d1ec22dd7b8a0cd352c15aea8a78e691",
+  "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl": "4af6f427954a870909dc95795554fdde7ec2632ff38c15fbe8fcad1451fd6f45",
+  "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl": "79a9edce368110a1df15a40c3b14f8f05855dc560b671c5918512f0202c7a35f",
+  "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl": "99667147efb62b6c1f98f3136fe8916f4d6ab37c257d1f6ea134624f2e965579",
+  "data/corpus/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl": "d4590ca7515bbaeed6ef82d14a0bbcb72629c4e7c27a177ba1bf73b67b7305a7",
+  "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl": "d33740cf9d07100149a4b0350ac17acb1b62058038d29a53a6020f536b383688",
+  "data/corpus/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl": "98ffde68052353d2428a69a33a00f458eeee0a7a7e3251ef4714b343258c0568",
+  "data/corpus/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl": "484cfdf1083c0a81c05159f1ac5c99254cb7985414732d0a43db1d43eb3eabc6",
+  "data/corpus_changes/dubner-evidence-review/assessment.json": "bb6cf4c620f38136acc15fdca495084913682a082855ed05b47337114047dd2f",
+  "data/corpus_changes/dubner-evidence-review/records.jsonl.gz": "c7705c08b04bedd9929e02d2f65561dca5cd04f66d9bdc0829b3c09b6a95ad8a",
+  "data/corpus_changes/dubner-evidence-review/word-networks.json.gz": "0b70d45f3758734fad0605127d426f68e55bbe065b3fbeae6c66d6f83fcbceb4"
+ },
+ "qualification": "Three source-reviewed partial-duplicate column extractions are separated into complete column projections and literal clipped-snippet evidence. The latter supplies neither extra occurrences nor reading or omission votes. Complete extracts retain both original extraction groups and every unresolved full-column variant. Forty-nine printed reading decisions retain original slots and contrary readings. The notes and indexes are locators, not additional historical attestations or independent editions. No editorial emendation is adopted. Other spellings remain unassessed; disagreement is not an error rate.",
+ "recipe_sha256": {
+  "capture_dubner_evidence.py": "d091426756d47767f775a18be95b15aba614d21f033eb7928d062c0fe8e2e8a5",
+  "citation_alias_state.py": "2ef974895f7cb2a6e38a62d2a408ed54df6e95f3d987d214ff6b8d565934f849",
+  "dubner_current_state.py": "96b58c6dfcee7dbc57fc51dc676658358767a332f5cc65b865d89572d20ed5e8",
+  "dubner_evidence_observations.py": "920b8987c073020baef8b4d15836a4384745746884341be7e0aeff80c77b3ec4",
+  "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+  "review_dubner_evidence.py": "43832c35592b9b9923d0aa503a253acf1c0f15820d83703aa9b22e155e62c85c"
+ },
+ "recorded_at": "2026-10-25T14:10:28.142775+00:00",
+ "schema_version": 1,
+ "source_sha256": {
+  "data/corpus_changes/dubner-evidence-review/source-captures.json": "e94f026e73ebc730380f299149b8392856a56c3a13bffe1773e7948d85867afb",
+  "data/corpus_changes/dubner-evidence-review/sources/harvard-0095-right.png": "81c9244ed114ddd2c678412562fd2aebcf3f3ec14e9d6ec251497b8eb51e182f",
+  "data/corpus_changes/dubner-evidence-review/sources/harvard-0199-phorbeia.png": "6120c30b40fefac19b9f760ce7cde169b69110ea226fc4bca82bcb98ad4b3794",
+  "data/corpus_changes/dubner-evidence-review/sources/harvard-0298-phorbeia.png": "b5123853e49d09f103b96ae82cc055502e806494af04048eb97bd269f6b8416f",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0094-left.png": "2d4d97d8ec7933433339c57512c4b36d0202b89cc5be41400423bd0ca00f2d4e",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0094-right.png": "57145c1ef3d9ce6968add722f472e141e4ec7dd87de6e817dc13eab9a0672652",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0107-left.png": "8ac2be5290ab5930696467ec0d172528bc3785fad3a3a1f774d5ad28f619c598",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0107-right.png": "f13326afcc857367e9437d6750612fc2470493d47e705f3fe03a42dd68b7dd8b",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0190-phorbeia.png": "f7c2ce84d47efc9b959038bc6c53ccb88f015d79ffd7d054e0e3dc1385174b7d",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0271-left.png": "7ffcad37d35283482b27ec1c4424eb5f8869d534e340c7ccf6d00b730dc5ad64",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0271-right.png": "2d70aa0a28187b95c0110f82c2b8f1fa0b861502b83eb0cba41bcc1ce713c9d2",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0449-notes.png": "c8fcfd47cbed3f3f3e84520dd2f780ed3493572878ee7c3b97f572c6b2ff3521",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0656-corrigenda.png": "bc3997c8a9c9a38b10d5f5c72df2c8cba511f88ae6864eff671c56afe1c56426",
+  "data/corpus_changes/dubner-evidence-review/sources/toronto-0767-index.png": "e960682ab0de3d1e3d562c83febaa684dff555850e7646f4df3cac4860cf9149",
+  "data/corpus_changes/dubner-layout-review/pages/harvard-0095.png": "51ad0e7d1f340d9a6cce024cdefbaf1987735e05533548cb46fd4934cd5586f0",
+  "data/corpus_changes/dubner-layout-review/pages/harvard-0108.png": "49906f4d4d1e52d50b730aafcfc007a5eda00ca1b6a925a1bf87bbbe8f86b335",
+  "data/corpus_changes/dubner-layout-review/pages/harvard-0298.png": "7e0eeb29e2d151b7c0a210beaedf926bd2a00765e1ceda483977933d331b9d29",
+  "data/corpus_changes/dubner-layout-review/pages/toronto-0094.png": "2e9ba84a5a5b3c9488f4bdb0b2204742ba41a20abe760013b48928de36c382bb",
+  "data/corpus_changes/dubner-layout-review/pages/toronto-0107.png": "c8de73d037c2a87e2149287edcec9f194873d3b3f3b3e47a5b2c4898046fbc21",
+  "data/corpus_changes/dubner-layout-review/pages/toronto-0271.png": "2ba9600b3b414f69f619c754be38127605d8a3704fe53c17d0ccceb1fea0d6cc"
+ },
+ "works": {
+  "scholia-in-aristophanem.andronicus-poet-order-dubner-1855": {
+   "analysis_tokens": 107,
+   "counts": {
+    "agreement": 107,
+    "unresolved": 42
+   },
+   "primary_rows": 1,
+   "secondary_rows": 2,
+   "surface_tokens": 188
+  },
+  "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
+   "analysis_tokens": 15240,
+   "counts": {
+    "agreement": 15215,
+    "incomplete-reading": 1,
+    "source-reviewed": 25,
+    "unresolved": 6396
+   },
+   "primary_rows": 31,
+   "secondary_rows": 2373,
+   "surface_tokens": 26827
+  },
+  "scholia-in-aristophanem.scholia-in-aves-dubner-1855": {
+   "analysis_tokens": 20021,
+   "counts": {
+    "agreement": 18529,
+    "damaged-reading": 4,
+    "incomplete-reading": 7,
+    "single-witness": 1467,
+    "source-reviewed": 25,
+    "unresolved": 7808
+   },
+   "primary_rows": 39,
+   "secondary_rows": 2700,
+   "surface_tokens": 34384
+  },
+  "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855": {
+   "analysis_tokens": 2781,
+   "counts": {
+    "agreement": 2331,
+    "damaged-reading": 2,
+    "single-witness": 450,
+    "unresolved": 1022
+   },
+   "primary_rows": 8,
+   "secondary_rows": 964,
+   "surface_tokens": 4706
+  },
+  "scholia-in-aristophanem.scholia-in-equites-dubner-1855": {
+   "analysis_tokens": 23152,
+   "counts": {
+    "agreement": 23111,
+    "damaged-reading": 2,
+    "incomplete-reading": 4,
+    "single-witness": 9,
+    "source-reviewed": 31,
+    "unresolved": 9185
+   },
+   "primary_rows": 45,
+   "secondary_rows": 3219,
+   "surface_tokens": 39964
+  },
+  "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855": {
+   "analysis_tokens": 6755,
+   "counts": {
+    "agreement": 6754,
+    "damaged-reading": 4,
+    "single-witness": 1,
+    "unresolved": 2297
+   },
+   "primary_rows": 16,
+   "secondary_rows": 1613,
+   "surface_tokens": 11279
+  },
+  "scholia-in-aristophanem.scholia-in-nubes-dubner-1855": {
+   "analysis_tokens": 31380,
+   "counts": {
+    "agreement": 31379,
+    "damaged-reading": 22,
+    "incomplete-reading": 7,
+    "single-witness": 1,
+    "unresolved": 10233
+   },
+   "primary_rows": 58,
+   "secondary_rows": 3544,
+   "surface_tokens": 51564
+  },
+  "scholia-in-aristophanem.scholia-in-pax-dubner-1855": {
+   "analysis_tokens": 22092,
+   "counts": {
+    "agreement": 21087,
+    "incomplete-reading": 6,
+    "single-witness": 1004,
+    "unresolved": 8141
+   },
+   "primary_rows": 40,
+   "secondary_rows": 2434,
+   "surface_tokens": 37237
+  },
+  "scholia-in-aristophanem.scholia-in-plutus-dubner-1855": {
+   "analysis_tokens": 33924,
+   "counts": {
+    "agreement": 33922,
+    "incomplete-reading": 7,
+    "single-witness": 2,
+    "unresolved": 12086
+   },
+   "primary_rows": 65,
+   "secondary_rows": 3961,
+   "surface_tokens": 57386
+  },
+  "scholia-in-aristophanem.scholia-in-ranae-dubner-1855": {
+   "analysis_tokens": 22098,
+   "counts": {
+    "agreement": 21027,
+    "damaged-reading": 4,
+    "incomplete-reading": 5,
+    "single-witness": 1071,
+    "unresolved": 7306
+   },
+   "primary_rows": 42,
+   "secondary_rows": 2683,
+   "surface_tokens": 36267
+  },
+  "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855": {
+   "analysis_tokens": 3580,
+   "counts": {
+    "agreement": 3580,
+    "unresolved": 1227
+   },
+   "primary_rows": 9,
+   "secondary_rows": 1199,
+   "surface_tokens": 5944
+  },
+  "scholia-in-aristophanem.scholia-in-vespae-dubner-1855": {
+   "analysis_tokens": 17815,
+   "counts": {
+    "agreement": 17727,
+    "incomplete-reading": 3,
+    "single-witness": 87,
+    "source-reviewed": 1,
+    "unresolved": 6150
+   },
+   "primary_rows": 34,
+   "secondary_rows": 3210,
+   "surface_tokens": 30315
+  },
+  "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855": {
+   "analysis_tokens": 356,
+   "counts": {
+    "agreement": 356,
+    "unresolved": 109
+   },
+   "primary_rows": 2,
+   "secondary_rows": 8,
+   "surface_tokens": 566
+  },
+  "scholia-in-aristophanem.triclinius-meters-dubner-1855": {
+   "analysis_tokens": 181,
+   "counts": {
+    "agreement": 181,
+    "unresolved": 84
+   },
+   "primary_rows": 1,
+   "secondary_rows": 3,
+   "surface_tokens": 296
+  }
+ }
+}
