@@ -1,21 +1,21 @@
 {
- "schema_version": 1,
+ "child_retries": [
+  {
+   "child_retries": [],
+   "replaced_strip_ids": [
+    "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1"
+   ],
+   "request_sha256": "0759dbe3c9123547fcbbddcd0f207b4f4342bcfc5999b4708fb77f742a37306a",
+   "retry_sha256": "6d80def4a12d5ad3350a1f2733c063f38f1d0cf02351e2a8ee216b60ebcef602",
+   "source_review_sha256": "ee740f87c3d3aa9bd7682fdfd4ce6ced1f250147bf07be557ae4e6bf03b1da15"
+  }
+ ],
  "decision": "replace-only-explicit-source-reviewed-Dio-inputs-child-strips",
- "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
  "manifest_sha256": "d97e081912f3b45da68370f59eed1768d8c911af44b0323258443aaeb63ac029",
- "request_sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
  "original_bundle_sha256": "a1192f51e148a482d3439b69cfc127607f7365f20d1b6bea865017c46d94bd6b",
- "retry_sha256": "4349058050f5b68dc2f61e7104e9571c30041e22b2fdd9287a0e5ec3c4b70a6f",
  "pages": {
   "dio-cary-v6-pdf0206-reviewed-strip-1": {
-   "original_artifact_sha256": "0f332d19b88c4c71af15e48fd34e87880b76fed25d00c6c39a1f349976da1a40",
-   "strip_sha256s": [
-    "4c9a8025906452a0d0c6cfc2cbf6d21a717cc295b3d434c9a4efae1621059684",
-    "9bac8829dd1dfc0a5757b60ee3025ef438a70bd0871625f56dec511af835cfed",
-    "9cba7fdece2aafd5b0e074f457f36ff53ad81c85419024f4d9bafcf7b5fbc62a",
-    "969b74bc8c9142f7517f8649722b58104f158b8ddbc06a868f1ecb95aa314754",
-    "7ffa74d67a03de3dce199b2399380c6fae7d8cebce8bfd6685f972d0294a66c7"
-   ],
+   "assembled_text_sha256": "e77e835e3412b1ed4e5b32f84be52fca831a535c50440c7cd84dd7951e79759f",
    "image_sha256s": [
     "f1d391989009295cfab82f382108ff75b7e2320fd183dedc943dc05927420aad",
     "0cfc2375b12349448262f9d15c70bee2202b37c49da5e54e6d72161ab3b9b0bf",
@@ -23,19 +23,18 @@
     "54aabb26e2f12d2653de029f481bf816ca6e9e02b6eda2c51e4ba27ea957de0c",
     "b2445dad08700b0814191292859348b84f082457297626694254e948633fbca8"
    ],
-   "assembled_text_sha256": "e77e835e3412b1ed4e5b32f84be52fca831a535c50440c7cd84dd7951e79759f",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. The first three printed lines still contain missing accents and a mixed-script reading in Qwen3.8 after finer attempts. Those exact lines lie wholly inside the already served55.9.2–55.9.4 prefix, which the unique βουληθεὶς δὲ δὴ τρόπον anchor removes before new primary admission. Their mark quality is not certified. They remain held overlap evidence alongside unchanged historical passages; the missing continuation after the anchor was checked separately for full body."
+   "original_artifact_sha256": "0f332d19b88c4c71af15e48fd34e87880b76fed25d00c6c39a1f349976da1a40",
+   "strip_sha256s": [
+    "4c9a8025906452a0d0c6cfc2cbf6d21a717cc295b3d434c9a4efae1621059684",
+    "9bac8829dd1dfc0a5757b60ee3025ef438a70bd0871625f56dec511af835cfed",
+    "9cba7fdece2aafd5b0e074f457f36ff53ad81c85419024f4d9bafcf7b5fbc62a",
+    "969b74bc8c9142f7517f8649722b58104f158b8ddbc06a868f1ecb95aa314754",
+    "7ffa74d67a03de3dce199b2399380c6fae7d8cebce8bfd6685f972d0294a66c7"
+   ]
   }
  },
- "child_retries": [
-  {
-   "request_sha256": "0759dbe3c9123547fcbbddcd0f207b4f4342bcfc5999b4708fb77f742a37306a",
-   "retry_sha256": "6d80def4a12d5ad3350a1f2733c063f38f1d0cf02351e2a8ee216b60ebcef602",
-   "source_review_sha256": "ee740f87c3d3aa9bd7682fdfd4ce6ced1f250147bf07be557ae4e6bf03b1da15",
-   "replaced_strip_ids": [
-    "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1"
-   ],
-   "child_retries": []
-  }
- ]
+ "request_sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
+ "retry_sha256": "4349058050f5b68dc2f61e7104e9571c30041e22b2fdd9287a0e5ec3c4b70a6f",
+ "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
+ "schema_version": 1
 }

@@ -1,95 +1,87 @@
 {
-  "counts": {
-    "additional_source_edits": 1,
-    "analysis_tokens": 4916,
-    "analysis_tokens_by_origin": {
-      "older_excerpt": {
-        "current": 1966,
-        "previous": 2036
-      },
-      "recovered_pages": {
-        "current": 2950,
-        "previous": 2918
-      }
-    },
-    "archived_decisions": {
-      "printed-damage": 11,
-      "resolved": 32
-    },
-    "archived_uncertainty_slots": 45,
-    "archived_uncertainty_spans_remaining": 0,
-    "archived_uncertainty_spans_reviewed": 43,
-    "body_pages": 35,
-    "changed_passages": 49,
-    "literal_edits": 202,
-    "noncountable_slots": 193,
-    "older_changed_passages": 41,
-    "older_passages_reviewed": 62,
-    "older_uncertainty_spans_remaining": 0,
-    "passages": 84,
-    "previous_analysis_tokens": 4954,
-    "remaining_uncertainty_slots": 0,
-    "remaining_uncertainty_spans": 0
+ "counts": {
+  "additional_source_edits": 1,
+  "analysis_tokens": 4916,
+  "analysis_tokens_by_origin": {
+   "older_excerpt": {
+    "current": 1966,
+    "previous": 2036
+   },
+   "recovered_pages": {
+    "current": 2950,
+    "previous": 2918
+   }
   },
-  "inputs": {
-    "data/corpus/herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939"
+  "archived_decisions": {
+   "printed-damage": 11,
+   "resolved": 32
   },
-  "outputs": {
-    "data/corpus/herodas.mimiambi.jsonl": "66afd05c9a7ff83bddf07fa4cf4c6b69e07f5914876f8c7b6497b3be506636c5",
-    "data/corpus_changes/herodas-reading-review/before.json.gz": "f33b93701eb6163b7b65c28ea6ef785c8312dbfb1b5577b0e0b345099311d34e",
-    "data/corpus_changes/herodas-reading-review/networks.json.gz": "e2aa668182eb0f81ee2d52a8db97807b839b13b979eb074f718863fb896b9753",
-    "data/corpus_changes/herodas-reading-review/observations.json": "69fd94ae3c138af699171ecf4090f778e6f0eb63aadbbd436a1f76ff95298ddf",
-    "data/corpus_changes/herodas-reading-review/records.json.gz": "0503d7863e7842f3f090d7b7b76aff225bba8fa7a52b10f354e9baa48a4503fd"
-  },
-  "qualification": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds.",
-  "recipe_sha256": {
-    "fetch_herodas_reading_sources.py": "b07a6bd320944b3ef47451e769c3e258c756c0189ce84bf8ada722c6a8294380",
-    "herodas_excerpt_readings_a.py": "f4786cfc50cb58e31093c37d3f043ebbcfb66647befc22ef8affb721ba2971b1",
-    "herodas_excerpt_readings_b.py": "1d2d20135166bbac06f8b042659c65b79ee665333d7df9018e35c656d3fe3ccd",
-    "herodas_uncertainty_readings.py": "a73ea947288c13f27c3780eb71001f638fd658b987e807d25d6a93fd48dd79c4",
-    "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
-    "repair_herodas_readings.py": "ccf47d3380f09ccb044613cb285f5264e818ac0457ae01a25f03b598eb94fed3"
-  },
-  "recorded_at": "2026-10-22T19:25:33.063014+00:00",
-  "schema_version": 1,
-  "sources": {
-    "data/corpus_changes/editorial-role-review/source-herodas.pdf": "6568f0c8efb9f8efce1ea9917da2b30dbe16cf8a1147ea2503a6dd0280a8fa1a",
-    "data/corpus_changes/herodas-reading-sources/manifest.json": "754fbe209019cf8771ad26bc882ae9d81a6986a466235deae8934cbf3d12e475",
-    "data/corpus_changes/herodas-reading-sources/page-0072.jp2": "efa190c118179f992affb02fa8cc9bebf5b3ebfc38e9b44d363d59951ffc1510",
-    "data/corpus_changes/herodas-reading-sources/page-0074.jp2": "f51d571889024f1755117dc0a1cee050271b773667ea7a4f502805e46d9dcae0",
-    "data/corpus_changes/herodas-reading-sources/page-0076.jp2": "1e9dc6727d0a4ea9c23d3e9927c430b79a74e1f5dcee4ae091e1cc6911fc3f9c",
-    "data/corpus_changes/herodas-reading-sources/page-0078.jp2": "9647bd4c341b83f9698fc447f0b582889cf578436e40a4c5f52ce5af0dcd6a5c",
-    "data/corpus_changes/herodas-reading-sources/page-0132.jp2": "833710e954460625978688c110eac64fbf660fb53df63adca5aa827aabab5dcb",
-    "data/corpus_changes/herodas-reading-sources/page-0134.jp2": "413bc6c56da2503198d99b4b2c461933e7f14d8a058ba17d3d2315ff6a460253",
-    "data/corpus_changes/herodas-reading-sources/page-0136.jp2": "4b14f9bc0a00e1823656704d4d31c7361da961c1d6b60a9b9878e8beca84930c",
-    "data/corpus_changes/herodas-reading-sources/page-0138.jp2": "2d60371acf79425f5ad80fd0ab1d1a7ffe2f16b8b20110575abc102beeb3f2bb",
-    "data/corpus_changes/herodas-reading-sources/page-0180.jp2": "0974810b0109e415be3ce7384f2abab1c030f055b7d55d2b36ac3766952f4561",
-    "data/corpus_changes/herodas-reading-sources/page-0182.jp2": "1e37e63373765907c987c122dcd046a7002a42e49ed1cf830a4e464d188837d7",
-    "data/corpus_changes/herodas-reading-sources/page-0184.jp2": "29a3b1f4caba5e9ca45870abffd603a51bd9ec274fc6a532b1156912507f7cd6",
-    "data/corpus_changes/herodas-reading-sources/page-0186.jp2": "eee582023abf0be42859d3a7d9fe4d856ce32e1ae6d7b995a131445420fc84e1",
-    "data/corpus_changes/herodas-reading-sources/page-0236.jp2": "f12598e2cca70d60f4e248644f615c6cb11c9e930c44b06df7375432a190a686",
-    "data/corpus_changes/herodas-reading-sources/page-0238.jp2": "fa25912c216b99c8b68befcadaa855d54293f3189943c10b0ecf76355ff8985d",
-    "data/corpus_changes/herodas-reading-sources/page-0240.jp2": "b6c6c496d6682b85150752e7416c9c7d258037b0749efb08d2effee27cfd0549",
-    "data/corpus_changes/herodas-reading-sources/page-0242.jp2": "64bd0a65caa45ce7541e1a91fe69439f71e74c20426bdf2fba7901332b0f22dd",
-    "data/corpus_changes/herodas-reading-sources/page-0290.jp2": "a44cfe96803fd189570c5668d43ada8a817517d45e5f1d34c14753c03322f343",
-    "data/corpus_changes/herodas-reading-sources/page-0292.jp2": "21284fa84dd4cd777ee764a687b8282d38d120d8add957b038b35e1a79f30802",
-    "data/corpus_changes/herodas-reading-sources/page-0294.jp2": "1338a25b7d99294668158c9b333a3c327d79e2696a2b36954394b338b3c857af",
-    "data/corpus_changes/herodas-reading-sources/page-0296.jp2": "36196119b227f1eadd8893caf6c95550e5d9861ad93b10629a0d939c3fa76a17",
-    "data/corpus_changes/herodas-reading-sources/page-0344.jp2": "e614feb3e3218357d68db5834eeeccb2922d473f35fdf2e662ea349d4669c023",
-    "data/corpus_changes/herodas-reading-sources/page-0346.jp2": "d0713eeec8f68eed315ac00aa20e9b3c6123c4c39c8a9c3ac4cb89dd2d43a8bc",
-    "data/corpus_changes/herodas-reading-sources/page-0348.jp2": "eaee5f91d69e9251ace0292f46f308eae1a98844bdf07c7f83e15cc7ea37f465",
-    "data/corpus_changes/herodas-reading-sources/page-0350.jp2": "7f03ba852d127a598652bcd1793e3152aee3740877b552a8b26319a748a1f67c",
-    "data/corpus_changes/herodas-reading-sources/page-0388.jp2": "3c2adeb71a666fb8686eca70d5e51d11ee5d45be81067325634913e4074b1575",
-    "data/corpus_changes/herodas-reading-sources/page-0390.jp2": "1500cdeb61f467cb421f818928e2374b1d2ec9bbf3abc0a18fedab7f199b9bca",
-    "data/corpus_changes/herodas-reading-sources/page-0392.jp2": "1b62af2352a16723c7808899fff82646b9260262d236e22f7aea9be6d91292bc",
-    "data/corpus_changes/herodas-reading-sources/page-0394.jp2": "d2e05a3a3ee9fbfcad5c436f776c160e0e6911647cba41cc4ad093aaaa7fe9f6",
-    "data/corpus_changes/herodas-reading-sources/page-0396.jp2": "3b15e12111f52752cdacbb559c47544eaa48068b68168448a6e0a0c0e5a53e9b",
-    "data/corpus_changes/herodas-reading-sources/page-0440.jp2": "c68b953056af1075de70a97a54e5d10cd4629d3a27663f065ae5316058616693",
-    "data/corpus_changes/herodas-reading-sources/page-0442.jp2": "02c2c0b3074923c0d75d9103b5e7e709b7235e7b66fa19a509de4c5cb49688e8",
-    "data/corpus_changes/herodas-reading-sources/page-0444.jp2": "cd0e4b4b1032b9095244c562ede90535de19c85c02edc3028afb506ac0ef8bb2",
-    "data/corpus_changes/herodas-reading-sources/page-0472.jp2": "041b764609dc07058b3f3158e309ccf65f171dc2b169d90cb08cb08fb7e2129f",
-    "data/corpus_changes/herodas-reading-sources/page-0480.jp2": "56e84c0e6f7451deebeac3e72471a7e1d54af29ea514c23686cb086c8c469f89",
-    "data/corpus_changes/herodas-reading-sources/page-0486.jp2": "80e3f902d378620434b5611cda4b69841475947530a30bbb87a42e4f3b9dbc1b",
-    "data/corpus_changes/herodas-reading-sources/scandata.xml": "17526b4dbec86c9db4f3057530e85b4908c25df4ae335042f4969ab049a8f776"
-  }
+  "archived_uncertainty_slots": 45,
+  "archived_uncertainty_spans_remaining": 0,
+  "archived_uncertainty_spans_reviewed": 43,
+  "body_pages": 35,
+  "changed_passages": 49,
+  "literal_edits": 202,
+  "noncountable_slots": 193,
+  "older_changed_passages": 41,
+  "older_passages_reviewed": 62,
+  "older_uncertainty_spans_remaining": 0,
+  "passages": 84,
+  "previous_analysis_tokens": 4954,
+  "remaining_uncertainty_slots": 0,
+  "remaining_uncertainty_spans": 0
+ },
+ "inputs": {
+  "data/corpus/herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939"
+ },
+ "outputs": {
+  "data/corpus/herodas.mimiambi.jsonl": "66afd05c9a7ff83bddf07fa4cf4c6b69e07f5914876f8c7b6497b3be506636c5",
+  "data/corpus_changes/herodas-reading-review/before.json.gz": "f33b93701eb6163b7b65c28ea6ef785c8312dbfb1b5577b0e0b345099311d34e",
+  "data/corpus_changes/herodas-reading-review/networks.json.gz": "e2aa668182eb0f81ee2d52a8db97807b839b13b979eb074f718863fb896b9753",
+  "data/corpus_changes/herodas-reading-review/observations.json": "69fd94ae3c138af699171ecf4090f778e6f0eb63aadbbd436a1f76ff95298ddf",
+  "data/corpus_changes/herodas-reading-review/records.json.gz": "0503d7863e7842f3f090d7b7b76aff225bba8fa7a52b10f354e9baa48a4503fd"
+ },
+ "qualification": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds.",
+ "recorded_at": "2026-10-22T19:25:33.063014+00:00",
+ "schema_version": 1,
+ "sources": {
+  "data/corpus_changes/editorial-role-review/source-herodas.pdf": "6568f0c8efb9f8efce1ea9917da2b30dbe16cf8a1147ea2503a6dd0280a8fa1a",
+  "data/corpus_changes/herodas-reading-sources/manifest.json": "754fbe209019cf8771ad26bc882ae9d81a6986a466235deae8934cbf3d12e475",
+  "data/corpus_changes/herodas-reading-sources/page-0072.jp2": "efa190c118179f992affb02fa8cc9bebf5b3ebfc38e9b44d363d59951ffc1510",
+  "data/corpus_changes/herodas-reading-sources/page-0074.jp2": "f51d571889024f1755117dc0a1cee050271b773667ea7a4f502805e46d9dcae0",
+  "data/corpus_changes/herodas-reading-sources/page-0076.jp2": "1e9dc6727d0a4ea9c23d3e9927c430b79a74e1f5dcee4ae091e1cc6911fc3f9c",
+  "data/corpus_changes/herodas-reading-sources/page-0078.jp2": "9647bd4c341b83f9698fc447f0b582889cf578436e40a4c5f52ce5af0dcd6a5c",
+  "data/corpus_changes/herodas-reading-sources/page-0132.jp2": "833710e954460625978688c110eac64fbf660fb53df63adca5aa827aabab5dcb",
+  "data/corpus_changes/herodas-reading-sources/page-0134.jp2": "413bc6c56da2503198d99b4b2c461933e7f14d8a058ba17d3d2315ff6a460253",
+  "data/corpus_changes/herodas-reading-sources/page-0136.jp2": "4b14f9bc0a00e1823656704d4d31c7361da961c1d6b60a9b9878e8beca84930c",
+  "data/corpus_changes/herodas-reading-sources/page-0138.jp2": "2d60371acf79425f5ad80fd0ab1d1a7ffe2f16b8b20110575abc102beeb3f2bb",
+  "data/corpus_changes/herodas-reading-sources/page-0180.jp2": "0974810b0109e415be3ce7384f2abab1c030f055b7d55d2b36ac3766952f4561",
+  "data/corpus_changes/herodas-reading-sources/page-0182.jp2": "1e37e63373765907c987c122dcd046a7002a42e49ed1cf830a4e464d188837d7",
+  "data/corpus_changes/herodas-reading-sources/page-0184.jp2": "29a3b1f4caba5e9ca45870abffd603a51bd9ec274fc6a532b1156912507f7cd6",
+  "data/corpus_changes/herodas-reading-sources/page-0186.jp2": "eee582023abf0be42859d3a7d9fe4d856ce32e1ae6d7b995a131445420fc84e1",
+  "data/corpus_changes/herodas-reading-sources/page-0236.jp2": "f12598e2cca70d60f4e248644f615c6cb11c9e930c44b06df7375432a190a686",
+  "data/corpus_changes/herodas-reading-sources/page-0238.jp2": "fa25912c216b99c8b68befcadaa855d54293f3189943c10b0ecf76355ff8985d",
+  "data/corpus_changes/herodas-reading-sources/page-0240.jp2": "b6c6c496d6682b85150752e7416c9c7d258037b0749efb08d2effee27cfd0549",
+  "data/corpus_changes/herodas-reading-sources/page-0242.jp2": "64bd0a65caa45ce7541e1a91fe69439f71e74c20426bdf2fba7901332b0f22dd",
+  "data/corpus_changes/herodas-reading-sources/page-0290.jp2": "a44cfe96803fd189570c5668d43ada8a817517d45e5f1d34c14753c03322f343",
+  "data/corpus_changes/herodas-reading-sources/page-0292.jp2": "21284fa84dd4cd777ee764a687b8282d38d120d8add957b038b35e1a79f30802",
+  "data/corpus_changes/herodas-reading-sources/page-0294.jp2": "1338a25b7d99294668158c9b333a3c327d79e2696a2b36954394b338b3c857af",
+  "data/corpus_changes/herodas-reading-sources/page-0296.jp2": "36196119b227f1eadd8893caf6c95550e5d9861ad93b10629a0d939c3fa76a17",
+  "data/corpus_changes/herodas-reading-sources/page-0344.jp2": "e614feb3e3218357d68db5834eeeccb2922d473f35fdf2e662ea349d4669c023",
+  "data/corpus_changes/herodas-reading-sources/page-0346.jp2": "d0713eeec8f68eed315ac00aa20e9b3c6123c4c39c8a9c3ac4cb89dd2d43a8bc",
+  "data/corpus_changes/herodas-reading-sources/page-0348.jp2": "eaee5f91d69e9251ace0292f46f308eae1a98844bdf07c7f83e15cc7ea37f465",
+  "data/corpus_changes/herodas-reading-sources/page-0350.jp2": "7f03ba852d127a598652bcd1793e3152aee3740877b552a8b26319a748a1f67c",
+  "data/corpus_changes/herodas-reading-sources/page-0388.jp2": "3c2adeb71a666fb8686eca70d5e51d11ee5d45be81067325634913e4074b1575",
+  "data/corpus_changes/herodas-reading-sources/page-0390.jp2": "1500cdeb61f467cb421f818928e2374b1d2ec9bbf3abc0a18fedab7f199b9bca",
+  "data/corpus_changes/herodas-reading-sources/page-0392.jp2": "1b62af2352a16723c7808899fff82646b9260262d236e22f7aea9be6d91292bc",
+  "data/corpus_changes/herodas-reading-sources/page-0394.jp2": "d2e05a3a3ee9fbfcad5c436f776c160e0e6911647cba41cc4ad093aaaa7fe9f6",
+  "data/corpus_changes/herodas-reading-sources/page-0396.jp2": "3b15e12111f52752cdacbb559c47544eaa48068b68168448a6e0a0c0e5a53e9b",
+  "data/corpus_changes/herodas-reading-sources/page-0440.jp2": "c68b953056af1075de70a97a54e5d10cd4629d3a27663f065ae5316058616693",
+  "data/corpus_changes/herodas-reading-sources/page-0442.jp2": "02c2c0b3074923c0d75d9103b5e7e709b7235e7b66fa19a509de4c5cb49688e8",
+  "data/corpus_changes/herodas-reading-sources/page-0444.jp2": "cd0e4b4b1032b9095244c562ede90535de19c85c02edc3028afb506ac0ef8bb2",
+  "data/corpus_changes/herodas-reading-sources/page-0472.jp2": "041b764609dc07058b3f3158e309ccf65f171dc2b169d90cb08cb08fb7e2129f",
+  "data/corpus_changes/herodas-reading-sources/page-0480.jp2": "56e84c0e6f7451deebeac3e72471a7e1d54af29ea514c23686cb086c8c469f89",
+  "data/corpus_changes/herodas-reading-sources/page-0486.jp2": "80e3f902d378620434b5611cda4b69841475947530a30bbb87a42e4f3b9dbc1b",
+  "data/corpus_changes/herodas-reading-sources/scandata.xml": "17526b4dbec86c9db4f3057530e85b4908c25df4ae335042f4969ab049a8f776"
+ }
 }

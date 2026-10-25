@@ -104,12 +104,6 @@
   "data/corpus_secondary/hesychius-lexicography.lexicon-o.reviewed-duplicate-witnesses.jsonl": "14f3f8fe851a12ae268e7a1aeb26e6976dc289ad6f6d97c1dda0d214f78b9030"
  },
  "qualification": "A source-reviewed structural collation of repeated extraction blocks. Repeated readings of one source share one vote group; contrary readings remain explicit and unresolved slots do not enter scalar lexical counts. One-sided text outside the partial witness is retained. The display is a Greek-word projection, not a punctuation-preserving transcription; every literal original row remains citable in secondary storage and the reversible archive. No new OCR or source-based spelling corrections are made. The Hesychius scan itself jumps from printed columns 257–258 to 261–262 after its repeated gathering; this repair does not claim to supply the absent printed columns 259–260.",
- "recipe_sha256": {
-  "capture_reviewed_duplicate_sources.py": "8a1cc6414bc253bbff49c587ca1c14e219afd50735749b125c98324c7d3cdaf5",
-  "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
-  "repair_reviewed_duplicate_blocks.py": "28f4b69089272186b2f7bad0a6e96c3b23756595b25aab540510d1cd50ee6e6a",
-  "reviewed_duplicate_block_observations.py": "9e895c8bb3402f5bbfb7e7262f6a47d910a656281efee4c1b0455786729157d1"
- },
  "recorded_at": "2026-10-24T14:32:36.349855+00:00",
  "schema_version": 1,
  "source_capture_sha256": "275785b429eb9d759415f2aa8fc3bb6fbc0a9018fc5812cb96469c9d6b92096a",

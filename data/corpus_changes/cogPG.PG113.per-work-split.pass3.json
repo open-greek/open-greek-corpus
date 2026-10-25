@@ -1,53 +1,32 @@
 {
  "_meta": {
-  "change": "split the cogPG.PG113 whole-volume CGPG dump into per-work corpus files",
-  "volume": "PG113",
-  "source_urn": "cogPG.PG113",
   "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "change": "split the cogPG.PG113 whole-volume CGPG dump into per-work corpus files",
   "date": "2026-08-07",
   "plan_basis": "third pass. The legal block's first work is settled from Migne's running heads; what follows it is not, and is left. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG113.' (delete the file when it was 'created'), strip the 'PG113.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG113.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed.",
   "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
-  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG113.' (delete the file when it was 'created'), strip the 'PG113.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG113.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+  "source_urn": "cogPG.PG113",
+  "volume": "PG113"
+ },
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG113; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "corrections_provenance_flag": [
+  "anonymi-delectus-legum.delectus-legum-compendiarius"
+ ],
+ "crosswalk_entries_added": [],
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
  },
  "old": {
   "cogPG.PG113": {
-   "rows": 243,
    "greek_tokens": 88966,
+   "rows": 243,
    "sha256": "fdac31de8f372b5d583bfc3c93f91febd76862bf37ca25d9ffcf1117285e688e"
   }
  },
- "works": [
-  {
-   "slug": "anonymi-delectus-legum.delectus-legum-compendiarius",
-   "tlg": null,
-   "title": "Delectus legum compendiarius",
-   "rank": "primary",
-   "file": "data/corpus/anonymi-delectus-legum.delectus-legum-compendiarius.jsonl",
-   "mode": "created",
-   "rows": 46,
-   "greek_tokens": 16996,
-   "volume_loci": "238-283",
-   "locus_map": "cogPG.PG113 locus N -> anonymi-delectus-legum.delectus-legum-compendiarius locus 'PG113.N'",
-   "incipit_checks": [
-    {
-     "locus": "248",
-     "incipit": "Οἱ ἄρχοντες τοὺς ἐξ οἵου δήποτε δικαστηρίου, οὐκ ὀφείλουσιν συγχωρεῖν",
-     "matched_normalized_offset": 0,
-     "matched_normalized_chars": 59
-    },
-    {
-     "locus": "268",
-     "incipit": "Εἰ ἔκ τινων ὀρφανοὶ καταλειφθῶσι, καὶ νήπιοι",
-     "matched_normalized_offset": 0,
-     "matched_normalized_chars": 37
-    }
-   ],
-   "evidence": "46 rows, 17,014 tokens. The running head reads DELECTUS LEGUM, checked at three separated points, columns 473-474, 513-514 and 537-538, which are our loci 248, 268 and 280 (the anchors below are the first two of those, quoted from rows the scan was matched against). Locus 238 carries the fuller head, garbled from the Latin as ΚΟΜΑΝΟΚΟΜ ΙΜΡΡ. ΟΕΙΕΩΤΟΘ ΛΕΩΟΜ ΟΟΜΡΕΝΡΙΑΚΙΟΘ, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, which is the title. The text is a titulus-by-titulus compilation (ΤΙΤΛΟΣ Ζʹ Περὶ τοῦ χωρὶς δόσεων at column 473, ΤΙΤΛΟΣ ΙΘʹ Περὶ κουρατόρων at 513) and ends at locus 284 with a note to the reader. Migne prints no author over it, so it takes an anonymi- slug, as anonymi-de-terrae-motibus does; a selection of the emperors' laws is a compilation, not an authored work. No TLG anchor is claimed. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
-   "notes": "The first carved row, 238, carries no incipit anchor because this work does not start at the top of it. The row's first 571 characters finish the Narratio de imagine Edessena; this work's own head, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, is at character 571 and its text runs from there. The anchors are therefore set on 248 and 268, two rows the page scans were matched against directly."
-  }
- ],
  "residual": {
-  "rows": 197,
   "greek_tokens": 71970,
   "loci": [
    "284",
@@ -249,24 +228,44 @@
    "489"
   ],
   "note": "284-313 is a collection of imperial Novellae and is NOT carved, because the scans show two different running heads over it and where one stops is not established: NOVELLAE CONSTITUTIONES at columns 553-554 (our locus 288) and CONSTANTINI PORPHYROGENITI at 583-584 and 599-600 (loci 303 and 311). Those may be one work under an author head and a title head, or two works; settling it needs the intervening columns read, which this pass did not do. Locus 284 is where the Delectus ends, mid-row: it carries the closing note ΤΩ ΑΝΑΓΝΩΣΤΗ ΧΑΙΡΕΙΝ and Ἐνταῦθα τέλος ἔσχε τὸ ἓν τῶν ἀντιγράφων, then a Latin head at character 1,965. 328-489 is not researched. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+  "rows": 197,
   "sha256": "ee23f396d3fc85e1bebbcebead1782a9d90021face550048283371f17cf5abd1"
  },
- "dropped_duplicates": {
-  "note": "",
-  "pairs": [],
-  "rows_archived_verbatim": []
- },
+ "source": "CGPG per-work carve of PG113, plan data/cgpg_carve_plan.json",
  "token_conservation": {
-  "original": 88966,
   "carved": 16996,
-  "residual": 71970,
+  "check": "carved + residual + dropped == original (exact)",
   "dropped": 0,
-  "check": "carved + residual + dropped == original (exact)"
+  "original": 88966,
+  "residual": 71970
  },
- "crosswalk_entries_added": [],
- "corrections_provenance_flag": [
-  "anonymi-delectus-legum.delectus-legum-compendiarius"
- ],
- "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG113; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
- "source": "CGPG per-work carve of PG113, plan data/cgpg_carve_plan.json"
+ "works": [
+  {
+   "evidence": "46 rows, 17,014 tokens. The running head reads DELECTUS LEGUM, checked at three separated points, columns 473-474, 513-514 and 537-538, which are our loci 248, 268 and 280 (the anchors below are the first two of those, quoted from rows the scan was matched against). Locus 238 carries the fuller head, garbled from the Latin as ΚΟΜΑΝΟΚΟΜ ΙΜΡΡ. ΟΕΙΕΩΤΟΘ ΛΕΩΟΜ ΟΟΜΡΕΝΡΙΑΚΙΟΘ, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, which is the title. The text is a titulus-by-titulus compilation (ΤΙΤΛΟΣ Ζʹ Περὶ τοῦ χωρὶς δόσεων at column 473, ΤΙΤΛΟΣ ΙΘʹ Περὶ κουρατόρων at 513) and ends at locus 284 with a note to the reader. Migne prints no author over it, so it takes an anonymi- slug, as anonymi-de-terrae-motibus does; a selection of the emperors' laws is a compilation, not an authored work. No TLG anchor is claimed. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+   "file": "data/corpus/anonymi-delectus-legum.delectus-legum-compendiarius.jsonl",
+   "greek_tokens": 16996,
+   "incipit_checks": [
+    {
+     "incipit": "Οἱ ἄρχοντες τοὺς ἐξ οἵου δήποτε δικαστηρίου, οὐκ ὀφείλουσιν συγχωρεῖν",
+     "locus": "248",
+     "matched_normalized_chars": 59,
+     "matched_normalized_offset": 0
+    },
+    {
+     "incipit": "Εἰ ἔκ τινων ὀρφανοὶ καταλειφθῶσι, καὶ νήπιοι",
+     "locus": "268",
+     "matched_normalized_chars": 37,
+     "matched_normalized_offset": 0
+    }
+   ],
+   "locus_map": "cogPG.PG113 locus N -> anonymi-delectus-legum.delectus-legum-compendiarius locus 'PG113.N'",
+   "mode": "created",
+   "notes": "The first carved row, 238, carries no incipit anchor because this work does not start at the top of it. The row's first 571 characters finish the Narratio de imagine Edessena; this work's own head, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, is at character 571 and its text runs from there. The anchors are therefore set on 248 and 268, two rows the page scans were matched against directly.",
+   "rank": "primary",
+   "rows": 46,
+   "slug": "anonymi-delectus-legum.delectus-legum-compendiarius",
+   "title": "Delectus legum compendiarius",
+   "volume_loci": "238-283"
+  }
+ ]
 }

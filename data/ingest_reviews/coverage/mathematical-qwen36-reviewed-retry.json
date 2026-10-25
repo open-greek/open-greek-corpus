@@ -1,382 +1,377 @@
 {
- "schema_version": 1,
- "purpose": "Source-reviewed Qwen3.6 retry after four severe polytonic-loss cases and one apparatus leak; original556 predictions remain immutable.",
- "sources": {
-  "apolloniipergaei01apoluoft": {
-   "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
-   "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
-   "license": "public-domain",
-   "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
-   "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
-   "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
-  },
-  "pappialexandrin01hultgoog": {
-   "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
-   "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
-   "license": "public-domain",
-   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
-   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
-   "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
-  },
-  "pappialexandrin01pappgoog": {
-   "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
-   "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
-   "license": "public-domain",
-   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
-   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
-   "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
-  },
-  "pappialexandrin04pappgoog": {
-   "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
-   "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
-   "license": "public-domain",
-   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
-   "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
-   "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
-  }
- },
- "prompt": "Transcribe only the main Greek reading text in the image, one line per printed line. Keep Greek book headings, epistolary prefaces, proposition labels and editorial brackets. Exclude running headers, page numbers, marginal line numbers, diagrams and diagram labels. Exclude ALL small critical apparatus beneath the horizontal rule, even when it is Greek. Exclude facing Latin translation and Latin words. Preserve accents, breathing marks, punctuation and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
- "retry_of": {
-  "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
-  "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
-  "original_predictions_sha256": "89906fcbfa14616a9031ebeb8b1cd35b949a2afa986ac64cbe3db726a45db3e8",
-  "model": "Qwen/Qwen3.6-27B",
-  "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
-  "region_ids": [
-   "apolloniipergaei01apoluoft-pdf0190",
-   "apolloniipergaei01apoluoft-pdf0232",
-   "pappialexandrin01pappgoog-pdf0039",
-   "pappialexandrin01pappgoog-pdf0281",
-   "pappialexandrin01pappgoog-pdf0459"
-  ]
- },
- "review": {
-  "recorded_at": "2026-10-18",
-  "extent": "All five complete source pages, every printed body line, all diagram/apparatus boundaries and all15 retry crop edges inspected. The other551 Qwen3.6 pages were screened by the frozen detector and text anomalies, without exhaustive pixel review.",
-  "findings": {
-   "apolloniipergaei01apoluoft-pdf0190": {
-    "original_prediction_sha256": "ebf87d3a06f22a6412dea3e76cfb584efbecc3d259a68b6183e8e903fe949051",
-    "original_image_sha256": "e74f4cc89ee43085b6ece63f9e6384f762d60cb154106a4638fef47ab311ad8d",
-    "source_pdf_sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
-    "source_evidence": "Printed172: accents and breathings are visible throughout the complete body, including Μὴ ἔστω δὴ ἡ δεδομένη γωνία ὀρθή. Original output has no accents and only two breathing marks.",
-    "original_text": "νε'.\nΜη ἐστω δη η δεδομενη γωνια ορθη, και ἐστωσαν\nαι δοθεισαι ευθεiai αι ΑΒ, ΑΓ, η δε δοθεισα γωνια\nεστω ιση τη υπο των ΒΑΘ. δει δη γραφαι υπερ-\nβολην, ης διαμετρος μεν εσται η ΑΒ, ορθια δε η\nΑΓ, αι δε καταγομεναι εν τη υπο ΘΑΒ γωνια\nκαταχθησονται.\nτεμησθω η ΑΒ διχα κατα το Δ, και επι της ΑΔ\nγεγραφθω ημικυκλιον το ΑΖΔ, και ηχθω τις εις το\nημικυκλιον παραλληλος τη ΑΘ η ΖΗ ποιουσα τον\nτου απο ΖΗ προς το υπο ΔΗΑ λογον τον αυτον\nτω της ΑΓ προς ΑΒ, και επεξευχθω η ΖΘΔ και\nεκβελησθω επι το Δ, και των ΖΔΘ μεση αναλογον\nεστω η ΔΛ, και κεισθω τη ΔΔ ιση η ΔΚ, τω δε\nαπο της ΑΖ ισον εστω το υπο ΑΖΜ, και επεξευχθω\nη ΚΜ, και δια του Α προς ορθας ηχθω τη ΚΖ η\nΑΝ και εκβελησθω επι το Ε. και δυο δοθεισων\nευθειων πεπερασμενων προς ορθας αλληλαις των\nΚΑ, ΑΝ γεγραφθω υπερβολη, ης πλαγια μεν πλευρα\nεσται η ΚΑ, ορθια δε η ΑΝ, αι δε καταγομεναι επι\nτην διαμετρον απο της τομης εν ορθη γωνια καταχ-\nθησονται πλατη εχουσαι τας απολαμβανομενας υπ'\nαυτων προς τω Α υπερβαλλοντα ειδει ομοιω τω υπο\nΚΑΝ. ηξει δε η τομη δια του Α. ισον γαρ εστι\nτο απο ΑΖ τω υπο ΑΖΜ. και εφαιρεται αυτης η\nΑΘ. το γαρ υπο ΖΔΘ ισον εστι τω απο ΔΛ. ωστε\nη ΑΒ διαμετρος εστι της τομης. και επει εστιν ως"
-   },
-   "apolloniipergaei01apoluoft-pdf0232": {
-    "original_prediction_sha256": "e8ba071c0d32048222b60274557b134c8e885ec40e8fa3a29f668e33285d856d",
-    "original_image_sha256": "f232f2f651941b24f753dced1760dffe084dc8e4f9e42eacff85518a43b95f36",
-    "source_pdf_sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
-    "source_evidence": "Printed214: accents and breathings are visible throughout, including δέ τι σημεῖον ἕτερον and Ἐὰν ἐν τῷ ἀφοριζομένῳ. Original output has no accents or breathings.",
-    "original_text": "δε τι σημειον ετερον επι της τομης το Η, και δια\nτου Η ταις ΕΑ, ΑΖ παραλληλοι ηχθωσαν αι ΗΘ, ΗΚ.\nλεγω, οτι ισον εστι το υπο ΕΑΖ τω υπο ΘΗΚ.\nεπεξευχθω γαρ η ΑΗ και εκβεβλησθω επι τα Α, Γ.\nεπει ουν ισον εστι το υπο ΑΑΓ τω υπο ΑΗΓ, εστιν\nαρα ως η ΑΗ προς ΑΔ, η ΔΓ προς ΓΗ. αλλ ως\nμεν η ΑΗ προς ΑΔ, η ΗΘ προς ΕΔ, ως δε η ΔΓ\nπρος ΓΗ, η ΔΖ προς ΗΚ. ως αρα η ΘΗ προς ΔΕ,\nη ΔΖ προς ΗΚ. ισον αρα εστι το υπο ΕΔΖ τω\nυπο ΘΗΚ.\nιγ'.\nΕαν εν τω αφοριζομενω τω υπο των ασυμπτω-\nτων και της τομης παραλληλος αχθη τις ευθεια τη\nετερα των ασυμπτωτων, συμπεσειται τη τομη καθ' εν\nμονον σημειον.\nεστω υπερβολη, ης ασυμπτωτοι αι ΓΑ, ΑΒ, και\nειληφθω τι σημειον το Ε, και δι' αυτου τη ΑΒ παρ-\nαλληλος ηχθω η ΕΖ. λεγω, οτι συμπεσειται τη τομη.\nει γαρ δυνατον, μη συμπιπτετω, και ειληφθω τι\nσημειον επι της τομης το Η, και δια του Η παρα\nτας ΓΑ, ΑΒ ηχθωσαν αι ΗΓ, ΗΘ, και το υπο ΓΗΘ\nισον εστω τω υπο ΑΕΖ, και επεξευχθω η ΑΖ και\nεκβεβλησθω. συμπεσειται δη τη τομη. συμπιπτετω\nκατα το Κ, και δια του Κ παρα τας ΓΑΒ ηχθωσαν\nαι ΚΑ, ΚΔ. το αρα υπο ΓΗΘ ισον εστι τω υπο ΑΚΔ.\nυποκειται δε και τω υπο ΑΕΖ ισον. το αρα υπο ΔΚΑ,\nτουτεστι το υπο ΚΑΑ, ισον εστι τω υπο ΑΕΖ. οπερ"
-   },
-   "pappialexandrin01pappgoog-pdf0039": {
-    "original_prediction_sha256": "c364e6254d5dcbfdd54a502f55646f34348dc910d806a3b965eefd1d65c17c77",
-    "original_image_sha256": "40fd9d3b838eeaacb76a12159f2b87bd53b537655f98c8fe867845294209648b",
-    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
-    "source_evidence": "Printed496: both text blocks surrounding the diagram are polytonic, including ἄρα πόλῳ and καὶ ἐπεὶ τὸ Π σημεῖον. Original output has no accents or breathings. Diagram and its labels remain source-image material.",
-    "original_text": "αρα πολω τω Α διαστηματι δε ενι των ΑΕ ΑΜ κυκλος\nγραφομενος ηξει και δια του λειπου σημειου. ερχεσθω,\nκαι εστω ο ΣΕΜ, και ειληφθω το κεντρον της σφαιρας\nτο Ο, και επεξευχθω η ΟΑ. εσται δη καθετος επι το του\nΣΜΕ κυκλου επιπεδον (πολος γαρ εστιν το Α του κυκλου),\nκαι εσται το κεντρον του ΜΣΕ επι της ΑΟ. εστω το Π,\nκαι επιζευχθεισα η ΕΜ εκβελησθω επι το Τ, και η ΟΞ\nεπι το Τ, και επεξευχθωσαν αι ΕΟ ΟΡΚ ΠΡ ΡΣ ΠΗ ΗΤ.\n\nκαι επει το Π σημειον εν τω του ΜΣΕ εστιν κυκλου επι-\nπεδω, εστιν δε και εκατερον των Ρ Σ εν τω του ΜΣΕ\nκυκλου επιπεδω, τα τρια αρα σημεια εν τω κυκλω εστιν.\nπαλιν επει ο ΟΑ εν τω του ΑΚΑ επιπεδω εστιν, και το\nΠ αρα εν τω του ΑΚΑ επιπεδω εστιν. και η ΟΡΚ ευ-\nθεια. και το Ρ αρα εν τω του ΑΚΑ κυκλου εστιν επι-\nπεδω. εστιν δ' εν αυτω και το Σ. ευθεια αρα εστιν η\nΠΡΣ. δια τα αυτα δη και η ΠΗΤ ευθεια εστιν (τα γαρ\nΠ Τ εν τω επιπεδω εστιν του ΕΣΜ κυκλου. αλλα και εν\nτω του ΑΗΞΘ κυκλου επιπεδω, και το Η δε κατ' αυτην\nεστιν την τομην των επιπεδων του ΕΣΜ και του ΑΞΘ\nκυκλου. ευθεια αρα η ΠΗΤ). και επει ιση εστιν η ΕΚ\nπεριφερεια τη ΚΞ περιφερειω, ιση εστιν και γωνια η\nυπο ΕΟΚ τη υπο ΚΟΞ. ο αρα της ΕΟ προς ΟΤ λο-\nγος ο αυτος εστιν τω της ΕΡ προς ΡΤ. επει δε ζητω"
-   },
-   "pappialexandrin01pappgoog-pdf0281": {
-    "original_prediction_sha256": "637c00b07e5d7f0808d08766aa0fc0e153c02eac93343048229c814d4646069d",
-    "original_image_sha256": "37d1c619fd0331dbeb7895e31946d4153a841637a1ff3e59c83cfa80169d5a5b",
-    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
-    "source_evidence": "Printed738: breathings are visible throughout, including Ἐπεὶ γὰρ δέδεικται, ἴσον, and ὑπὸ. Original output retains some accent marks but no breathing marks. Apparatus below the rule is excluded.",
-    "original_text": "των ΒΓΕ. τα δε αυτα και επι των λοιπων δυο δειξομεν·\nγινεται αρα τεσσαρα.\nδ. Τούτου δ' αν δειχθέντος εαδιως ευρεθείη τα εις\nτο πρωτον διωρισμένης· των αυτών υποκειμένων ότι γινε-\nται ως η ΒΑ προς την ΑΕ, ούτως το υπό των ΑΒΓ προς\nτο υπό των ΑΕΓ.\nΕπει γαρ δέδεικται το μεν υπό των Ζ ΒΑ ίσον τφ\nυπό των ΑΒΓ, το δε υπό των Ζ ΑΕ τφ υπό ΑΕΓ, εστιν\nαρα ως το υπό Ζ ΑΒ προς το υπό Ζ ΑΕ, τουτέστιν ως\nη ΒΑ προς την ΑΕ, ούτως το υπό των ΑΒΓ προς το υπό\nτων ΑΕΓ.\nΕις το πρωτον επίταγμα του πρώτου προβλήματος.\nε'. Εστω πάλιν ίσον το υπό των ΑΔΓ τφ υπό των\nΒΔΕ, και τυχόν σημείον έστω το Ζ· ότι, εάν συναμφο-\nτέρφ τφ ΑΕ ΓΒ ίση τεθη η Η, το υπό των ΑΖΓ του\nυπό των ΒΖΕ υπερέχει τφ υπό των Η ΑΖ.\nΕπει γαρ προδέδεικται το υπό των Η ΑΕ ίσον τφ υπό\nτων ΑΕΓ, κοινόν άφρησθω το υπό των Η ΖΕ· λοιπόν\nαρα το υπό των Η ΑΖ η ύπεροχή εστιν η υπερέχει το υπό\nτων ΑΕΓ του υπό των Η ΕΖ. φ δε υπερέχει το υπό των\nΑΕΓ του υπό των Η ΕΖ, κοινού αφαιρεθέντος του υπό\nτων ΑΕΖ, τουτφ υπερέχει το υπό των ΑΕ ΓΖ του υπό\nτων ΒΓ ΖΕ· φ δε υπερέχει το υπό των ΑΕ ΓΖ του υπό\nτων ΓΒ ΖΕ, κοινού αφαιρεθέντος του υπό των ΓΖΕ,\nτουτφ υπερέχει το υπό των ΑΖΓ του υπό των ΒΖΕ· το\nαρα υπό των ΑΖΓ του υπό των ΒΖΕ υπερέχει τφ υπό\nτων Η ΑΖ, οπερ: ~"
-   },
-   "pappialexandrin01pappgoog-pdf0459": {
-    "original_prediction_sha256": "db3f35cb7d100bab809664287a0f593369af9fdc959bc866fce4b9d6b22a75dd",
-    "original_image_sha256": "c28ed3cf48d268f2491eaaa1b588976b107367c1bde3ff12b8584b43c0996169",
-    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
-    "source_evidence": "Printed916: original output appends the small apparatus below the rule, beginning 4. ἀπὸ τῶν and containing add., corr., retinuit and recte. The body ends Γεγονέτω. ἐπεὶ οὖν ἴσον ἐστὶν τὸ ΖΓΗ τρίγωνον τῷ. Three regions retain the top body, right-of-diagram continuation, and bottom body, including the next proposition heading; apparatus and diagram labels are excluded.",
-    "original_text": "916 ΠΑΠΠΟΥ ΣΥΝΑΓΩΓΗΣ Ζ.\nμὲν ἀπὸ ΓΖ τετραγώνῳ ἴσα ἐστὶν τὰ ἀπὸ τῶν ΓΕ ΕΖ\nτετράγωνα, τῷ δὲ ἀπὸ ΔΖ τετραγώνῳ ἴσα ἐστὶν τὰ ἀπὸ\nτῶν ΔΗ ΗΖ τετράγωνα· καὶ τὰ ἀπὸ τῶν ΓΕ ΕΖ ἄρα\nτετράγωνα ἴσα ἐστὶν τοῖς ἀπὸ τῶν ΖΗ·ΗΔ τετραγώνοις.\nὧν τὸ ἀπὸ ΓΕ τετράγωνον ἴσον ἐστὶν τῷ ἀπὸ τῆς ΔΗ\nτετραγώνῳ· λοιπὸν ἄρα τὸ ἀπὸ τῆς ΕΖ τετράγωνον λοιπῇ\nτῷ ἀπὸ ΖΗ τετραγώνῳ ἐστὶν ἴσον· ἴση ἄρα ἐστὶν ἡ ΕΖ\nτῇ ΖΗ. ἐστὶν δὲ καὶ ὅλη ἡ ΔΖ ὅλῃ τῇ ΖΒ ἴση· λοιπὴ\nἄρα ἡ ΑΕ λοιπῇ τῇ ΗΒ ἐστὶν ἴση, ὅπερ: ~\n231 λζ'. Ἡμικύκλιον τὸ ἐπὶ τῆς ΑΒ, καὶ ἀπὸ τυχόντος\nτοῦ Γ διήχθω ἡ ΓΔ, καὶ κάθετος ἥχθω ἡ ΔΕ· ὅτι τὸ ἀπὸ\nΑΓ τοῦ ἀπὸ ΓΔ ὑπερέχει τῷ ὑπὸ συναμφοτέρου τῆς ΑΓ\nΓΒ καὶ τῆς ΑΕ.\nὍτι ἄρα τὸ ἀπὸ ΑΓ\nἴσον ἐστὶν τῷ τε ἀπὸ\nΑΓ, τούτέστιν τοῖς\nἀπὸ ΔΕ ΕΓ, καὶ τῷ\nὑπὸ συναμφοτέρου τῆς\nΑΓ ΓΒ καὶ τῆς ΑΕ·\nὅτι ἄρα κοινοῦ ἀφαιρε-\nθέντος τοῦ ὑπὸ ΓΔΕ λοιπὸν τὸ ὑπὸ ΑΓΕ ἴσον ἐστὶν τῷ\nτε ἀπὸ ΔΕ, τούτέστιν τῷ ὑπὸ ΑΕΒ, καὶ τῷ ἀπὸ ΓΕ καὶ\nτῷ ὑπὸ ΑΕ ΓΒ. κοινοῦ ἀφαιρεθέντος τοῦ ἀπὸ ΓΕ ὅτι\nλοιπὸν τὸ ὑπὸ ΑΕΓ ἴσον ἐστὶν τῷ τε ὑπὸ ΑΕΒ καὶ τῷ\nὑπὸ ΑΕ ΒΓ. ἐστὶν δέ.\nΕἰς τὸ πόρισμα τοῦ α' βιβλίου.\n232 λη'. Θέσει ὄντος παραλληλογράμμου τοῦ ΑΔ, ἀπὸ\nδοθέντος τοῦ Ε διαγαγεῖν τὴν ΕΖ καὶ ποιεῖν ἴσον τὸ ΖΓΗ\nτρίγωνον τῷ ΑΔ παραλληλογράμμῳ.\nΓεγονέτω. ἐπεὶ οὖν ἴσον ἐστὶν τὸ ΖΓΗ τρίγωνον τῷ\n4. ἀπὸ τῶν ΖΗΗΔ Α, distinх. BS 9. ὅπερ ΒS, ο Α 10. λζ\nadd. BS ἐπὶ τῆς ΑΒΓ.ΑΒ, ἐπὶ τῆς αδβ S, corr. Co 11. ἥχθω ἡ\n.ΓΘ ΑΒ, corr. S 12. τῷ ἀπὸ συναμφοτέρου et 14. ἄρα τὸ ὑπὸ ΑΓ\nretinuit Go ex S (recte, ut supra editum, ΑΒ) 18. 19. συναμφοτέρου"
-   }
-  },
-  "policy": "Do not change predictions or choose a model automatically. Retain every original and retry. Require an explicit source review of completed strips before one assembled Qwen3.6 vote replaces the original vote for these five pages. Other model inputs remain separate witnesses; no invented cross-region joined words."
- },
  "pages": [
   {
+   "book": "1",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0190-reviewed-strip-1",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 190,
+   "max_side": 3200,
+   "printed_page": 172,
+   "reading_order": 1,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
    "region": [
     0.1,
     0.075,
     0.97,
     0.363
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "1",
-   "printed_page": 172,
-   "reading_order": 1,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
+   "scan_page": 190,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "1",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0190-reviewed-strip-2",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 190,
+   "max_side": 3200,
+   "printed_page": 172,
+   "reading_order": 2,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
    "region": [
     0.1,
     0.363,
     0.97,
     0.6185
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "1",
-   "printed_page": 172,
-   "reading_order": 2,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
+   "scan_page": 190,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "1",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0190-reviewed-strip-3",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 190,
+   "max_side": 3200,
+   "printed_page": 172,
+   "reading_order": 3,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
    "region": [
     0.1,
     0.6185,
     0.97,
     0.852
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "1",
-   "printed_page": 172,
-   "reading_order": 3,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0190",
+   "scan_page": 190,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "2",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0232-reviewed-strip-1",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 232,
+   "max_side": 3200,
+   "printed_page": 214,
+   "reading_order": 1,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
    "region": [
     0.1,
     0.065,
     0.97,
     0.35
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "2",
-   "printed_page": 214,
-   "reading_order": 1,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
+   "scan_page": 232,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "2",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0232-reviewed-strip-2",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 232,
+   "max_side": 3200,
+   "printed_page": 214,
+   "reading_order": 2,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
    "region": [
     0.1,
     0.35,
     0.97,
     0.5861
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "2",
-   "printed_page": 214,
-   "reading_order": 2,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
+   "scan_page": 232,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "2",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "apolloniipergaei01apoluoft-pdf0232-reviewed-strip-3",
-   "source": "apolloniipergaei01apoluoft",
-   "scan_page": 232,
+   "max_side": 3200,
+   "printed_page": 214,
+   "reading_order": 3,
+   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
    "region": [
     0.1,
     0.5861,
     0.97,
     0.842
    ],
-   "max_side": 3200,
-   "work": "apollonius-geom.conica",
-   "book": "2",
-   "printed_page": 214,
-   "reading_order": 3,
-   "reconstructs": "apolloniipergaei01apoluoft-pdf0232",
+   "scan_page": 232,
+   "source": "apolloniipergaei01apoluoft",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "apollonius-geom.conica"
   },
   {
+   "book": "6",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0039-reviewed-strip-1",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 39,
+   "max_side": 3200,
+   "printed_page": 496,
+   "reading_order": 1,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
    "region": [
     0.24,
     0.15,
     0.84,
     0.297
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "6",
-   "printed_page": 496,
-   "reading_order": 1,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
+   "scan_page": 39,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "6",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0039-reviewed-strip-2",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 39,
+   "max_side": 3200,
+   "printed_page": 496,
+   "reading_order": 2,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
    "region": [
     0.24,
     0.532,
     0.84,
     0.6978
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "6",
-   "printed_page": 496,
-   "reading_order": 2,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
+   "scan_page": 39,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "6",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0039-reviewed-strip-3",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 39,
+   "max_side": 3200,
+   "printed_page": 496,
+   "reading_order": 3,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
    "region": [
     0.24,
     0.6978,
     0.84,
     0.815
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "6",
-   "printed_page": 496,
-   "reading_order": 3,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0039",
+   "scan_page": 39,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0281-reviewed-strip-1",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 281,
+   "max_side": 3200,
+   "printed_page": 738,
+   "reading_order": 1,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
    "region": [
     0.21,
     0.15,
     0.84,
     0.365
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 738,
-   "reading_order": 1,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
+   "scan_page": 281,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0281-reviewed-strip-2",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 281,
+   "max_side": 3200,
+   "printed_page": 738,
+   "reading_order": 2,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
    "region": [
     0.21,
     0.365,
     0.84,
     0.501
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 738,
-   "reading_order": 2,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
+   "scan_page": 281,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0281-reviewed-strip-3",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 281,
+   "max_side": 3200,
+   "printed_page": 738,
+   "reading_order": 3,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
    "region": [
     0.21,
     0.501,
     0.84,
     0.684
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 738,
-   "reading_order": 3,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0281",
+   "scan_page": 281,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0459-reviewed-strip-1",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 459,
+   "max_side": 3200,
+   "printed_page": 916,
+   "reading_order": 1,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
    "region": [
     0.22,
     0.15,
     0.83,
     0.391
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 916,
-   "reading_order": 1,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
+   "scan_page": 459,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0459-reviewed-strip-2",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 459,
+   "max_side": 3200,
+   "printed_page": 916,
+   "reading_order": 2,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
    "region": [
     0.58,
     0.391,
     0.83,
     0.521
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 916,
-   "reading_order": 2,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
+   "scan_page": 459,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   },
   {
+   "book": "7",
+   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels",
    "id": "pappialexandrin01pappgoog-pdf0459-reviewed-strip-3",
-   "source": "pappialexandrin01pappgoog",
-   "scan_page": 459,
+   "max_side": 3200,
+   "printed_page": 916,
+   "reading_order": 3,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
    "region": [
     0.22,
     0.521,
     0.83,
     0.731
    ],
-   "max_side": 3200,
-   "work": "pappus-mathematics.synagoge",
-   "book": "7",
-   "printed_page": 916,
-   "reading_order": 3,
-   "reconstructs": "pappialexandrin01pappgoog-pdf0459",
+   "scan_page": 459,
+   "source": "pappialexandrin01pappgoog",
    "text_role": "authorial-prose",
-   "crop_evidence": "Source-inspected whitespace between complete printed lines; enlarged body only, excluding apparatus, running headers and diagram labels"
+   "work": "pappus-mathematics.synagoge"
   }
- ]
+ ],
+ "prompt": "Transcribe only the main Greek reading text in the image, one line per printed line. Keep Greek book headings, epistolary prefaces, proposition labels and editorial brackets. Exclude running headers, page numbers, marginal line numbers, diagrams and diagram labels. Exclude ALL small critical apparatus beneath the horizontal rule, even when it is Greek. Exclude facing Latin translation and Latin words. Preserve accents, breathing marks, punctuation and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+ "purpose": "Source-reviewed Qwen3.6 retry after four severe polytonic-loss cases and one apparatus leak; original556 predictions remain immutable.",
+ "retry_of": {
+  "model": "Qwen/Qwen3.6-27B",
+  "original_predictions_sha256": "89906fcbfa14616a9031ebeb8b1cd35b949a2afa986ac64cbe3db726a45db3e8",
+  "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+  "region_ids": [
+   "apolloniipergaei01apoluoft-pdf0190",
+   "apolloniipergaei01apoluoft-pdf0232",
+   "pappialexandrin01pappgoog-pdf0039",
+   "pappialexandrin01pappgoog-pdf0281",
+   "pappialexandrin01pappgoog-pdf0459"
+  ],
+  "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+  "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+ },
+ "review": {
+  "extent": "All five complete source pages, every printed body line, all diagram/apparatus boundaries and all15 retry crop edges inspected. The other551 Qwen3.6 pages were screened by the frozen detector and text anomalies, without exhaustive pixel review.",
+  "findings": {
+   "apolloniipergaei01apoluoft-pdf0190": {
+    "original_image_sha256": "e74f4cc89ee43085b6ece63f9e6384f762d60cb154106a4638fef47ab311ad8d",
+    "original_prediction_sha256": "ebf87d3a06f22a6412dea3e76cfb584efbecc3d259a68b6183e8e903fe949051",
+    "original_text": "νε'.\nΜη ἐστω δη η δεδομενη γωνια ορθη, και ἐστωσαν\nαι δοθεισαι ευθεiai αι ΑΒ, ΑΓ, η δε δοθεισα γωνια\nεστω ιση τη υπο των ΒΑΘ. δει δη γραφαι υπερ-\nβολην, ης διαμετρος μεν εσται η ΑΒ, ορθια δε η\nΑΓ, αι δε καταγομεναι εν τη υπο ΘΑΒ γωνια\nκαταχθησονται.\nτεμησθω η ΑΒ διχα κατα το Δ, και επι της ΑΔ\nγεγραφθω ημικυκλιον το ΑΖΔ, και ηχθω τις εις το\nημικυκλιον παραλληλος τη ΑΘ η ΖΗ ποιουσα τον\nτου απο ΖΗ προς το υπο ΔΗΑ λογον τον αυτον\nτω της ΑΓ προς ΑΒ, και επεξευχθω η ΖΘΔ και\nεκβελησθω επι το Δ, και των ΖΔΘ μεση αναλογον\nεστω η ΔΛ, και κεισθω τη ΔΔ ιση η ΔΚ, τω δε\nαπο της ΑΖ ισον εστω το υπο ΑΖΜ, και επεξευχθω\nη ΚΜ, και δια του Α προς ορθας ηχθω τη ΚΖ η\nΑΝ και εκβελησθω επι το Ε. και δυο δοθεισων\nευθειων πεπερασμενων προς ορθας αλληλαις των\nΚΑ, ΑΝ γεγραφθω υπερβολη, ης πλαγια μεν πλευρα\nεσται η ΚΑ, ορθια δε η ΑΝ, αι δε καταγομεναι επι\nτην διαμετρον απο της τομης εν ορθη γωνια καταχ-\nθησονται πλατη εχουσαι τας απολαμβανομενας υπ'\nαυτων προς τω Α υπερβαλλοντα ειδει ομοιω τω υπο\nΚΑΝ. ηξει δε η τομη δια του Α. ισον γαρ εστι\nτο απο ΑΖ τω υπο ΑΖΜ. και εφαιρεται αυτης η\nΑΘ. το γαρ υπο ΖΔΘ ισον εστι τω απο ΔΛ. ωστε\nη ΑΒ διαμετρος εστι της τομης. και επει εστιν ως",
+    "source_pdf_sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957"
+   },
+   "apolloniipergaei01apoluoft-pdf0232": {
+    "original_image_sha256": "f232f2f651941b24f753dced1760dffe084dc8e4f9e42eacff85518a43b95f36",
+    "original_prediction_sha256": "e8ba071c0d32048222b60274557b134c8e885ec40e8fa3a29f668e33285d856d",
+    "original_text": "δε τι σημειον ετερον επι της τομης το Η, και δια\nτου Η ταις ΕΑ, ΑΖ παραλληλοι ηχθωσαν αι ΗΘ, ΗΚ.\nλεγω, οτι ισον εστι το υπο ΕΑΖ τω υπο ΘΗΚ.\nεπεξευχθω γαρ η ΑΗ και εκβεβλησθω επι τα Α, Γ.\nεπει ουν ισον εστι το υπο ΑΑΓ τω υπο ΑΗΓ, εστιν\nαρα ως η ΑΗ προς ΑΔ, η ΔΓ προς ΓΗ. αλλ ως\nμεν η ΑΗ προς ΑΔ, η ΗΘ προς ΕΔ, ως δε η ΔΓ\nπρος ΓΗ, η ΔΖ προς ΗΚ. ως αρα η ΘΗ προς ΔΕ,\nη ΔΖ προς ΗΚ. ισον αρα εστι το υπο ΕΔΖ τω\nυπο ΘΗΚ.\nιγ'.\nΕαν εν τω αφοριζομενω τω υπο των ασυμπτω-\nτων και της τομης παραλληλος αχθη τις ευθεια τη\nετερα των ασυμπτωτων, συμπεσειται τη τομη καθ' εν\nμονον σημειον.\nεστω υπερβολη, ης ασυμπτωτοι αι ΓΑ, ΑΒ, και\nειληφθω τι σημειον το Ε, και δι' αυτου τη ΑΒ παρ-\nαλληλος ηχθω η ΕΖ. λεγω, οτι συμπεσειται τη τομη.\nει γαρ δυνατον, μη συμπιπτετω, και ειληφθω τι\nσημειον επι της τομης το Η, και δια του Η παρα\nτας ΓΑ, ΑΒ ηχθωσαν αι ΗΓ, ΗΘ, και το υπο ΓΗΘ\nισον εστω τω υπο ΑΕΖ, και επεξευχθω η ΑΖ και\nεκβεβλησθω. συμπεσειται δη τη τομη. συμπιπτετω\nκατα το Κ, και δια του Κ παρα τας ΓΑΒ ηχθωσαν\nαι ΚΑ, ΚΔ. το αρα υπο ΓΗΘ ισον εστι τω υπο ΑΚΔ.\nυποκειται δε και τω υπο ΑΕΖ ισον. το αρα υπο ΔΚΑ,\nτουτεστι το υπο ΚΑΑ, ισον εστι τω υπο ΑΕΖ. οπερ",
+    "source_pdf_sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957"
+   },
+   "pappialexandrin01pappgoog-pdf0039": {
+    "original_image_sha256": "40fd9d3b838eeaacb76a12159f2b87bd53b537655f98c8fe867845294209648b",
+    "original_prediction_sha256": "c364e6254d5dcbfdd54a502f55646f34348dc910d806a3b965eefd1d65c17c77",
+    "original_text": "αρα πολω τω Α διαστηματι δε ενι των ΑΕ ΑΜ κυκλος\nγραφομενος ηξει και δια του λειπου σημειου. ερχεσθω,\nκαι εστω ο ΣΕΜ, και ειληφθω το κεντρον της σφαιρας\nτο Ο, και επεξευχθω η ΟΑ. εσται δη καθετος επι το του\nΣΜΕ κυκλου επιπεδον (πολος γαρ εστιν το Α του κυκλου),\nκαι εσται το κεντρον του ΜΣΕ επι της ΑΟ. εστω το Π,\nκαι επιζευχθεισα η ΕΜ εκβελησθω επι το Τ, και η ΟΞ\nεπι το Τ, και επεξευχθωσαν αι ΕΟ ΟΡΚ ΠΡ ΡΣ ΠΗ ΗΤ.\n\nκαι επει το Π σημειον εν τω του ΜΣΕ εστιν κυκλου επι-\nπεδω, εστιν δε και εκατερον των Ρ Σ εν τω του ΜΣΕ\nκυκλου επιπεδω, τα τρια αρα σημεια εν τω κυκλω εστιν.\nπαλιν επει ο ΟΑ εν τω του ΑΚΑ επιπεδω εστιν, και το\nΠ αρα εν τω του ΑΚΑ επιπεδω εστιν. και η ΟΡΚ ευ-\nθεια. και το Ρ αρα εν τω του ΑΚΑ κυκλου εστιν επι-\nπεδω. εστιν δ' εν αυτω και το Σ. ευθεια αρα εστιν η\nΠΡΣ. δια τα αυτα δη και η ΠΗΤ ευθεια εστιν (τα γαρ\nΠ Τ εν τω επιπεδω εστιν του ΕΣΜ κυκλου. αλλα και εν\nτω του ΑΗΞΘ κυκλου επιπεδω, και το Η δε κατ' αυτην\nεστιν την τομην των επιπεδων του ΕΣΜ και του ΑΞΘ\nκυκλου. ευθεια αρα η ΠΗΤ). και επει ιση εστιν η ΕΚ\nπεριφερεια τη ΚΞ περιφερειω, ιση εστιν και γωνια η\nυπο ΕΟΚ τη υπο ΚΟΞ. ο αρα της ΕΟ προς ΟΤ λο-\nγος ο αυτος εστιν τω της ΕΡ προς ΡΤ. επει δε ζητω",
+    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95"
+   },
+   "pappialexandrin01pappgoog-pdf0281": {
+    "original_image_sha256": "37d1c619fd0331dbeb7895e31946d4153a841637a1ff3e59c83cfa80169d5a5b",
+    "original_prediction_sha256": "637c00b07e5d7f0808d08766aa0fc0e153c02eac93343048229c814d4646069d",
+    "original_text": "των ΒΓΕ. τα δε αυτα και επι των λοιπων δυο δειξομεν·\nγινεται αρα τεσσαρα.\nδ. Τούτου δ' αν δειχθέντος εαδιως ευρεθείη τα εις\nτο πρωτον διωρισμένης· των αυτών υποκειμένων ότι γινε-\nται ως η ΒΑ προς την ΑΕ, ούτως το υπό των ΑΒΓ προς\nτο υπό των ΑΕΓ.\nΕπει γαρ δέδεικται το μεν υπό των Ζ ΒΑ ίσον τφ\nυπό των ΑΒΓ, το δε υπό των Ζ ΑΕ τφ υπό ΑΕΓ, εστιν\nαρα ως το υπό Ζ ΑΒ προς το υπό Ζ ΑΕ, τουτέστιν ως\nη ΒΑ προς την ΑΕ, ούτως το υπό των ΑΒΓ προς το υπό\nτων ΑΕΓ.\nΕις το πρωτον επίταγμα του πρώτου προβλήματος.\nε'. Εστω πάλιν ίσον το υπό των ΑΔΓ τφ υπό των\nΒΔΕ, και τυχόν σημείον έστω το Ζ· ότι, εάν συναμφο-\nτέρφ τφ ΑΕ ΓΒ ίση τεθη η Η, το υπό των ΑΖΓ του\nυπό των ΒΖΕ υπερέχει τφ υπό των Η ΑΖ.\nΕπει γαρ προδέδεικται το υπό των Η ΑΕ ίσον τφ υπό\nτων ΑΕΓ, κοινόν άφρησθω το υπό των Η ΖΕ· λοιπόν\nαρα το υπό των Η ΑΖ η ύπεροχή εστιν η υπερέχει το υπό\nτων ΑΕΓ του υπό των Η ΕΖ. φ δε υπερέχει το υπό των\nΑΕΓ του υπό των Η ΕΖ, κοινού αφαιρεθέντος του υπό\nτων ΑΕΖ, τουτφ υπερέχει το υπό των ΑΕ ΓΖ του υπό\nτων ΒΓ ΖΕ· φ δε υπερέχει το υπό των ΑΕ ΓΖ του υπό\nτων ΓΒ ΖΕ, κοινού αφαιρεθέντος του υπό των ΓΖΕ,\nτουτφ υπερέχει το υπό των ΑΖΓ του υπό των ΒΖΕ· το\nαρα υπό των ΑΖΓ του υπό των ΒΖΕ υπερέχει τφ υπό\nτων Η ΑΖ, οπερ: ~",
+    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95"
+   },
+   "pappialexandrin01pappgoog-pdf0459": {
+    "original_image_sha256": "c28ed3cf48d268f2491eaaa1b588976b107367c1bde3ff12b8584b43c0996169",
+    "original_prediction_sha256": "db3f35cb7d100bab809664287a0f593369af9fdc959bc866fce4b9d6b22a75dd",
+    "original_text": "916 ΠΑΠΠΟΥ ΣΥΝΑΓΩΓΗΣ Ζ.\nμὲν ἀπὸ ΓΖ τετραγώνῳ ἴσα ἐστὶν τὰ ἀπὸ τῶν ΓΕ ΕΖ\nτετράγωνα, τῷ δὲ ἀπὸ ΔΖ τετραγώνῳ ἴσα ἐστὶν τὰ ἀπὸ\nτῶν ΔΗ ΗΖ τετράγωνα· καὶ τὰ ἀπὸ τῶν ΓΕ ΕΖ ἄρα\nτετράγωνα ἴσα ἐστὶν τοῖς ἀπὸ τῶν ΖΗ·ΗΔ τετραγώνοις.\nὧν τὸ ἀπὸ ΓΕ τετράγωνον ἴσον ἐστὶν τῷ ἀπὸ τῆς ΔΗ\nτετραγώνῳ· λοιπὸν ἄρα τὸ ἀπὸ τῆς ΕΖ τετράγωνον λοιπῇ\nτῷ ἀπὸ ΖΗ τετραγώνῳ ἐστὶν ἴσον· ἴση ἄρα ἐστὶν ἡ ΕΖ\nτῇ ΖΗ. ἐστὶν δὲ καὶ ὅλη ἡ ΔΖ ὅλῃ τῇ ΖΒ ἴση· λοιπὴ\nἄρα ἡ ΑΕ λοιπῇ τῇ ΗΒ ἐστὶν ἴση, ὅπερ: ~\n231 λζ'. Ἡμικύκλιον τὸ ἐπὶ τῆς ΑΒ, καὶ ἀπὸ τυχόντος\nτοῦ Γ διήχθω ἡ ΓΔ, καὶ κάθετος ἥχθω ἡ ΔΕ· ὅτι τὸ ἀπὸ\nΑΓ τοῦ ἀπὸ ΓΔ ὑπερέχει τῷ ὑπὸ συναμφοτέρου τῆς ΑΓ\nΓΒ καὶ τῆς ΑΕ.\nὍτι ἄρα τὸ ἀπὸ ΑΓ\nἴσον ἐστὶν τῷ τε ἀπὸ\nΑΓ, τούτέστιν τοῖς\nἀπὸ ΔΕ ΕΓ, καὶ τῷ\nὑπὸ συναμφοτέρου τῆς\nΑΓ ΓΒ καὶ τῆς ΑΕ·\nὅτι ἄρα κοινοῦ ἀφαιρε-\nθέντος τοῦ ὑπὸ ΓΔΕ λοιπὸν τὸ ὑπὸ ΑΓΕ ἴσον ἐστὶν τῷ\nτε ἀπὸ ΔΕ, τούτέστιν τῷ ὑπὸ ΑΕΒ, καὶ τῷ ἀπὸ ΓΕ καὶ\nτῷ ὑπὸ ΑΕ ΓΒ. κοινοῦ ἀφαιρεθέντος τοῦ ἀπὸ ΓΕ ὅτι\nλοιπὸν τὸ ὑπὸ ΑΕΓ ἴσον ἐστὶν τῷ τε ὑπὸ ΑΕΒ καὶ τῷ\nὑπὸ ΑΕ ΒΓ. ἐστὶν δέ.\nΕἰς τὸ πόρισμα τοῦ α' βιβλίου.\n232 λη'. Θέσει ὄντος παραλληλογράμμου τοῦ ΑΔ, ἀπὸ\nδοθέντος τοῦ Ε διαγαγεῖν τὴν ΕΖ καὶ ποιεῖν ἴσον τὸ ΖΓΗ\nτρίγωνον τῷ ΑΔ παραλληλογράμμῳ.\nΓεγονέτω. ἐπεὶ οὖν ἴσον ἐστὶν τὸ ΖΓΗ τρίγωνον τῷ\n4. ἀπὸ τῶν ΖΗΗΔ Α, distinх. BS 9. ὅπερ ΒS, ο Α 10. λζ\nadd. BS ἐπὶ τῆς ΑΒΓ.ΑΒ, ἐπὶ τῆς αδβ S, corr. Co 11. ἥχθω ἡ\n.ΓΘ ΑΒ, corr. S 12. τῷ ἀπὸ συναμφοτέρου et 14. ἄρα τὸ ὑπὸ ΑΓ\nretinuit Go ex S (recte, ut supra editum, ΑΒ) 18. 19. συναμφοτέρου",
+    "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95"
+   }
+  },
+  "policy": "Do not change predictions or choose a model automatically. Retain every original and retry. Require an explicit source review of completed strips before one assembled Qwen3.6 vote replaces the original vote for these five pages. Other model inputs remain separate witnesses; no invented cross-region joined words.",
+  "recorded_at": "2026-10-18"
+ },
+ "schema_version": 1,
+ "sources": {
+  "apolloniipergaei01apoluoft": {
+   "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft",
+   "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+   "license": "public-domain",
+   "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+   "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+   "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf"
+  },
+  "pappialexandrin01hultgoog": {
+   "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+   "license": "public-domain",
+   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+   "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+   "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf"
+  },
+  "pappialexandrin01pappgoog": {
+   "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+   "license": "public-domain",
+   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+   "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+   "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf"
+  },
+  "pappialexandrin04pappgoog": {
+   "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+   "license": "public-domain",
+   "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+   "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+   "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf"
+  }
+ }
 }

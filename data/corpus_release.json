@@ -1,0 +1,177 @@
+{
+ "corpus": {
+  "passages": 1913663,
+  "tokens": 65208961,
+  "tokens_lemmatized": 63419511,
+  "works": 3939
+ },
+ "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
+ "licenses": {
+  "CC-BY-3.0": {
+   "tokens": 63,
+   "works": 1
+  },
+  "CC-BY-4.0": {
+   "tokens": 4695434,
+   "works": 235
+  },
+  "CC-BY-SA-4.0": {
+   "tokens": 34163290,
+   "works": 2417
+  },
+  "PD": {
+   "tokens": 25834436,
+   "works": 1262
+  },
+  "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 7519,
+   "works": 1
+  },
+  "PD (ancient Greek text; public-domain Gutenberg edition)": {
+   "tokens": 5116,
+   "works": 3
+  },
+  "PD (ancient LXX text); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 4547,
+   "works": 1
+  },
+  "PD (ancient poem); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 2176,
+   "works": 1
+  },
+  "PD (ancient text); First1KGreek/Perseus CC BY-SA 4.0": {
+   "tokens": 168687,
+   "works": 1
+  },
+  "PD (ancient text); GLAUx CC BY-SA 4.0": {
+   "tokens": 9805,
+   "works": 2
+  },
+  "PD (ancient text); GLAUx corpus CC BY-SA 4.0": {
+   "tokens": 127905,
+   "works": 3
+  },
+  "Public domain (14th century text, Kalonaros 1940 edition)": {
+   "tokens": 73301,
+   "works": 1
+  },
+  "Public domain / CC BY-SA 4.0 (Wikisource)": {
+   "tokens": 116682,
+   "works": 11
+  }
+ },
+ "pin": {
+  "corpus_sha256": "45bfdf0d4c12e55ba0a417cfc9150431e3b0a0774b1b9b0eba531fb2a1ce51d3",
+  "manifest": "data/public_export.json"
+ },
+ "quality": {
+  "correction_status": {
+   "auto-corrected": {
+    "tokens": 20082187,
+    "works": 892
+   },
+   "manual": {
+    "tokens": 5882307,
+    "works": 139
+   },
+   "mixed-unassessed": {
+    "tokens": 805136,
+    "works": 4
+   },
+   "not-ocr": {
+    "tokens": 35878500,
+    "works": 2494
+   },
+   "raw-ocr": {
+    "tokens": 2560831,
+    "works": 410
+   }
+  },
+  "raw_ocr": {
+   "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+   "legacy_homogeneous_work_bucket": {
+    "ocr_tokens": 28525325,
+    "ocr_works": 1441,
+    "raw_share_of_corpus_tokens": 0.0393,
+    "raw_tokens": 2560831,
+    "raw_works": 410,
+    "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
+   },
+   "mixed_ocr_tokens": 552999,
+   "mixed_works": 4,
+   "ocr_tokens": 29078324,
+   "ocr_works": 1445,
+   "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
+  },
+  "scope": "Correction quality varies by work. Unresolved readings remain excluded from lexical counts."
+ },
+ "release_date": "2026-10-25",
+ "release_id": "corpus-2026-10-25",
+ "sources": {
+  "byzantine_vernacular": {
+   "tokens": 189983,
+   "works": 12
+  },
+  "byzantium_gr": {
+   "tokens": 1648928,
+   "works": 19
+  },
+  "cgpg": {
+   "tokens": 4511871,
+   "works": 199
+  },
+  "dcc": {
+   "tokens": 4341,
+   "works": 1
+  },
+  "dclp": {
+   "tokens": 63,
+   "works": 1
+  },
+  "dfhg": {
+   "tokens": 692799,
+   "works": 528
+  },
+  "first1k": {
+   "tokens": 21805816,
+   "works": 1039
+  },
+  "galenus_verbatim": {
+   "tokens": 318470,
+   "works": 25
+  },
+  "glaux": {
+   "tokens": 137710,
+   "works": 5
+  },
+  "greek_library": {
+   "tokens": 3502,
+   "works": 1
+  },
+  "gutenberg": {
+   "tokens": 5116,
+   "works": 3
+  },
+  "ocr": {
+   "tokens": 24468653,
+   "works": 1244
+  },
+  "perseus": {
+   "tokens": 9850877,
+   "works": 748
+  },
+  "pta": {
+   "tokens": 1493681,
+   "works": 106
+  },
+  "saws": {
+   "tokens": 62909,
+   "works": 5
+  },
+  "wikisource": {
+   "tokens": 14242,
+   "works": 3
+  }
+ },
+ "title": "Open Greek Corpus"
+}

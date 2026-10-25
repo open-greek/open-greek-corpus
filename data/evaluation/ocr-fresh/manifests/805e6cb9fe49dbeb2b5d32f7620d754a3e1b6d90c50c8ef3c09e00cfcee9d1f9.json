@@ -1,121 +1,116 @@
 {
-  "schema_version": 1,
-  "work": "photius.bibliotheca",
-  "review_date": "2026-10-18",
-  "purpose": "Retry the degenerate whole-page transcription of the prefatory letter and codex 1 as enlarged, source-reviewed strips; never add another model vote.",
-  "retry_of": {
-    "path": "data/ocr_requests/photius-bekker-first-volume.json",
-    "sha256": "92bb67209eaa7dcca53800c499c68b4c1a085cbb2d62f2909b27da99c0acdcd6",
-    "page_id": "photius-bekker-0013"
+ "pages": [
+  {
+   "id": "photius-bekker-0013-upper-preface",
+   "max_side": 3600,
+   "printed_page": 1,
+   "prompt_suffix": "The heading and the opening full-width prefatory letter. Read complete lines from left to right.",
+   "reading_order": 0,
+   "region": [
+    0.04,
+    0.05,
+    0.985,
+    0.441
+   ],
+   "role": "reviewed-page-retry",
+   "scan_page": 13,
+   "source": "photius-bekker-combined"
   },
-  "sources": {
-    "photius-bekker-combined": {
-      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
-      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
-      "edition": "Bekker 1824-1825, combined volumes",
-      "license": "public-domain",
-      "pdf_pages": 600,
-      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
-    }
+  {
+   "id": "photius-bekker-0013-lacuna",
+   "max_side": 3600,
+   "printed_page": 1,
+   "prompt_suffix": "Exactly three full-width printed lines containing dotted lacunae. Represent each separate printed series of omission dots with one ellipsis character (…). Do not expand a dot series or infer missing words.",
+   "reading_order": 1,
+   "region": [
+    0.04,
+    0.441,
+    0.985,
+    0.493
+   ],
+   "role": "reviewed-page-retry",
+   "scan_page": 13,
+   "source": "photius-bekker-combined"
   },
-  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
-  "review": {
-    "checked_scan_pages": [
-      13
-    ],
-    "accepted_for_primary_ingest": false,
-    "evidence": "Manual inspection of the pinned scan at enlarged resolution: heading and opening letter precede three lines with printed dotted lacunae; the full-width letter ends before codex 1 begins in two columns. Every authorial line is included once. Vertical boundaries fall between complete lines; the codex crops end above the smaller critical apparatus.",
-    "failure": "The first Qwen3.6 whole-page attempt loops on omission dots and terminates at its token limit before the rest of the letter and codex 1.",
-    "reading_order": [
-      "upper-preface",
-      "lacuna",
-      "lower-preface",
-      "codex1-left",
-      "codex1-right"
-    ],
-    "display_convention": "One ellipsis character represents each printed dotted lacuna in the reviewed lacuna strip; no missing Greek is supplied.",
-    "admission_policy": "Retain every original whole-page attempt and raw retry strip. A separate completed source review must pin exact accepted predictions. Assemble one vote per original model family, with no extra vote for a retry or strip."
+  {
+   "id": "photius-bekker-0013-lower-preface",
+   "max_side": 3600,
+   "printed_page": 1,
+   "prompt_suffix": "The continuation and end of the full-width Greek prefatory letter. Read complete lines from left to right.",
+   "reading_order": 2,
+   "region": [
+    0.04,
+    0.493,
+    0.985,
+    0.678
+   ],
+   "role": "reviewed-page-retry",
+   "scan_page": 13,
+   "source": "photius-bekker-combined"
   },
-  "pages": [
-    {
-      "id": "photius-bekker-0013-upper-preface",
-      "source": "photius-bekker-combined",
-      "scan_page": 13,
-      "printed_page": 1,
-      "region": [
-        0.04,
-        0.05,
-        0.985,
-        0.441
-      ],
-      "max_side": 3600,
-      "role": "reviewed-page-retry",
-      "reading_order": 0,
-      "prompt_suffix": "The heading and the opening full-width prefatory letter. Read complete lines from left to right."
-    },
-    {
-      "id": "photius-bekker-0013-lacuna",
-      "source": "photius-bekker-combined",
-      "scan_page": 13,
-      "printed_page": 1,
-      "region": [
-        0.04,
-        0.441,
-        0.985,
-        0.493
-      ],
-      "max_side": 3600,
-      "role": "reviewed-page-retry",
-      "reading_order": 1,
-      "prompt_suffix": "Exactly three full-width printed lines containing dotted lacunae. Represent each separate printed series of omission dots with one ellipsis character (…). Do not expand a dot series or infer missing words."
-    },
-    {
-      "id": "photius-bekker-0013-lower-preface",
-      "source": "photius-bekker-combined",
-      "scan_page": 13,
-      "printed_page": 1,
-      "region": [
-        0.04,
-        0.493,
-        0.985,
-        0.678
-      ],
-      "max_side": 3600,
-      "role": "reviewed-page-retry",
-      "reading_order": 2,
-      "prompt_suffix": "The continuation and end of the full-width Greek prefatory letter. Read complete lines from left to right."
-    },
-    {
-      "id": "photius-bekker-0013-codex1-left",
-      "source": "photius-bekker-combined",
-      "scan_page": 13,
-      "printed_page": 1,
-      "region": [
-        0.04,
-        0.681,
-        0.486,
-        0.804
-      ],
-      "max_side": 3600,
-      "role": "reviewed-page-retry",
-      "reading_order": 3,
-      "prompt_suffix": "Only the left column of codex 1, including its printed codex number. Read down this column."
-    },
-    {
-      "id": "photius-bekker-0013-codex1-right",
-      "source": "photius-bekker-combined",
-      "scan_page": 13,
-      "printed_page": 1,
-      "region": [
-        0.49,
-        0.681,
-        0.985,
-        0.804
-      ],
-      "max_side": 3600,
-      "role": "reviewed-page-retry",
-      "reading_order": 4,
-      "prompt_suffix": "Only the right column continuing codex 1. Read down this column."
-    }
+  {
+   "id": "photius-bekker-0013-codex1-left",
+   "max_side": 3600,
+   "printed_page": 1,
+   "prompt_suffix": "Only the left column of codex 1, including its printed codex number. Read down this column.",
+   "reading_order": 3,
+   "region": [
+    0.04,
+    0.681,
+    0.486,
+    0.804
+   ],
+   "role": "reviewed-page-retry",
+   "scan_page": 13,
+   "source": "photius-bekker-combined"
+  },
+  {
+   "id": "photius-bekker-0013-codex1-right",
+   "max_side": 3600,
+   "printed_page": 1,
+   "prompt_suffix": "Only the right column continuing codex 1. Read down this column.",
+   "reading_order": 4,
+   "region": [
+    0.49,
+    0.681,
+    0.985,
+    0.804
+   ],
+   "role": "reviewed-page-retry",
+   "scan_page": 13,
+   "source": "photius-bekker-combined"
+  }
+ ],
+ "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+ "purpose": "Retry the degenerate whole-page transcription of the prefatory letter and codex 1 as enlarged, source-reviewed strips; never add another model vote.",
+ "review": {
+  "accepted_for_primary_ingest": false,
+  "admission_policy": "Retain every original whole-page attempt and raw retry strip. A separate completed source review must pin exact accepted predictions. Assemble one vote per original model family, with no extra vote for a retry or strip.",
+  "checked_scan_pages": [
+   13
+  ],
+  "display_convention": "One ellipsis character represents each printed dotted lacuna in the reviewed lacuna strip; no missing Greek is supplied.",
+  "evidence": "Manual inspection of the pinned scan at enlarged resolution: heading and opening letter precede three lines with printed dotted lacunae; the full-width letter ends before codex 1 begins in two columns. Every authorial line is included once. Vertical boundaries fall between complete lines; the codex crops end above the smaller critical apparatus.",
+  "failure": "The first Qwen3.6 whole-page attempt loops on omission dots and terminates at its token limit before the rest of the letter and codex 1.",
+  "reading_order": [
+   "upper-preface",
+   "lacuna",
+   "lower-preface",
+   "codex1-left",
+   "codex1-right"
   ]
+ },
+ "review_date": "2026-10-18",
+ "schema_version": 1,
+ "sources": {
+  "photius-bekker-combined": {
+   "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft",
+   "edition": "Bekker 1824-1825, combined volumes",
+   "license": "public-domain",
+   "pdf_pages": 600,
+   "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+   "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf"
+  }
+ },
+ "work": "photius.bibliotheca"
 }
