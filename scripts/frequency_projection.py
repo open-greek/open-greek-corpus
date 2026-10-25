@@ -68,7 +68,7 @@ def projection_recipe_pins():
               "repair_hesychius_missing_columns.py", "hesychius_gap_observations.py",
               "capture_hesychius_gap.py", "run_hesychius_gap_ocr.py")
     names += ("hesychius_gap_state.py", "repair_hesychius_gap_readings.py",
-              "hesychius_gap_reading_observations.py")
+              "hesychius_gap_reading_observations.py", "adopt_hesychius_latte_reading.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 

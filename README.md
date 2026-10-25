@@ -69,8 +69,10 @@ literal OCR witnesses and the full word networks preserve contrary readings.
 Readings supported by both model groups or verified against both printed copies
 enter lexical counts. A later occurrence review, aided by TLG entry references,
 resolved 44 of 45 uncertain slots and corrected 16 shared OCR mistakes. Two
-resolved slots were duplicate word fragments; one headword's diacritics remain
-uncertain. The reviewed columns supply 251 eligible Greek tokens. Run
+resolved slots were duplicate word fragments. The final excluded occurrence is
+now explicitly adopted as `ἀΐαχοι` from Latte alpha 8275, while Schmidt's
+uncertain diacritics and all OCR alternatives remain recorded. The columns
+supply 252 eligible Greek tokens, including that one credited editorial adoption. Run
 `make check-hesychius-gap` to replay both layers and verify their exact
 predecessors and source evidence.
 

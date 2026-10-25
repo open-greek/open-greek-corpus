@@ -132,12 +132,14 @@ SOURCE_RECOVERY_INPUTS := scripts/repair_westermann_scope.py scripts/westermann_
                          scripts/capture_hesychius_gap.py scripts/run_hesychius_gap_ocr.py \
                          scripts/hesychius_gap_state.py scripts/repair_hesychius_gap_readings.py \
                          scripts/hesychius_gap_reading_observations.py \
+                         scripts/adopt_hesychius_latte_reading.py \
                          scripts/hesychius_gap_manifestations.py scripts/repair_pindar_duplicate_primaries.py \
                          scripts/pindar_duplicate_manifestations.py \
                          $(shell find data/corpus_changes/westermann-source-review \
                              data/corpus_changes/westermann-1845-scope \
                              data/corpus_changes/hesychius-missing-columns \
                              data/corpus_changes/hesychius-gap-reading-review \
+                             data/corpus_changes/hesychius-latte-reading \
                              data/corpus_changes/pindar-duplicate-primaries -type f 2>/dev/null)
 HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas_readings.py \
                          scripts/fetch_herodas_reading_sources.py scripts/herodas_uncertainty_readings.py \

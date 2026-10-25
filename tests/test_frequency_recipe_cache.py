@@ -17,6 +17,7 @@ import frequency_projection as projection
                                     'assess_photius_historical.py', 'ocr_consensus.py', 'audit_compression.py',
                                     'hesychius_gap_state.py', 'repair_hesychius_gap_readings.py',
                                     'hesychius_gap_reading_observations.py',
+                                    'adopt_hesychius_latte_reading.py',
                                     'prepare_photius_review_campaign.py'])
 def test_imported_eligibility_code_changes_the_recipe_pin(tmp_path, monkeypatch, changed):
     names = tuple(projection.projection_recipe_pins())

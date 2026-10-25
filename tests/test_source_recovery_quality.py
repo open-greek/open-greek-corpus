@@ -48,10 +48,10 @@ def test_real_current_measurements_replay_their_source_authorities():
     assert reading["counts"] == metadata["counts"]
     assert reading["recovered_printed_columns"] == [259, 260]
     assert reading["repair_status"] == "missing-main-text-leaf-recovered"
-    assert reading["counts"]["analysis_greek_tokens"] == 251
+    assert reading["counts"]["analysis_greek_tokens"] == 252
     assert reading["remaining_reading_uncertainty"] == {
-        "unresolved_alignment_slots": 1, "single_checkpoint_slots_excluded": 0,
-        "total_slots_excluded": 1,
+        "unresolved_alignment_slots": 0, "single_checkpoint_slots_excluded": 0,
+        "total_slots_excluded": 0, "editorially_adopted_slots": 1, "unverified_schmidt_slots": 1,
         "count_basis": "Unresolved exact-word alignment slots and singly supported readings in the "
             "two recovered main-text columns. These are not OCR error counts or an error rate."}
     assert reading["authority"]["sha256"] == hesychius.sha((ROOT / metadata["authority"]).read_bytes())
