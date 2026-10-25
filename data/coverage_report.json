@@ -12818,7 +12818,7 @@
   "ingested_partial_works": 116,
   "ingested_via_cgpg_volume": 0,
   "ingested_via_served_parts": 2,
-  "ingested_words_actual": 50603923,
+  "ingested_words_actual": 50603661,
   "partial_missing_words": {
    "actionable": 605754,
    "structural": 569499
@@ -12832,7 +12832,7 @@
   "total_words": 74975998,
   "total_works": 7209,
   "underfilled_50_90_missing_words": {
-   "actionable": 1512744,
+   "actionable": 1513006,
    "structural": 179837
   },
   "underfilled_50_90_works": 450
@@ -13244,7 +13244,7 @@
     "key": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
     "license": "PD",
     "n_passages": 58,
-    "n_tokens": 51522,
+    "n_tokens": 51213,
     "source": "ocr"
    },
    {
@@ -13332,7 +13332,7 @@
     "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
     "license": "PD",
     "n_passages": 45,
-    "n_tokens": 39812,
+    "n_tokens": 39508,
     "source": "ocr"
    },
    {
@@ -13392,20 +13392,20 @@
     "source": "ocr"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
-    "license": "PD",
-    "n_passages": 40,
-    "n_tokens": 37170,
-    "source": "ocr"
-   },
-   {
     "edition": "cgpg",
     "key": "leo-vi-sapiens.novellae-constitutiones",
     "license": "CC-BY-4.0",
     "n_passages": 119,
     "n_tokens": 37023,
     "source": "cgpg"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
+    "license": "PD",
+    "n_passages": 40,
+    "n_tokens": 36926,
+    "source": "ocr"
    },
    {
     "edition": "pta-grc1",
@@ -13468,7 +13468,7 @@
     "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
     "license": "PD",
     "n_passages": 39,
-    "n_tokens": 34366,
+    "n_tokens": 34130,
     "source": "ocr"
    },
    {
@@ -13486,14 +13486,6 @@
     "n_passages": 72,
     "n_tokens": 32099,
     "source": "cgpg"
-   },
-   {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
-    "license": "PD",
-    "n_passages": 34,
-    "n_tokens": 30288,
-    "source": "ocr"
    },
    {
     "edition": "cgpg",
@@ -13526,6 +13518,14 @@
     "n_passages": 82,
     "n_tokens": 29653,
     "source": "first1k"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
+    "license": "PD",
+    "n_passages": 34,
+    "n_tokens": 29627,
+    "source": "ocr"
    },
    {
     "edition": "dfhg",
@@ -16660,7 +16660,7 @@
     "key": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
     "license": "PD",
     "n_passages": 2,
-    "n_tokens": 565,
+    "n_tokens": 561,
     "source": "ocr"
    },
    {
@@ -17088,14 +17088,6 @@
     "source": "ocr"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
-    "license": "PD",
-    "n_passages": 1,
-    "n_tokens": 296,
-    "source": "ocr"
-   },
-   {
     "edition": "cgpg",
     "key": "tatianus.fragmenta",
     "license": "CC-BY-4.0",
@@ -17109,6 +17101,14 @@
     "license": "PD",
     "n_passages": 15,
     "n_tokens": 287,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
+    "license": "PD",
+    "n_passages": 1,
+    "n_tokens": 286,
     "source": "ocr"
    },
    {
@@ -17392,14 +17392,6 @@
     "source": "dfhg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
-    "license": "PD",
-    "n_passages": 1,
-    "n_tokens": 186,
-    "source": "ocr"
-   },
-   {
     "edition": "westermann-1845-source-scoped",
     "key": "joannes-tzetzes.lycophron-tzetzes-westermann",
     "license": "PD",
@@ -17438,6 +17430,14 @@
     "n_passages": 2,
     "n_tokens": 183,
     "source": "first1k"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
+    "license": "PD",
+    "n_passages": 1,
+    "n_tokens": 180,
+    "source": "ocr"
    },
    {
     "edition": "1st1K-grc1",
@@ -19240,7 +19240,7 @@
     "source": "ocr"
    }
   ],
-  "n_tokens": 8359878,
+  "n_tokens": 8358104,
   "works": 800
  },
  "partial_ingestions": [
@@ -21141,6 +21141,17 @@
    "work_id": "050"
   },
   {
+   "author": "Scholia In Aristophanem",
+   "coverage_ratio": 0.836,
+   "ingested_tokens": 26549,
+   "missing_words": 5191,
+   "source": "ocr",
+   "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
+   "tlg_id": "tlg5014",
+   "word_count": 31740,
+   "work_id": "001"
+  },
+  {
    "author": "Joannes Chrysostomus",
    "coverage_ratio": 0.657,
    "ingested_tokens": 9760,
@@ -21150,17 +21161,6 @@
    "tlg_id": "tlg2062",
    "word_count": 14852,
    "work_id": "115"
-  },
-  {
-   "author": "Scholia In Aristophanem",
-   "coverage_ratio": 0.845,
-   "ingested_tokens": 26811,
-   "missing_words": 4929,
-   "source": "ocr",
-   "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
-   "tlg_id": "tlg5014",
-   "word_count": 31740,
-   "work_id": "001"
   },
   {
    "author": "Aelius Herodianus Et Pseudo-Herodianus",
