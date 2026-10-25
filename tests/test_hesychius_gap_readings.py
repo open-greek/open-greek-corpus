@@ -135,3 +135,16 @@ def test_unowned_base_output_is_still_checked(reviewed):
     path.write_bytes(path.read_bytes() + b"\n")
     with pytest.raises(ValueError, match="recovery output changed"):
         state.current_metadata(reviewed)
+
+
+def test_cached_word_counts_cannot_bypass_invalidated_scan(reviewed, monkeypatch):
+    import build_work_lemma_counts as counts
+    monkeypatch.setattr(counts, "DATA", reviewed / "data")
+    monkeypatch.setattr(counts, "MANIFEST", reviewed / "counter-manifest.json")
+    monkeypatch.setattr(counts, "WORK_FORMS", reviewed / "counter-cache")
+    files = [reviewed / review.PRIMARY]
+    expected = counts.load_work_forms(files, use_cache=True)
+    assert counts.load_work_forms(files, use_cache=True) == expected
+    (reviewed / original.AUDIT / "source-evidence/ghent-column-259.png").unlink()
+    with pytest.raises((ValueError, FileNotFoundError)):
+        counts.load_work_forms(files, use_cache=True)

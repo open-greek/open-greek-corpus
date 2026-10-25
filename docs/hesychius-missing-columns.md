@@ -111,3 +111,5 @@ the correction evidence to remain valid. Reapplying reproduces the frozen
 postimage and audit. Unapply this reading layer before undoing the missing-leaf
 recovery. The current-state verifier composes these authorities without editing
 the frozen recovery recipe or waiving any of its other output checks.
+Per-work frequency counters revalidate the source-recovery authorities before
+reuse, so a cached count cannot bypass invalidation of a retained scan.
