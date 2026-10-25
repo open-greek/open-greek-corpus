@@ -1,451 +1,447 @@
 {
-  "schema_version": 1,
-  "work": "photius.bibliotheca",
-  "review_date": "2026-10-18",
-  "purpose": "Recover six additional source-confirmed missing authorial regions with independent scan witnesses; retain source fragments and contextual overlap.",
-  "sources": {
-    "photius-bekker-legacy": {
-      "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
-      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
-      "license": "PD",
-      "citation": "Photius, Bibliotheca, Immanuel Bekker, volume2 (Berlin1825), physical scans79/90/100/148/154/189, printed344/355/365/413/419/454."
-    }
+ "pages": [
+  {
+   "id": "photius-bekker-legacy-0079-left-part01",
+   "max_side": 3600,
+   "printed_page": 344,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0079-left",
+   "region": [
+    0.21,
+    0.105,
+    0.57,
+    0.34775
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 79,
+   "source": "photius-bekker-legacy"
   },
-  "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
-  "source_review": {
-    "path": "data/ingest_reviews/photius-bekker-body-recovery-remaining.json",
-    "sha256": "a345e6ca96c5f20a5d48eee84c94989740c0e5ba4a3a0f3c44d3749e183a2dc0"
+  {
+   "id": "photius-bekker-legacy-0079-left-part02",
+   "max_side": 3600,
+   "printed_page": 344,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0079-left",
+   "region": [
+    0.21,
+    0.34775,
+    0.57,
+    0.488
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 79,
+   "source": "photius-bekker-legacy"
   },
-  "review": {
-    "accepted_for_primary_ingest": false,
-    "source_review_required": true,
-    "independence_policy": "One assembled vote per checkpoint only. No raw inference outcome is accepted without source review; keep all variants and original historical rows."
+  {
+   "id": "photius-bekker-legacy-0079-left-part03",
+   "max_side": 3600,
+   "printed_page": 344,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0079-left",
+   "region": [
+    0.21,
+    0.488,
+    0.57,
+    0.6285
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 79,
+   "source": "photius-bekker-legacy"
   },
-  "pages": [
-    {
-      "id": "photius-bekker-legacy-0079-left-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 79,
-      "printed_page": 344,
-      "region": [
-        0.21,
-        0.105,
-        0.57,
-        0.34775
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0079-left",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0079-left-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 79,
-      "printed_page": 344,
-      "region": [
-        0.21,
-        0.34775,
-        0.57,
-        0.488
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0079-left",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0079-left-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 79,
-      "printed_page": 344,
-      "region": [
-        0.21,
-        0.488,
-        0.57,
-        0.6285
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0079-left",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0079-left-part04",
-      "source": "photius-bekker-legacy",
-      "scan_page": 79,
-      "printed_page": 344,
-      "region": [
-        0.21,
-        0.6285,
-        0.57,
-        0.674
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0079-left",
-      "reading_order": 4,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0090-right-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 90,
-      "printed_page": 355,
-      "region": [
-        0.425,
-        0.11,
-        0.785,
-        0.233
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0090-right",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix."
-    },
-    {
-      "id": "photius-bekker-legacy-0090-right-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 90,
-      "printed_page": 355,
-      "region": [
-        0.425,
-        0.233,
-        0.785,
-        0.3481
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0090-right",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0090-right-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 90,
-      "printed_page": 355,
-      "region": [
-        0.425,
-        0.3481,
-        0.785,
-        0.477
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0090-right",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0090-right-part04",
-      "source": "photius-bekker-legacy",
-      "scan_page": 90,
-      "printed_page": 355,
-      "region": [
-        0.425,
-        0.477,
-        0.785,
-        0.605
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0090-right",
-      "reading_order": 4,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0090-right-part05",
-      "source": "photius-bekker-legacy",
-      "scan_page": 90,
-      "printed_page": 355,
-      "region": [
-        0.425,
-        0.605,
-        0.785,
-        0.695
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0090-right",
-      "reading_order": 5,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0100-left-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 100,
-      "printed_page": 365,
-      "region": [
-        0.06,
-        0.105,
-        0.422,
-        0.2265
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0100-left",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix."
-    },
-    {
-      "id": "photius-bekker-legacy-0100-left-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 100,
-      "printed_page": 365,
-      "region": [
-        0.06,
-        0.2265,
-        0.422,
-        0.35415
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0100-left",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0100-left-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 100,
-      "printed_page": 365,
-      "region": [
-        0.06,
-        0.35415,
-        0.422,
-        0.4844
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0100-left",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0100-left-part04",
-      "source": "photius-bekker-legacy",
-      "scan_page": 100,
-      "printed_page": 365,
-      "region": [
-        0.06,
-        0.4844,
-        0.422,
-        0.5254
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0100-left",
-      "reading_order": 4,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0100-left-part05",
-      "source": "photius-bekker-legacy",
-      "scan_page": 100,
-      "printed_page": 365,
-      "region": [
-        0.06,
-        0.5254,
-        0.422,
-        0.715
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0100-left",
-      "reading_order": 5,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0148-left-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 148,
-      "printed_page": 413,
-      "region": [
-        0.055,
-        0.3025,
-        0.419,
-        0.3886
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0148-left",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "The first two complete source lines contain contextual text before αὐταῖς τοίνυν. Transcribe every visible source word in order; do not trim or summarize the context."
-    },
-    {
-      "id": "photius-bekker-legacy-0148-left-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 148,
-      "printed_page": 413,
-      "region": [
-        0.055,
-        0.3886,
-        0.419,
-        0.53125
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0148-left",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0148-left-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 148,
-      "printed_page": 413,
-      "region": [
-        0.055,
-        0.53125,
-        0.419,
-        0.65
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0148-left",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0154-right-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 154,
-      "printed_page": 419,
-      "region": [
-        0.425,
-        0.13522,
-        0.79,
-        0.276
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0154-right",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix."
-    },
-    {
-      "id": "photius-bekker-legacy-0154-right-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 154,
-      "printed_page": 419,
-      "region": [
-        0.425,
-        0.276,
-        0.79,
-        0.3888
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0154-right",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0154-right-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 154,
-      "printed_page": 419,
-      "region": [
-        0.425,
-        0.3888,
-        0.79,
-        0.5146
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0154-right",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0154-right-part04",
-      "source": "photius-bekker-legacy",
-      "scan_page": 154,
-      "printed_page": 419,
-      "region": [
-        0.425,
-        0.5146,
-        0.79,
-        0.658
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0154-right",
-      "reading_order": 4,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0189-left-part01",
-      "source": "photius-bekker-legacy",
-      "scan_page": 189,
-      "printed_page": 454,
-      "region": [
-        0.235,
-        0.2449,
-        0.594,
-        0.3712
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0189-left",
-      "reading_order": 1,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0189-left-part02",
-      "source": "photius-bekker-legacy",
-      "scan_page": 189,
-      "printed_page": 454,
-      "region": [
-        0.235,
-        0.3712,
-        0.594,
-        0.498
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0189-left",
-      "reading_order": 2,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0189-left-part03",
-      "source": "photius-bekker-legacy",
-      "scan_page": 189,
-      "printed_page": 454,
-      "region": [
-        0.235,
-        0.498,
-        0.594,
-        0.6095
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0189-left",
-      "reading_order": 3,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    },
-    {
-      "id": "photius-bekker-legacy-0189-left-part04",
-      "source": "photius-bekker-legacy",
-      "scan_page": 189,
-      "printed_page": 454,
-      "region": [
-        0.235,
-        0.6095,
-        0.594,
-        0.7
-      ],
-      "max_side": 3600,
-      "reconstructs": "photius-bekker-legacy-0189-left",
-      "reading_order": 4,
-      "role": "missing-authorial-body",
-      "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments."
-    }
-  ]
+  {
+   "id": "photius-bekker-legacy-0079-left-part04",
+   "max_side": 3600,
+   "printed_page": 344,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 4,
+   "reconstructs": "photius-bekker-legacy-0079-left",
+   "region": [
+    0.21,
+    0.6285,
+    0.57,
+    0.674
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 79,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0090-right-part01",
+   "max_side": 3600,
+   "printed_page": 355,
+   "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0090-right",
+   "region": [
+    0.425,
+    0.11,
+    0.785,
+    0.233
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 90,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0090-right-part02",
+   "max_side": 3600,
+   "printed_page": 355,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0090-right",
+   "region": [
+    0.425,
+    0.233,
+    0.785,
+    0.3481
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 90,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0090-right-part03",
+   "max_side": 3600,
+   "printed_page": 355,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0090-right",
+   "region": [
+    0.425,
+    0.3481,
+    0.785,
+    0.477
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 90,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0090-right-part04",
+   "max_side": 3600,
+   "printed_page": 355,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 4,
+   "reconstructs": "photius-bekker-legacy-0090-right",
+   "region": [
+    0.425,
+    0.477,
+    0.785,
+    0.605
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 90,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0090-right-part05",
+   "max_side": 3600,
+   "printed_page": 355,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 5,
+   "reconstructs": "photius-bekker-legacy-0090-right",
+   "region": [
+    0.425,
+    0.605,
+    0.785,
+    0.695
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 90,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0100-left-part01",
+   "max_side": 3600,
+   "printed_page": 365,
+   "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0100-left",
+   "region": [
+    0.06,
+    0.105,
+    0.422,
+    0.2265
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 100,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0100-left-part02",
+   "max_side": 3600,
+   "printed_page": 365,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0100-left",
+   "region": [
+    0.06,
+    0.2265,
+    0.422,
+    0.35415
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 100,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0100-left-part03",
+   "max_side": 3600,
+   "printed_page": 365,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0100-left",
+   "region": [
+    0.06,
+    0.35415,
+    0.422,
+    0.4844
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 100,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0100-left-part04",
+   "max_side": 3600,
+   "printed_page": 365,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 4,
+   "reconstructs": "photius-bekker-legacy-0100-left",
+   "region": [
+    0.06,
+    0.4844,
+    0.422,
+    0.5254
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 100,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0100-left-part05",
+   "max_side": 3600,
+   "printed_page": 365,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 5,
+   "reconstructs": "photius-bekker-legacy-0100-left",
+   "region": [
+    0.06,
+    0.5254,
+    0.422,
+    0.715
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 100,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0148-left-part01",
+   "max_side": 3600,
+   "printed_page": 413,
+   "prompt_suffix": "The first two complete source lines contain contextual text before αὐταῖς τοίνυν. Transcribe every visible source word in order; do not trim or summarize the context.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0148-left",
+   "region": [
+    0.055,
+    0.3025,
+    0.419,
+    0.3886
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 148,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0148-left-part02",
+   "max_side": 3600,
+   "printed_page": 413,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0148-left",
+   "region": [
+    0.055,
+    0.3886,
+    0.419,
+    0.53125
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 148,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0148-left-part03",
+   "max_side": 3600,
+   "printed_page": 413,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0148-left",
+   "region": [
+    0.055,
+    0.53125,
+    0.419,
+    0.65
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 148,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0154-right-part01",
+   "max_side": 3600,
+   "printed_page": 419,
+   "prompt_suffix": "The first printed token is a continuation fragment. Transcribe only its visible letters; never supply its missing prefix.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0154-right",
+   "region": [
+    0.425,
+    0.13522,
+    0.79,
+    0.276
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 154,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0154-right-part02",
+   "max_side": 3600,
+   "printed_page": 419,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0154-right",
+   "region": [
+    0.425,
+    0.276,
+    0.79,
+    0.3888
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 154,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0154-right-part03",
+   "max_side": 3600,
+   "printed_page": 419,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0154-right",
+   "region": [
+    0.425,
+    0.3888,
+    0.79,
+    0.5146
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 154,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0154-right-part04",
+   "max_side": 3600,
+   "printed_page": 419,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 4,
+   "reconstructs": "photius-bekker-legacy-0154-right",
+   "region": [
+    0.425,
+    0.5146,
+    0.79,
+    0.658
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 154,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0189-left-part01",
+   "max_side": 3600,
+   "printed_page": 454,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 1,
+   "reconstructs": "photius-bekker-legacy-0189-left",
+   "region": [
+    0.235,
+    0.2449,
+    0.594,
+    0.3712
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 189,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0189-left-part02",
+   "max_side": 3600,
+   "printed_page": 454,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 2,
+   "reconstructs": "photius-bekker-legacy-0189-left",
+   "region": [
+    0.235,
+    0.3712,
+    0.594,
+    0.498
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 189,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0189-left-part03",
+   "max_side": 3600,
+   "printed_page": 454,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 3,
+   "reconstructs": "photius-bekker-legacy-0189-left",
+   "region": [
+    0.235,
+    0.498,
+    0.594,
+    0.6095
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 189,
+   "source": "photius-bekker-legacy"
+  },
+  {
+   "id": "photius-bekker-legacy-0189-left-part04",
+   "max_side": 3600,
+   "printed_page": 454,
+   "prompt_suffix": "Preserve all visible Greek authorial headings and literal line-end fragments.",
+   "reading_order": 4,
+   "reconstructs": "photius-bekker-legacy-0189-left",
+   "region": [
+    0.235,
+    0.6095,
+    0.594,
+    0.7
+   ],
+   "role": "missing-authorial-body",
+   "scan_page": 189,
+   "source": "photius-bekker-legacy"
+  }
+ ],
+ "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+ "purpose": "Recover six additional source-confirmed missing authorial regions with independent scan witnesses; retain source fragments and contextual overlap.",
+ "review": {
+  "accepted_for_primary_ingest": false,
+  "independence_policy": "One assembled vote per checkpoint only. No raw inference outcome is accepted without source review; keep all variants and original historical rows.",
+  "source_review_required": true
+ },
+ "review_date": "2026-10-18",
+ "schema_version": 1,
+ "sources": {
+  "photius-bekker-legacy": {
+   "citation": "Photius, Bibliotheca, Immanuel Bekker, volume2 (Berlin1825), physical scans79/90/100/148/154/189, printed344/355/365/413/419/454.",
+   "license": "PD",
+   "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+   "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf"
+  }
+ },
+ "work": "photius.bibliotheca"
 }

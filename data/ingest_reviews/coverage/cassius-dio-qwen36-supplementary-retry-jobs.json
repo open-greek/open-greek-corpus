@@ -1,123 +1,195 @@
 {
- "schema_version": 1,
  "generated_by": "scripts/prepare_dio_ocr_supplements.py",
- "purpose": "Additional source-reviewed attempts; retain the unchanged first retry request and every original outcome.",
- "sources": {
-  "dios-roman-history.-vol.-1-loeb-32": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf",
-   "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32"
+ "nonlexical_source_regions": {},
+ "pages": [
+  {
+   "admission": "comparative-paratext",
+   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-1",
+   "max_side": 3200,
+   "panel_role": "comparison",
+   "printed_page": 378,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 1,
+   "reconstructs": "dio-cary-v2-pdf0195-comparison",
+   "region": [
+    0.04,
+    0.4542,
+    0.47,
+    0.6115
+   ],
+   "scan_page": 195,
+   "source": "dios-roman-history.-vol.-2-loeb-37",
+   "source_volume": 2,
+   "transmission": "comparative-quotation",
+   "work": "cassius-dio.historiae-romanae"
   },
-  "dios-roman-history.-vol.-2-loeb-37": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf",
-   "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37"
+  {
+   "admission": "comparative-paratext",
+   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-2",
+   "max_side": 3200,
+   "panel_role": "comparison",
+   "printed_page": 378,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 2,
+   "reconstructs": "dio-cary-v2-pdf0195-comparison",
+   "region": [
+    0.04,
+    0.6115,
+    0.47,
+    0.737
+   ],
+   "scan_page": 195,
+   "source": "dios-roman-history.-vol.-2-loeb-37",
+   "source_volume": 2,
+   "transmission": "comparative-quotation",
+   "work": "cassius-dio.historiae-romanae"
   },
-  "dios-roman-history.-vol.-6-loeb-83": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf",
-   "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83"
+  {
+   "admission": "comparative-paratext",
+   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-3",
+   "max_side": 3200,
+   "panel_role": "comparison",
+   "printed_page": 378,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 3,
+   "reconstructs": "dio-cary-v2-pdf0195-comparison",
+   "region": [
+    0.04,
+    0.737,
+    0.47,
+    0.882
+   ],
+   "scan_page": 195,
+   "source": "dios-roman-history.-vol.-2-loeb-37",
+   "source_volume": 2,
+   "transmission": "comparative-quotation",
+   "work": "cassius-dio.historiae-romanae"
   },
-  "dios-roman-history.-vol.-7-loeb-175": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf",
-   "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175"
+  {
+   "admission": "candidate-reading-pending-collation",
+   "id": "dio-cary-v7-pdf0107-supplement-strip-1",
+   "max_side": 3200,
+   "printed_page": 204,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 1,
+   "reconstructs": "dio-cary-v7-pdf0107",
+   "region": [
+    0.04,
+    0.105,
+    0.47,
+    0.326
+   ],
+   "scan_page": 107,
+   "source": "dios-roman-history.-vol.-7-loeb-175",
+   "source_volume": 7,
+   "transmission": "direct-text-with-excerpts-and-summaries",
+   "work": "cassius-dio.historiae-romanae"
   },
-  "dios-roman-history.-vol.-8-loeb-176": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf",
-   "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176"
+  {
+   "admission": "candidate-reading-pending-collation",
+   "id": "dio-cary-v7-pdf0107-supplement-strip-2",
+   "max_side": 3200,
+   "printed_page": 204,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 2,
+   "reconstructs": "dio-cary-v7-pdf0107",
+   "region": [
+    0.04,
+    0.326,
+    0.47,
+    0.5385
+   ],
+   "scan_page": 107,
+   "source": "dios-roman-history.-vol.-7-loeb-175",
+   "source_volume": 7,
+   "transmission": "direct-text-with-excerpts-and-summaries",
+   "work": "cassius-dio.historiae-romanae"
   },
-  "dios-roman-history.-vol.-9-loeb-177": {
-   "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf",
-   "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
-   "license": "public-domain",
-   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
-   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
-   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
+  {
+   "admission": "candidate-reading-pending-collation",
+   "id": "dio-cary-v7-pdf0107-supplement-strip-3",
+   "max_side": 3200,
+   "printed_page": 204,
+   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip.",
+   "reading_order": 3,
+   "reconstructs": "dio-cary-v7-pdf0107",
+   "region": [
+    0.04,
+    0.5385,
+    0.47,
+    0.7625
+   ],
+   "scan_page": 107,
+   "source": "dios-roman-history.-vol.-7-loeb-175",
+   "source_volume": 7,
+   "transmission": "direct-text-with-excerpts-and-summaries",
+   "work": "cassius-dio.historiae-romanae"
   }
- },
+ ],
  "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+ "purpose": "Additional source-reviewed attempts; retain the unchanged first retry request and every original outcome.",
  "retry_of": {
-  "path": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
-  "sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0",
   "model": "Qwen/Qwen3.6-27B-FP8",
-  "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+  "path": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
   "region_ids": [
    "dio-cary-v2-pdf0195-comparison",
    "dio-cary-v7-pdf0107"
-  ]
+  ],
+  "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+  "sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0"
  },
  "review": {
-  "reviewed_at": "2026-10-18",
   "original_predictions": {
    "dio-cary-v2-pdf0195-comparison": {
     "artifact_sha256": "e01fb452490b22127dd2040ea5b13b3170a49d16cc65e623eded354ab68dfbe5",
     "original_metadata": {
-     "model": "Qwen/Qwen3.6-27B-FP8",
-     "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
-     "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
-     "temperature": 0,
-     "max_tokens": 12000,
      "backend": "http",
-     "manifest_sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf",
-     "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
      "manifest_archive": "manifests/bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf.json",
+     "manifest_sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf",
+     "max_tokens": 12000,
+     "model": "Qwen/Qwen3.6-27B-FP8",
+     "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
      "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+     "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+     "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
      "runtime": {
-      "model": "Qwen/Qwen3.6-27B-FP8",
-      "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
-      "versions": {
-       "vllm": "0.17.1",
-       "torch": "2.10.0",
-       "transformers": "4.57.6",
-       "huggingface-hub": "0.36.2"
-      },
       "cuda": "12.8",
       "gpu": "NVIDIA RTX 5880 Ada Generation",
+      "model": "Qwen/Qwen3.6-27B-FP8",
+      "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
       "settings": {
+       "gpu_memory_utilization": 0.9,
+       "images_per_prompt": 1,
        "max_model_len": 16384,
        "max_num_seqs": 8,
-       "gpu_memory_utilization": 0.9,
-       "reasoning_parser": "qwen3",
-       "images_per_prompt": 1
+       "reasoning_parser": "qwen3"
+      },
+      "versions": {
+       "huggingface-hub": "0.36.2",
+       "torch": "2.10.0",
+       "transformers": "4.57.6",
+       "vllm": "0.17.1"
       }
-     }
+     },
+     "temperature": 0
     },
     "original_prediction": {
+     "finish_reason": "stop",
+     "generation_tokens": 349,
      "id": "dio-cary-v2-pdf0195-comparison",
-     "source": "dios-roman-history.-vol.-2-loeb-37",
-     "scan_page": 195,
+     "image_sha256": "cdf239df836d824a2ba84f8e7ef209696d53311c8378bfbb6c2586c265b8a44a",
+     "prompt_sha256": "84e40873c59e7fe9cf50066875abbc282042c55bcd9ef19bd6ea61f24c127bf8",
+     "raw_prediction": "Zonaras 9, 27.\nτριος ην· δι' α και τον φθόνον εξεφυγεν. ἴσος\nμεν γαρ τοις υποδεεστεροις, ουκ αμεινων δε των\nομοτιμων (εχιλιαρχει γαρ), ασθενεστερος δε των\nμειζονων ηξιου ειναι. ο ουν Μανίλιος και ειπε\nτα περι αυτου, και επεστειλε τοις εν τη 'Ρωμη\nμη τι αποκρυψαμενος, και ταλλα και τα κατα\nΜασινίσσαν και τον Φαμεαν· α εσχον ουτως.\nΟνησκων ο Μασινίσσας ητορει οπως περι της\nβασιλειας διαθηται, δια τε το των υιων πληθος\nκαι το διαφορον του κατα τας μητερας γενους\nαυτων. διο προς συμβουλιαν τον Σκιπίωνα\nμετεπεμψατο· ον ο υπατος εστειλεν. αλλ' ο\nΜασινίσσας πριν ελθειν τον Σκιπίωνα εκλειπων\nτον μεν δακτυλιον τω Μικίψα τω υιφ εδωκε, τα\nδ' αλλα παντα τα τη αρχη προσηκοντα τω Σκι-\nπιωνι αρτι ελθοντι παρεσχεν και ενετειλατο. ο\n378",
      "region": [
       0,
       0.4542,
       0.5,
       0.94
      ],
-     "image_sha256": "cdf239df836d824a2ba84f8e7ef209696d53311c8378bfbb6c2586c265b8a44a",
-     "prompt_sha256": "84e40873c59e7fe9cf50066875abbc282042c55bcd9ef19bd6ea61f24c127bf8",
-     "raw_prediction": "Zonaras 9, 27.\nτριος ην· δι' α και τον φθόνον εξεφυγεν. ἴσος\nμεν γαρ τοις υποδεεστεροις, ουκ αμεινων δε των\nομοτιμων (εχιλιαρχει γαρ), ασθενεστερος δε των\nμειζονων ηξιου ειναι. ο ουν Μανίλιος και ειπε\nτα περι αυτου, και επεστειλε τοις εν τη 'Ρωμη\nμη τι αποκρυψαμενος, και ταλλα και τα κατα\nΜασινίσσαν και τον Φαμεαν· α εσχον ουτως.\nΟνησκων ο Μασινίσσας ητορει οπως περι της\nβασιλειας διαθηται, δια τε το των υιων πληθος\nκαι το διαφορον του κατα τας μητερας γενους\nαυτων. διο προς συμβουλιαν τον Σκιπίωνα\nμετεπεμψατο· ον ο υπατος εστειλεν. αλλ' ο\nΜασινίσσας πριν ελθειν τον Σκιπίωνα εκλειπων\nτον μεν δακτυλιον τω Μικίψα τω υιφ εδωκε, τα\nδ' αλλα παντα τα τη αρχη προσηκοντα τω Σκι-\nπιωνι αρτι ελθοντι παρεσχεν και ενετειλατο. ο\n378",
-     "finish_reason": "stop",
-     "generation_tokens": 349,
-     "seconds": 26.82
+     "scan_page": 195,
+     "seconds": 26.82,
+     "source": "dios-roman-history.-vol.-2-loeb-37"
     },
-    "source_evidence": "Cary II printed378, the lower Zonaras9.27 comparative panel, is polytonic throughout. Both original checkpoint readings lose nearly all accents and breathings. Three enlarged strips retain the Zonaras reference, every Greek paragraph and the final printed ὁ. The bottom edge lies below that line and above the printed page number; no apparatus or dot band occurs in this panel.",
-    "source_pdf_sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
     "original_region": [
      0,
      0.4542,
@@ -143,40 +215,40 @@
       0.47,
       0.882
      ]
-    ]
+    ],
+    "source_pdf_sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c"
    },
    "dio-cary-v7-pdf0107": {
     "artifact_sha256": "0dda261fedaa188608e2cf5583930075bca72516bfc63de68974528567f8a3d2",
     "original_metadata": {
-     "model": "Qwen/Qwen3.6-27B-FP8",
-     "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
-     "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
-     "temperature": 0,
-     "max_tokens": 12000,
      "backend": "http",
-     "manifest_sha256": "fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d",
-     "runner": "scripts/run_scan_ocr_shard.py",
-     "runner_sha256": "a045f0c7c70f9aecaf04bacb47d2f57756e55c94c772ddcdfcf8dc1df437b0a3",
      "image_and_http_helper_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
      "manifest_archive": "manifests/fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d.json",
+     "manifest_sha256": "fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d",
+     "max_tokens": 12000,
+     "model": "Qwen/Qwen3.6-27B-FP8",
+     "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
      "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+     "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+     "runner": "scripts/run_scan_ocr_shard.py",
+     "runner_sha256": "a045f0c7c70f9aecaf04bacb47d2f57756e55c94c772ddcdfcf8dc1df437b0a3",
      "runtime": {
-      "model": "Qwen/Qwen3.6-27B-FP8",
-      "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
-      "versions": {
-       "vllm": "0.17.1",
-       "torch": "2.10.0",
-       "transformers": "4.57.6",
-       "huggingface-hub": "0.36.2"
-      },
       "cuda": "12.8",
       "gpu": "NVIDIA RTX 5880 Ada Generation",
+      "model": "Qwen/Qwen3.6-27B-FP8",
+      "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
       "settings": {
+       "gpu_memory_utilization": 0.9,
+       "images_per_prompt": 1,
        "max_model_len": 16384,
        "max_num_seqs": 8,
-       "gpu_memory_utilization": 0.9,
-       "reasoning_parser": "qwen3",
-       "images_per_prompt": 1
+       "reasoning_parser": "qwen3"
+      },
+      "versions": {
+       "huggingface-hub": "0.36.2",
+       "torch": "2.10.0",
+       "transformers": "4.57.6",
+       "vllm": "0.17.1"
       }
      },
      "shard": {
@@ -553,29 +625,28 @@
        "dio-cary-v8-pdf0113",
        "dio-cary-v8-pdf0114"
       ],
-      "selection_sha256": "5b3afa59b34a6c41b8277dbbf4ed4973926d5d49a9c52f506f357b3ab349b600",
-      "selection_archive": "selections/5b3afa59b34a6c41b8277dbbf4ed4973926d5d49a9c52f506f357b3ab349b600.json"
-     }
+      "selection_archive": "selections/5b3afa59b34a6c41b8277dbbf4ed4973926d5d49a9c52f506f357b3ab349b600.json",
+      "selection_sha256": "5b3afa59b34a6c41b8277dbbf4ed4973926d5d49a9c52f506f357b3ab349b600"
+     },
+     "temperature": 0
     },
     "original_prediction": {
+     "finish_reason": "length",
+     "generation_tokens": 11598,
      "id": "dio-cary-v7-pdf0107",
-     "source": "dios-roman-history.-vol.-7-loeb-175",
-     "scan_page": 107,
+     "image_sha256": "c80f2434738ff44d61e664f4e3d94900e6ed65a96096c7b9c49b3912a133ded1",
+     "prompt_sha256": "84e40873c59e7fe9cf50066875abbc282042c55bcd9ef19bd6ea61f24c127bf8",
+     "raw_prediction": "DIO'S ROMAN HISTORY\nκαὶ δι' ὀλίγου τὰ ἐναντιώτατα ἀκούοντες, καὶ\nμήτε τὸν Σεῖανὸν θαυμάζειν ἔτι ἢ καὶ καταφρονεῖν\nἔχοντες, ἕς τε τὸν Τιβέριον ὡς καὶ τεθνήξοντα ἢ\nκαὶ ἥξοντα ὑποπτεύοντες, ἐν ἀμφιβόλῳ ἐγίγνοντο.\n7 Σεῖανὸν μὲν οὖν ταῦτά τε ἐτάραττε, καὶ πολλῷ\nμᾶλλον ὅτι ἐξ ἀνδριάντος τινὸς αὐτοῦ τὰ μὲν\nπρῶτα καπνὸς πολὺς ἀνέθορεν, ἔπειτα δὲ ἀφαι-\nρεθείσης¹ τῆς κεφαλῆς ὅπως τὸ γιγνόμενον ἴδωσιν,\nὄφις μέγας ἀνεπήδησεν, ἑτέρας τε εὐθὺς ἀντεπι-\n2 τεθείσης αὐτῷ, καὶ διὰ τοῦτ' ἐκείνου² θύσειν\nἑαυτῷ μέλλοντος (τὰ τε γὰρ [Xiph. 146, 30-149, 6]\nἄλλα³ καὶ ἑαυτῷ ἔθνε), σχοινίον περὶ τὸν αὐχένα\nαὐτοῦ περικείμενον εὑρέθη. Τύχης τέ τι ἄγαλμα,\nὃ ἐγεγόνει μέν, ὡς φασί, Τουλλίου⁴ τοῦ βασι-\nλεύσαντός ποτε ἐν τῇ Ῥώμῃ, τότε δὲ ὁ Σεῖανὸς⁵\n3 οἴκοι τε εἶχε καὶ μεγάλως ἤγαλλεν, αὐτὸς τε\nθὺν εἶδεν ἀποστρεφόμενον . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
      "region": [
       0,
       0,
       0.5,
       0.7625
      ],
-     "image_sha256": "c80f2434738ff44d61e664f4e3d94900e6ed65a96096c7b9c49b3912a133ded1",
-     "prompt_sha256": "84e40873c59e7fe9cf50066875abbc282042c55bcd9ef19bd6ea61f24c127bf8",
-     "raw_prediction": "DIO'S ROMAN HISTORY\nκαὶ δι' ὀλίγου τὰ ἐναντιώτατα ἀκούοντες, καὶ\nμήτε τὸν Σεῖανὸν θαυμάζειν ἔτι ἢ καὶ καταφρονεῖν\nἔχοντες, ἕς τε τὸν Τιβέριον ὡς καὶ τεθνήξοντα ἢ\nκαὶ ἥξοντα ὑποπτεύοντες, ἐν ἀμφιβόλῳ ἐγίγνοντο.\n7 Σεῖανὸν μὲν οὖν ταῦτά τε ἐτάραττε, καὶ πολλῷ\nμᾶλλον ὅτι ἐξ ἀνδριάντος τινὸς αὐτοῦ τὰ μὲν\nπρῶτα καπνὸς πολὺς ἀνέθορεν, ἔπειτα δὲ ἀφαι-\nρεθείσης¹ τῆς κεφαλῆς ὅπως τὸ γιγνόμενον ἴδωσιν,\nὄφις μέγας ἀνεπήδησεν, ἑτέρας τε εὐθὺς ἀντεπι-\n2 τεθείσης αὐτῷ, καὶ διὰ τοῦτ' ἐκείνου² θύσειν\nἑαυτῷ μέλλοντος (τὰ τε γὰρ [Xiph. 146, 30-149, 6]\nἄλλα³ καὶ ἑαυτῷ ἔθνε), σχοινίον περὶ τὸν αὐχένα\nαὐτοῦ περικείμενον εὑρέθη. Τύχης τέ τι ἄγαλμα,\nὃ ἐγεγόνει μέν, ὡς φασί, Τουλλίου⁴ τοῦ βασι-\nλεύσαντός ποτε ἐν τῇ Ῥώμῃ, τότε δὲ ὁ Σεῖανὸς⁵\n3 οἴκοι τε εἶχε καὶ μεγάλως ἤγαλλεν, αὐτὸς τε\nθὺν εἶδεν ἀποστρεφόμενον . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-     "finish_reason": "length",
-     "generation_tokens": 11598,
-     "seconds": 699.327
+     "scan_page": 107,
+     "seconds": 699.327,
+     "source": "dios-roman-history.-vol.-7-loeb-175"
     },
-    "source_evidence": "Cary VII printed204 contains full Greek prose and one finite dot sequence following θύων εἶδεν ἀποστρεφόμενον. The pinned Qwen3.6 attempt reaches its length limit. All body lines, the Xiphilinus reference and the finite dot row remain in the three enlarged strips. The top edge excludes the English running header; the prior bottom apparatus boundary is preserved.",
-    "source_pdf_sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
     "original_region": [
      0,
      0,
@@ -601,144 +672,68 @@
       0.47,
       0.7625
      ]
-    ]
+    ],
+    "source_pdf_sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e"
    }
   },
+  "policy": "Require every complete successful strip and a completed source comparison. Retain the exact original prediction and all successful siblings. Replace this checkpoint's input once; never add a second vote or invent joined spelling.",
+  "reviewed_at": "2026-10-18",
   "source_rendered_evidence": [
    {
-    "sha256": "4d5e269c4bf4f2ff2ce5205091cdfb32ef1a107f02c550bc3d89c27de3e0d4e2",
-    "description": "Source-rendered details of both internal boundaries for Cary II195 comparison, VII107 and VI206 first-strip children; all six edges inspected in the pixels."
+    "description": "Source-rendered details of both internal boundaries for Cary II195 comparison, VII107 and VI206 first-strip children; all six edges inspected in the pixels.",
+    "sha256": "4d5e269c4bf4f2ff2ce5205091cdfb32ef1a107f02c550bc3d89c27de3e0d4e2"
    }
-  ],
-  "policy": "Require every complete successful strip and a completed source comparison. Retain the exact original prediction and all successful siblings. Replace this checkpoint's input once; never add a second vote or invent joined spelling."
+  ]
  },
- "nonlexical_source_regions": {},
- "pages": [
-  {
-   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-1",
-   "source": "dios-roman-history.-vol.-2-loeb-37",
-   "scan_page": 195,
-   "region": [
-    0.04,
-    0.4542,
-    0.47,
-    0.6115
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 2,
-   "transmission": "comparative-quotation",
-   "admission": "comparative-paratext",
-   "printed_page": 378,
-   "panel_role": "comparison",
-   "attribution_heading": null,
-   "reconstructs": "dio-cary-v2-pdf0195-comparison",
-   "reading_order": 1,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+ "schema_version": 1,
+ "sources": {
+  "dios-roman-history.-vol.-1-loeb-32": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf"
   },
-  {
-   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-2",
-   "source": "dios-roman-history.-vol.-2-loeb-37",
-   "scan_page": 195,
-   "region": [
-    0.04,
-    0.6115,
-    0.47,
-    0.737
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 2,
-   "transmission": "comparative-quotation",
-   "admission": "comparative-paratext",
-   "printed_page": 378,
-   "panel_role": "comparison",
-   "attribution_heading": null,
-   "reconstructs": "dio-cary-v2-pdf0195-comparison",
-   "reading_order": 2,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+  "dios-roman-history.-vol.-2-loeb-37": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf"
   },
-  {
-   "id": "dio-cary-v2-pdf0195-comparison-supplement-strip-3",
-   "source": "dios-roman-history.-vol.-2-loeb-37",
-   "scan_page": 195,
-   "region": [
-    0.04,
-    0.737,
-    0.47,
-    0.882
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 2,
-   "transmission": "comparative-quotation",
-   "admission": "comparative-paratext",
-   "printed_page": 378,
-   "panel_role": "comparison",
-   "attribution_heading": null,
-   "reconstructs": "dio-cary-v2-pdf0195-comparison",
-   "reading_order": 3,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+  "dios-roman-history.-vol.-6-loeb-83": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf"
   },
-  {
-   "id": "dio-cary-v7-pdf0107-supplement-strip-1",
-   "source": "dios-roman-history.-vol.-7-loeb-175",
-   "scan_page": 107,
-   "region": [
-    0.04,
-    0.105,
-    0.47,
-    0.326
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 7,
-   "transmission": "direct-text-with-excerpts-and-summaries",
-   "admission": "candidate-reading-pending-collation",
-   "printed_page": 204,
-   "reconstructs": "dio-cary-v7-pdf0107",
-   "reading_order": 1,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+  "dios-roman-history.-vol.-7-loeb-175": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf"
   },
-  {
-   "id": "dio-cary-v7-pdf0107-supplement-strip-2",
-   "source": "dios-roman-history.-vol.-7-loeb-175",
-   "scan_page": 107,
-   "region": [
-    0.04,
-    0.326,
-    0.47,
-    0.5385
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 7,
-   "transmission": "direct-text-with-excerpts-and-summaries",
-   "admission": "candidate-reading-pending-collation",
-   "printed_page": 204,
-   "reconstructs": "dio-cary-v7-pdf0107",
-   "reading_order": 2,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+  "dios-roman-history.-vol.-8-loeb-176": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf"
   },
-  {
-   "id": "dio-cary-v7-pdf0107-supplement-strip-3",
-   "source": "dios-roman-history.-vol.-7-loeb-175",
-   "scan_page": 107,
-   "region": [
-    0.04,
-    0.5385,
-    0.47,
-    0.7625
-   ],
-   "max_side": 3200,
-   "work": "cassius-dio.historiae-romanae",
-   "source_volume": 7,
-   "transmission": "direct-text-with-excerpts-and-summaries",
-   "admission": "candidate-reading-pending-collation",
-   "printed_page": 204,
-   "reconstructs": "dio-cary-v7-pdf0107",
-   "reading_order": 3,
-   "prompt_suffix": "This image is one enlarged strip of the reviewed Greek body. Copy every visible accent and breathing mark. Printed lacuna dots are finite: copy each visible dot sequence once, then continue immediately with the next visible word or printed line. Never extend or repeat a dot sequence, word, or line. Preserve source attribution references and printed hyphens. Do not join a word across the image boundary. Return only the transcription of this strip."
+  "dios-roman-history.-vol.-9-loeb-177": {
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
+   "license": "public-domain",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+   "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf"
   }
- ]
+ }
 }

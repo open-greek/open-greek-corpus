@@ -1,86 +1,81 @@
 {
- "schema_version": 1,
  "decision": "replace-only-source-reviewed-Qwen3.6-attempts",
- "reviewed_at": "2026-10-18T08:14:15.440554+00:00",
- "original_sha256": "89906fcbfa14616a9031ebeb8b1cd35b949a2afa986ac64cbe3db726a45db3e8",
- "retry_sha256": "c71c0a0982324822b5031abe2c0e50b4718313fbc491d8125b43f70fa0ee68f4",
  "manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
- "retry_manifest_sha256": "be9629a9614c9c7e2cd7a99672aaa3caa75bea0cdc6dad091e6fd848060a76df",
+ "original_sha256": "89906fcbfa14616a9031ebeb8b1cd35b949a2afa986ac64cbe3db726a45db3e8",
  "pages": {
   "apolloniipergaei01apoluoft-pdf0190": {
-   "original_prediction_sha256": "ebf87d3a06f22a6412dea3e76cfb584efbecc3d259a68b6183e8e903fe949051",
-   "strip_sha256s": [
-    "d777c1a0e220feab5a4c1a47b451020c163ffb875c4c4f0ca7e872aabb7fe2b5",
-    "0f40def833b6be53f57a70b685e8769d5531315c712e863689762c35425dcca9",
-    "7f6b8b961c0aaf94aa282bb7205a8917fb7b84eda6aa919129053da3fe4fe469"
-   ],
+   "assembled_text_sha256": "a24f9db439c7e8b8fb3cf91c3590b3af23fc60c4fd85c047eee44118e610bba0",
    "image_sha256s": [
     "67618e0966176b69dcbfd7553e86ba76f7dea4a5454b557d486a4f37bcccaaa9",
     "de9bdde193c6a3f33c0aea011cba5fa723971c9770eee0ca1e94ffd7666abcd5",
     "9b19b8f3604aabef974f940d893d23f257aa418cf64d0edb1f55706b6407e412"
    ],
-   "assembled_text_sha256": "a24f9db439c7e8b8fb3cf91c3590b3af23fc60c4fd85c047eee44118e610bba0",
-   "source_evidence": "Completed comparison of all three enlarged strips against every printed body line on PDF190/printed172. The proposition label and opening Μὴ ἔστω δὴ ἡ δεδομένη γωνία ὀρθή, the two crop transitions after ποιοῦσα τὸν and πλαγία μὲν πλευρὰ, and the final καὶ ἐπεὶ ἔστιν ὡς are retained in order. Printed accents and breathings are represented throughout the retry, whereas the original lost nearly all. No running header, apparatus, duplicated body block or omitted body line observed. Remaining character/mark and geometry-label errors are unchanged model readings and must remain explicit in the two-model vote; this review does not adjudicate every token."
+   "original_prediction_sha256": "ebf87d3a06f22a6412dea3e76cfb584efbecc3d259a68b6183e8e903fe949051",
+   "strip_sha256s": [
+    "d777c1a0e220feab5a4c1a47b451020c163ffb875c4c4f0ca7e872aabb7fe2b5",
+    "0f40def833b6be53f57a70b685e8769d5531315c712e863689762c35425dcca9",
+    "7f6b8b961c0aaf94aa282bb7205a8917fb7b84eda6aa919129053da3fe4fe469"
+   ]
   },
   "apolloniipergaei01apoluoft-pdf0232": {
-   "original_prediction_sha256": "e8ba071c0d32048222b60274557b134c8e885ec40e8fa3a29f668e33285d856d",
-   "strip_sha256s": [
-    "8da389c942281e36445f843cc2b4541bff559438f6e8558c4da49c60e62609fe",
-    "44b7189f80582fd79c4db058bf82e1a0adceefaf8a5f91bc5c2fe1b066c5ac0d",
-    "e4b3b3d71ed4f8807f12543677ac1ba84a9086a66f6e965a99434061a4ae27bf"
-   ],
+   "assembled_text_sha256": "dcbd877ddecaa791a6203587fd5bd9d233c869bcc8a8596d67d7de96ab194687",
    "image_sha256s": [
     "3ee525f2ba876a41925740fbc9b84066fe6b1c6cabc84a1e03b2bbeba53ca1bc",
     "0b1d6c04b272d94086719a2a6bb08bab0f30643172b299ce724fd6c1dfda7eff",
     "79fa9e33fe07050776a52057950c373d60ce9a70efd07adad328be96ea482946"
    ],
-   "assembled_text_sha256": "dcbd877ddecaa791a6203587fd5bd9d233c869bcc8a8596d67d7de96ab194687",
-   "source_evidence": "Completed comparison of all three enlarged strips against every printed body line on PDF232/printed214. Opening δέ τι σημεῖον ἕτερον, the complete first proof, proposition ιγ, its Ἐὰν heading, and the final ὅπερ are retained. Crop transitions occur after ὑπὸ ΘΗΚ and συμπεσεῖται τῇ τομῇ. Accents and breathings reappear throughout rather than the unmarked original. No apparatus or running header included and no duplicated or missing body block observed. Literal OCR disagreements, including labels and individual marks, remain for the two-model consensus; no dictionary corrections or automatic witness selection were made."
+   "original_prediction_sha256": "e8ba071c0d32048222b60274557b134c8e885ec40e8fa3a29f668e33285d856d",
+   "strip_sha256s": [
+    "8da389c942281e36445f843cc2b4541bff559438f6e8558c4da49c60e62609fe",
+    "44b7189f80582fd79c4db058bf82e1a0adceefaf8a5f91bc5c2fe1b066c5ac0d",
+    "e4b3b3d71ed4f8807f12543677ac1ba84a9086a66f6e965a99434061a4ae27bf"
+   ]
   },
   "pappialexandrin01pappgoog-pdf0039": {
-   "original_prediction_sha256": "c364e6254d5dcbfdd54a502f55646f34348dc910d806a3b965eefd1d65c17c77",
-   "strip_sha256s": [
-    "9bd1c315ace7944acf9890606108d6170f700868d4ba01082196b98fdbce6b99",
-    "828937191a7a3f8ce61171d1ee029088f92cf3c8ad40173af3037893575c9a16",
-    "62fd2b15be9d384b8d13c795bd31fe5b2d618cf99d64f5fe6f71c329c4a65357"
-   ],
+   "assembled_text_sha256": "9b5c6346506db5b4af4dca10ec672b04bae513e23313281fae7e5057d3008772",
    "image_sha256s": [
     "cdc8789d9f4388bff95d32c910a663c6c61b90fad01230cc465addf5c59bc99e",
     "adee576687266406181b869504c8a147f453aa311848230fab70526312f81075",
     "41fa7b6ee4af00712c17f547c8457805dbead59b90018decd423fb7d56f6c77b"
    ],
-   "assembled_text_sha256": "9b5c6346506db5b4af4dca10ec672b04bae513e23313281fae7e5057d3008772",
-   "source_evidence": "Completed comparison of the top prose strip and both lower prose strips against the complete PDF39/printed496 body. The first block ends ΠΗ ΗΤ; the lower block begins καὶ ἐπεὶ τὸ Π σημεῖον and the final strip resumes τῷ τοῦ ΑΗΞΘ, ending ἐπεὶ δὲ ζητῶ. Every body line on either side of the diagram is retained once. The diagram and its labels are excluded from these body crops. Printed accents and breathings are represented throughout the retry, unlike the original unmarked prediction. Individual OCR errors remain uncorrected readings in the two-model vote; numeric marginal labels appearing in raw text are not lexical word readings."
+   "original_prediction_sha256": "c364e6254d5dcbfdd54a502f55646f34348dc910d806a3b965eefd1d65c17c77",
+   "strip_sha256s": [
+    "9bd1c315ace7944acf9890606108d6170f700868d4ba01082196b98fdbce6b99",
+    "828937191a7a3f8ce61171d1ee029088f92cf3c8ad40173af3037893575c9a16",
+    "62fd2b15be9d384b8d13c795bd31fe5b2d618cf99d64f5fe6f71c329c4a65357"
+   ]
   },
   "pappialexandrin01pappgoog-pdf0281": {
-   "original_prediction_sha256": "637c00b07e5d7f0808d08766aa0fc0e153c02eac93343048229c814d4646069d",
-   "strip_sha256s": [
-    "102d11fd661645ce9f87c0534e197af639667399a9e64f992dedfac5fcef64b9",
-    "a8d34b672eee9508071cd9c599254b94aaca2e9c5f9981fef6bce44be60eb1ee",
-    "40a84613c2c1f80a4a1c348afe697f94dedc8fc4feed00c13ecb2a9af9bf3cac"
-   ],
+   "assembled_text_sha256": "436792191cae854ca5314bf820f165d9530b453c9a4add2c669d735125d03f8a",
    "image_sha256s": [
     "e7d1e4211e9050f44f42b69997f5becdd94e5b06e08398ca1389c378dab4d305",
     "813eb63654cfb0ff4c8e7f10db01bed7d6b996617b87451d06332764881deb80",
     "0dd7664b200bcd6e138076646642f97bc004d5605ebec8bcd21cf5b231b6033e"
    ],
-   "assembled_text_sha256": "436792191cae854ca5314bf820f165d9530b453c9a4add2c669d735125d03f8a",
-   "source_evidence": "Completed comparison of all three strips against every body line on PDF281/printed738. The opening τῶν ΒΓΕ, proposition δ, its proof, the Εἰς τὸ πρῶτον ἐπίταγμα heading, proposition ε and its proof through τῶν Η ΑΖ, ὅπερ are retained. The final split follows the printed line ending τὸ ὑπὸ, before τῶν ΑΕΓ. Retry breathings are visible throughout in words including Ἐπεὶ, ὑπὸ and ἴσον; the original had none. The small apparatus beneath the rule is excluded. The raw retry retains local misreadings and an inserted repeated τὸ, which are not manually corrected or selected over the independent model."
+   "original_prediction_sha256": "637c00b07e5d7f0808d08766aa0fc0e153c02eac93343048229c814d4646069d",
+   "strip_sha256s": [
+    "102d11fd661645ce9f87c0534e197af639667399a9e64f992dedfac5fcef64b9",
+    "a8d34b672eee9508071cd9c599254b94aaca2e9c5f9981fef6bce44be60eb1ee",
+    "40a84613c2c1f80a4a1c348afe697f94dedc8fc4feed00c13ecb2a9af9bf3cac"
+   ]
   },
   "pappialexandrin01pappgoog-pdf0459": {
-   "original_prediction_sha256": "db3f35cb7d100bab809664287a0f593369af9fdc959bc866fce4b9d6b22a75dd",
-   "strip_sha256s": [
-    "4d97712d247ede957a0fe6f6e0248d71926ea144ff695cb27a0f84ef02764ffb",
-    "99480817032e9cbf2cd8c5b9fcb83d5d03750f53a5659acc5e02b1d9e3f165eb",
-    "62afaf6f05c3e1d951666262628dbc534e4df021e0931a110f3d2842efc49d9d"
-   ],
+   "assembled_text_sha256": "588e2f02d4749fdfde78485607d8971cad5f6b72e8a2a1dccab975f0269cc1e1",
    "image_sha256s": [
     "25c7b2cbf05416b2f5e61ca4d8b48915f0c754cfd0976ed61ce04e213410b8f0",
     "937c92b3dcd0869623c0483afa2dd547720d76c3bd5b483e2fb866906f008ce9",
     "d4f1e27f5cf4b80878c342570662106a7cfdb6bc87940ed56225ecd4c2d1452b"
    ],
-   "assembled_text_sha256": "588e2f02d4749fdfde78485607d8971cad5f6b72e8a2a1dccab975f0269cc1e1",
-   "source_evidence": "Completed comparison of the top block, narrow right-of-diagram continuation and lower full-width block against PDF459/printed916. The first block ends ΓΒ καὶ τῆς ΑΕ; the continuation starts Ὅτι ἄρα and ends the printed ἀφαιρε-; the final strip starts θέντος and retains the following Εἰς τὸ πόρισμα heading and proposition λη through the final τῷ. No body block is omitted or duplicated. The original appended small apparatus beginning 4. ἀπὸ τῶν and containing add., corr. and retinuit; none of those apparatus lines appears in the bounded retry. Diagram labels and running header are outside the crops. Literal OCR errors and marginal-number confusions remain unchanged for the independent-model vote; no joined spelling was supplied by this review."
+   "original_prediction_sha256": "db3f35cb7d100bab809664287a0f593369af9fdc959bc866fce4b9d6b22a75dd",
+   "strip_sha256s": [
+    "4d97712d247ede957a0fe6f6e0248d71926ea144ff695cb27a0f84ef02764ffb",
+    "99480817032e9cbf2cd8c5b9fcb83d5d03750f53a5659acc5e02b1d9e3f165eb",
+    "62afaf6f05c3e1d951666262628dbc534e4df021e0931a110f3d2842efc49d9d"
+   ]
   }
- }
+ },
+ "retry_manifest_sha256": "be9629a9614c9c7e2cd7a99672aaa3caa75bea0cdc6dad091e6fd848060a76df",
+ "retry_sha256": "c71c0a0982324822b5031abe2c0e50b4718313fbc491d8125b43f70fa0ee68f4",
+ "reviewed_at": "2026-10-18T08:14:15.440554+00:00",
+ "schema_version": 1
 }

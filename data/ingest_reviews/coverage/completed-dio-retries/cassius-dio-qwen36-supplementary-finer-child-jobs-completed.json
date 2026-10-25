@@ -1,26 +1,25 @@
 {
- "schema_version": 1,
  "decision": "replace-only-explicit-source-reviewed-Dio-inputs-child-strips",
- "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
  "manifest_sha256": "d21af7f7b4c6a9b9f1eedab7e69d6b09238012df01d00c70a03e3282e17f765f",
- "request_sha256": "c5b3ecf45c7c7e051bcb743515f7224f90d7dbc8c2ef923837dbfc17c3734c4e",
  "original_bundle_sha256": "1e016984ca55dda1901044ed503bf90d2b160c8b0a3514344516a194ebe9a782",
- "retry_sha256": "f3e7ce937619af7539cd85010d962ed1092777d0e8d6908d3620f784b8c41707",
  "pages": {
   "dio-cary-v2-pdf0195-comparison-supplement-strip-1": {
-   "original_artifact_sha256": "a4626d41a892ead6dfb57c764799101ddcbaf13632f6ad3bfe654cd3da7072ea",
-   "strip_sha256s": [
-    "c711e4c807823124e258e598f96428c3014c036a7f312c1fbb63f1b81f845032",
-    "dcf1adea13dd6371c3da3fa1c595215f66c641aa3fcba3908c452b01be4d9747",
-    "00b36ab9e9e35602e8181f9f873eed9390cf4d0542fbe2ace5b55c771a70b24a"
-   ],
+   "assembled_text_sha256": "885ed23f17c1afa8ab77780c30555ad17a42406ad519d6a32a2600cbb2972650",
    "image_sha256s": [
     "a4af8e661151b3858b5a76c0a6597af13bc1a4b03c0523084c91c740c652c341",
     "7557945230b5f6c901918aad7134aa904ff320ad205aba997714b607ad2cad60",
     "16cd011b97c0b50380074e81df1fa427b22f7dfb9796f16bc5a065b21046d4ac"
    ],
-   "assembled_text_sha256": "885ed23f17c1afa8ab77780c30555ad17a42406ad519d6a32a2600cbb2972650",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. Residual polytonic loss in the first34-letter line remains explicit raw evidence. Admission requires the separately named merged scan review cary-zonaras-378-first-line-2026-10-18, authority data/ingest_reviews/coverage/dio-zonaras-378-line-review.json SHA256 642792b7c1b8d65e91d50587a6e7267b6af43abc003c419cf9deb29c39f059d9. That layer preserves the raw network, corrects only the inspected first line, and excludes initial τριος continuing preceding μέ- without inventing a joined spelling. It adds no model vote."
+   "original_artifact_sha256": "a4626d41a892ead6dfb57c764799101ddcbaf13632f6ad3bfe654cd3da7072ea",
+   "strip_sha256s": [
+    "c711e4c807823124e258e598f96428c3014c036a7f312c1fbb63f1b81f845032",
+    "dcf1adea13dd6371c3da3fa1c595215f66c641aa3fcba3908c452b01be4d9747",
+    "00b36ab9e9e35602e8181f9f873eed9390cf4d0542fbe2ace5b55c771a70b24a"
+   ]
   }
- }
+ },
+ "request_sha256": "c5b3ecf45c7c7e051bcb743515f7224f90d7dbc8c2ef923837dbfc17c3734c4e",
+ "retry_sha256": "f3e7ce937619af7539cd85010d962ed1092777d0e8d6908d3620f784b8c41707",
+ "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
+ "schema_version": 1
 }

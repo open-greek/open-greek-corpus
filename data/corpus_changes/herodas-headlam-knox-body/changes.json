@@ -1,48 +1,35 @@
 {
-  "counts": {
-    "body_pages": 35,
-    "new_noncountable_slots": 155,
-    "original_analysis_tokens": 2036,
-    "original_body_pages": 13,
-    "original_passages": 62,
-    "primary_analysis_tokens": 4954,
-    "primary_passages": 84,
-    "raw_ocr_unresolved_slots": 856,
-    "recovered_analysis_tokens": 2918,
-    "recovered_passages": 22,
-    "unresolved_slots": 45
-  },
-  "inputs": {
-    "data/corpus/herodas.mimiambi.jsonl": "b50c5d810cac0a8a44a2acdd567aa1c7f7e7266e83698325122501b0656e68ef"
-  },
-  "outputs": {
-    "data/corpus/herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939",
-    "data/corpus_changes/herodas-headlam-knox-body/before.json.gz": "555a12c65623dfb01816690d16ee98da10a2a725ad3d73fe7faf4ab22364289c",
-    "data/corpus_changes/herodas-headlam-knox-body/fresh-predictions.jsonl": "5b1bbf9121c4f4d319d7e9611147af4231d15e3bb01870090b3464224061fc72",
-    "data/corpus_changes/herodas-headlam-knox-body/historical-witnesses.json.gz": "47769b9f0e7347fea1b95f28a117a40cd082f08a184d60338fe696e7114a64c2",
-    "data/corpus_changes/herodas-headlam-knox-body/networks.json.gz": "2398261a5652a6215a77963cfbaa1ae4184028dd5688b6cc04f942371fc1d55a",
-    "data/corpus_changes/herodas-headlam-knox-body/records.json.gz": "e690ef1b61dca9a90480f80509aba54499e564b7eb0de3d269cd3544ba4e35f2",
-    "data/corpus_changes/herodas-headlam-knox-body/request.json": "280f40ef1c994768d8ae0056d36e72b35e485f8d293dc71f11e856b5b4551d41",
-    "data/corpus_changes/herodas-headlam-knox-body/source-inventory.json": "bc5b41cd1a85cda4e085166b8269e8f5ed8219ea18edd51d74d15a0dcd685cf5",
-    "data/corpus_changes/herodas-headlam-knox-body/source-readings.json": "427509dc2021771b3b5f43047607c96f7cfbfc682462e9e3f6a6a41c3ecfcbdf"
-  },
-  "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment.",
-  "recipe_sha256": {
-    "herodas_body_readings_a.py": "66e7cde6a2964bbbe94bd5de64cb7021d76eaa22f75f5b713595dcdf7663cd8d",
-    "herodas_body_readings_b.py": "91d013e17c9200331a9268762f8ece28e4cd9f660ac440bd376a7dba7520328b",
-    "herodas_body_readings_c.py": "01ea9bdc1016c8d8c895529b4f31fec3c9f4670967a4413a66009141593b4a11",
-    "herodas_body_source_observations.py": "7b019b293cf5a6aef214bc08b137c037b67ffbd328e9cc785432b53d2a9d18ef",
-    "herodas_body_witness_observations.py": "80773103136d6d8084b4869ed8cd996b44094d95a50cec2529caa23f66f10001",
-    "herodas_body_witnesses.py": "2ad983bf3777992ed7b1acdd0caf1b56bec9557db459f288b12e8ab3883815c0",
-    "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
-    "prepare_herodas_body.py": "f1e82bd87ed8e13699ee517f68e328414d357c0b5cd9563ce07e8c18f3a234c7",
-    "repair_herodas_body.py": "07e6c8d8b0d7636ae17cd10055aaf573a641e1e1c0ea457dcdd9dfc91e4a05a2",
-    "run_scan_ocr.py": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
-    "scan_ocr_bundle.py": "eb70e94494749e83c77a493f6669c2777c6b089d21ce1bfa5147ae553f80838e"
-  },
-  "recorded_at": "2026-10-22T17:59:14.406741+00:00",
-  "schema_version": 1,
-  "sources": {
-    "data/corpus_changes/editorial-role-review/source-herodas.pdf": "6568f0c8efb9f8efce1ea9917da2b30dbe16cf8a1147ea2503a6dd0280a8fa1a"
-  }
+ "counts": {
+  "body_pages": 35,
+  "new_noncountable_slots": 155,
+  "original_analysis_tokens": 2036,
+  "original_body_pages": 13,
+  "original_passages": 62,
+  "primary_analysis_tokens": 4954,
+  "primary_passages": 84,
+  "raw_ocr_unresolved_slots": 856,
+  "recovered_analysis_tokens": 2918,
+  "recovered_passages": 22,
+  "unresolved_slots": 45
+ },
+ "inputs": {
+  "data/corpus/herodas.mimiambi.jsonl": "b50c5d810cac0a8a44a2acdd567aa1c7f7e7266e83698325122501b0656e68ef"
+ },
+ "outputs": {
+  "data/corpus/herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939",
+  "data/corpus_changes/herodas-headlam-knox-body/before.json.gz": "555a12c65623dfb01816690d16ee98da10a2a725ad3d73fe7faf4ab22364289c",
+  "data/corpus_changes/herodas-headlam-knox-body/fresh-predictions.jsonl": "5b1bbf9121c4f4d319d7e9611147af4231d15e3bb01870090b3464224061fc72",
+  "data/corpus_changes/herodas-headlam-knox-body/historical-witnesses.json.gz": "47769b9f0e7347fea1b95f28a117a40cd082f08a184d60338fe696e7114a64c2",
+  "data/corpus_changes/herodas-headlam-knox-body/networks.json.gz": "2398261a5652a6215a77963cfbaa1ae4184028dd5688b6cc04f942371fc1d55a",
+  "data/corpus_changes/herodas-headlam-knox-body/records.json.gz": "e690ef1b61dca9a90480f80509aba54499e564b7eb0de3d269cd3544ba4e35f2",
+  "data/corpus_changes/herodas-headlam-knox-body/request.json": "280f40ef1c994768d8ae0056d36e72b35e485f8d293dc71f11e856b5b4551d41",
+  "data/corpus_changes/herodas-headlam-knox-body/source-inventory.json": "bc5b41cd1a85cda4e085166b8269e8f5ed8219ea18edd51d74d15a0dcd685cf5",
+  "data/corpus_changes/herodas-headlam-knox-body/source-readings.json": "427509dc2021771b3b5f43047607c96f7cfbfc682462e9e3f6a6a41c3ecfcbdf"
+ },
+ "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment.",
+ "recorded_at": "2026-10-22T17:59:14.406741+00:00",
+ "schema_version": 1,
+ "sources": {
+  "data/corpus_changes/editorial-role-review/source-herodas.pdf": "6568f0c8efb9f8efce1ea9917da2b30dbe16cf8a1147ea2503a6dd0280a8fa1a"
+ }
 }

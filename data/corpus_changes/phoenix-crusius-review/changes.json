@@ -1,38 +1,29 @@
 {
- "schema_version": 1,
- "recorded_at": "2026-10-22T03:40:59Z",
- "recipe_sha256": {
-  "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
-  "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
-  "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
-  "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae"
- },
- "generator": "scripts/repair_phoenix_crusius.py",
- "qualification": "Crusius 1894 prints the 21 verses of Phoenix's Coronistae, not all surviving Phoenix fragments. The historical whole-volume OCR includes Herodas, editorial quotations, apparatus, and indexes. Those other rows are retained as an unseparated edition witness outside the primary corpus; their text and individual authorial attribution have not been certified by this review.",
- "inputs": {
-  "data/corpus/phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
-  "data/paratext/crusius-1894-legacy.jsonl": null,
-  "data/passage_aliases.json": "691bc8a6d9199cb59b68f888f724a3afb3390932c00bf6501e5057eacea9c5fd"
+ "counts": {
+  "changed_text_rows": 18,
+  "excluded_supplied_tokens": 4,
+  "lexical_tokens": 129,
+  "original_rows": 2749,
+  "primary_rows": 21,
+  "retained_outside_primary": 2728,
+  "source_scan_pages": [
+   68,
+   69
+  ],
+  "surface_tokens": 133
  },
  "evidence": {
   "original_corpus_sha256": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
   "source": {
-   "id": "crusius-1894-phoenix-coronistae",
-   "title": "Herondae Mimiambi. Accedunt Phoenicis Coronistae, Mattii Mimiamborum fragmenta",
-   "editor": "Crusius, Otto",
-   "year": 1894,
-   "edition_statement": "Iterum edidit",
-   "publisher": "B. G. Teubner, Leipzig",
-   "catalog_url": "https://archive.org/details/herondaemimiamb01hero",
-   "url": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
-   "download_url": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
    "archive_id": "herondaemimiamb01hero",
+   "catalog_url": "https://archive.org/details/herondaemimiamb01hero",
    "contributor": "Columbia University Libraries",
-   "scan_sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
-   "sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
-   "scan_bytes": 10963170,
-   "physical_pages": 107,
-   "title_physical_page": 9,
+   "coverage": "Coronistae, verses 1–21 only; not Phoenix's collected fragments",
+   "download_url": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+   "edition_statement": "Iterum edidit",
+   "editor": "Crusius, Otto",
+   "id": "crusius-1894-phoenix-coronistae",
+   "license_basis": "Public domain edition published in 1894",
    "phoenix_physical_pages": [
     68,
     69
@@ -41,37 +32,39 @@
     83,
     84
    ],
-   "coverage": "Coronistae, verses 1–21 only; not Phoenix's collected fragments",
-   "license_basis": "Public domain edition published in 1894",
-   "transcription_convention": "Unicode NFC; printed apostrophes rendered as U+2019; printed angle supplies rendered as ASCII < and >; running titles, line numbers, apparatus, and omission ornaments are separate source roles"
+   "physical_pages": 107,
+   "publisher": "B. G. Teubner, Leipzig",
+   "scan_bytes": 10963170,
+   "scan_sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
+   "sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
+   "title": "Herondae Mimiambi. Accedunt Phoenicis Coronistae, Mattii Mimiamborum fragmenta",
+   "title_physical_page": 9,
+   "transcription_convention": "Unicode NFC; printed apostrophes rendered as U+2019; printed angle supplies rendered as ASCII < and >; running titles, line numbers, apparatus, and omission ornaments are separate source roles",
+   "url": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+   "year": 1894
   },
   "source_review": {
    "path": "data/corpus_changes/phoenix-crusius-review/source-review.json",
    "sha256": "0f9c20b61ed4a082dbd394da3c0737f1ae9bcedb3e180d0c11841bfd053399fa"
   }
  },
- "counts": {
-  "original_rows": 2749,
-  "primary_rows": 21,
-  "retained_outside_primary": 2728,
-  "changed_text_rows": 18,
-  "surface_tokens": 133,
-  "lexical_tokens": 129,
-  "excluded_supplied_tokens": 4,
-  "source_scan_pages": [
-   68,
-   69
-  ]
+ "generator": "scripts/repair_phoenix_crusius.py",
+ "inputs": {
+  "data/corpus/phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
+  "data/passage_aliases.json": "691bc8a6d9199cb59b68f888f724a3afb3390932c00bf6501e5057eacea9c5fd"
  },
  "outputs": {
   "data/corpus/phoenix.fragmenta.jsonl": "d4dd6350d6bd5ca6391d0bf4c67ab1f849d351d42e0ff994b59d2cff527bb66b",
-  "data/paratext/crusius-1894-legacy.jsonl": "078ad700ddee7ee4a28d9e254a7b5dba3ef6c501b7c4e3ff68878efa7f8a0313",
-  "data/passage_aliases.json": "4fe8acad64c0922a71d72a5434b34dd58ca044731d6ad6451b1a54edf891d74e",
   "data/corpus_changes/phoenix-crusius-review/before.json.gz": "a65cd3ffb7dbbb20428d9fe9dafe190eaaf3a888b16e674ef43c654583ed5ae9",
+  "data/corpus_changes/phoenix-crusius-review/ocr-witnesses.json.gz": "b3b1e619b04a30810b6a917fa9b953393e5a58fecb46ce42bd6cd055c4a1a0f9",
+  "data/corpus_changes/phoenix-crusius-review/records.jsonl.gz": "5e14a45a48db50d260e6dd91fa044493f88d777dc805ac172835242ca41601ff",
   "data/corpus_changes/phoenix-crusius-review/source-review.json": "0f9c20b61ed4a082dbd394da3c0737f1ae9bcedb3e180d0c11841bfd053399fa",
   "data/corpus_changes/phoenix-crusius-review/source-scan.pdf": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
-  "data/corpus_changes/phoenix-crusius-review/ocr-witnesses.json.gz": "b3b1e619b04a30810b6a917fa9b953393e5a58fecb46ce42bd6cd055c4a1a0f9",
-  "data/corpus_changes/phoenix-crusius-review/records.jsonl.gz": "5e14a45a48db50d260e6dd91fa044493f88d777dc805ac172835242ca41601ff"
+  "data/paratext/crusius-1894-legacy.jsonl": "078ad700ddee7ee4a28d9e254a7b5dba3ef6c501b7c4e3ff68878efa7f8a0313",
+  "data/passage_aliases.json": "4fe8acad64c0922a71d72a5434b34dd58ca044731d6ad6451b1a54edf891d74e"
  },
- "reversal": "python3 scripts/repair_phoenix_crusius.py --undo; rebuild derived metadata"
+ "qualification": "Crusius 1894 prints the 21 verses of Phoenix's Coronistae, not all surviving Phoenix fragments. The historical whole-volume OCR includes Herodas, editorial quotations, apparatus, and indexes. Those other rows are retained as an unseparated edition witness outside the primary corpus; their text and individual authorial attribution have not been certified by this review.",
+ "recorded_at": "2026-10-22T03:40:59Z",
+ "reversal": "python3 scripts/repair_phoenix_crusius.py --undo; rebuild derived metadata",
+ "schema_version": 1
 }

@@ -1,254 +1,253 @@
 {
- "what": "the repair tranche proposed for issue #31, NOT APPLIED",
- "issue": "open-greek/open-greek-corpus#31",
- "status": "waiting on cisco. Every token here is wrong as it stands, since a non-final grave is not Greek, so the question is not whether to leave them right but whether this rule is right often enough to be worth the wrong ones it will introduce.",
- "scope": "our own OCR only (source `ocr`). cgpg is calfa-co's OCR and first1k, perseus, dfhg, pta and saws are other people's editions that this repo republishes; whether we may correct those is a policy question nothing in docs/ answers, and holding them costs 3.5% of the tranche.",
- "rule": "the form's skeleton class has a reading holding >= 0.95 of >= 100 clean non-OCR tokens, and the repair changes accents only: breathings, iota subscript and diaeresis are byte-identical between the form and its target.",
- "forms": 17,
- "tokens": 55,
- "token_weighted_share": 0.9965,
  "expected_wrong_tokens": 0,
+ "forms": 17,
  "how_to_read_the_error": "the expected-wrong figure treats the class share as the chance the token is that word, which overstates it. Most runner-up readings are not different words: ἔγωγέ is ἔγωγε carrying an enclitic's acute, Επειδή is Ἐπειδή with the breathing lost. A hand pass over the largest forms is what would settle it.",
- "what_it_would_NOT_touch": {
-  "marks_moved": 1913,
-  "why": "moving a breathing or an iota subscript is a lexical claim, not a stress one, and belongs in its own tranche",
-  "undecided": 31986
- },
+ "issue": "open-greek/open-greek-corpus#31",
  "rows": [
   {
-   "form": "ἐπεὶδὴ",
-   "tokens": 16,
-   "ocr_tokens": 16,
-   "target": "ἐπειδή",
+   "accent_only": true,
    "clean_class": 20747,
    "clean_hits": 20707,
-   "share": 0.9981,
-   "accent_only": true,
+   "form": "ἐπεὶδὴ",
+   "ocr_tokens": 16,
    "runner_up": {
-    "form": "επειδή",
-    "clean_tokens": 12
-   }
+    "clean_tokens": 12,
+    "form": "επειδή"
+   },
+   "share": 0.9981,
+   "target": "ἐπειδή",
+   "tokens": 16
   },
   {
-   "form": "ἃπερ",
-   "tokens": 11,
-   "ocr_tokens": 2,
-   "target": "ἅπερ",
+   "accent_only": true,
    "clean_class": 4495,
    "clean_hits": 4403,
-   "share": 0.9795,
-   "accent_only": true,
+   "form": "ἃπερ",
+   "ocr_tokens": 2,
    "runner_up": {
-    "form": "ἄπερ",
-    "clean_tokens": 47
-   }
+    "clean_tokens": 47,
+    "form": "ἄπερ"
+   },
+   "share": 0.9795,
+   "target": "ἅπερ",
+   "tokens": 11
   },
   {
-   "form": "ἢτοι",
-   "tokens": 7,
-   "ocr_tokens": 4,
-   "target": "ἤτοι",
+   "accent_only": true,
    "clean_class": 12881,
    "clean_hits": 12834,
-   "share": 0.9964,
-   "accent_only": true,
+   "form": "ἢτοι",
+   "ocr_tokens": 4,
    "runner_up": {
-    "form": "ἥτοι",
-    "clean_tokens": 19
-   }
+    "clean_tokens": 19,
+    "form": "ἥτοι"
+   },
+   "share": 0.9964,
+   "target": "ἤτοι",
+   "tokens": 7
   },
   {
-   "form": "μὴτε",
-   "tokens": 7,
-   "ocr_tokens": 7,
-   "target": "μήτε",
+   "accent_only": true,
    "clean_class": 17564,
    "clean_hits": 17550,
-   "share": 0.9992,
-   "accent_only": true,
+   "form": "μὴτε",
+   "ocr_tokens": 7,
    "runner_up": {
-    "form": "μήτέ",
-    "clean_tokens": 11
-   }
+    "clean_tokens": 11,
+    "form": "μήτέ"
+   },
+   "share": 0.9992,
+   "target": "μήτε",
+   "tokens": 7
   },
   {
-   "form": "μὲντοι",
-   "tokens": 5,
-   "ocr_tokens": 5,
-   "target": "μέντοι",
+   "accent_only": true,
    "clean_class": 16595,
    "clean_hits": 16588,
-   "share": 0.9996,
-   "accent_only": true,
+   "form": "μὲντοι",
+   "ocr_tokens": 5,
    "runner_up": {
-    "form": "μεντοι",
-    "clean_tokens": 4
-   }
+    "clean_tokens": 4,
+    "form": "μεντοι"
+   },
+   "share": 0.9996,
+   "target": "μέντοι",
+   "tokens": 5
   },
   {
-   "form": "καὶτοι",
-   "tokens": 4,
-   "ocr_tokens": 4,
-   "target": "καίτοι",
+   "accent_only": true,
    "clean_class": 8485,
    "clean_hits": 8476,
-   "share": 0.9989,
-   "accent_only": true,
+   "form": "καὶτοι",
+   "ocr_tokens": 4,
    "runner_up": {
-    "form": "καίτοί",
-    "clean_tokens": 6
-   }
+    "clean_tokens": 6,
+    "form": "καίτοί"
+   },
+   "share": 0.9989,
+   "target": "καίτοι",
+   "tokens": 4
   },
   {
-   "form": "πολλὰκις",
-   "tokens": 4,
-   "ocr_tokens": 4,
-   "target": "πολλάκις",
+   "accent_only": true,
    "clean_class": 12100,
    "clean_hits": 12096,
-   "share": 0.9997,
-   "accent_only": true,
+   "form": "πολλὰκις",
+   "ocr_tokens": 4,
    "runner_up": {
-    "form": "πολλακις",
-    "clean_tokens": 4
-   }
+    "clean_tokens": 4,
+    "form": "πολλακις"
+   },
+   "share": 0.9997,
+   "target": "πολλάκις",
+   "tokens": 4
   },
   {
-   "form": "ἐπεὶπερ",
-   "tokens": 3,
-   "ocr_tokens": 3,
-   "target": "ἐπείπερ",
+   "accent_only": true,
    "clean_class": 883,
    "clean_hits": 876,
-   "share": 0.9921,
-   "accent_only": true,
+   "form": "ἐπεὶπερ",
+   "ocr_tokens": 3,
    "runner_up": {
-    "form": "ἔπειπερ",
-    "clean_tokens": 5
-   }
+    "clean_tokens": 5,
+    "form": "ἔπειπερ"
+   },
+   "share": 0.9921,
+   "target": "ἐπείπερ",
+   "tokens": 3
   },
   {
-   "form": "δὴθεν",
-   "tokens": 2,
-   "ocr_tokens": 2,
-   "target": "δῆθεν",
+   "accent_only": true,
    "clean_class": 983,
    "clean_hits": 980,
-   "share": 0.9969,
-   "accent_only": true,
+   "form": "δὴθεν",
+   "ocr_tokens": 2,
    "runner_up": {
-    "form": "δῆθέν",
-    "clean_tokens": 3
-   }
+    "clean_tokens": 3,
+    "form": "δῆθέν"
+   },
+   "share": 0.9969,
+   "target": "δῆθεν",
+   "tokens": 2
   },
   {
-   "form": "μηδὲνα",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "μηδένα",
+   "accent_only": true,
    "clean_class": 2366,
    "clean_hits": 2363,
-   "share": 0.9987,
-   "accent_only": true,
+   "form": "μηδὲνα",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "μηδενα",
-    "clean_tokens": 3
-   }
+    "clean_tokens": 3,
+    "form": "μηδενα"
+   },
+   "share": 0.9987,
+   "target": "μηδένα",
+   "tokens": 1
   },
   {
-   "form": "ἐγὼγε",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "ἔγωγε",
+   "accent_only": true,
    "clean_class": 2215,
    "clean_hits": 2106,
-   "share": 0.9508,
-   "accent_only": true,
+   "form": "ἐγὼγε",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "ἔγωγέ",
-    "clean_tokens": 104
-   }
+    "clean_tokens": 104,
+    "form": "ἔγωγέ"
+   },
+   "share": 0.9508,
+   "target": "ἔγωγε",
+   "tokens": 1
   },
   {
-   "form": "ὃπερ",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "ὅπερ",
+   "accent_only": true,
    "clean_class": 17434,
    "clean_hits": 17346,
-   "share": 0.995,
-   "accent_only": true,
+   "form": "ὃπερ",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "ὄπερ",
-    "clean_tokens": 41
-   }
+    "clean_tokens": 41,
+    "form": "ὄπερ"
+   },
+   "share": 0.995,
+   "target": "ὅπερ",
+   "tokens": 1
   },
   {
-   "form": "μὴπω",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "μήπω",
+   "accent_only": true,
    "clean_class": 1440,
    "clean_hits": 1436,
-   "share": 0.9972,
-   "accent_only": true,
+   "form": "μὴπω",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "μηπω",
-    "clean_tokens": 2
-   }
+    "clean_tokens": 2,
+    "form": "μηπω"
+   },
+   "share": 0.9972,
+   "target": "μήπω",
+   "tokens": 1
   },
   {
-   "form": "τὴνδε",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "τήνδε",
+   "accent_only": true,
    "clean_class": 1680,
    "clean_hits": 1679,
-   "share": 0.9994,
-   "accent_only": true,
+   "form": "τὴνδε",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "τῆνδε",
-    "clean_tokens": 1
-   }
+    "clean_tokens": 1,
+    "form": "τῆνδε"
+   },
+   "share": 0.9994,
+   "target": "τήνδε",
+   "tokens": 1
   },
   {
-   "form": "κατὰγει",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "κατάγει",
+   "accent_only": true,
    "clean_class": 112,
    "clean_hits": 112,
+   "form": "κατὰγει",
+   "ocr_tokens": 1,
    "share": 1.0,
-   "accent_only": true,
-   "runner_up": null
+   "target": "κατάγει",
+   "tokens": 1
   },
   {
-   "form": "αὐτὶκα",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "αὐτίκα",
+   "accent_only": true,
    "clean_class": 4737,
    "clean_hits": 4727,
-   "share": 0.9979,
-   "accent_only": true,
+   "form": "αὐτὶκα",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "αὐτικα",
-    "clean_tokens": 3
-   }
+    "clean_tokens": 3,
+    "form": "αὐτικα"
+   },
+   "share": 0.9979,
+   "target": "αὐτίκα",
+   "tokens": 1
   },
   {
-   "form": "μὲλλόντων",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "μελλόντων",
+   "accent_only": true,
    "clean_class": 1396,
    "clean_hits": 1391,
-   "share": 0.9964,
-   "accent_only": true,
+   "form": "μὲλλόντων",
+   "ocr_tokens": 1,
    "runner_up": {
-    "form": "μέλλοντων",
-    "clean_tokens": 4
-   }
+    "clean_tokens": 4,
+    "form": "μέλλοντων"
+   },
+   "share": 0.9964,
+   "target": "μελλόντων",
+   "tokens": 1
   }
- ]
+ ],
+ "rule": "the form's skeleton class has a reading holding >= 0.95 of >= 100 clean non-OCR tokens, and the repair changes accents only: breathings, iota subscript and diaeresis are byte-identical between the form and its target.",
+ "scope": "our own OCR only (source `ocr`). cgpg is calfa-co's OCR and first1k, perseus, dfhg, pta and saws are other people's editions that this repo republishes; whether we may correct those is a policy question nothing in docs/ answers, and holding them costs 3.5% of the tranche.",
+ "status": "waiting on cisco. Every token here is wrong as it stands, since a non-final grave is not Greek, so the question is not whether to leave them right but whether this rule is right often enough to be worth the wrong ones it will introduce.",
+ "token_weighted_share": 0.9965,
+ "tokens": 55,
+ "what": "the repair tranche proposed for issue #31, NOT APPLIED",
+ "what_it_would_NOT_touch": {
+  "marks_moved": 1913,
+  "undecided": 31986,
+  "why": "moving a breathing or an iota subscript is a lexical claim, not a stress one, and belongs in its own tranche"
+ }
 }

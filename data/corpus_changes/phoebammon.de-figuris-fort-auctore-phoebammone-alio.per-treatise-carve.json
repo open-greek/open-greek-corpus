@@ -1,87 +1,5 @@
 {
- "what": "per-treatise carve of phoebammon.de-figuris-fort-auctore-phoebammone-alio, driven by data/spengel_carve_plan.json",
  "date": "2026-08-06",
- "issue": "open-greek/open-greek-corpus#22",
- "source_urn": "phoebammon.de-figuris-fort-auctore-phoebammone-alio",
- "source_sha256_before": "2da0661a591ebd833627c99f5d7fae224e919abad4a85f3e535a7de87352c23a",
- "source_sha256_after": "1807bf14b6f30bcbb621fefc0790f417b5b48cb656abe0cd4f14f6317bbee160",
- "residual_urn": "ocr.spengel_rhetores_rg3",
- "offset_zones": [
-  {
-   "scans": [
-    47,
-    365
-   ],
-   "offset": 46
-  },
-  {
-   "scans": [
-    376,
-    435
-   ],
-   "offset": 56
-  },
-  {
-   "scans": [
-    448,
-    524
-   ],
-   "offset": 68
-  },
-  {
-   "scans": [
-    532,
-    565
-   ],
-   "offset": 75
-  },
-  {
-   "scans": [
-    574,
-    624
-   ],
-   "offset": 83
-  }
- ],
- "dropped_scans": [
-  366,
-  367,
-  368,
-  369,
-  370,
-  371,
-  372,
-  373,
-  374,
-  375,
-  436,
-  437,
-  438,
-  439,
-  440,
-  441,
-  442,
-  443,
-  444,
-  445,
-  446,
-  447,
-  525,
-  526,
-  527,
-  528,
-  529,
-  530,
-  531,
-  566,
-  567,
-  568,
-  569,
-  570,
-  571,
-  572,
-  573
- ],
  "dropped_rows": [
   {
    "locus": "phoebammon_spengel_rg3_0366.1",
@@ -716,203 +634,47 @@
    "text": "γεωργὸς φιλοσοφεῖν τὸν υἱὸν προτρέπεται· προστεθεῖσα οὖν ἡ τοῦ πατρὸς ποιότης οὕπω μὲν ἐποίησε τελείαν ὑπόθεσιν, ἐπεὶδὴ ἔτι λείπεται τῇ περιστάσει, τελειοτέραν μέντοι ἔδειξεν, ἡ κατὰ τὴν θέσιν. καὶ οὕτω μὲν ἐκεῖνοι γεγράφασι· ἀλλ’ ἡμεῖς τῷ κεκρατηκότι ἕδει 5 ἐπόμενοι, καὶ τὴν ἠθοποιΐαν εὐθὺς μετὰ τὴν σύγκρισιν τιθέντες φαμέν· ἠθοποιΐα ἐστὶ λόγος ἀρμοζὼν τοῖς ὑποκειμένοις, ἦθος ἢ πάθος ἐμφαίνων ἢ καὶ συναμφότερα· ἀρμοζὼν μὲν τοῖς ὑποκειμένοις, ἐπεὶδὴ δεῖ στοχάζεσθαι καὶ τοῦ λέγοντος καὶ πρὸς ὃν λέγει· ἦθος δὲ ἢ πάθος ἢ 10 καὶ συναμφότερον, ἐπεὶδὴ ἢ πρὸς τὰ καθόλου τις ἀποβλέπει ἢ πρὸς τὸ ἐκ περιστάσεως γινόμενον· ταύτῃ γὰρ ἦθος πάθους διαφέρει· οἷον εἰ λέγοιμεν, ὅτι ποίους ἂν εἴποι λόγους δειλὸς ἐπὶ μάχην μέλλων ἐξιέναι, τοῦ καθόλου τοῖς δειλοῖς προσόντος ἦθους φροντιοῦμεν· εἰ δὲ 15 λέγοιμεν, ποίους ἂν εἴποι λόγους τυχὸν Ἀγαμέμνων, ἔλὼν τὴν Ἴλιον, ἢ Ἀνδρομάχη, πεσόντος Ἐκτορος, ὁρῶσι τὴν εὐπορίαν τὰ πάθη· τὰ νῦν γενόμενα. τῶν δὲ ἠθοποιιῶν αἱ μὲν εἰσὶν ἠθικαί, αἱ δὲ εἰσὶ παθητικαί, αἱ δὲ μικταί· ἠθικαὶ μὲν καὶ παθητικαί, ὡς ἤδη ἐδηλώσα- 20 μεν, μικταὶ δὲ αἱ ἀπὸ ἀμφοῖν, οἷον ἂν εἴπω, ποίους ἂν εἴποι λόγους Ἀχιλλεὺς ἐξιὼν ἐπὶ πόλεμον μετὰ τὴν τελευτὴν τοῦ Πατρόκλου· προσθήσω γὰρ τῷ ἦθει καὶ τὰ ἐκ τοῦ πάθους, καὶ μικτὴν ἐργάσομαι. τὴν δὲ προσωποποιΐαν καλουμένην, οὖσαν σχεδὸν τὴν αὐτὴν τῇ ἠθο- 25 ποιΐᾳ, ἕτεροῖ ἕτερως διαφέρειν αὐτῆς ἐνόμισαν· οἱ μὲν γὰρ προσωποποιΐαν αὐτὴν ἐκάλεσαν τὴν ἔχουσαν ὡρισμένα καὶ τὰ πρόσωπα καὶ τὰ ὑποκείμενα πράγματα, ἠθοποιΐαν δὲ τὴν πανταχόθεν ἀναπλαττομένην, ἣν καὶ ὅψιν καλοῦσι, τοῦτο αὐτῇ τιθέντες ὄνομα· εἰσὶ δέ, οἳ 30 καὶ κάλλιστον ἔδοξεν, ἠθοποιΐαν μὲν τὴν ἐκ τῶν ὡρισμένων προσώπων, προσωποποιΐαν δέ, ἐν ἧ καὶ πρό-"
   }
  ],
- "rows_before": 6212,
- "tokens_before": 121156,
- "works": [
-  {
-   "n": "XVIII",
-   "slug": "alexander-rhetoric.ek-ton-alexandrou",
-   "title": "Ek ton Alexandrou (excerpts on thesis and hypothesis)",
-   "tlg": null,
-   "printed_pages": "1-6",
-   "rank": "primary",
-   "rows": 13,
-   "tokens": 1345
-  },
-  {
-   "n": "XIX",
-   "slug": "alexander-rhetoric.de-figuris",
-   "title": "Peri schematon",
-   "tlg": null,
-   "printed_pages": "7-40",
-   "rank": "secondary",
-   "rows": 329,
-   "tokens": 6937
-  },
-  {
-   "n": "XX",
-   "slug": "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
-   "title": "Scholia peri schematon rhetorikon",
-   "tlg": null,
-   "printed_pages": "41-56",
-   "rank": "secondary",
-   "rows": 170,
-   "tokens": 3164
-  },
-  {
-   "n": "XXI",
-   "slug": "tiberius.de-figuris-demosthenicis",
-   "title": "Peri schematon",
-   "tlg": null,
-   "printed_pages": "57-82",
-   "rank": "secondary",
-   "rows": 276,
-   "tokens": 4838
-  },
-  {
-   "n": "XXII",
-   "slug": "aelius-herodianus-et-pseudo-herodianus.de-figuris-peri-sxhma-twn-sp",
-   "title": "Peri schematon",
-   "tlg": null,
-   "printed_pages": "83-104",
-   "rank": "secondary",
-   "rows": 420,
-   "tokens": 4001
-  },
-  {
-   "n": "XXIII",
-   "slug": "polybius-sardianus.peri-schematismou",
-   "title": "Peri schematismou",
-   "tlg": null,
-   "printed_pages": "105-109",
-   "rank": "secondary",
-   "rows": 44,
-   "tokens": 740
-  },
-  {
-   "n": "XXIV",
-   "slug": "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
-   "title": "Peri ton tou logou schematon",
-   "tlg": null,
-   "printed_pages": "110-160",
-   "rank": "secondary",
-   "rows": 718,
-   "tokens": 10449
-  },
-  {
-   "n": "XXV",
-   "slug": "zonaeus.peri-schematon-ton-kata-logon",
-   "title": "Peri schematon ton kata logon",
-   "tlg": null,
-   "printed_pages": "161-170",
-   "rank": "secondary",
-   "rows": 95,
-   "tokens": 1908
-  },
-  {
-   "n": "XXVI",
-   "slug": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
-   "title": "Peri schematon",
-   "tlg": null,
-   "printed_pages": "171-173",
-   "rank": "secondary",
-   "rows": 14,
-   "tokens": 719
-  },
-  {
-   "n": "XXVII",
-   "slug": "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
-   "title": "Peri ton schematon tou logou",
-   "tlg": null,
-   "printed_pages": "174-188",
-   "rank": "secondary",
-   "rows": 168,
-   "tokens": 2805
-  },
-  {
-   "n": "XXVIII",
-   "slug": "tryphon-i.peri-tro-pwn",
-   "title": "Peri tropon",
-   "tlg": null,
-   "printed_pages": "189-206",
-   "rank": "secondary",
-   "rows": 364,
-   "tokens": 2995
-  },
-  {
-   "n": "XXIX",
-   "slug": "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
-   "title": "Peri poietikon tropon",
-   "tlg": null,
-   "printed_pages": "207-214",
-   "rank": "secondary",
-   "rows": 73,
-   "tokens": 1406
-  },
-  {
-   "n": "XXX",
-   "slug": "tryphon-ii.de-tropis-olim-sub-auctore-gregorio-corinthio",
-   "title": "Peri tropon",
-   "tlg": null,
-   "printed_pages": "215-226",
-   "rank": "secondary",
-   "rows": 265,
-   "tokens": 2112
-  },
-  {
-   "n": "XXXI",
-   "slug": "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
-   "title": "Peri tropon",
-   "tlg": null,
-   "printed_pages": "227-229",
-   "rank": "secondary",
-   "rows": 24,
-   "tokens": 407
-  },
-  {
-   "n": "XXXII",
-   "slug": "cocondrius.peri-tropon",
-   "title": "Peri tropon",
-   "tlg": null,
-   "printed_pages": "230-243",
-   "rank": "secondary",
-   "rows": 260,
-   "tokens": 2489
-  },
-  {
-   "n": "XXXIII",
-   "slug": "georgius-choeroboscus.peri-tropon-poietikon",
-   "title": "Peri tropon poietikon",
-   "tlg": null,
-   "printed_pages": "244-256",
-   "rank": "secondary",
-   "rows": 173,
-   "tokens": 2834
-  },
-  {
-   "n": "XXXIV",
-   "slug": "demetrius-poet-phil.demetrius-de-eloc-roberts",
-   "title": "Peri hermeneias",
-   "tlg": null,
-   "printed_pages": "257-328",
-   "rank": "secondary",
-   "rows": 808,
-   "tokens": 15775
-  },
-  {
-   "n": "XXXV",
-   "slug": "menander-rhetoric.peri-e-pideiktikw-n",
-   "title": "Peri epideiktikon",
-   "tlg": null,
-   "printed_pages": "329-446",
-   "rank": "secondary",
-   "rows": 803,
-   "tokens": 28811
-  },
-  {
-   "n": "XXXVI",
-   "slug": "nicolaus-history.nicolaus-progymnasmata-felten",
-   "title": "Progymnasmata",
-   "tlg": null,
-   "printed_pages": "447-498",
-   "rank": "secondary",
-   "rows": 303,
-   "tokens": 12352
-  }
+ "dropped_scans": [
+  366,
+  367,
+  368,
+  369,
+  370,
+  371,
+  372,
+  373,
+  374,
+  375,
+  436,
+  437,
+  438,
+  439,
+  440,
+  441,
+  442,
+  443,
+  444,
+  445,
+  446,
+  447,
+  525,
+  526,
+  527,
+  528,
+  529,
+  530,
+  531,
+  566,
+  567,
+  568,
+  569,
+  570,
+  571,
+  572,
+  573
  ],
- "residual_rows": 734,
- "residual_tokens": 6124,
  "dropped_tokens": 8945,
+ "issue": "open-greek/open-greek-corpus#22",
  "locus_map": {
   "phoebammon_spengel_rg3_0047.1": "alexander-rhetoric.ek-ton-alexandrou:1.1",
   "phoebammon_spengel_rg3_0048.1": "alexander-rhetoric.ek-ton-alexandrou:2.1",
@@ -6235,5 +5997,224 @@
   "phoebammon_spengel_rg3_0581.2": "nicolaus-history.nicolaus-progymnasmata-felten:498.2",
   "phoebammon_spengel_rg3_0581.3": "nicolaus-history.nicolaus-progymnasmata-felten:498.3"
  },
- "reverse": "restore by mapping each locus_map value back to its key and concatenating the per-work files with the residual in locus order"
+ "offset_zones": [
+  {
+   "offset": 46,
+   "scans": [
+    47,
+    365
+   ]
+  },
+  {
+   "offset": 56,
+   "scans": [
+    376,
+    435
+   ]
+  },
+  {
+   "offset": 68,
+   "scans": [
+    448,
+    524
+   ]
+  },
+  {
+   "offset": 75,
+   "scans": [
+    532,
+    565
+   ]
+  },
+  {
+   "offset": 83,
+   "scans": [
+    574,
+    624
+   ]
+  }
+ ],
+ "residual_rows": 734,
+ "residual_tokens": 6124,
+ "residual_urn": "ocr.spengel_rhetores_rg3",
+ "reverse": "restore by mapping each locus_map value back to its key and concatenating the per-work files with the residual in locus order",
+ "rows_before": 6212,
+ "source_sha256_after": "1807bf14b6f30bcbb621fefc0790f417b5b48cb656abe0cd4f14f6317bbee160",
+ "source_sha256_before": "2da0661a591ebd833627c99f5d7fae224e919abad4a85f3e535a7de87352c23a",
+ "source_urn": "phoebammon.de-figuris-fort-auctore-phoebammone-alio",
+ "tokens_before": 121156,
+ "what": "per-treatise carve of phoebammon.de-figuris-fort-auctore-phoebammone-alio, driven by data/spengel_carve_plan.json",
+ "works": [
+  {
+   "n": "XVIII",
+   "printed_pages": "1-6",
+   "rank": "primary",
+   "rows": 13,
+   "slug": "alexander-rhetoric.ek-ton-alexandrou",
+   "title": "Ek ton Alexandrou (excerpts on thesis and hypothesis)",
+   "tokens": 1345
+  },
+  {
+   "n": "XIX",
+   "printed_pages": "7-40",
+   "rank": "secondary",
+   "rows": 329,
+   "slug": "alexander-rhetoric.de-figuris",
+   "title": "Peri schematon",
+   "tokens": 6937
+  },
+  {
+   "n": "XX",
+   "printed_pages": "41-56",
+   "rank": "secondary",
+   "rows": 170,
+   "slug": "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
+   "title": "Scholia peri schematon rhetorikon",
+   "tokens": 3164
+  },
+  {
+   "n": "XXI",
+   "printed_pages": "57-82",
+   "rank": "secondary",
+   "rows": 276,
+   "slug": "tiberius.de-figuris-demosthenicis",
+   "title": "Peri schematon",
+   "tokens": 4838
+  },
+  {
+   "n": "XXII",
+   "printed_pages": "83-104",
+   "rank": "secondary",
+   "rows": 420,
+   "slug": "aelius-herodianus-et-pseudo-herodianus.de-figuris-peri-sxhma-twn-sp",
+   "title": "Peri schematon",
+   "tokens": 4001
+  },
+  {
+   "n": "XXIII",
+   "printed_pages": "105-109",
+   "rank": "secondary",
+   "rows": 44,
+   "slug": "polybius-sardianus.peri-schematismou",
+   "title": "Peri schematismou",
+   "tokens": 740
+  },
+  {
+   "n": "XXIV",
+   "printed_pages": "110-160",
+   "rank": "secondary",
+   "rows": 718,
+   "slug": "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
+   "title": "Peri ton tou logou schematon",
+   "tokens": 10449
+  },
+  {
+   "n": "XXV",
+   "printed_pages": "161-170",
+   "rank": "secondary",
+   "rows": 95,
+   "slug": "zonaeus.peri-schematon-ton-kata-logon",
+   "title": "Peri schematon ton kata logon",
+   "tokens": 1908
+  },
+  {
+   "n": "XXVI",
+   "printed_pages": "171-173",
+   "rank": "secondary",
+   "rows": 14,
+   "slug": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+   "title": "Peri schematon",
+   "tokens": 719
+  },
+  {
+   "n": "XXVII",
+   "printed_pages": "174-188",
+   "rank": "secondary",
+   "rows": 168,
+   "slug": "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
+   "title": "Peri ton schematon tou logou",
+   "tokens": 2805
+  },
+  {
+   "n": "XXVIII",
+   "printed_pages": "189-206",
+   "rank": "secondary",
+   "rows": 364,
+   "slug": "tryphon-i.peri-tro-pwn",
+   "title": "Peri tropon",
+   "tokens": 2995
+  },
+  {
+   "n": "XXIX",
+   "printed_pages": "207-214",
+   "rank": "secondary",
+   "rows": 73,
+   "slug": "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
+   "title": "Peri poietikon tropon",
+   "tokens": 1406
+  },
+  {
+   "n": "XXX",
+   "printed_pages": "215-226",
+   "rank": "secondary",
+   "rows": 265,
+   "slug": "tryphon-ii.de-tropis-olim-sub-auctore-gregorio-corinthio",
+   "title": "Peri tropon",
+   "tokens": 2112
+  },
+  {
+   "n": "XXXI",
+   "printed_pages": "227-229",
+   "rank": "secondary",
+   "rows": 24,
+   "slug": "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
+   "title": "Peri tropon",
+   "tokens": 407
+  },
+  {
+   "n": "XXXII",
+   "printed_pages": "230-243",
+   "rank": "secondary",
+   "rows": 260,
+   "slug": "cocondrius.peri-tropon",
+   "title": "Peri tropon",
+   "tokens": 2489
+  },
+  {
+   "n": "XXXIII",
+   "printed_pages": "244-256",
+   "rank": "secondary",
+   "rows": 173,
+   "slug": "georgius-choeroboscus.peri-tropon-poietikon",
+   "title": "Peri tropon poietikon",
+   "tokens": 2834
+  },
+  {
+   "n": "XXXIV",
+   "printed_pages": "257-328",
+   "rank": "secondary",
+   "rows": 808,
+   "slug": "demetrius-poet-phil.demetrius-de-eloc-roberts",
+   "title": "Peri hermeneias",
+   "tokens": 15775
+  },
+  {
+   "n": "XXXV",
+   "printed_pages": "329-446",
+   "rank": "secondary",
+   "rows": 803,
+   "slug": "menander-rhetoric.peri-e-pideiktikw-n",
+   "title": "Peri epideiktikon",
+   "tokens": 28811
+  },
+  {
+   "n": "XXXVI",
+   "printed_pages": "447-498",
+   "rank": "secondary",
+   "rows": 303,
+   "slug": "nicolaus-history.nicolaus-progymnasmata-felten",
+   "title": "Progymnasmata",
+   "tokens": 12352
+  }
+ ]
 }

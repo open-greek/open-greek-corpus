@@ -1,524 +1,517 @@
 {
-  "baseline_catalog_row_sha256": "fcd1390c409b2feeec0535f9fa01d34371a3805838f249a5bf83e2726131e801",
-  "baseline_commit": "94d01d91762da7026bd89b6862db037d5dc1c92b",
-  "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-  "corrections_applied": 0,
-  "edition": {
-    "editor": "Friedrich Dübner",
-    "license": "PD",
-    "place": "Paris",
-    "publisher": "Ambroise Firmin-Didot",
-    "title": "Scholia graeca in Aristophanem",
-    "year": 1855
+ "baseline_catalog_row_sha256": "fcd1390c409b2feeec0535f9fa01d34371a3805838f249a5bf83e2726131e801",
+ "baseline_commit": "94d01d91762da7026bd89b6862db037d5dc1c92b",
+ "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+ "corrections_applied": 0,
+ "edition": {
+  "editor": "Friedrich Dübner",
+  "license": "PD",
+  "place": "Paris",
+  "publisher": "Ambroise Firmin-Didot",
+  "title": "Scholia graeca in Aristophanem",
+  "year": 1855
+ },
+ "measurement_basis": "Greek regex runs [Ͱ-Ͽἀ-῿̀-ͯ]+ in unchanged primary text; matches the published work-token total. Region labels are provisional page scopes, not admitted work identities or final eligibility.",
+ "observations": [
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "The complete centered heading on the pinned scan reads ΑΧΑΡΝΗΣ. A heading is not continuous scholion text.",
+   "id": "truncated-play-heading",
+   "kind": "heading_truncation",
+   "locus": "scholia_aristoph_dubner_0043.1",
+   "original": "ΑΧΑΡ",
+   "page": 43,
+   "proposed": "ΑΧΑΡΝΗΣ",
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
   },
-  "measurement_basis": "Greek regex runs [Ͱ-Ͽἀ-῿̀-ͯ]+ in unchanged primary text; matches the published work-token total. Region labels are provisional page scopes, not admitted work identities or final eligibility.",
-  "observations": [
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "The complete centered heading on the pinned scan reads ΑΧΑΡΝΗΣ. A heading is not continuous scholion text.",
-      "id": "truncated-play-heading",
-      "kind": "heading_truncation",
-      "locus": "scholia_aristoph_dubner_0043.1",
-      "original": "ΑΧΑΡ",
-      "page": 43,
-      "proposed": "ΑΧΑΡΝΗΣ",
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "Right column, continuation of hypothesis I, prints ἐν Ἀθηναίοις διὰ Καλλιστράτου.",
-      "id": "missing-eta",
-      "kind": "omitted_letter",
-      "locus": "scholia_aristoph_dubner_0043.6",
-      "original": "Ἀθναίοις",
-      "page": 43,
-      "proposed": "Ἀθηναίοις",
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "The scholion on verse 520 is wholly Greek at this position; Latin u/o/s in the extraction cannot be a diplomatic transcription. Exact accents and letters require occurrence review before correction.",
-      "id": "mixed-alphabet",
-      "kind": "mixed_greek_latin",
-      "locus": "scholia_aristoph_dubner_0058.9",
-      "original": "σίχuos",
-      "page": 58,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "Verse 1230 prints τήνελλα three times, as lemma, explanation, and quoted Archilochus. The independent OCR pass embedded in the same PDF also retains the single word.",
-      "id": "fragmented-interjection",
-      "kind": "false_word_split",
-      "locus": "scholia_aristoph_dubner_0073.9",
-      "occurrences": 3,
-      "original": "τὴν ελλα",
-      "page": 73,
-      "proposed": "τήνελλα",
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "The page heading ΙΠΠΗΣ establishes the Knights hypothesis. This is legitimate historical Greek assigned to the wrong work, not OCR noise.",
-      "id": "knights-misattribution",
-      "kind": "wrong_work_scope",
-      "locus": "scholia_aristoph_dubner_0074.2",
-      "original": "Τὸ δράμα τοῦτο ποιεῖται εἰς Κλέωνα",
-      "page": 74,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "ADNOTATIO begins here; Reg., Ald., om., transponi mavult, and the manuscript variants belong to the critical annotation and must remain attributed variants.",
-      "id": "editorial-variants",
-      "kind": "editorial_apparatus",
-      "locus": "scholia_aristoph_dubner_0431.1",
-      "original": "ἐφέστηχεν Reg.",
-      "page": 431,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "Immediately after this note, the scan has the separate note beginning 443. Hoc scholion cum additamento Raven- and ending et schol. 447 omittit. It is absent between current rows .4 and .5. This matters for evidence preservation, not admission as scholion text.",
-      "id": "missing-editorial-note",
-      "kind": "omitted_source_note",
-      "locus": "scholia_aristoph_dubner_0543.4",
-      "original": "439, 12 καὶ Ἄγραυλος Brunckius. δὲ ἡ Ἄθ. Put.",
-      "page": 543,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "The source note on verse 513 reads παρὰ τοῖς ἄλλοις; 11 is not printed after this word. Similar attached numbers need geometric source review, not a blanket digit deletion.",
-      "id": "attached-numbers",
-      "kind": "numeric_suffix_noise",
-      "locus": "scholia_aristoph_dubner_0543.20",
-      "original": "ἄλλοις11",
-      "page": 543,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    },
-    {
-      "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
-      "evidence": "The INDEX GRAECUS page is a three-column editorial index. Its Greek headwords duplicate and point into multiple plays; they are not a new continuous Acharnians witness.",
-      "id": "index-counted-as-text",
-      "kind": "editorial_index",
-      "locus": "scholia_aristoph_dubner_0768.1",
-      "original": "Χολαργεῖς Ἀχαμαντίδος φυλῆς Ach. 855.",
-      "page": 768,
-      "proposed": null,
-      "review_date": "2026-10-23",
-      "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
-      "status": "observed_not_applied"
-    }
-  ],
-  "pages": [
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 0,
-      "greek_types": 0,
-      "image": "page-0009.png",
-      "observation": "Title identifies Dübner, Firmin-Didot, Paris, 1855; the volume includes scholia, critical notes, and indexes.",
-      "pdf_page": 9,
-      "printed_page": null,
-      "role": "edition_title",
-      "rows": 0,
-      "same_scan_tesseract_greek_tokens": 1,
-      "source_pages_with_rows": 0,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n9/mode/1up",
-      "unaligned_bag_token_overlap": 0
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 530,
-      "greek_types": 358,
-      "image": "page-0043.png",
-      "observation": "Printed page 1: ΑΧΑΡΝΗΣ, two hypotheses, then SCHOLIA IN ACHARNENSES; the right column continues the first hypothesis before the second begins.",
-      "pdf_page": 43,
-      "printed_page": "1",
-      "role": "acharnians_start",
-      "rows": 40,
-      "same_scan_tesseract_greek_tokens": 531,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n43/mode/1up",
-      "unaligned_bag_token_overlap": 358
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 10,
-        "mixed_examples": [
-          {
-            "form": "σίχuos",
-            "locus": "scholia_aristoph_dubner_0058.9"
-          }
-        ],
-        "mixed_greek_ascii_forms": 1,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 734,
-      "greek_types": 468,
-      "image": "page-0058.png",
-      "observation": "Printed page 16: scholia 507–542, with quoted verse, manuscript sigla, and retained print hyphenation; no separate lower apparatus block.",
-      "pdf_page": 58,
-      "printed_page": "16",
-      "role": "acharnians_midpoint",
-      "rows": 31,
-      "same_scan_tesseract_greek_tokens": 738,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n58/mode/1up",
-      "unaligned_bag_token_overlap": 501
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 193,
-      "greek_types": 137,
-      "image": "page-0073.png",
-      "observation": "Printed page 31 ends the Acharnians scholia at verse 1232; verse 1230 prints τήνελλα as one word.",
-      "pdf_page": 73,
-      "printed_page": "31",
-      "role": "acharnians_end",
-      "rows": 10,
-      "same_scan_tesseract_greek_tokens": 201,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n73/mode/1up",
-      "unaligned_bag_token_overlap": 128
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 525,
-      "greek_types": 338,
-      "image": "page-0074.png",
-      "observation": "Printed page 32 starts ΙΠΠΗΣ and its hypotheses. This is Knights material, not Acharnians.",
-      "pdf_page": 74,
-      "printed_page": "32",
-      "role": "next_play_start",
-      "rows": 11,
-      "same_scan_tesseract_greek_tokens": 507,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n74/mode/1up",
-      "unaligned_bag_token_overlap": 332
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 10,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 592,
-      "greek_types": 383,
-      "image": "page-0251.png",
-      "observation": "Printed page 209 starts ΟΡΝΙΘΕΣ and its hypotheses. This is Birds material, not Acharnians.",
-      "pdf_page": 251,
-      "printed_page": "209",
-      "role": "later_plays_midpoint",
-      "rows": 8,
-      "same_scan_tesseract_greek_tokens": 574,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n251/mode/1up",
-      "unaligned_bag_token_overlap": 378
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 3,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 189,
-      "greek_types": 148,
-      "image": "page-0431.png",
-      "observation": "Printed page 389: ADNOTATIO IN SCHOLIASTAS ARISTOPHANIS, ACHARNENSES; mixed Latin discussion and Greek variants belong to the editor's critical annotation.",
-      "pdf_page": 431,
-      "printed_page": "389",
-      "role": "annotation_start",
-      "rows": 11,
-      "same_scan_tesseract_greek_tokens": 234,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n431/mode/1up",
-      "unaligned_bag_token_overlap": 112
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [
-          {
-            "form": "ἄλλοις11",
-            "locus": "scholia_aristoph_dubner_0543.20"
-          },
-          {
-            "form": "ἄνὴρ15",
-            "locus": "scholia_aristoph_dubner_0543.23"
-          },
-          {
-            "form": "λόγου19",
-            "locus": "scholia_aristoph_dubner_0543.27"
-          },
-          {
-            "form": "ὅσον36",
-            "locus": "scholia_aristoph_dubner_0543.38"
-          },
-          {
-            "form": "δὲ40",
-            "locus": "scholia_aristoph_dubner_0543.42"
-          },
-          {
-            "form": "τοιαῦται41",
-            "locus": "scholia_aristoph_dubner_0543.43"
-          },
-          {
-            "form": "γὰρ42",
-            "locus": "scholia_aristoph_dubner_0543.44"
-          }
-        ],
-        "greek_digit_suffixes": 7,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 254,
-      "greek_types": 184,
-      "image": "page-0543.png",
-      "observation": "Printed page 501: LYSISTRATAE, mixed Latin critical discussion and Greek variant readings. Several displayed source notes are absent from the served extraction.",
-      "pdf_page": 543,
-      "printed_page": "501",
-      "role": "annotation_midpoint",
-      "rows": 50,
-      "same_scan_tesseract_greek_tokens": 316,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n543/mode/1up",
-      "unaligned_bag_token_overlap": 173
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 0,
-      "greek_types": 0,
-      "image": "page-0657.png",
-      "observation": "Printed page 615 identifies INDEX NOMINUM ET RERUM, INDEX AUCTORUM, and INDEX GRAECUS; this is an editorial index section.",
-      "pdf_page": 657,
-      "printed_page": "615",
-      "role": "index_title",
-      "rows": 0,
-      "same_scan_tesseract_greek_tokens": 0,
-      "source_pages_with_rows": 0,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n657/mode/1up",
-      "unaligned_bag_token_overlap": 0
-    },
-    {
-      "diagnostics": {
-        "digit_suffix_examples": [],
-        "greek_digit_suffixes": 0,
-        "internal_print_hyphen_sequences": 0,
-        "mixed_examples": [],
-        "mixed_greek_ascii_forms": 0,
-        "non_nfc_rows": 0,
-        "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
-      },
-      "greek_tokens": 156,
-      "greek_types": 143,
-      "image": "page-0768.png",
-      "observation": "Printed page 726: INDEX GRAECUS, three columns of words, explanations, and references to multiple plays; the two-column OCR provenance does not describe this layout.",
-      "pdf_page": 768,
-      "printed_page": "726",
-      "role": "last_served_page",
-      "rows": 86,
-      "same_scan_tesseract_greek_tokens": 167,
-      "source_pages_with_rows": 1,
-      "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n768/mode/1up",
-      "unaligned_bag_token_overlap": 87
-    }
-  ],
-  "qualification": "Ten purposively selected pages were visually inspected for source identity, roles, and extraction failures. They were not exhaustively transcribed or proofread. No population OCR error rate is estimated; 17.0507% unattested is a lookup diagnostic, not an error rate.",
-  "regions": [
-    {
-      "greek_tokens": 10909,
-      "greek_types": 3884,
-      "key": "front_matter",
-      "pdf_pages": [
-        1,
-        42
-      ],
-      "rows": 649,
-      "source_pages_with_rows": 28,
-      "title": "Front matter and grammatical prolegomena"
-    },
-    {
-      "greek_tokens": 21078,
-      "greek_types": 8172,
-      "key": "acharnians",
-      "pdf_pages": [
-        43,
-        73
-      ],
-      "rows": 1490,
-      "source_pages_with_rows": 31,
-      "title": "Acharnians hypotheses and scholia"
-    },
-    {
-      "greek_tokens": 245386,
-      "greek_types": 55311,
-      "key": "other_plays",
-      "pdf_pages": [
-        74,
-        430
-      ],
-      "rows": 14417,
-      "source_pages_with_rows": 356,
-      "title": "Subsequent plays' hypotheses and scholia"
-    },
-    {
-      "greek_tokens": 70036,
-      "greek_types": 23662,
-      "key": "critical_annotation",
-      "pdf_pages": [
-        431,
-        656
-      ],
-      "rows": 4637,
-      "source_pages_with_rows": 226,
-      "title": "Dübner's critical annotation"
-    },
-    {
-      "greek_tokens": 6646,
-      "greek_types": 5357,
-      "key": "indexes",
-      "pdf_pages": [
-        657,
-        776
-      ],
-      "rows": 3792,
-      "source_pages_with_rows": 101,
-      "title": "Editorial indexes"
-    }
-  ],
-  "sample": {
-    "greek_tokens": 3173,
-    "greek_types": 1731,
-    "rows": 247,
-    "source_pages_with_rows": 8
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "Right column, continuation of hypothesis I, prints ἐν Ἀθηναίοις διὰ Καλλιστράτου.",
+   "id": "missing-eta",
+   "kind": "omitted_letter",
+   "locus": "scholia_aristoph_dubner_0043.6",
+   "original": "Ἀθναίοις",
+   "page": 43,
+   "proposed": "Ἀθηναίοις",
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
   },
-  "sample_diagnostics": {
-    "digit_suffix_examples": [
-      {
-        "form": "ἄλλοις11",
-        "locus": "scholia_aristoph_dubner_0543.20"
-      },
-      {
-        "form": "ἄνὴρ15",
-        "locus": "scholia_aristoph_dubner_0543.23"
-      },
-      {
-        "form": "λόγου19",
-        "locus": "scholia_aristoph_dubner_0543.27"
-      },
-      {
-        "form": "ὅσον36",
-        "locus": "scholia_aristoph_dubner_0543.38"
-      },
-      {
-        "form": "δὲ40",
-        "locus": "scholia_aristoph_dubner_0543.42"
-      },
-      {
-        "form": "τοιαῦται41",
-        "locus": "scholia_aristoph_dubner_0543.43"
-      },
-      {
-        "form": "γὰρ42",
-        "locus": "scholia_aristoph_dubner_0543.44"
-      }
-    ],
-    "greek_digit_suffixes": 7,
-    "internal_print_hyphen_sequences": 23,
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "The scholion on verse 520 is wholly Greek at this position; Latin u/o/s in the extraction cannot be a diplomatic transcription. Exact accents and letters require occurrence review before correction.",
+   "id": "mixed-alphabet",
+   "kind": "mixed_greek_latin",
+   "locus": "scholia_aristoph_dubner_0058.9",
+   "original": "σίχuos",
+   "page": 58,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "Verse 1230 prints τήνελλα three times, as lemma, explanation, and quoted Archilochus. The independent OCR pass embedded in the same PDF also retains the single word.",
+   "id": "fragmented-interjection",
+   "kind": "false_word_split",
+   "locus": "scholia_aristoph_dubner_0073.9",
+   "occurrences": 3,
+   "original": "τὴν ελλα",
+   "page": 73,
+   "proposed": "τήνελλα",
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "The page heading ΙΠΠΗΣ establishes the Knights hypothesis. This is legitimate historical Greek assigned to the wrong work, not OCR noise.",
+   "id": "knights-misattribution",
+   "kind": "wrong_work_scope",
+   "locus": "scholia_aristoph_dubner_0074.2",
+   "original": "Τὸ δράμα τοῦτο ποιεῖται εἰς Κλέωνα",
+   "page": 74,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "ADNOTATIO begins here; Reg., Ald., om., transponi mavult, and the manuscript variants belong to the critical annotation and must remain attributed variants.",
+   "id": "editorial-variants",
+   "kind": "editorial_apparatus",
+   "locus": "scholia_aristoph_dubner_0431.1",
+   "original": "ἐφέστηχεν Reg.",
+   "page": 431,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "Immediately after this note, the scan has the separate note beginning 443. Hoc scholion cum additamento Raven- and ending et schol. 447 omittit. It is absent between current rows .4 and .5. This matters for evidence preservation, not admission as scholion text.",
+   "id": "missing-editorial-note",
+   "kind": "omitted_source_note",
+   "locus": "scholia_aristoph_dubner_0543.4",
+   "original": "439, 12 καὶ Ἄγραυλος Brunckius. δὲ ἡ Ἄθ. Put.",
+   "page": 543,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "The source note on verse 513 reads παρὰ τοῖς ἄλλοις; 11 is not printed after this word. Similar attached numbers need geometric source review, not a blanket digit deletion.",
+   "id": "attached-numbers",
+   "kind": "numeric_suffix_noise",
+   "locus": "scholia_aristoph_dubner_0543.20",
+   "original": "ἄλλοις11",
+   "page": 543,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  },
+  {
+   "baseline_sha256": "14736ad45cb79e53f6f6eb64160dc92d1aebe9b2f26ed28ae5ab2490834f38e3",
+   "evidence": "The INDEX GRAECUS page is a three-column editorial index. Its Greek headwords duplicate and point into multiple plays; they are not a new continuous Acharnians witness.",
+   "id": "index-counted-as-text",
+   "kind": "editorial_index",
+   "locus": "scholia_aristoph_dubner_0768.1",
+   "original": "Χολαργεῖς Ἀχαμαντίδος φυλῆς Ach. 855.",
+   "page": 768,
+   "review_date": "2026-10-23",
+   "source_pdf_sha256": "9d960c70b833f73b3871701775c557a6db1472cc95a04bea8f35054922715c07",
+   "status": "observed_not_applied"
+  }
+ ],
+ "pages": [
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 0,
+   "greek_types": 0,
+   "image": "page-0009.png",
+   "observation": "Title identifies Dübner, Firmin-Didot, Paris, 1855; the volume includes scholia, critical notes, and indexes.",
+   "pdf_page": 9,
+   "role": "edition_title",
+   "rows": 0,
+   "same_scan_tesseract_greek_tokens": 1,
+   "source_pages_with_rows": 0,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n9/mode/1up",
+   "unaligned_bag_token_overlap": 0
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 530,
+   "greek_types": 358,
+   "image": "page-0043.png",
+   "observation": "Printed page 1: ΑΧΑΡΝΗΣ, two hypotheses, then SCHOLIA IN ACHARNENSES; the right column continues the first hypothesis before the second begins.",
+   "pdf_page": 43,
+   "printed_page": "1",
+   "role": "acharnians_start",
+   "rows": 40,
+   "same_scan_tesseract_greek_tokens": 531,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n43/mode/1up",
+   "unaligned_bag_token_overlap": 358
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 10,
     "mixed_examples": [
-      {
-        "form": "σίχuos",
-        "locus": "scholia_aristoph_dubner_0058.9"
-      }
+     {
+      "form": "σίχuos",
+      "locus": "scholia_aristoph_dubner_0058.9"
+     }
     ],
     "mixed_greek_ascii_forms": 1,
     "non_nfc_rows": 0,
     "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 734,
+   "greek_types": 468,
+   "image": "page-0058.png",
+   "observation": "Printed page 16: scholia 507–542, with quoted verse, manuscript sigla, and retained print hyphenation; no separate lower apparatus block.",
+   "pdf_page": 58,
+   "printed_page": "16",
+   "role": "acharnians_midpoint",
+   "rows": 31,
+   "same_scan_tesseract_greek_tokens": 738,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n58/mode/1up",
+   "unaligned_bag_token_overlap": 501
   },
-  "schema_version": 1,
-  "selection": "Purposive source-role sample fixed before compiling metrics, not a random OCR accuracy sample: edition title; first, midpoint, and last Acharnians pages (43, (43+73)//2, 73); first subsequent play; midpoint of the later play block (74+429)//2; first and midpoint of the critical annotation (431, (431+656)//2); index title; last served page.",
-  "source_comparison": "Qwen served text and Tesseract embedded PDF text are separate OCR passes of the same scan. Unaligned bag overlap is not textual agreement or an accuracy score. No independent public edition has been collated; the catalog's Wilson 1975 reference is not an eligible served witness.",
-  "source_manifest_sha256": "70ada1a9cbe310641aa05b61e27fb60e957f0c98456aadc27a941a599d20f20c",
-  "total": {
-    "greek_tokens": 354055,
-    "greek_types": 75578,
-    "rows": 24985,
-    "source_pages_with_rows": 742
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 193,
+   "greek_types": 137,
+   "image": "page-0073.png",
+   "observation": "Printed page 31 ends the Acharnians scholia at verse 1232; verse 1230 prints τήνελλα as one word.",
+   "pdf_page": 73,
+   "printed_page": "31",
+   "role": "acharnians_end",
+   "rows": 10,
+   "same_scan_tesseract_greek_tokens": 201,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n73/mode/1up",
+   "unaligned_bag_token_overlap": 128
   },
-  "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 525,
+   "greek_types": 338,
+   "image": "page-0074.png",
+   "observation": "Printed page 32 starts ΙΠΠΗΣ and its hypotheses. This is Knights material, not Acharnians.",
+   "pdf_page": 74,
+   "printed_page": "32",
+   "role": "next_play_start",
+   "rows": 11,
+   "same_scan_tesseract_greek_tokens": 507,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n74/mode/1up",
+   "unaligned_bag_token_overlap": 332
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 10,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 592,
+   "greek_types": 383,
+   "image": "page-0251.png",
+   "observation": "Printed page 209 starts ΟΡΝΙΘΕΣ and its hypotheses. This is Birds material, not Acharnians.",
+   "pdf_page": 251,
+   "printed_page": "209",
+   "role": "later_plays_midpoint",
+   "rows": 8,
+   "same_scan_tesseract_greek_tokens": 574,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n251/mode/1up",
+   "unaligned_bag_token_overlap": 378
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 3,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 189,
+   "greek_types": 148,
+   "image": "page-0431.png",
+   "observation": "Printed page 389: ADNOTATIO IN SCHOLIASTAS ARISTOPHANIS, ACHARNENSES; mixed Latin discussion and Greek variants belong to the editor's critical annotation.",
+   "pdf_page": 431,
+   "printed_page": "389",
+   "role": "annotation_start",
+   "rows": 11,
+   "same_scan_tesseract_greek_tokens": 234,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n431/mode/1up",
+   "unaligned_bag_token_overlap": 112
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [
+     {
+      "form": "ἄλλοις11",
+      "locus": "scholia_aristoph_dubner_0543.20"
+     },
+     {
+      "form": "ἄνὴρ15",
+      "locus": "scholia_aristoph_dubner_0543.23"
+     },
+     {
+      "form": "λόγου19",
+      "locus": "scholia_aristoph_dubner_0543.27"
+     },
+     {
+      "form": "ὅσον36",
+      "locus": "scholia_aristoph_dubner_0543.38"
+     },
+     {
+      "form": "δὲ40",
+      "locus": "scholia_aristoph_dubner_0543.42"
+     },
+     {
+      "form": "τοιαῦται41",
+      "locus": "scholia_aristoph_dubner_0543.43"
+     },
+     {
+      "form": "γὰρ42",
+      "locus": "scholia_aristoph_dubner_0543.44"
+     }
+    ],
+    "greek_digit_suffixes": 7,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 254,
+   "greek_types": 184,
+   "image": "page-0543.png",
+   "observation": "Printed page 501: LYSISTRATAE, mixed Latin critical discussion and Greek variant readings. Several displayed source notes are absent from the served extraction.",
+   "pdf_page": 543,
+   "printed_page": "501",
+   "role": "annotation_midpoint",
+   "rows": 50,
+   "same_scan_tesseract_greek_tokens": 316,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n543/mode/1up",
+   "unaligned_bag_token_overlap": 173
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 0,
+   "greek_types": 0,
+   "image": "page-0657.png",
+   "observation": "Printed page 615 identifies INDEX NOMINUM ET RERUM, INDEX AUCTORUM, and INDEX GRAECUS; this is an editorial index section.",
+   "pdf_page": 657,
+   "printed_page": "615",
+   "role": "index_title",
+   "rows": 0,
+   "same_scan_tesseract_greek_tokens": 0,
+   "source_pages_with_rows": 0,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n657/mode/1up",
+   "unaligned_bag_token_overlap": 0
+  },
+  {
+   "diagnostics": {
+    "digit_suffix_examples": [],
+    "greek_digit_suffixes": 0,
+    "internal_print_hyphen_sequences": 0,
+    "mixed_examples": [],
+    "mixed_greek_ascii_forms": 0,
+    "non_nfc_rows": 0,
+    "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+   },
+   "greek_tokens": 156,
+   "greek_types": 143,
+   "image": "page-0768.png",
+   "observation": "Printed page 726: INDEX GRAECUS, three columns of words, explanations, and references to multiple plays; the two-column OCR provenance does not describe this layout.",
+   "pdf_page": 768,
+   "printed_page": "726",
+   "role": "last_served_page",
+   "rows": 86,
+   "same_scan_tesseract_greek_tokens": 167,
+   "source_pages_with_rows": 1,
+   "source_url": "https://archive.org/details/scholiagraecaina00dbuoft/page/n768/mode/1up",
+   "unaligned_bag_token_overlap": 87
+  }
+ ],
+ "qualification": "Ten purposively selected pages were visually inspected for source identity, roles, and extraction failures. They were not exhaustively transcribed or proofread. No population OCR error rate is estimated; 17.0507% unattested is a lookup diagnostic, not an error rate.",
+ "regions": [
+  {
+   "greek_tokens": 10909,
+   "greek_types": 3884,
+   "key": "front_matter",
+   "pdf_pages": [
+    1,
+    42
+   ],
+   "rows": 649,
+   "source_pages_with_rows": 28,
+   "title": "Front matter and grammatical prolegomena"
+  },
+  {
+   "greek_tokens": 21078,
+   "greek_types": 8172,
+   "key": "acharnians",
+   "pdf_pages": [
+    43,
+    73
+   ],
+   "rows": 1490,
+   "source_pages_with_rows": 31,
+   "title": "Acharnians hypotheses and scholia"
+  },
+  {
+   "greek_tokens": 245386,
+   "greek_types": 55311,
+   "key": "other_plays",
+   "pdf_pages": [
+    74,
+    430
+   ],
+   "rows": 14417,
+   "source_pages_with_rows": 356,
+   "title": "Subsequent plays' hypotheses and scholia"
+  },
+  {
+   "greek_tokens": 70036,
+   "greek_types": 23662,
+   "key": "critical_annotation",
+   "pdf_pages": [
+    431,
+    656
+   ],
+   "rows": 4637,
+   "source_pages_with_rows": 226,
+   "title": "Dübner's critical annotation"
+  },
+  {
+   "greek_tokens": 6646,
+   "greek_types": 5357,
+   "key": "indexes",
+   "pdf_pages": [
+    657,
+    776
+   ],
+   "rows": 3792,
+   "source_pages_with_rows": 101,
+   "title": "Editorial indexes"
+  }
+ ],
+ "sample": {
+  "greek_tokens": 3173,
+  "greek_types": 1731,
+  "rows": 247,
+  "source_pages_with_rows": 8
+ },
+ "sample_diagnostics": {
+  "digit_suffix_examples": [
+   {
+    "form": "ἄλλοις11",
+    "locus": "scholia_aristoph_dubner_0543.20"
+   },
+   {
+    "form": "ἄνὴρ15",
+    "locus": "scholia_aristoph_dubner_0543.23"
+   },
+   {
+    "form": "λόγου19",
+    "locus": "scholia_aristoph_dubner_0543.27"
+   },
+   {
+    "form": "ὅσον36",
+    "locus": "scholia_aristoph_dubner_0543.38"
+   },
+   {
+    "form": "δὲ40",
+    "locus": "scholia_aristoph_dubner_0543.42"
+   },
+   {
+    "form": "τοιαῦται41",
+    "locus": "scholia_aristoph_dubner_0543.43"
+   },
+   {
+    "form": "γὰρ42",
+    "locus": "scholia_aristoph_dubner_0543.44"
+   }
+  ],
+  "greek_digit_suffixes": 7,
+  "internal_print_hyphen_sequences": 23,
+  "mixed_examples": [
+   {
+    "form": "σίχuos",
+    "locus": "scholia_aristoph_dubner_0058.9"
+   }
+  ],
+  "mixed_greek_ascii_forms": 1,
+  "non_nfc_rows": 0,
+  "qualification": "Diagnostics include source sigla, references, and print hyphenation; they are candidates, not error counts."
+ },
+ "schema_version": 1,
+ "selection": "Purposive source-role sample fixed before compiling metrics, not a random OCR accuracy sample: edition title; first, midpoint, and last Acharnians pages (43, (43+73)//2, 73); first subsequent play; midpoint of the later play block (74+429)//2; first and midpoint of the critical annotation (431, (431+656)//2); index title; last served page.",
+ "source_comparison": "Qwen served text and Tesseract embedded PDF text are separate OCR passes of the same scan. Unaligned bag overlap is not textual agreement or an accuracy score. No independent public edition has been collated; the catalog's Wilson 1975 reference is not an eligible served witness.",
+ "source_manifest_sha256": "70ada1a9cbe310641aa05b61e27fb60e957f0c98456aadc27a941a599d20f20c",
+ "total": {
+  "greek_tokens": 354055,
+  "greek_types": 75578,
+  "rows": 24985,
+  "source_pages_with_rows": 742
+ },
+ "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
 }

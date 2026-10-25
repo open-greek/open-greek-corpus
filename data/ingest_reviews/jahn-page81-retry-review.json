@@ -1,23 +1,22 @@
 {
- "manifest_sha256": "ab2c8913e3c12ca5633a107a51d0f685b7f8bbfe867ae032b7e277fd70d8e945",
- "source_pdf_sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
  "decision": "replace-source-reviewed-degraded-page",
- "reviewed_at": "2026-10-18T07:14:18.355546+00:00",
- "source_evidence": "All six retry predictions compared with the complete printed page81 body and the three source crop boundaries. All printed body lines are represented. The enlarged Qwen3.6 strips recover many accents and breathings absent from both original whole-page attempts; Qwen3.8 strip1 still omits many marks. Remaining word and breathing disagreements are retained as explicit variants in the two-model merge. This accepts complete source coverage and improved legibility, without claiming a word-perfect transcription; no reading is selected using a dictionary or accent score. The terminal printed γίνε- remains an incomplete page-boundary word, with its raw readings retained.",
+ "manifest_sha256": "ab2c8913e3c12ca5633a107a51d0f685b7f8bbfe867ae032b7e277fd70d8e945",
  "original_artifacts_sha256": [
   "25f9ebc56f67e64ee72d45dfc3b0bf28eb4fe6280cb2076eae0fe2b08af6ad51",
   "b0cc6e0a368a7ab153128d2e78ad7de71767077f5cde3449870f38c90818b3df"
  ],
+ "reviewed_at": "2026-10-18T07:14:18.355546+00:00",
  "reviewed_runs": [
   {
-   "sha256": "b5606d26062edec70a6a68d4a2c7b75c1c56184706f6755f27b5067b7a2acef9",
    "model": "Qwen/Qwen3.6-27B",
-   "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+   "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+   "sha256": "b5606d26062edec70a6a68d4a2c7b75c1c56184706f6755f27b5067b7a2acef9"
   },
   {
-   "sha256": "f4918687371685fd2d232713b3dc49e1d0c961604906ce1a316eba27d93acf7c",
    "model": "Qwen/Qwen3.8-27B-FP8",
-   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+   "sha256": "f4918687371685fd2d232713b3dc49e1d0c961604906ce1a316eba27d93acf7c"
   }
- ]
+ ],
+ "source_pdf_sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6"
 }

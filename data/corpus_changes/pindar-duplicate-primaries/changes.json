@@ -25,10 +25,6 @@
   "sources/first1k/data/tlg4170/tlg001d/tlg4170.tlg001d.1st1K-grc1.xml": "6e31ccdebbc1204b5de53fdd07117e8ffd7fe8688c8bccc991c9bfcf80d70bba"
  },
  "outputs": {
-  "data/corpus/tlg4170.tlg001a.jsonl": null,
-  "data/corpus/tlg4170.tlg001b.jsonl": null,
-  "data/corpus/tlg4170.tlg001c.jsonl": null,
-  "data/corpus/tlg4170.tlg001d.jsonl": null,
   "data/corpus/vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis.jsonl": "ab2efdb7f521dd2464131865a4d2b8e09901a07b56dd46e8d1d374276125905a",
   "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-ambrosiana.jsonl": "e205ed723f440220922ff767e0b0d84a57ebd117df17492d2376afcf0149c16c",
   "data/corpus/vitae-pindari-et-varia-de-pindaro.vita-metrica.jsonl": "c692c6f761a900b183f166aa219d43b2383fd03467708a74efe488a817983c51",
@@ -45,9 +41,6 @@
   "data/corpus_secondary/vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum.jsonl": "76825495fdb01a4203301892a46e01ee8919ca845ef4d471a1d8a5be77086748"
  },
  "qualification": "Four duplicate serializations of the same First1K edition are counted once. Equality is exact after removing only the work urn. No Greek text, source license, original citation, or opaque identifier is discarded; the duplicate IDs remain separate retired ledger entries with explicit canonical redirects, rather than being reassigned to another expression.",
- "recipe_sha256": {
-  "repair_pindar_duplicate_primaries.py": "68ce5de464667ab48b022f8d8d1347212a6213826e9bc08dbdd6bc0cb283950c"
- },
  "recorded_at": "2026-10-24T23:13:59.642125+00:00",
  "schema_version": 1,
  "works": {

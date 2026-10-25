@@ -1,23 +1,47 @@
 {
- "schema_version": 1,
+ "child_retries": [
+  {
+   "child_retries": [
+    {
+     "child_retries": [],
+     "replaced_strip_ids": [
+      "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1"
+     ],
+     "request_sha256": "0759dbe3c9123547fcbbddcd0f207b4f4342bcfc5999b4708fb77f742a37306a",
+     "retry_sha256": "6d80def4a12d5ad3350a1f2733c063f38f1d0cf02351e2a8ee216b60ebcef602",
+     "source_review_sha256": "ee740f87c3d3aa9bd7682fdfd4ce6ced1f250147bf07be557ae4e6bf03b1da15"
+    }
+   ],
+   "replaced_strip_ids": [
+    "dio-cary-v6-pdf0206-reviewed-strip-1"
+   ],
+   "request_sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
+   "retry_sha256": "4349058050f5b68dc2f61e7104e9571c30041e22b2fdd9287a0e5ec3c4b70a6f",
+   "source_review_sha256": "49f879b1b81f64e644f8945cc0e00dd1bdf79ecd3a4533f09263ecae9a07e913"
+  },
+  {
+   "child_retries": [],
+   "replaced_strip_ids": [
+    "dio-cary-v9-pdf0179-reviewed-strip-2",
+    "dio-cary-v9-pdf0188-reviewed-strip-2",
+    "dio-cary-v9-pdf0192-reviewed-strip-3",
+    "dio-cary-v9-pdf0193-reviewed-strip-1",
+    "dio-cary-v9-pdf0201-reviewed-strip-1",
+    "dio-cary-v9-pdf0201-reviewed-strip-2",
+    "dio-cary-v9-pdf0201-reviewed-strip-3",
+    "dio-cary-v9-pdf0216-reviewed-strip-2"
+   ],
+   "request_sha256": "715706e7abd77b2972b099df3f61a7e26ca7d9d455be3f2e028ca6bd1b524688",
+   "retry_sha256": "0c4c369da761848af82aa6d5f2bad2deb1e831bd1b4204a170d8b9d95dde22ac",
+   "source_review_sha256": "29e13f39e0a4eaeacbb93ad69f505f5943d941cdfed1e81e8167db947ac2b47b"
+  }
+ ],
  "decision": "replace-only-explicit-source-reviewed-Dio-inputs",
- "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
  "manifest_sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0",
- "request_sha256": "d97e081912f3b45da68370f59eed1768d8c911af44b0323258443aaeb63ac029",
  "original_bundle_sha256": "14c578f1017a566f698d3689685a1b87fb6069ecb91ac1126a705e759f61804f",
- "retry_sha256": "a1192f51e148a482d3439b69cfc127607f7365f20d1b6bea865017c46d94bd6b",
  "pages": {
   "dio-cary-v6-pdf0206": {
-   "original_artifact_sha256": "4f2a5ee9641715320ccfc8d95c683e3aa02c1a7c8c2345c8e7c4ec002744f8ea",
-   "strip_sha256s": [
-    "4c9a8025906452a0d0c6cfc2cbf6d21a717cc295b3d434c9a4efae1621059684",
-    "9bac8829dd1dfc0a5757b60ee3025ef438a70bd0871625f56dec511af835cfed",
-    "9cba7fdece2aafd5b0e074f457f36ff53ad81c85419024f4d9bafcf7b5fbc62a",
-    "969b74bc8c9142f7517f8649722b58104f158b8ddbc06a868f1ecb95aa314754",
-    "7ffa74d67a03de3dce199b2399380c6fae7d8cebce8bfd6685f972d0294a66c7",
-    "7a17c0a20c2155e5ac17280086b56d23f5deb26b9c8debf1a943df6209e69b3a",
-    "ac012b5fa80147ee4abf1fa426af3aa4aeefd1d1e16e8098346573efee7c56fa"
-   ],
+   "assembled_text_sha256": "38d2fd441e5f7d2adcc55e56286fbbdeaf7b6cb8df29c5c6d62d53f52c938a1b",
    "image_sha256s": [
     "f1d391989009295cfab82f382108ff75b7e2320fd183dedc943dc05927420aad",
     "0cfc2375b12349448262f9d15c70bee2202b37c49da5e54e6d72161ab3b9b0bf",
@@ -27,48 +51,47 @@
     "c662c73e025d19e8ec54b19d7612024fd720a12ead97461f0542b912c0877625",
     "12634a01eaa757427f58f88c13cf603d95b228167781414015de6d39c45c29a4"
    ],
-   "assembled_text_sha256": "38d2fd441e5f7d2adcc55e56286fbbdeaf7b6cb8df29c5c6d62d53f52c938a1b",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. The first three printed lines still contain missing accents and a mixed-script reading in Qwen3.8 after finer attempts. Those exact lines lie wholly inside the already served55.9.2–55.9.4 prefix, which the unique βουληθεὶς δὲ δὴ τρόπον anchor removes before new primary admission. Their mark quality is not certified. They remain held overlap evidence alongside unchanged historical passages; the missing continuation after the anchor was checked separately for full body."
+   "original_artifact_sha256": "4f2a5ee9641715320ccfc8d95c683e3aa02c1a7c8c2345c8e7c4ec002744f8ea",
+   "strip_sha256s": [
+    "4c9a8025906452a0d0c6cfc2cbf6d21a717cc295b3d434c9a4efae1621059684",
+    "9bac8829dd1dfc0a5757b60ee3025ef438a70bd0871625f56dec511af835cfed",
+    "9cba7fdece2aafd5b0e074f457f36ff53ad81c85419024f4d9bafcf7b5fbc62a",
+    "969b74bc8c9142f7517f8649722b58104f158b8ddbc06a868f1ecb95aa314754",
+    "7ffa74d67a03de3dce199b2399380c6fae7d8cebce8bfd6685f972d0294a66c7",
+    "7a17c0a20c2155e5ac17280086b56d23f5deb26b9c8debf1a943df6209e69b3a",
+    "ac012b5fa80147ee4abf1fa426af3aa4aeefd1d1e16e8098346573efee7c56fa"
+   ]
   },
   "dio-cary-v8-pdf0116": {
-   "original_artifact_sha256": "1f3baef17b574be3db2c20b47eadd27fc266b3ce183e4b404388fb402fb72c38",
-   "strip_sha256s": [
-    "5aea1a59409fe17a12c77d4b8ab69360214f295e6e984120150dab727a79193f",
-    "aee5fb09fbfd95efa50c5ae8a4732d932fec7409fbe40629c0639e90b408e9e6",
-    "8a5792dc657d9c75767e840e1a63848d6208429e3b6c0cc1122d85842ebbd768"
-   ],
+   "assembled_text_sha256": "eadbdf9642d83bd42d36718b1403605b4b4325db7c84c01b451324ce25f46f17",
    "image_sha256s": [
     "3119e6a722bcc549d6aaf3126a11309e5fcf9c5c8df0dd18ecc3c1168e58e553",
     "8cd9edb4f5021ff0d0277fa96a6b47e63e3adc8c77ef961f7372bcdd88497756",
     "0dbe36f4109e8c61f55755667eb66d418d37e79e41a429485b76a2ff4fe838e3"
    ],
-   "assembled_text_sha256": "eadbdf9642d83bd42d36718b1403605b4b4325db7c84c01b451324ce25f46f17",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "1f3baef17b574be3db2c20b47eadd27fc266b3ce183e4b404388fb402fb72c38",
+   "strip_sha256s": [
+    "5aea1a59409fe17a12c77d4b8ab69360214f295e6e984120150dab727a79193f",
+    "aee5fb09fbfd95efa50c5ae8a4732d932fec7409fbe40629c0639e90b408e9e6",
+    "8a5792dc657d9c75767e840e1a63848d6208429e3b6c0cc1122d85842ebbd768"
+   ]
   },
   "dio-cary-v9-pdf0178": {
-   "original_artifact_sha256": "82cc0c02aa7641ed56765c20f35a038bb6ff1b4cf395b12dd55739d8d138b48c",
-   "strip_sha256s": [
-    "4b63aca84553ec2c684e7a5b870a83ef125652871c4bd376dd748266724c1642",
-    "bb62f0efe9c503c6a3ea8317f3b62c44da05b26aa4efd6267a22b697db7f1d98",
-    "d7f43dc60eb006509b5f7636709b9455624d71e88f8999f6e03f50b4aca1dcce"
-   ],
+   "assembled_text_sha256": "5d4ab746f2f608cd70e932e034a59a8d1f5765d969403ad55b2370e66f1d25d4",
    "image_sha256s": [
     "1ea5b879d8831053953a5e178872e9bd9052d62e1c61775c3a1d0d929228eba7",
     "572bb090d48723b3fe1a373e29f4c11ab9989e841ec585b1c18072e5fa5e39b8",
     "f8e5a20af154d33cba67a0d897b88abbac1c9336d10923c203072b641c4ab9b0"
    ],
-   "assembled_text_sha256": "5d4ab746f2f608cd70e932e034a59a8d1f5765d969403ad55b2370e66f1d25d4",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "82cc0c02aa7641ed56765c20f35a038bb6ff1b4cf395b12dd55739d8d138b48c",
+   "strip_sha256s": [
+    "4b63aca84553ec2c684e7a5b870a83ef125652871c4bd376dd748266724c1642",
+    "bb62f0efe9c503c6a3ea8317f3b62c44da05b26aa4efd6267a22b697db7f1d98",
+    "d7f43dc60eb006509b5f7636709b9455624d71e88f8999f6e03f50b4aca1dcce"
+   ]
   },
   "dio-cary-v9-pdf0179": {
-   "original_artifact_sha256": "6564d14431d02029c5d1b62d32a66bd838f676137d8dfad6026971f16e14f8a4",
-   "strip_sha256s": [
-    "da3ac16e9c8e011ffdf7650b96a47920e959f4ab707193c0977cf0ca055376c0",
-    "d0ffceeecf818295cec3b20d35e9cc11bb84cfac5f2c7ae4854cce0a241cf1ca",
-    "eef8fc274d28da392b3c95d535c5109be82e893732caa49c3bef3cd7ca8e491b",
-    "04f98f61b419d6e43a7b210ac71736bb128790739459a75b9d76842be12c4713",
-    "4aa5fa492200296ff3e399ef7be2c4daef278919c3ef8d8df2e968bf1a281d9c"
-   ],
+   "assembled_text_sha256": "aed0d884edc860f34bc5c3de41118ac0d1b21a2a04d9fcdae64e099a2577e7c2",
    "image_sha256s": [
     "cb91329c4b4d2bd8d28f1a881a09e4ccc5558199b265a3666f4be58ec0e9e041",
     "9292f0261c7771fcb4ea326503de8a96296083cac909efd882849d4c1612436a",
@@ -76,33 +99,31 @@
     "2550edf019b9f7d549f9643778e8b80af28be41feffd35f77b8561ec49a9a6e9",
     "a4d112ed7caa6a8d1ef0a27b212fd65b33acfe974de1fcafe9b173886177bbe4"
    ],
-   "assembled_text_sha256": "aed0d884edc860f34bc5c3de41118ac0d1b21a2a04d9fcdae64e099a2577e7c2",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "6564d14431d02029c5d1b62d32a66bd838f676137d8dfad6026971f16e14f8a4",
+   "strip_sha256s": [
+    "da3ac16e9c8e011ffdf7650b96a47920e959f4ab707193c0977cf0ca055376c0",
+    "d0ffceeecf818295cec3b20d35e9cc11bb84cfac5f2c7ae4854cce0a241cf1ca",
+    "eef8fc274d28da392b3c95d535c5109be82e893732caa49c3bef3cd7ca8e491b",
+    "04f98f61b419d6e43a7b210ac71736bb128790739459a75b9d76842be12c4713",
+    "4aa5fa492200296ff3e399ef7be2c4daef278919c3ef8d8df2e968bf1a281d9c"
+   ]
   },
   "dio-cary-v9-pdf0187": {
-   "original_artifact_sha256": "38bae89726b6623295b8e932b2bb7a847eeeb54f177dbc34eafe7daa3e934ae0",
-   "strip_sha256s": [
-    "6c04ba23119dd5d37655d8d298579f4aae2d2568dfe996dcc4caf63a39022aef",
-    "8c585c0a97818bd90a63e2f95548c67f546b7ed1a038c367f9d5a4dab0b4a414",
-    "364eefe8283bdeba7d30399ccf11ba1b388fb2a450775f663a21ad6b3491acdd"
-   ],
+   "assembled_text_sha256": "e706e8cf9b73d496c8c80358ce7e4ff961ea3814d533fafde2deef9f12ca0348",
    "image_sha256s": [
     "011577bd622c416425731a224c967c4b14d16358f44be03e6f325e1c48c274d8",
     "10fca5fa7071693045dec217fce5a6255526df256f34419b77de777ba43ad730",
     "2599ea8226f573a90f0d0412898749fe312a520567d9c50b8188cdd1c280be66"
    ],
-   "assembled_text_sha256": "e706e8cf9b73d496c8c80358ce7e4ff961ea3814d533fafde2deef9f12ca0348",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "38bae89726b6623295b8e932b2bb7a847eeeb54f177dbc34eafe7daa3e934ae0",
+   "strip_sha256s": [
+    "6c04ba23119dd5d37655d8d298579f4aae2d2568dfe996dcc4caf63a39022aef",
+    "8c585c0a97818bd90a63e2f95548c67f546b7ed1a038c367f9d5a4dab0b4a414",
+    "364eefe8283bdeba7d30399ccf11ba1b388fb2a450775f663a21ad6b3491acdd"
+   ]
   },
   "dio-cary-v9-pdf0188": {
-   "original_artifact_sha256": "b7b67a9439b2dad2fed2a8f84e964e90f044672a629e54f31a43b1aeba8660ce",
-   "strip_sha256s": [
-    "6012321565e75a82523fb30a4d11b1a6b566e66dd7e490e35a5bd05af49b6041",
-    "c454d3361d681c9612e2536869b73d44f988d74c0ca5b23fc35c5cfe92a249ce",
-    "26dfcb187060f684292a7dcfa2618b557a47dd52ebb538dc2c82c75f3903887e",
-    "6300aa5d2756049f7a3835417cf500e31284a8e054195b7b4d42ca3ffe9bfb22",
-    "d175c1a70fd5c20b30b9baace987ff7ecaf867484a4a95008e5e9eb9d608e995"
-   ],
+   "assembled_text_sha256": "acaf9fa49389d1ad1ad430385b270c8d9c648f868455967a9dcaa90bf10dc5cc",
    "image_sha256s": [
     "efc677e251708498acf86986e469e9928322d12d66d48d0161431b6fbb85017b",
     "4f9a440101dd2ea22448e5d2c4871ba8bdcfa62dc1e5281be758105051286d53",
@@ -110,18 +131,17 @@
     "6e179d7a5a852cf0643eae763673ce20ebafd766a06b0e31ff6eb4b9f9d4a680",
     "5ad251b1b357010a62875e24df770e40bdf8b0797605f24ba4ce329a94c0bc32"
    ],
-   "assembled_text_sha256": "acaf9fa49389d1ad1ad430385b270c8d9c648f868455967a9dcaa90bf10dc5cc",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "b7b67a9439b2dad2fed2a8f84e964e90f044672a629e54f31a43b1aeba8660ce",
+   "strip_sha256s": [
+    "6012321565e75a82523fb30a4d11b1a6b566e66dd7e490e35a5bd05af49b6041",
+    "c454d3361d681c9612e2536869b73d44f988d74c0ca5b23fc35c5cfe92a249ce",
+    "26dfcb187060f684292a7dcfa2618b557a47dd52ebb538dc2c82c75f3903887e",
+    "6300aa5d2756049f7a3835417cf500e31284a8e054195b7b4d42ca3ffe9bfb22",
+    "d175c1a70fd5c20b30b9baace987ff7ecaf867484a4a95008e5e9eb9d608e995"
+   ]
   },
   "dio-cary-v9-pdf0192": {
-   "original_artifact_sha256": "625eb8f0ed1030a8d5a317bb34114db6b0bd774d0aff1e42dec10d4debc53181",
-   "strip_sha256s": [
-    "902bf08140a46aae7f8e60695d18be215de28bee82b283a7391a535a6fcb3cc3",
-    "54a2e1dd8570682e56040ce847f5ef24bae4b339351983ec18bf6dae5c28bf2e",
-    "48e41fbd8b823b1ab37340f32c0c90b53c7b74b56fba2a8758b1e8ac4753b646",
-    "cc7f82efc0d1d319470041979a943f8c396c016a715e63f8e75ecf7e325004cc",
-    "f95f815582e6b4551da60c4d17d74cc7f48249c47b87baa4e9db8865e7c355dd"
-   ],
+   "assembled_text_sha256": "a6502b80573b2ed0d8368c2cf4a1eb74f0cc1c486f80c8e575cde0ba049408dc",
    "image_sha256s": [
     "66091da2e54161c6375723a84092d879b9b69dd3fe50d2993c2911fe1eed1f14",
     "64c4442b25aeb7c697718e4e7fa99cc4f487bd4750854a619658d029961275f3",
@@ -129,18 +149,17 @@
     "8f34e0282f76bd7c6cf988ccd14c34faf441c6a00cfc180b2a99521d513eb613",
     "6ecefcdfacb9d579b8839d157c8308fb3fb96f135099ebe29d5879778112bf02"
    ],
-   "assembled_text_sha256": "a6502b80573b2ed0d8368c2cf4a1eb74f0cc1c486f80c8e575cde0ba049408dc",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "625eb8f0ed1030a8d5a317bb34114db6b0bd774d0aff1e42dec10d4debc53181",
+   "strip_sha256s": [
+    "902bf08140a46aae7f8e60695d18be215de28bee82b283a7391a535a6fcb3cc3",
+    "54a2e1dd8570682e56040ce847f5ef24bae4b339351983ec18bf6dae5c28bf2e",
+    "48e41fbd8b823b1ab37340f32c0c90b53c7b74b56fba2a8758b1e8ac4753b646",
+    "cc7f82efc0d1d319470041979a943f8c396c016a715e63f8e75ecf7e325004cc",
+    "f95f815582e6b4551da60c4d17d74cc7f48249c47b87baa4e9db8865e7c355dd"
+   ]
   },
   "dio-cary-v9-pdf0193": {
-   "original_artifact_sha256": "ebf41735829815216a52041dba92b81f808f36cc72089506c9522d2273ca2a6d",
-   "strip_sha256s": [
-    "503ada5f491bc8b3156f2e387f9dd3aa76ca5284753e825f5c58ca0db752f27b",
-    "5da69baac5ffca61a1c99a0174876ee607ed975f53c412151bc6b88eee2f040d",
-    "6cf3821309dac9598c7fcc40f1f751d1d6b3ec3f8b8ac3aafec5fef463699787",
-    "c90e5998c7255c1308e4eaba2150b0f187ed2a852995c77f319c0a312e115fd0",
-    "a582d5957d8c250f2e53ec78a2b9a168ac512eed835570d26ddcbd7a8b3afb65"
-   ],
+   "assembled_text_sha256": "d32199dae4e2a325029cb55ecee3ddb66d53ce7d2881279f911727d0cba72259",
    "image_sha256s": [
     "67617d7cf4c0db98091a59d2ea41851787134811d675c40c86d54cea94184a84",
     "f7cd44f4253ccc486be5ee8e8b5ee87330ebd2bebbbf7e0f77ca7013b99ce3e1",
@@ -148,37 +167,31 @@
     "462a060071fcde503686233a39c11e9226a94eb3d8be6e95e2eb8760f3bd4c4c",
     "9dcee542baebb5a1fb683283e6151445ca40f61ccc4fe864ccba261f888e764e"
    ],
-   "assembled_text_sha256": "d32199dae4e2a325029cb55ecee3ddb66d53ce7d2881279f911727d0cba72259",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "ebf41735829815216a52041dba92b81f808f36cc72089506c9522d2273ca2a6d",
+   "strip_sha256s": [
+    "503ada5f491bc8b3156f2e387f9dd3aa76ca5284753e825f5c58ca0db752f27b",
+    "5da69baac5ffca61a1c99a0174876ee607ed975f53c412151bc6b88eee2f040d",
+    "6cf3821309dac9598c7fcc40f1f751d1d6b3ec3f8b8ac3aafec5fef463699787",
+    "c90e5998c7255c1308e4eaba2150b0f187ed2a852995c77f319c0a312e115fd0",
+    "a582d5957d8c250f2e53ec78a2b9a168ac512eed835570d26ddcbd7a8b3afb65"
+   ]
   },
   "dio-cary-v9-pdf0196": {
-   "original_artifact_sha256": "48d0c10fe1bd56b174fe1232715c54bc32c950a8d386fd06fc8d1d3fd1e12958",
-   "strip_sha256s": [
-    "d5a4e6d275ce1114a2f986749b4d2df1285377a1d0b8dc906bc5b5ba0751d0c7",
-    "9ca82d064c4f4f799b26f421ce1637258cf32067646bd745721773535d9d90bc",
-    "5600c55bc7c70b62d9417b985ea47c9ce5b070ce50e607515ce81d2e9c1803c7"
-   ],
+   "assembled_text_sha256": "2eea60dfcb94d3325794786ad03da20ff0ae78313d7ea0736ab13d503a24159c",
    "image_sha256s": [
     "defec51bfe126ac096ebd2a3ca67e0e93357cfdd2520da8189507d6eac9abcdf",
     "ea933d6b304d8bad4e49587204f3e6ffd99cb972607a7055e56bd3360e5374e8",
     "14b17527b280d14745b72a67cb7ad2998d4ea53e648e16fdabf8bf584c0df35a"
    ],
-   "assembled_text_sha256": "2eea60dfcb94d3325794786ad03da20ff0ae78313d7ea0736ab13d503a24159c",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "48d0c10fe1bd56b174fe1232715c54bc32c950a8d386fd06fc8d1d3fd1e12958",
+   "strip_sha256s": [
+    "d5a4e6d275ce1114a2f986749b4d2df1285377a1d0b8dc906bc5b5ba0751d0c7",
+    "9ca82d064c4f4f799b26f421ce1637258cf32067646bd745721773535d9d90bc",
+    "5600c55bc7c70b62d9417b985ea47c9ce5b070ce50e607515ce81d2e9c1803c7"
+   ]
   },
   "dio-cary-v9-pdf0201": {
-   "original_artifact_sha256": "5bc5f2d8bb3fb8d195b895d09d07df4378775e5501b07c55f9a61060d0398d96",
-   "strip_sha256s": [
-    "596a4cd31fd8e30b27468ccd544f26921a40b10f0ee88ccd3e84d1c3a899da7b",
-    "153a37bf5123bbc5ab78a81074edb7492a219570fc8c0aafe9dfc9d77f17f142",
-    "4117d52118e37157ef58fbb924ead83a2013753be0bd651d3d2d425e406cc764",
-    "3008a9d7fa3b078a77051ba674d0c6abebe996497909ac5334a93cb50f3deccf",
-    "83bd7d9013cd7a30af71c12c0c80485e39afcd919030a7fb27991891da124390",
-    "f3696ac50cb49c2e10b4ffbbf5ea9665f833b722ec032ab8523eababfc764f8a",
-    "cb1376ab3b98c885f54b82d580b5bc603f887498076148297bfd8b26de6be298",
-    "b1c0e5c2f703e5f987e66825b64837dd736666fb895539ed137e1f37bdb92ecc",
-    "5a9596cb50886bc77ea84f5c217653e1576f2c597470ebfc224794e2d68bac78"
-   ],
+   "assembled_text_sha256": "c1ae335c6bbeb4318fb68832431d3ed6372b69c99324de3c41c1fd4c6f5ff8ce",
    "image_sha256s": [
     "7e48d0bfdae021c59515c569a16dc141493618af649141bd7718980100c38eaa",
     "599de52d3698de50c7b79a4545684f14753d172557e0e9df6a88989744178b29",
@@ -190,93 +203,91 @@
     "d9db85593859a122c23b533d425fd7cac60e0201feb5daf260cca7a128cec30c",
     "132cf7515dc15b40d90b987cb39601c36ab1113c8b0c2804a4f906275bbce6bc"
    ],
-   "assembled_text_sha256": "c1ae335c6bbeb4318fb68832431d3ed6372b69c99324de3c41c1fd4c6f5ff8ce",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "5bc5f2d8bb3fb8d195b895d09d07df4378775e5501b07c55f9a61060d0398d96",
+   "strip_sha256s": [
+    "596a4cd31fd8e30b27468ccd544f26921a40b10f0ee88ccd3e84d1c3a899da7b",
+    "153a37bf5123bbc5ab78a81074edb7492a219570fc8c0aafe9dfc9d77f17f142",
+    "4117d52118e37157ef58fbb924ead83a2013753be0bd651d3d2d425e406cc764",
+    "3008a9d7fa3b078a77051ba674d0c6abebe996497909ac5334a93cb50f3deccf",
+    "83bd7d9013cd7a30af71c12c0c80485e39afcd919030a7fb27991891da124390",
+    "f3696ac50cb49c2e10b4ffbbf5ea9665f833b722ec032ab8523eababfc764f8a",
+    "cb1376ab3b98c885f54b82d580b5bc603f887498076148297bfd8b26de6be298",
+    "b1c0e5c2f703e5f987e66825b64837dd736666fb895539ed137e1f37bdb92ecc",
+    "5a9596cb50886bc77ea84f5c217653e1576f2c597470ebfc224794e2d68bac78"
+   ]
   },
   "dio-cary-v9-pdf0205": {
-   "original_artifact_sha256": "5f26cbb9d243e0a934f453dd76a25cb70e27680e991d8a64500deeb4f0e4f777",
-   "strip_sha256s": [
-    "b91564bc898d750c83f4786dd4f811117c486d2bf4a0f691332c895c7ce70ffc",
-    "20a944687977f4f7724305dc60864f2d5a7d5d44de1425051cda23facb0da651",
-    "e97093530fe228a1c6c18f341cb90e2c5463461ad128b31b15cdb154d810d072"
-   ],
+   "assembled_text_sha256": "4e492aaa98bebbac9a526b673f27f017e8d43086b6b3ceed7b25fad3d14988b2",
    "image_sha256s": [
     "c73e80d80edc146c230c80c60cad09082cf752f53751dbaf0ea70bf6b9abc511",
     "4bacf1e7d3c12a15bcebf832aef77c22c256d1c42bebc905f3e0a597a1f1bd53",
     "7be77bc088e8447d3b92570047c94c8642f4e4b83232ca9e18a1db1a2ba457ae"
    ],
-   "assembled_text_sha256": "4e492aaa98bebbac9a526b673f27f017e8d43086b6b3ceed7b25fad3d14988b2",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "5f26cbb9d243e0a934f453dd76a25cb70e27680e991d8a64500deeb4f0e4f777",
+   "strip_sha256s": [
+    "b91564bc898d750c83f4786dd4f811117c486d2bf4a0f691332c895c7ce70ffc",
+    "20a944687977f4f7724305dc60864f2d5a7d5d44de1425051cda23facb0da651",
+    "e97093530fe228a1c6c18f341cb90e2c5463461ad128b31b15cdb154d810d072"
+   ]
   },
   "dio-cary-v9-pdf0208": {
-   "original_artifact_sha256": "a042b25f219c71d552505c6252dcd0511ab922ecafdc559f2f6926f1393426fd",
-   "strip_sha256s": [
-    "eb9c30710c3acb2d28ebfd6b60ac7ae8c210b4777f65953fc6017cbc5b9d0b0b",
-    "40307fc48d79b856d933aa3973bd05110fec1593e9ae7fae81dfdb50b71a1a81",
-    "b7fc5fc705f910bc9cc434624f807ab05836e238f96a2bb3122e610b10b7f52f"
-   ],
+   "assembled_text_sha256": "fb10ec20974cd491d1ab63105b7d9eaefa0ae87dbbe9129578b200f1dd4d5de4",
    "image_sha256s": [
     "e42f42261fe3033106ca9395d051cd8cd4a69440d5c7be6810a3d4b476df953f",
     "303c1d6a831378693ce6ffd694a0274eaf433aa4038a948a5417412523fee8de",
     "5abb3bfb9935889e993718a87ae43d4e444360c6351edc566a1a45a29faf3bb5"
    ],
-   "assembled_text_sha256": "fb10ec20974cd491d1ab63105b7d9eaefa0ae87dbbe9129578b200f1dd4d5de4",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "a042b25f219c71d552505c6252dcd0511ab922ecafdc559f2f6926f1393426fd",
+   "strip_sha256s": [
+    "eb9c30710c3acb2d28ebfd6b60ac7ae8c210b4777f65953fc6017cbc5b9d0b0b",
+    "40307fc48d79b856d933aa3973bd05110fec1593e9ae7fae81dfdb50b71a1a81",
+    "b7fc5fc705f910bc9cc434624f807ab05836e238f96a2bb3122e610b10b7f52f"
+   ]
   },
   "dio-cary-v9-pdf0210": {
-   "original_artifact_sha256": "fab457da56f7301244753cdf86d70f1e83e13bf1b1328b944ea80b7422c42b5d",
-   "strip_sha256s": [
-    "d01fd33fe5309b99c787c0ae531ee1d236beba853ed90429706dcf4ee67fc264",
-    "ca21c91b12b708618ae40e9d2508947e387666894c411c49d79a00c55a961876",
-    "ea6105cf2f488cdacb376c0e7f1f3b1ff8517977062bc0e5bebf4facfdb8cbc6"
-   ],
+   "assembled_text_sha256": "177acc7f3b7033182c808580a7829755da208eb23757119c84edd1c2d57e63ff",
    "image_sha256s": [
     "3bc8f6289d08852278e2d1e3a61a85b00a7a1a306618ce98724faa98fe258925",
     "57bc5b3b92b0cbcdf83ec7b6ac3458db52452221af2072e526f9c85b8c625b51",
     "f6184a9247efddccf6525fda524c6ab200b48cd8947b6d5911d482f570563f30"
    ],
-   "assembled_text_sha256": "177acc7f3b7033182c808580a7829755da208eb23757119c84edd1c2d57e63ff",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "fab457da56f7301244753cdf86d70f1e83e13bf1b1328b944ea80b7422c42b5d",
+   "strip_sha256s": [
+    "d01fd33fe5309b99c787c0ae531ee1d236beba853ed90429706dcf4ee67fc264",
+    "ca21c91b12b708618ae40e9d2508947e387666894c411c49d79a00c55a961876",
+    "ea6105cf2f488cdacb376c0e7f1f3b1ff8517977062bc0e5bebf4facfdb8cbc6"
+   ]
   },
   "dio-cary-v9-pdf0212": {
-   "original_artifact_sha256": "99071f996b50ef9b015bfe688ce323a153bf2cd939580363cc54322bcb2c2471",
-   "strip_sha256s": [
-    "54f372d67891dc241bbef5879f123d29b950761d6c8cd8b2a50626e35f076d7f",
-    "06b63ac9518d5903f98b73186df49c250ae73c9296dffaaa1432704ec3db97f7",
-    "f249083ad8027f5581ecd3418c92ba081371660d8a9f0762abbaa90c518b28e8"
-   ],
+   "assembled_text_sha256": "0862cbc5efd76dad98192b714460b20d2291b9f645c898768e902b0272e1a7bd",
    "image_sha256s": [
     "e01bf75a0a2f657e6255378ffa0e53095acdf7dd8dfd0d668bbe9a53e6708019",
     "1e6dc7db9f354764efbdf84fc2983f70e822b1b8c38b828b0bbb6de7cb7400a4",
     "41e0e7e63d16b7fa8f4de3419198d76e2aad7aa90cc029b00cee352d37ec2367"
    ],
-   "assembled_text_sha256": "0862cbc5efd76dad98192b714460b20d2291b9f645c898768e902b0272e1a7bd",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "99071f996b50ef9b015bfe688ce323a153bf2cd939580363cc54322bcb2c2471",
+   "strip_sha256s": [
+    "54f372d67891dc241bbef5879f123d29b950761d6c8cd8b2a50626e35f076d7f",
+    "06b63ac9518d5903f98b73186df49c250ae73c9296dffaaa1432704ec3db97f7",
+    "f249083ad8027f5581ecd3418c92ba081371660d8a9f0762abbaa90c518b28e8"
+   ]
   },
   "dio-cary-v9-pdf0213": {
-   "original_artifact_sha256": "5c5540efb7f0290fe562958304f7813ef814632ef45619a32dafc964910250d6",
-   "strip_sha256s": [
-    "49515bd1ccdb65f4dcd36a06debf689206b74405e1b48ebb796ea71c054937fa",
-    "e5ce777fe7c4a6a260755a30c29c1e523c54f06cf7edc220ecffeb300ee56dc1",
-    "aabdbc7fe6d985a40c883ac30731ce8824d916c3dc96bd88e9dfe04228892931"
-   ],
+   "assembled_text_sha256": "6cec8fd2c3aba8aa61194bb23359fce3b13a39d9fa28e016ef68d7be6519f22a",
    "image_sha256s": [
     "e9d9c824ee27e2511d72b6fab9e61b8695a12e7befb766003dd324cdfe243a4b",
     "ff8cbd18a93ed131f39b2c579351d2b457ea7823e75ba6a3eba0c6cb97612640",
     "432527a0850ef03fce52fa0d0a2d439ebce665198a7e749788770a20ff5a3fca"
    ],
-   "assembled_text_sha256": "6cec8fd2c3aba8aa61194bb23359fce3b13a39d9fa28e016ef68d7be6519f22a",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "5c5540efb7f0290fe562958304f7813ef814632ef45619a32dafc964910250d6",
+   "strip_sha256s": [
+    "49515bd1ccdb65f4dcd36a06debf689206b74405e1b48ebb796ea71c054937fa",
+    "e5ce777fe7c4a6a260755a30c29c1e523c54f06cf7edc220ecffeb300ee56dc1",
+    "aabdbc7fe6d985a40c883ac30731ce8824d916c3dc96bd88e9dfe04228892931"
+   ]
   },
   "dio-cary-v9-pdf0216": {
-   "original_artifact_sha256": "241e831e0b9357b5c262188dacb7445d81af6a1ebd0d1a9681fb0a0ca7fe27ec",
-   "strip_sha256s": [
-    "c78f1b33d9ed523dae5ab8363dc5a57a6f30d75c2ce333c3624f3a3e25b27d66",
-    "756aabea08c8fd30290eaead65d4bb9223219f8d2d04e451e6712c7d1485c1e8",
-    "15e32ce79b962a2ebdcf5889499b706fb07b2c8aeb81184097ec401e657ab01c",
-    "86ed5ee68cac0b202bcaa0585ed06a8b5e8e080dd0cb4e7a138dc49246922006",
-    "625353898d56ef305e1ebfd533e3e1be09c85283e93dbc0255aad8ea25908ce2"
-   ],
+   "assembled_text_sha256": "ec0dac581c220711dc8211ef07e5c5ce5ef43dcd993b253f0045fc3251469389",
    "image_sha256s": [
     "f0abc9e4cf4d5d0282e339bb5654964a9e19f47ecddd28b998234d477193993a",
     "84a78dda19c68da9fef818b283e2a564a4b200d6916b59859fa3ba007b645426",
@@ -284,75 +295,46 @@
     "0293eb51ecee8f9bb2260e2fdcd6973764592a4b5f6196f9de71511404298021",
     "954720fe0646c24305f8513d20ade4f4dd7f01e1a629278faded931192987f10"
    ],
-   "assembled_text_sha256": "ec0dac581c220711dc8211ef07e5c5ce5ef43dcd993b253f0045fc3251469389",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "241e831e0b9357b5c262188dacb7445d81af6a1ebd0d1a9681fb0a0ca7fe27ec",
+   "strip_sha256s": [
+    "c78f1b33d9ed523dae5ab8363dc5a57a6f30d75c2ce333c3624f3a3e25b27d66",
+    "756aabea08c8fd30290eaead65d4bb9223219f8d2d04e451e6712c7d1485c1e8",
+    "15e32ce79b962a2ebdcf5889499b706fb07b2c8aeb81184097ec401e657ab01c",
+    "86ed5ee68cac0b202bcaa0585ed06a8b5e8e080dd0cb4e7a138dc49246922006",
+    "625353898d56ef305e1ebfd533e3e1be09c85283e93dbc0255aad8ea25908ce2"
+   ]
   },
   "dio-cary-v9-pdf0217": {
-   "original_artifact_sha256": "e54023e632ebd5d008a1ba05a8533ef5af9d9967896ff833317ffa94fb92cebd",
-   "strip_sha256s": [
-    "8a3654d5fca0f52be99f9e8129c4d58f00c526c3af21ace9447b0d89f9aecaeb",
-    "4c4726bc8ed68c2240f5f973ad8aaf237e80ea779d9c377cc97adfb2892b117c",
-    "b7ca44028aa4377b31f2e993db1823a4d14203a82fc996d86bf963b4149064b0"
-   ],
+   "assembled_text_sha256": "a357de2aed7ccec7b3fdd699c9bd4c17f42c57988d44735d8088bdfd5ecd4508",
    "image_sha256s": [
     "b98148899842c38490a29aec2187ec0ff993f4bcb1b91050e7c0528401322884",
     "92b8efe7d166df3f9adac1a46c1db76609aef5a71ed9db583edc375394a28244",
     "3ed4f7a33afc0a1e20be9a47c9c1688ab10480a9fb1cde19438e8979afa1b27c"
    ],
-   "assembled_text_sha256": "a357de2aed7ccec7b3fdd699c9bd4c17f42c57988d44735d8088bdfd5ecd4508",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "e54023e632ebd5d008a1ba05a8533ef5af9d9967896ff833317ffa94fb92cebd",
+   "strip_sha256s": [
+    "8a3654d5fca0f52be99f9e8129c4d58f00c526c3af21ace9447b0d89f9aecaeb",
+    "4c4726bc8ed68c2240f5f973ad8aaf237e80ea779d9c377cc97adfb2892b117c",
+    "b7ca44028aa4377b31f2e993db1823a4d14203a82fc996d86bf963b4149064b0"
+   ]
   },
   "dio-cary-v9-pdf0226": {
-   "original_artifact_sha256": "b8cce1d1e08195dff027617e13f4aae2cc14133cd278e97a08cc892e2c7c074a",
-   "strip_sha256s": [
-    "1470227fccbcaf70f9e7653c14a07d98cd9d32b185471a9f69568a006cc30e53",
-    "edded4aa00da60010eb9aa9289edbe8e9c6eee253e787dd79082e9af19fdeb01",
-    "b735c34a2782895aa0b2c4708db535cfab8d1c6d2f1765f6da5897d871c74c5f"
-   ],
+   "assembled_text_sha256": "7258044d475bf890a90507a88455e3298cd73bba4b0e084bf09ce20ecf890736",
    "image_sha256s": [
     "475fc8f174b77fb44f52ff087c616cc87e0f4ec4b3e3bae47e940a4fac2a5a13",
     "ba5dcb0c9b2f5bef1c3cf4b737ee34b526a64d3d1543922bcb9f02853c07a872",
     "c866466855571e2f862285856e3564746a32ddc07fe633cf30851ee7b9a6889b"
    ],
-   "assembled_text_sha256": "7258044d475bf890a90507a88455e3298cd73bba4b0e084bf09ce20ecf890736",
-   "source_evidence": "Compared every selected complete strip with the pinned Cary source: all printed body lines and Greek fragments are represented in source order; finite lacuna bands and reference credits remain. Known looping or degraded parents are held and replaced only by their exact reviewed descendants. Local OCR errors, mixed-script readings and differing dot counts remain raw variants for the independent consensus; this is not full proofreading. "
+   "original_artifact_sha256": "b8cce1d1e08195dff027617e13f4aae2cc14133cd278e97a08cc892e2c7c074a",
+   "strip_sha256s": [
+    "1470227fccbcaf70f9e7653c14a07d98cd9d32b185471a9f69568a006cc30e53",
+    "edded4aa00da60010eb9aa9289edbe8e9c6eee253e787dd79082e9af19fdeb01",
+    "b735c34a2782895aa0b2c4708db535cfab8d1c6d2f1765f6da5897d871c74c5f"
+   ]
   }
  },
- "child_retries": [
-  {
-   "request_sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
-   "retry_sha256": "4349058050f5b68dc2f61e7104e9571c30041e22b2fdd9287a0e5ec3c4b70a6f",
-   "source_review_sha256": "49f879b1b81f64e644f8945cc0e00dd1bdf79ecd3a4533f09263ecae9a07e913",
-   "replaced_strip_ids": [
-    "dio-cary-v6-pdf0206-reviewed-strip-1"
-   ],
-   "child_retries": [
-    {
-     "request_sha256": "0759dbe3c9123547fcbbddcd0f207b4f4342bcfc5999b4708fb77f742a37306a",
-     "retry_sha256": "6d80def4a12d5ad3350a1f2733c063f38f1d0cf02351e2a8ee216b60ebcef602",
-     "source_review_sha256": "ee740f87c3d3aa9bd7682fdfd4ce6ced1f250147bf07be557ae4e6bf03b1da15",
-     "replaced_strip_ids": [
-      "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1"
-     ],
-     "child_retries": []
-    }
-   ]
-  },
-  {
-   "request_sha256": "715706e7abd77b2972b099df3f61a7e26ca7d9d455be3f2e028ca6bd1b524688",
-   "retry_sha256": "0c4c369da761848af82aa6d5f2bad2deb1e831bd1b4204a170d8b9d95dde22ac",
-   "source_review_sha256": "29e13f39e0a4eaeacbb93ad69f505f5943d941cdfed1e81e8167db947ac2b47b",
-   "replaced_strip_ids": [
-    "dio-cary-v9-pdf0179-reviewed-strip-2",
-    "dio-cary-v9-pdf0188-reviewed-strip-2",
-    "dio-cary-v9-pdf0192-reviewed-strip-3",
-    "dio-cary-v9-pdf0193-reviewed-strip-1",
-    "dio-cary-v9-pdf0201-reviewed-strip-1",
-    "dio-cary-v9-pdf0201-reviewed-strip-2",
-    "dio-cary-v9-pdf0201-reviewed-strip-3",
-    "dio-cary-v9-pdf0216-reviewed-strip-2"
-   ],
-   "child_retries": []
-  }
- ]
+ "request_sha256": "d97e081912f3b45da68370f59eed1768d8c911af44b0323258443aaeb63ac029",
+ "retry_sha256": "a1192f51e148a482d3439b69cfc127607f7365f20d1b6bea865017c46d94bd6b",
+ "reviewed_at": "2026-10-18T09:25:32.068324+00:00",
+ "schema_version": 1
 }
