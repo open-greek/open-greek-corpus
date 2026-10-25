@@ -185708,21 +185708,21 @@
     },
     "missing_columns_recovery": {
      "authority": {
-      "path": "data/corpus_changes/hesychius-gap-reading-review/changes.json",
-      "sha256": "d04d3b6a2bddd776da63f903867e7990c2fdb7da748cf275fbf49c54f27e72a8"
+      "path": "data/corpus_changes/hesychius-latte-reading/changes.json",
+      "sha256": "292362d397d12e9241aaf030a4b19acf9a788057ecd7bb9bf524946ef41bfade"
      },
      "recovery_authority": {
       "path": "data/corpus_changes/hesychius-missing-columns/changes.json",
       "sha256": "4e6bb0079f5a5467236fe1767bce23c2d0da3ce7ac9f56cf69ece05d9779ac02"
      },
      "counts": {
-      "analysis_greek_tokens": 251,
+      "analysis_greek_tokens": 252,
       "column_reading_statuses": {
        "259": {
         "agreement": 95,
+        "editorially-adopted": 1,
         "reviewed-omission": 1,
-        "source-reviewed": 37,
-        "unresolved": 1
+        "source-reviewed": 37
        },
        "260": {
         "agreement": 98,
@@ -185731,6 +185731,10 @@
        }
       },
       "current_rows": 32120,
+      "editorial_adoption": {
+       "adopted_lexical_slots": 1,
+       "unverified_schmidt_slots": 1
+      },
       "literal_witnesses": 8,
       "predecessor_rows": 32118,
       "primary_columns_added": 2,
@@ -185743,13 +185747,13 @@
       },
       "reading_statuses": {
        "agreement": 193,
+       "editorially-adopted": 1,
        "reviewed-omission": 2,
-       "source-reviewed": 58,
-       "unresolved": 1
+       "source-reviewed": 58
       },
       "single_checkpoint_slots_excluded": 0,
       "source_role_excluded_raw_tokens_across_eight_witnesses": 169,
-      "surface_greek_tokens": 255
+      "surface_greek_tokens": 252
      },
      "sources": {
       "harvard": {
@@ -185835,6 +185839,20 @@
        "license": "PD"
       }
      },
+     "editorial_adoption": {
+      "path": "data/corpus_changes/hesychius-latte-reading/changes.json",
+      "sha256": "292362d397d12e9241aaf030a4b19acf9a788057ecd7bb9bf524946ef41bfade",
+      "source": {
+       "alphabetic_letter": "alpha",
+       "consulted_on": "2026-10-25",
+       "edition": "K. Latte, Hesychii Alexandrini lexicon, volume 1, 1953",
+       "entry": 8275,
+       "reading": "ἀΐαχοι",
+       "url": "https://stephanus.tlg.uci.edu/Iris/indiv/browser.jsp#doc=tlg&aid=4085&wid=002&ct=~x%22alpha%22y8275z1&rt=y&l=40&td=greek&links=tlg",
+       "work": "4085.002"
+      },
+      "schmidt_reading_confirmed": false
+     },
      "boundary": {
       "insert_after": "hesychius_masked_0149.75",
       "insert_before": "hesychius_masked_0156.1",
@@ -185855,10 +185873,10 @@
       "next_entry": "αὐλωπίαι",
       "evidence": "Both title pages identify Schmidt's 1867 editio altera, indice glossarum ethnicarum aucta. Both independent physical copies contain the continuous printed sequence 257–258, 259–260, 261–262. The earlier Harvard source hesychiialexand00schmgoog omits the middle leaf after a repeated gathering. Column 259 begins αὐθέκαστος, immediately after αὐθέκαστα in 258; column 260 ends with the lemma αὐλώνων and its Euripides reference, without a printed definition in that main-text line. Column 261 starts αὐλωπίαι. Do not invent a definition or import the apparatus's alternative assignment of the preceding definitions."
      },
-     "qualification": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency.",
+     "qualification": "Forty-four originally uncertain slots are resolved by the retained Schmidt scans, including two duplicate fragments. One further lexical reading, ἀΐαχοι, is explicitly adopted from Latte alpha 8275 at the owner's direction. Schmidt's diacritics at that occurrence remain unverified. Original OCR alternatives, votes, and the held scan-review decision remain available. This lexical projection establishes no contextual adjacency.",
      "primary": {
       "path": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
-      "sha256": "5049b1ee3bcfa6a8227ddc3c6176ef6df093c3f6f83b33f3abe6c1c7ba493bcc",
+      "sha256": "3b8d4bc90906f8672c8ae4a8168aa15a1cc75895b9329e82020142134c00a533",
       "loci": [
        "schmidt-1867.column-259",
        "schmidt-1867.column-260"
@@ -185934,7 +185952,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Occurrence readings verified against both physical Schmidt 1867 copies. TLG's Latte edition identifies comparison entries but supplies no lexical vote. Unclear diacritics remain alternatives. Original OCR votes and critical-scope exclusions remain available; this word projection establishes no contextual adjacency."
+     "note": "Forty-four originally uncertain slots are resolved by the retained Schmidt scans, including two duplicate fragments. One further lexical reading, ἀΐαχοι, is explicitly adopted from Latte alpha 8275 at the owner's direction. Schmidt's diacritics at that occurrence remain unverified. Original OCR alternatives, votes, and the held scan-review decision remain available. This lexical projection establishes no contextual adjacency."
     }
    }
   },
