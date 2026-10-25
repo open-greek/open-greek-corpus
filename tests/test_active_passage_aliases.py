@@ -181,7 +181,7 @@ def test_named_producer_receives_the_repository_and_can_recognize_undo(tmp_path,
     def inactive(root):
         observed.append(root)
         return None
-    monkeypatch.setitem(sys.modules, "repair_dubner_scholias", SimpleNamespace(alias_fragment=inactive))
+    monkeypatch.setitem(sys.modules, "dubner_current_state", SimpleNamespace(alias_fragment=inactive))
     assert index._active_passage_alias_fragments(tmp_path) == []
     assert observed == [tmp_path]
 
@@ -189,7 +189,7 @@ def test_named_producer_receives_the_repository_and_can_recognize_undo(tmp_path,
 def test_failed_producer_validation_is_never_treated_as_no_extension(tmp_path, monkeypatch):
     def invalid(root):
         raise ValueError("changed source postimage")
-    monkeypatch.setitem(sys.modules, "repair_dubner_scholias", SimpleNamespace(alias_fragment=invalid))
+    monkeypatch.setitem(sys.modules, "dubner_current_state", SimpleNamespace(alias_fragment=invalid))
     with pytest.raises(ValueError, match="changed source postimage"):
         index._active_passage_alias_fragments(tmp_path)
 
