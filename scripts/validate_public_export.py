@@ -13,6 +13,13 @@ def validate(root=ROOT):
     from frequency_projection import lexical_text
     data = Path(root) / "data"
     manifest = json.loads((data / "public_export.json").read_bytes())
+    lexicon = json.loads((data / "public_lexicon_release.json").read_bytes())
+    if (lexicon["release_id"] != manifest["release_id"]
+            or lexicon["corpus_sha256"] != manifest["corpus_sha256"]
+            or lexicon["corpus_analysis_tokens"] != manifest["totals"]["tokens"]
+            or lexicon["tokens"] + lexicon["deduplicated_analysis_tokens"]
+               + lexicon["filter_excluded_analysis_tokens"] != lexicon["corpus_analysis_tokens"]):
+        raise ValueError("Lexicon release accounting differs from the public corpus")
     for name in ("work_index.json", "source_registry.json", "corpus_editions.json"):
         if not (data / name).is_file():
             raise ValueError("Missing public identity or source metadata: " + name)

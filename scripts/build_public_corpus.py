@@ -393,6 +393,7 @@ def main() -> None:
 
     lex: Counter[str] = Counter()
     lex_exclusions: Counter[tuple[str, str]] = Counter()
+    duplicate_tokens = filter_tokens = 0
     coverage: dict[str, dict] = {}      # inclusive surface and eligible analysis counts
     for i, fp in enumerate(files):
         # An excluded work still contributes its rows that the keeper does NOT
@@ -411,13 +412,16 @@ def main() -> None:
                 rec = json.loads(line)
                 text = rec.get("text", "")
                 analysis_text = frequency.text(rec)
+                analysis_count = len(_GK.findall(analysis_text))
                 toks, exclusions = public_lexicon_tokenization(analysis_text)
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount
+                    duplicate_tokens += analysis_count
                 else:
                     lex.update(toks)
                     lex_exclusions.update(exclusions)
+                    filter_tokens += analysis_count - len(toks)
                 key = rec.get("urn") or fp.stem
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
@@ -430,7 +434,7 @@ def main() -> None:
                 # detached elision stems, so its token list is not the coverage
                 # accounting unit.
                 cov["tokens"] += len(_GK.findall(text))
-                cov["analysis_tokens"] += len(_GK.findall(analysis_text))
+                cov["analysis_tokens"] += analysis_count
                 cov["passages"] += 1
         if keeper and fp.stem in coverage:
             coverage[fp.stem]["lexicon_dedup"] = {
@@ -457,6 +461,16 @@ def main() -> None:
         cov["sources"] = sorted(cov["sources"])
     (DATA / "coverage.json").write_text(
         json.dumps(coverage, ensure_ascii=False, indent=0, sort_keys=True))
+    analysis_total = sum(cov["analysis_tokens"] for cov in coverage.values())
+    lexicon_tokens = sum(lex.values())
+    assert lexicon_tokens + duplicate_tokens + filter_tokens == analysis_total
+    stats = {"forms": len(lex), "tokens": lexicon_tokens,
+        "corpus_analysis_tokens": analysis_total,
+        "deduplicated_analysis_tokens": duplicate_tokens,
+        "filter_excluded_analysis_tokens": filter_tokens,
+        "lexicon_sha256": hashlib.sha256((DATA / "public_lexicon.tsv").read_bytes()).hexdigest(),
+        "input_corpus_files": {fp.name: hashlib.sha256(fp.read_bytes()).hexdigest() for fp in files}}
+    (DATA / "public_lexicon_stats.json").write_text(json.dumps(stats, indent=1, sort_keys=True) + "\n")
 
     total_tokens = sum(v["tokens"] for v in coverage.values())
     analysis_tokens = sum(v["analysis_tokens"] for v in coverage.values())

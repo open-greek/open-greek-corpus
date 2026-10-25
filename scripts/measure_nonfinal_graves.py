@@ -31,6 +31,7 @@ from __future__ import annotations
 import argparse
 import collections
 import json
+from functools import lru_cache
 import sys
 import unicodedata
 from pathlib import Path
@@ -106,6 +107,7 @@ def nuclei(nfd: str) -> list[str]:
     return out
 
 
+@lru_cache(maxsize=262144)
 def has_nonfinal_grave(token: str) -> bool:
     ns = nuclei(unicodedata.normalize("NFD", token))
     if len(ns) < 2:
