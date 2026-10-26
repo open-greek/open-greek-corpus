@@ -5,6 +5,8 @@ import importlib.metadata
 import json
 import os
 from pathlib import Path
+import re
+import subprocess
 import sys
 
 
@@ -36,6 +38,11 @@ def main():
                "settings": {"max_model_len": 16384, "max_num_seqs": args.max_num_seqs,
                             "gpu_memory_utilization": 0.90, "reasoning_parser": "qwen3",
                             "images_per_prompt": 1}}
+    compiler = subprocess.run(["nvcc", "--version"], capture_output=True, text=True, check=True)
+    match = re.search(r"release ([0-9.]+), V([0-9.]+)", compiler.stdout)
+    runtime["cuda_compiler"] = {"release": match[1], "version": match[2]} if match else {
+        "version_output": compiler.stdout.strip()}
+    runtime["server_recipe_sha256"] = __import__("hashlib").sha256(Path(__file__).read_bytes()).hexdigest()
     args.runtime_manifest.parent.mkdir(parents=True, exist_ok=True)
     args.runtime_manifest.write_text(json.dumps(runtime, indent=2) + "\n")
     os.execv(command[0], command)
