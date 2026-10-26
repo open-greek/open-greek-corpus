@@ -9,9 +9,25 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def validate_reference_pins(root):
+    root = Path(root)
+    path = root / "data/reference/bilby-oga-glaux-2024/manifest.json"
+    reference = json.loads(path.read_bytes())
+    for name, expected in reference["identity_inputs"].items():
+        relative = Path(name)
+        if relative.is_absolute() or ".." in relative.parts or not relative.parts or relative.parts[0] != "data":
+            raise ValueError("Invalid reference input path")
+        if hashlib.sha256((root / relative).read_bytes()).hexdigest() != expected:
+            raise ValueError("Reference identity input hash differs: " + name)
+    comparison = json.loads((root / "data/oga_glaux_date_comparison.json").read_bytes())
+    if comparison["provenance"] != reference:
+        raise ValueError("Date comparison provenance differs from its reference manifest")
+
+
 def validate(root=ROOT):
     from frequency_projection import lexical_text
     data = Path(root) / "data"
+    validate_reference_pins(root)
     manifest = json.loads((data / "public_export.json").read_bytes())
     lexicon = json.loads((data / "public_lexicon_release.json").read_bytes())
     if (lexicon["release_id"] != manifest["release_id"]

@@ -279194,7 +279194,7 @@
    "coverage_composition": {
     "analysis_tokens": 0,
     "components": [],
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "retired-whole-volume-assignment-with-literal-witnesses-retained",
     "primary_rows": 0
    },
@@ -298110,7 +298110,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 110,
+      "analysis_tokens": 116,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 1,
@@ -298157,17 +298157,19 @@
     ],
     "counts": {
      "agreement": 110,
-     "unresolved": 37
+     "scan-corroborated": 6,
+     "unresolved": 31
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 110,
+     "analysis_tokens": 116,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 1,
      "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
     "sources": [
      {
@@ -298191,6 +298193,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298203,6 +298206,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298430,7 +298434,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 15510,
+      "analysis_tokens": 16172,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 31,
@@ -298478,18 +298482,20 @@
     "counts": {
      "agreement": 15485,
      "incomplete-reading": 1,
+     "scan-corroborated": 662,
      "source-reviewed": 25,
-     "unresolved": 5779
+     "unresolved": 5117
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 15510,
+     "analysis_tokens": 16172,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 31,
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
     "sources": [
      {
@@ -298513,6 +298519,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Acharnians (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298525,6 +298532,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298599,7 +298607,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 20256,
+      "analysis_tokens": 21005,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 39,
@@ -298648,19 +298656,21 @@
      "agreement": 18764,
      "damaged-reading": 4,
      "incomplete-reading": 7,
+     "scan-corroborated": 749,
      "single-witness": 1467,
      "source-reviewed": 25,
-     "unresolved": 7241
+     "unresolved": 6492
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 20256,
+     "analysis_tokens": 21005,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 39,
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
     "sources": [
      {
@@ -298684,6 +298694,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Birds (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298696,6 +298707,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298742,7 +298754,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 2781,
+      "analysis_tokens": 2898,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 8,
@@ -298790,18 +298802,20 @@
     "counts": {
      "agreement": 2331,
      "damaged-reading": 2,
+     "scan-corroborated": 117,
      "single-witness": 450,
-     "unresolved": 1022
+     "unresolved": 905
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 2781,
+     "analysis_tokens": 2898,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 8,
      "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
     "sources": [
      {
@@ -298825,6 +298839,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Assemblywomen (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298837,6 +298852,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298883,7 +298899,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 23453,
+      "analysis_tokens": 24414,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 45,
@@ -298932,19 +298948,21 @@
      "agreement": 23412,
      "damaged-reading": 2,
      "incomplete-reading": 4,
+     "scan-corroborated": 961,
      "single-witness": 9,
      "source-reviewed": 31,
-     "unresolved": 8519
+     "unresolved": 7558
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 23453,
+     "analysis_tokens": 24414,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 45,
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
     "sources": [
      {
@@ -298968,6 +298986,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Knights (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298980,6 +298999,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299026,7 +299046,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 6755,
+      "analysis_tokens": 6997,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 16,
@@ -299074,18 +299094,20 @@
     "counts": {
      "agreement": 6754,
      "damaged-reading": 4,
+     "scan-corroborated": 242,
      "single-witness": 1,
-     "unresolved": 2297
+     "unresolved": 2055
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 6755,
+     "analysis_tokens": 6997,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 16,
      "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
     "sources": [
      {
@@ -299109,6 +299131,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Lysistrata (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299121,6 +299144,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299167,7 +299191,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 31413,
+      "analysis_tokens": 32515,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 58,
@@ -299216,18 +299240,20 @@
      "agreement": 31412,
      "damaged-reading": 22,
      "incomplete-reading": 7,
+     "scan-corroborated": 1102,
      "single-witness": 1,
-     "unresolved": 9896
+     "unresolved": 8794
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 31413,
+     "analysis_tokens": 32515,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 58,
      "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
     "sources": [
      {
@@ -299251,6 +299277,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Clouds (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299263,6 +299290,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299412,7 +299440,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 22330,
+      "analysis_tokens": 23147,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 40,
@@ -299460,18 +299488,20 @@
     "counts": {
      "agreement": 21325,
      "incomplete-reading": 6,
+     "scan-corroborated": 817,
      "single-witness": 1004,
-     "unresolved": 7582
+     "unresolved": 6765
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 22330,
+     "analysis_tokens": 23147,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 40,
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
     "sources": [
      {
@@ -299495,6 +299525,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Peace (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299507,6 +299538,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299553,7 +299585,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 33924,
+      "analysis_tokens": 35292,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 65,
@@ -299601,18 +299633,20 @@
     "counts": {
      "agreement": 33922,
      "incomplete-reading": 7,
+     "scan-corroborated": 1368,
      "single-witness": 2,
-     "unresolved": 12086
+     "unresolved": 10718
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 33924,
+     "analysis_tokens": 35292,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 65,
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
     "sources": [
      {
@@ -299636,6 +299670,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Wealth (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299648,6 +299683,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299667,7 +299703,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 22098,
+      "analysis_tokens": 22913,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 42,
@@ -299716,18 +299752,20 @@
      "agreement": 21027,
      "damaged-reading": 4,
      "incomplete-reading": 5,
+     "scan-corroborated": 815,
      "single-witness": 1071,
-     "unresolved": 7306
+     "unresolved": 6491
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 22098,
+     "analysis_tokens": 22913,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 42,
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
     "sources": [
      {
@@ -299751,6 +299789,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Frogs (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299763,6 +299802,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299809,7 +299849,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 3580,
+      "analysis_tokens": 3726,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 9,
@@ -299856,17 +299896,19 @@
     ],
     "counts": {
      "agreement": 3580,
-     "unresolved": 1227
+     "scan-corroborated": 146,
+     "unresolved": 1081
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 3580,
+     "analysis_tokens": 3726,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 9,
      "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
     "sources": [
      {
@@ -299890,6 +299932,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Thesmophoriazusae (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299902,6 +299945,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299946,7 +299990,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 17886,
+      "analysis_tokens": 18441,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 34,
@@ -299994,19 +300038,21 @@
     "counts": {
      "agreement": 17798,
      "incomplete-reading": 3,
+     "scan-corroborated": 555,
      "single-witness": 87,
      "source-reviewed": 1,
-     "unresolved": 5425
+     "unresolved": 4870
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 17886,
+     "analysis_tokens": 18441,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 34,
      "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
     "sources": [
      {
@@ -300030,6 +300076,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Wasps (Dübner 1855) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300042,6 +300089,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -300088,7 +300136,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 358,
+      "analysis_tokens": 364,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 2,
@@ -300135,17 +300183,19 @@
     ],
     "counts": {
      "agreement": 358,
-     "unresolved": 105
+     "scan-corroborated": 6,
+     "unresolved": 99
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 358,
+     "analysis_tokens": 364,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 2,
      "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
     "sources": [
      {
@@ -300169,6 +300219,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300181,6 +300232,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -300200,7 +300252,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 186,
+      "analysis_tokens": 188,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 1,
@@ -300247,17 +300299,19 @@
     ],
     "counts": {
      "agreement": 186,
-     "unresolved": 74
+     "scan-corroborated": 2,
+     "unresolved": 72
     },
-    "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+    "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 186,
+     "analysis_tokens": 188,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 1,
      "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
      "status": "source-role-reviewed-collated-ocr"
     },
+    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
     "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
     "sources": [
      {
@@ -300281,6 +300335,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων] (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
+     "note": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300293,6 +300348,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,

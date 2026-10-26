@@ -653887,7 +653887,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 110,
+       "analysis_tokens": 116,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 1,
@@ -653934,17 +653934,19 @@
      ],
      "counts": {
       "agreement": 110,
-      "unresolved": 37
+      "scan-corroborated": 6,
+      "unresolved": 31
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 110,
+      "analysis_tokens": 116,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 1,
       "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
      "sources": [
       {
@@ -653963,9 +653965,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 110,
+    "n_analysis_tokens": 116,
     "n_passages": 1,
-    "n_tokens": 180,
+    "n_tokens": 174,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
@@ -653984,7 +653986,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 15510,
+       "analysis_tokens": 16172,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 31,
@@ -654032,18 +654034,20 @@
      "counts": {
       "agreement": 15485,
       "incomplete-reading": 1,
+      "scan-corroborated": 662,
       "source-reviewed": 25,
-      "unresolved": 5779
+      "unresolved": 5117
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 15510,
+      "analysis_tokens": 16172,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 31,
       "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "sources": [
       {
@@ -654062,9 +654066,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 15510,
+    "n_analysis_tokens": 16172,
     "n_passages": 31,
-    "n_tokens": 26549,
+    "n_tokens": 25887,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
@@ -654086,7 +654090,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 20256,
+       "analysis_tokens": 21005,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 39,
@@ -654135,19 +654139,21 @@
       "agreement": 18764,
       "damaged-reading": 4,
       "incomplete-reading": 7,
+      "scan-corroborated": 749,
       "single-witness": 1467,
       "source-reviewed": 25,
-      "unresolved": 7241
+      "unresolved": 6492
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 20256,
+      "analysis_tokens": 21005,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 39,
       "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "sources": [
       {
@@ -654166,9 +654172,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 20256,
+    "n_analysis_tokens": 21005,
     "n_passages": 39,
-    "n_tokens": 34130,
+    "n_tokens": 33382,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
@@ -654187,7 +654193,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 2781,
+       "analysis_tokens": 2898,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 8,
@@ -654235,18 +654241,20 @@
      "counts": {
       "agreement": 2331,
       "damaged-reading": 2,
+      "scan-corroborated": 117,
       "single-witness": 450,
-      "unresolved": 1022
+      "unresolved": 905
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 2781,
+      "analysis_tokens": 2898,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 8,
       "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
      "sources": [
       {
@@ -654265,9 +654273,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 2781,
+    "n_analysis_tokens": 2898,
     "n_passages": 8,
-    "n_tokens": 4702,
+    "n_tokens": 4585,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855",
@@ -654286,7 +654294,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 23453,
+       "analysis_tokens": 24414,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 45,
@@ -654335,19 +654343,21 @@
       "agreement": 23412,
       "damaged-reading": 2,
       "incomplete-reading": 4,
+      "scan-corroborated": 961,
       "single-witness": 9,
       "source-reviewed": 31,
-      "unresolved": 8519
+      "unresolved": 7558
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 23453,
+      "analysis_tokens": 24414,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 45,
       "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "sources": [
       {
@@ -654366,9 +654376,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 23453,
+    "n_analysis_tokens": 24414,
     "n_passages": 45,
-    "n_tokens": 39508,
+    "n_tokens": 38547,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
@@ -654387,7 +654397,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 6755,
+       "analysis_tokens": 6997,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 16,
@@ -654435,18 +654445,20 @@
      "counts": {
       "agreement": 6754,
       "damaged-reading": 4,
+      "scan-corroborated": 242,
       "single-witness": 1,
-      "unresolved": 2297
+      "unresolved": 2055
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 6755,
+      "analysis_tokens": 6997,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 16,
       "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
      "sources": [
       {
@@ -654465,9 +654477,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 6755,
+    "n_analysis_tokens": 6997,
     "n_passages": 16,
-    "n_tokens": 11271,
+    "n_tokens": 11029,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
@@ -654486,7 +654498,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 31413,
+       "analysis_tokens": 32515,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 58,
@@ -654535,18 +654547,20 @@
       "agreement": 31412,
       "damaged-reading": 22,
       "incomplete-reading": 7,
+      "scan-corroborated": 1102,
       "single-witness": 1,
-      "unresolved": 9896
+      "unresolved": 8794
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 31413,
+      "analysis_tokens": 32515,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 58,
       "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
      "sources": [
       {
@@ -654565,9 +654579,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 31413,
+    "n_analysis_tokens": 32515,
     "n_passages": 58,
-    "n_tokens": 51213,
+    "n_tokens": 50076,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
@@ -654586,7 +654600,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 22330,
+       "analysis_tokens": 23147,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 40,
@@ -654634,18 +654648,20 @@
      "counts": {
       "agreement": 21325,
       "incomplete-reading": 6,
+      "scan-corroborated": 817,
       "single-witness": 1004,
-      "unresolved": 7582
+      "unresolved": 6765
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 22330,
+      "analysis_tokens": 23147,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 40,
       "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "sources": [
       {
@@ -654664,9 +654680,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 22330,
+    "n_analysis_tokens": 23147,
     "n_passages": 40,
-    "n_tokens": 36926,
+    "n_tokens": 36109,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
@@ -654685,7 +654701,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 33924,
+       "analysis_tokens": 35292,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 65,
@@ -654733,18 +654749,20 @@
      "counts": {
       "agreement": 33922,
       "incomplete-reading": 7,
+      "scan-corroborated": 1368,
       "single-witness": 2,
-      "unresolved": 12086
+      "unresolved": 10718
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 33924,
+      "analysis_tokens": 35292,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 65,
       "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "sources": [
       {
@@ -654763,9 +654781,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 33924,
+    "n_analysis_tokens": 35292,
     "n_passages": 65,
-    "n_tokens": 57360,
+    "n_tokens": 55992,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
@@ -654784,7 +654802,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 22098,
+       "analysis_tokens": 22913,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 42,
@@ -654833,18 +654851,20 @@
       "agreement": 21027,
       "damaged-reading": 4,
       "incomplete-reading": 5,
+      "scan-corroborated": 815,
       "single-witness": 1071,
-      "unresolved": 7306
+      "unresolved": 6491
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 22098,
+      "analysis_tokens": 22913,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 42,
       "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "sources": [
       {
@@ -654863,9 +654883,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 22098,
+    "n_analysis_tokens": 22913,
     "n_passages": 42,
-    "n_tokens": 36243,
+    "n_tokens": 35428,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
@@ -654884,7 +654904,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 3580,
+       "analysis_tokens": 3726,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 9,
@@ -654931,17 +654951,19 @@
      ],
      "counts": {
       "agreement": 3580,
-      "unresolved": 1227
+      "scan-corroborated": 146,
+      "unresolved": 1081
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 3580,
+      "analysis_tokens": 3726,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 9,
       "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
      "sources": [
       {
@@ -654960,9 +654982,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 3580,
+    "n_analysis_tokens": 3726,
     "n_passages": 9,
-    "n_tokens": 5939,
+    "n_tokens": 5793,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855",
@@ -654981,7 +655003,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 17886,
+       "analysis_tokens": 18441,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 34,
@@ -655029,19 +655051,21 @@
      "counts": {
       "agreement": 17798,
       "incomplete-reading": 3,
+      "scan-corroborated": 555,
       "single-witness": 87,
       "source-reviewed": 1,
-      "unresolved": 5425
+      "unresolved": 4870
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 17886,
+      "analysis_tokens": 18441,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 34,
       "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
      "sources": [
       {
@@ -655060,9 +655084,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 17886,
+    "n_analysis_tokens": 18441,
     "n_passages": 34,
-    "n_tokens": 29627,
+    "n_tokens": 28969,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
@@ -655081,7 +655105,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 358,
+       "analysis_tokens": 364,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 2,
@@ -655128,17 +655152,19 @@
      ],
      "counts": {
       "agreement": 358,
-      "unresolved": 105
+      "scan-corroborated": 6,
+      "unresolved": 99
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 358,
+      "analysis_tokens": 364,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 2,
       "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
      "sources": [
       {
@@ -655157,9 +655183,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 358,
+    "n_analysis_tokens": 364,
     "n_passages": 2,
-    "n_tokens": 561,
+    "n_tokens": 555,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
@@ -655178,7 +655204,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 186,
+       "analysis_tokens": 188,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 1,
@@ -655225,17 +655251,19 @@
      ],
      "counts": {
       "agreement": 186,
-      "unresolved": 74
+      "scan-corroborated": 2,
+      "unresolved": 72
      },
-     "manifest_sha256": "2985e15f45f22d2421f5afcf1694a068293864e1e774ab64df6160d6d6e56e59",
+     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 186,
+      "analysis_tokens": 188,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 1,
       "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
       "status": "source-role-reviewed-collated-ocr"
      },
+     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
      "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
      "sources": [
       {
@@ -655254,9 +655282,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 186,
+    "n_analysis_tokens": 188,
     "n_passages": 1,
-    "n_tokens": 286,
+    "n_tokens": 284,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
