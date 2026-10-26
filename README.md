@@ -43,7 +43,7 @@ inputs, and working review records are not distributed with this export.
 
 ## Lexical exports
 
-[Download the surface-frequency table](https://github.com/open-greek/open-greek-corpus/releases/download/corpus-2026-10-25.3/public_lexicon.tsv.gz)
+[Download the surface-frequency table](https://github.com/open-greek/open-greek-corpus/releases/download/corpus-2026-10-26/public_lexicon.tsv.gz)
 for this release. Its decompressed format is `form<TAB>count`; checksums and
 counts are in `data/public_lexicon_release.json`. The surface-frequency
 table excludes duplicate passages and filtered nonlexical forms, so its token
