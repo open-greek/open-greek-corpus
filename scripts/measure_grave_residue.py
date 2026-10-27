@@ -218,8 +218,8 @@ def classify_cache_routes(grave: dict[str, int]) -> dict | str:
     return base
 
 
-# Dictionary headword inventories from the sibling public repo open-greek/dilemma
-# (https://github.com/open-greek/dilemma), checked out beside this one. These are
+# Dictionary headword inventories from the configured Dilemma data directory
+# (https://github.com/open-greek/dilemma). These are
 # an authority INDEPENDENT of the lemmatizer that produced this residue, which is
 # the gap the `why_no_external_authority` note used to record.
 #
@@ -231,17 +231,16 @@ def classify_cache_routes(grave: dict[str, int]) -> dict | str:
 # as headwords themselves, which no real lexicon does, and mg_headwords, which
 # is Modern Greek and answers a different question.
 HEADWORD_FILES = ("lsj", "lsj10", "lbg", "dge", "vlg", "cunliffe", "pd", "wip")
-DILEMMA = REPO.parent / "dilemma" / "data"
-
-
 def load_headwords() -> tuple[set, list[dict]]:
-    """(headword set, per-source provenance). Empty when the sibling checkout is
-    absent, and the caller must then omit the partition rather than publish it
-    as zero, which would read as a far stronger claim than no data supports."""
+    """Use the analyzer's configured inventories for both words and provenance."""
     words = trusted_citation_headwords()
+    try:
+        from dilemma.core import DATA_DIR
+    except ImportError:
+        return words, []
     prov = []
     for name in HEADWORD_FILES:
-        fp = DILEMMA / f"{name}_headwords.json"
+        fp = DATA_DIR / f"{name}_headwords.json"
         if not fp.exists():
             continue
         raw = json.loads(fp.read_text(encoding="utf-8"))
@@ -390,7 +389,7 @@ def main() -> None:
               f"lemmas at <=10 tokens are headwords, against "
               f"{gctrl / max(len(rare_grave), 1):.1%} of grave ones")
     else:
-        print("  headword-backed: sibling checkout open-greek/dilemma absent, "
+        print("  headword-backed: configured dictionary inventories unavailable, "
               "partition omitted")
 
     corpus_total = sum(totals.values())
@@ -497,7 +496,7 @@ def main() -> None:
             "largest": [{"lemma": k, "tokens": n, "headword": h}
                         for k, (n, h) in sorted(
                             backed.items(), key=lambda kv: -kv[1][0])[:20]],
-        } if heads else "sibling checkout open-greek/dilemma absent; not measured"),
+        } if heads else "configured dictionary inventories unavailable; not measured"),
         "lemmas": len(grave), "tokens": gt,
         "share_of_lemmatized_corpus": round(
             gt / corpus_total if corpus_total else 0, 10),
