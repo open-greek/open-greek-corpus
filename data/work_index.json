@@ -653937,7 +653937,7 @@
       "scan-corroborated": 6,
       "unresolved": 31
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
       "analysis_tokens": 116,
@@ -653946,7 +653946,7 @@
       "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
      "sources": [
       {
@@ -653986,7 +653986,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 16172,
+       "analysis_tokens": 16248,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 31,
@@ -654032,22 +654032,22 @@
       }
      ],
      "counts": {
-      "agreement": 15485,
+      "agreement": 15509,
       "incomplete-reading": 1,
       "scan-corroborated": 662,
-      "source-reviewed": 25,
-      "unresolved": 5117
+      "source-reviewed": 77,
+      "unresolved": 5014
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 16172,
+      "analysis_tokens": 16248,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 31,
       "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "sources": [
       {
@@ -654090,7 +654090,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 21005,
+       "analysis_tokens": 21102,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 39,
@@ -654136,24 +654136,24 @@
       }
      ],
      "counts": {
-      "agreement": 18764,
+      "agreement": 18799,
       "damaged-reading": 4,
       "incomplete-reading": 7,
       "scan-corroborated": 749,
       "single-witness": 1467,
-      "source-reviewed": 25,
-      "unresolved": 6492
+      "source-reviewed": 91,
+      "unresolved": 6356
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 21005,
+      "analysis_tokens": 21102,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 39,
       "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "sources": [
       {
@@ -654172,9 +654172,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 21102,
+    "n_analysis_tokens": 21133,
     "n_passages": 39,
-    "n_tokens": 33248,
+    "n_tokens": 33187,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
@@ -654193,7 +654193,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 2898,
+       "analysis_tokens": 2913,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 8,
@@ -654239,22 +654239,23 @@
       }
      ],
      "counts": {
-      "agreement": 2331,
+      "agreement": 2339,
       "damaged-reading": 2,
       "scan-corroborated": 117,
       "single-witness": 450,
-      "unresolved": 905
+      "source-reviewed": 7,
+      "unresolved": 882
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 2898,
+      "analysis_tokens": 2913,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 8,
       "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
      "sources": [
       {
@@ -654294,7 +654295,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 24414,
+       "analysis_tokens": 24539,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 45,
@@ -654340,24 +654341,24 @@
       }
      ],
      "counts": {
-      "agreement": 23412,
+      "agreement": 23463,
       "damaged-reading": 2,
       "incomplete-reading": 4,
       "scan-corroborated": 961,
       "single-witness": 9,
-      "source-reviewed": 31,
-      "unresolved": 7558
+      "source-reviewed": 105,
+      "unresolved": 7379
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 24414,
+      "analysis_tokens": 24539,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 45,
       "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "sources": [
       {
@@ -654376,9 +654377,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 24539,
+    "n_analysis_tokens": 24548,
     "n_passages": 45,
-    "n_tokens": 38369,
+    "n_tokens": 38351,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
@@ -654397,7 +654398,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 6997,
+       "analysis_tokens": 7027,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 16,
@@ -654443,22 +654444,23 @@
       }
      ],
      "counts": {
-      "agreement": 6754,
+      "agreement": 6769,
       "damaged-reading": 4,
       "scan-corroborated": 242,
       "single-witness": 1,
-      "unresolved": 2055
+      "source-reviewed": 15,
+      "unresolved": 2009
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 6997,
+      "analysis_tokens": 7027,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 16,
       "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
      "sources": [
       {
@@ -654498,7 +654500,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 32515,
+       "analysis_tokens": 32658,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 58,
@@ -654544,23 +654546,24 @@
       }
      ],
      "counts": {
-      "agreement": 31412,
+      "agreement": 31471,
       "damaged-reading": 22,
       "incomplete-reading": 7,
       "scan-corroborated": 1102,
       "single-witness": 1,
-      "unresolved": 8794
+      "source-reviewed": 85,
+      "unresolved": 8589
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 32515,
+      "analysis_tokens": 32658,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 58,
       "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
      "sources": [
       {
@@ -654579,9 +654582,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 32658,
+    "n_analysis_tokens": 32668,
     "n_passages": 58,
-    "n_tokens": 49870,
+    "n_tokens": 49850,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
@@ -654600,7 +654603,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 23147,
+       "analysis_tokens": 23246,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 40,
@@ -654646,22 +654649,23 @@
       }
      ],
      "counts": {
-      "agreement": 21325,
+      "agreement": 21364,
       "incomplete-reading": 6,
       "scan-corroborated": 817,
       "single-witness": 1004,
-      "unresolved": 6765
+      "source-reviewed": 61,
+      "unresolved": 6625
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 23147,
+      "analysis_tokens": 23246,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 40,
       "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "sources": [
       {
@@ -654680,9 +654684,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 23246,
+    "n_analysis_tokens": 23253,
     "n_passages": 40,
-    "n_tokens": 35969,
+    "n_tokens": 35955,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
@@ -654701,7 +654705,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 35292,
+       "analysis_tokens": 35413,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 65,
@@ -654747,22 +654751,23 @@
       }
      ],
      "counts": {
-      "agreement": 33922,
+      "agreement": 33970,
       "incomplete-reading": 7,
       "scan-corroborated": 1368,
       "single-witness": 2,
-      "unresolved": 10718
+      "source-reviewed": 73,
+      "unresolved": 10547
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 35292,
+      "analysis_tokens": 35413,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 65,
       "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "sources": [
       {
@@ -654802,7 +654807,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 22913,
+       "analysis_tokens": 22997,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 42,
@@ -654848,23 +654853,24 @@
       }
      ],
      "counts": {
-      "agreement": 21027,
+      "agreement": 21054,
       "damaged-reading": 4,
       "incomplete-reading": 5,
       "scan-corroborated": 815,
       "single-witness": 1071,
-      "unresolved": 6491
+      "source-reviewed": 57,
+      "unresolved": 6380
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 22913,
+      "analysis_tokens": 22997,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 42,
       "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "sources": [
       {
@@ -654883,9 +654889,9 @@
     },
     "edition": "dubner-1855-collated",
     "license": "PD",
-    "n_analysis_tokens": 22997,
+    "n_analysis_tokens": 23016,
     "n_passages": 42,
-    "n_tokens": 35317,
+    "n_tokens": 35279,
     "source": "ocr"
    },
    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
@@ -654904,7 +654910,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 3726,
+       "analysis_tokens": 3735,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 9,
@@ -654952,18 +654958,19 @@
      "counts": {
       "agreement": 3580,
       "scan-corroborated": 146,
-      "unresolved": 1081
+      "source-reviewed": 9,
+      "unresolved": 1072
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 3726,
+      "analysis_tokens": 3735,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 9,
       "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
      "sources": [
       {
@@ -655003,7 +655010,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 18441,
+       "analysis_tokens": 18514,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 34,
@@ -655049,23 +655056,23 @@
       }
      ],
      "counts": {
-      "agreement": 17798,
+      "agreement": 17827,
       "incomplete-reading": 3,
       "scan-corroborated": 555,
       "single-witness": 87,
-      "source-reviewed": 1,
-      "unresolved": 4870
+      "source-reviewed": 46,
+      "unresolved": 4766
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 18441,
+      "analysis_tokens": 18514,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 34,
       "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
      "sources": [
       {
@@ -655105,7 +655112,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 364,
+       "analysis_tokens": 365,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 2,
@@ -655151,20 +655158,20 @@
       }
      ],
      "counts": {
-      "agreement": 358,
+      "agreement": 359,
       "scan-corroborated": 6,
-      "unresolved": 99
+      "unresolved": 97
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 364,
+      "analysis_tokens": 365,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 2,
       "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
      "sources": [
       {
@@ -655254,7 +655261,7 @@
       "scan-corroborated": 2,
       "unresolved": 72
      },
-     "manifest_sha256": "56b4b513610310421cc69236d524a30bdbc1a36ffc1e77c7de0803988db77a24",
+     "manifest_sha256": "05581ea9f82e906017a752b05782a0e09704a83aa585022f4e5ebb089c0a0f8b",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
       "analysis_tokens": 188,
@@ -655263,7 +655270,7 @@
       "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+     "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
      "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
      "sources": [
       {
