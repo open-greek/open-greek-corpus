@@ -1,8 +1,8 @@
 {
  "corpus": {
-  "passages": 1913663,
-  "tokens": 65219381,
-  "tokens_lemmatized": 63430029,
+  "passages": 1913684,
+  "tokens": 65219914,
+  "tokens_lemmatized": 63430565,
   "works": 3939
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -16,11 +16,11 @@
    "works": 235
   },
   "CC-BY-SA-4.0": {
-   "tokens": 34163290,
+   "tokens": 34163574,
    "works": 2417
   },
   "PD": {
-   "tokens": 25844856,
+   "tokens": 25845105,
    "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -61,17 +61,17 @@
   }
  },
  "pin": {
-  "corpus_sha256": "43d42b7dd82349efcf83dfa3e07154857d8abe0c685567f30261f61230e9f79e",
+  "corpus_sha256": "efc4ac5fe131fe07c91ebda04e78da6a64773cef97e0141d7c21feee61667a3f",
   "manifest": "data/public_export.json"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20246730,
+    "tokens": 20246804,
     "works": 889
    },
    "manual": {
-    "tokens": 5726863,
+    "tokens": 5727038,
     "works": 141
    },
    "mixed-unassessed": {
@@ -79,7 +79,7 @@
     "works": 4
    },
    "not-ocr": {
-    "tokens": 35878500,
+    "tokens": 35878784,
     "works": 2494
    },
    "raw-ocr": {
@@ -92,7 +92,7 @@
   "raw_ocr": {
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28535745,
+    "ocr_tokens": 28535994,
     "ocr_works": 1441,
     "raw_share_of_corpus_tokens": 0.0393,
     "raw_tokens": 2562152,
@@ -101,14 +101,14 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29088744,
+   "ocr_tokens": 29088993,
    "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "scope": "Correction quality varies by work. Unresolved readings remain excluded from lexical counts."
  },
  "release_date": "2026-10-27",
- "release_id": "corpus-2026-10-27.2",
+ "release_id": "corpus-2026-10-27.3",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -135,7 +135,7 @@
    "works": 528
   },
   "first1k": {
-   "tokens": 21805816,
+   "tokens": 21806100,
    "works": 1039
   },
   "galenus_verbatim": {
@@ -155,7 +155,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24479073,
+   "tokens": 24479322,
    "works": 1244
   },
   "perseus": {
