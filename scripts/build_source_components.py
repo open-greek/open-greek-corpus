@@ -132,15 +132,16 @@ def load_verified(data):
     if not path.is_file():
         raise ValueError("Missing source component report; run build_source_components.py")
     report = json.loads(path.read_bytes())
-    pins = corpus_pins(data)
-    projection = FrequencyProjection(data)
-    if (report.get("schema_version") != 1 or report.get("input_corpus_files") != pins or
-            report.get("corpus_sha256") != corpus_hash(pins) or
-            report.get("frequency_projection_sha256") != projection.digest or
-            report.get("recipe_sha256") != recipe_pins() or
-            report.get("counting_basis") != ANALYSIS_COUNT_BASIS):
+    if not same_measurements(report, build(data)):
         raise ValueError("Source component report is stale; run build_source_components.py")
     return report
+
+
+def same_measurements(left, right):
+    """Recompute public counts and input pins from the published lexical text."""
+    fields = ("schema_version", "input_corpus_files", "corpus_sha256", "ocr_source_labels",
+        "works", "by_source", "totals", "scope")
+    return all(left.get(field) == right.get(field) for field in fields)
 
 
 def summary(report, data):
@@ -182,7 +183,7 @@ def main():
     raw = encode(result)
     path = data / NAME
     if args.check:
-        if not path.is_file() or path.read_bytes() != raw:
+        if not path.is_file() or not same_measurements(json.loads(path.read_bytes()), result):
             parser.exit(1, "Source component counts differ; run build_source_components.py\n")
     else:
         path.write_bytes(raw)

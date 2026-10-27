@@ -1,20 +1,9 @@
 #!/usr/bin/env python3
-"""Roll up the form-frequency lexicon (the "yardstick") from the WHOLE ingested
-open corpus in data/corpus/*.jsonl, not from the TEI alone.
+"""Rebuild surface frequencies from the published corpus passages.
 
-The yardstick must be defined by cog's own corpus, and must grow automatically
-every time a TLG-only work is replaced by an open/PD source. So the lexicon is a
-rollup over every ingested passage in data/corpus/*.jsonl: the open TEI editions
-(written by build_corpus_loci.py), the Byzantine vernacular texts
-(build_byzantine_vernacular_corpus.py), and the PD/CC ingests that fill the gaps
-(calfa-co Patrologia Graeca,
-byzantium.gr historians). Each ingester writes its passages to data/corpus and
-merges into corpus_editions.json; this script is the single lexicon builder over
-the union, so a new ingest flows into the yardstick with no extra step.
-
-The TEI-parsing helpers below (body_text, detect_license, the drop set, the Greek
-regex) remain the shared library that build_corpus_loci.py imports for ingest;
-only the lexicon rollup moved here off the TEI and onto the ingested corpus.
+Explicit lexical text determines which readings count. Shared passages and
+duplicate editions contribute once, while every work remains in coverage.
+This standalone builder reads the published data without selecting new readings.
 
 Outputs (under data/):
   public_lexicon.tsv     form<TAB>count over every ingested passage
@@ -25,7 +14,7 @@ Outputs (under data/):
   coverage.json          per work urn: source, license, inclusive tokens,
                          analysis_tokens, passages
 
-  python build_public_corpus.py      # run AFTER the ingesters populate data/corpus
+  python3 scripts/build_public_corpus.py
 """
 
 from __future__ import annotations
@@ -380,7 +369,7 @@ def main() -> None:
                 for b in stems:
                     if a != b:
                         candidates.add(tuple(sorted((a, b))))
-    for a, b in candidates:
+    for a, b in sorted(candidates):
         big, small = (a, b) if work_gk.get(a, 0) >= work_gk.get(b, 0) else (b, a)
         hs, hb = work_hashes[small], work_hashes[big]
         if small in lex_excluded or len(hs) < SUBSET_HASHES:
