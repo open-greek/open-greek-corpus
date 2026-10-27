@@ -4,20 +4,20 @@
  "generated_from": {
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "bd03fdafe90331b9360ac3cb5a9edf38c311b15f89adf2a01a85bc7af8e23993"
+   "sha256": "98d4ebf0e58954baf445eedafbb0386dbbc0f86b9148e663617d7b5053f7adf5"
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "b738e7fe38061932783639c09e9ff8d87a2065ba3dce925d53071da779b73e71"
+   "sha256": "12b83877fef63c1caa288db8f653faab436c76fd2c610fc333ab969945216c03"
   },
-  "corpus_sha256": "87f1dc846aa5dd51caa1573a0e4d44f08844aa2e3fdfa42247a35258a5333d9f",
+  "corpus_sha256": "8939a7ab588fd51794f6cd246a615e0ffebf34aed179b0656db05bc9ffe0d7e0",
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "e4f019a1e1324dfe582bbed15cf4b29879668e85cd1fa56bc61e70f6834bc768"
+   "sha256": "239f0dccbbeed89556432bdaad9c32c331f5de48ef208d08d84f4817c3ea336d"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "b7283c983615ea41bb85aab5f2d87d28250ce18db46d17d7627c1fd58360f66d"
+   "sha256": "721a3a46e868178afe0b3f84de8f2ad0bb376336a64341acdd04883d720e9602"
   },
   "source_components": {
    "artifact": "data/source_component_tokens.json",
@@ -78,7 +78,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24735670,
+     "analysis_tokens": 24736543,
      "passages": 1284483,
      "works": 1246
     },
@@ -108,7 +108,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "87f1dc846aa5dd51caa1573a0e4d44f08844aa2e3fdfa42247a35258a5333d9f",
+   "corpus_sha256": "8939a7ab588fd51794f6cd246a615e0ffebf34aed179b0656db05bc9ffe0d7e0",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -292,12 +292,12 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "73f3f62342974df37e1eb2d8784699a12d92c50814ab2d6dc6b7bd188e257dd6",
+   "sha256": "808c7a97b2914bb8de670f85ff0f27ba16d741eeb4f632f712c39b915309e54f",
    "totals": {
-    "analysis_tokens": 65217667,
+    "analysis_tokens": 65218540,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29087030,
+    "ocr_analysis_tokens": 29087903,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
     "passages": 1913663,
@@ -336,7 +336,7 @@
     },
     "mixed_ocr_tokens": 552999,
     "mixed_works": 4,
-    "ocr_component_tokens": 29087030
+    "ocr_component_tokens": 29087903
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "key": "raw-ocr-coverage",
@@ -360,17 +360,20 @@
   {
    "current_measurement": {
     "counts": {
-     "analysis_tokens": 208188,
+     "analysis_tokens": 209061,
      "approved_layout_pages": 17,
      "baseline_reading_statuses": {
-      "agreement": 196464,
+      "agreement": 196798,
       "damaged-reading": 38,
       "incomplete-reading": 40,
+      "scan-corroborated": 7548,
       "single-witness": 4092,
-      "source-reviewed": 82,
-      "unresolved": 68596
+      "source-reviewed": 611,
+      "unresolved": 59851
      },
-     "changed_pages": 384,
+     "boundary_structural_holds": 0,
+     "changed_pages": 16,
+     "eligible_token_gain": 17,
      "fresh_scan_corroborated_slots": 7548,
      "held_layout_pages": 0,
      "held_pilot_boundary_cases": 6,
@@ -382,7 +385,16 @@
       "source-reviewed": 33,
       "unresolved": 72135
      },
-     "new_source_reviewed_slots": 0,
+     "new_boundary_join_spans": 257,
+     "new_edition_boundary_joins": 15,
+     "new_edition_reviewed_words": 17,
+     "new_lexically_reviewed_slots": 184,
+     "new_reviewed_numerals": 4,
+     "new_scan_reviewed_numerals": 3,
+     "new_scan_reviewed_slots": 248,
+     "new_scan_source_readings": 31,
+     "new_source_reviewed_slots": 15,
+     "new_visually_reviewed_boundary_spans": 77,
      "outside_primary_observations": 4,
      "partial_duplicate_layouts_reviewed": 3,
      "previous_review_counts": {
@@ -421,41 +433,36 @@
       "works": 14
      },
      "primary_rows": 391,
-     "primary_source_observations": 142,
+     "primary_source_observations": 1022,
      "reading_statuses": {
-      "agreement": 196464,
+      "agreement": 196800,
       "damaged-reading": 38,
       "incomplete-reading": 40,
       "scan-corroborated": 7548,
       "single-witness": 4092,
-      "source-reviewed": 82,
-      "unresolved": 61048
-     },
-     "remaining_unresolved_categories": {
-      "accent_case_or_elision_only": 19878,
-      "different_word_readings": 34882,
-      "omission_tie": 6288,
-      "one_group_internal_disagreement": 6298
+      "source-reviewed": 626,
+      "unresolved": 59819
      },
      "retained_duplicate_fragments": 144,
-     "reviewed_boundary_spans": 41,
+     "reviewed_boundary_spans": 390,
      "reviewed_unmarked_column_pages": 7,
-     "source_observations": 146,
-     "source_reviewed_slots": 82,
-     "unresolved_reduction": 7548,
+     "source_observations": 1026,
+     "source_reviewed_slots": 626,
+     "unresolved_reduction": 32,
+     "visually_reviewed_residual_slots": 97,
      "works": 14
     },
     "held_layouts": [],
-    "qualification": "Two pinned scans of the same edition independently produce an existing reading at an anchored occurrence. Exact lexical evidence vetoes unknown proposals, competing dictionary matches, and mark-only variants; absence from the dictionary does not prove an alternative invalid. Guesses and normalized matches cannot authorize a reading. This is qualified OCR corroboration, not manual proofreading, a new edition, or an additional voting group. Every original slot, variant, witness, prior source adjudication, and admitted boundary is retained.",
+    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
     "reopen_when": [
-     "A paired source image, occurrence alignment, lexical veto, or calibration decision is invalidated.",
-     "Occurrence-specific evidence resolves a remaining legitimate variant or orthographic reading."
+     "An edition identification, scan, occurrence association, or recorded visual reading is invalidated.",
+     "New occurrence evidence verifies a currently unresolved word or boundary."
     ],
-    "review_scope": "Full-volume paired-scan OCR; unique exact lexical readings only"
+    "review_scope": "26 previously held occurrences; explicit 1843 comparison and direct verification of both 1855 scans"
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/105",
    "key": "dubner-1855-unresolved-readings",
-   "reopen_when": "A paired source image, occurrence alignment, lexical veto, or calibration decision is invalidated. Occurrence-specific evidence resolves a remaining legitimate variant or orthographic reading.",
+   "reopen_when": "An edition identification, scan, occurrence association, or recorded visual reading is invalidated. New occurrence evidence verifies a currently unresolved word or boundary.",
    "status": "accepted-measured-limitation",
    "why_no_bulk_action_remains": "Both available scans have fresh full-volume OCR. Only matching existing readings in stable context with unique exact lexical support passed the calibrated veto. Other legitimate words, orthography, unlinked occurrences, new proposals, and missing source leaves remain held. Further reduction needs occurrence-specific evidence or a separately evaluated admission class."
   },
@@ -14753,7 +14760,7 @@
     },
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-26",
+     "declared_release": "corpus-2026-10-26.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -15896,7 +15903,7 @@
      }
     },
     "publication": {
-     "declared_release": "corpus-2026-10-26",
+     "declared_release": "corpus-2026-10-26.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -15929,7 +15936,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-10-26",
+     "declared_release": "corpus-2026-10-26.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16034,7 +16041,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-10-26",
+     "declared_release": "corpus-2026-10-26.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16129,7 +16136,7 @@
     ],
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-10-26",
+     "declared_release": "corpus-2026-10-26.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
