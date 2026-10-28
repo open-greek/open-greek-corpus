@@ -279194,7 +279194,7 @@
    "coverage_composition": {
     "analysis_tokens": 0,
     "components": [],
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "retired-whole-volume-assignment-with-literal-witnesses-retained",
     "primary_rows": 0
    },
@@ -298161,7 +298161,7 @@
      "source-reviewed": 3,
      "unresolved": 27
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
      "analysis_tokens": 119,
@@ -298170,7 +298170,7 @@
      "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
     "sources": [
      {
@@ -298194,7 +298194,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Ἀνδρονίκου Περὶ τάξεως ποιητῶν (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298207,7 +298207,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298435,7 +298435,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 16362,
+      "analysis_tokens": 16367,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 31,
@@ -298484,19 +298484,19 @@
      "agreement": 15539,
      "incomplete-reading": 1,
      "scan-corroborated": 662,
-     "source-reviewed": 158,
-     "unresolved": 4849
+     "source-reviewed": 163,
+     "unresolved": 4844
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 16362,
+     "analysis_tokens": 16367,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 31,
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
     "sources": [
      {
@@ -298520,7 +298520,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Acharnians (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298533,7 +298533,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298608,7 +298608,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 21253,
+      "analysis_tokens": 21258,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 39,
@@ -298659,19 +298659,19 @@
      "incomplete-reading": 7,
      "scan-corroborated": 749,
      "single-witness": 1467,
-     "source-reviewed": 171,
-     "unresolved": 6108
+     "source-reviewed": 176,
+     "unresolved": 6103
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 21253,
+     "analysis_tokens": 21258,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 39,
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
     "sources": [
      {
@@ -298695,7 +298695,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Birds (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298708,7 +298708,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298808,7 +298808,7 @@
      "source-reviewed": 25,
      "unresolved": 853
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
      "analysis_tokens": 2933,
@@ -298817,7 +298817,7 @@
      "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
     "sources": [
      {
@@ -298841,7 +298841,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Assemblywomen (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -298854,7 +298854,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -298901,7 +298901,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 24750,
+      "analysis_tokens": 24756,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 45,
@@ -298952,19 +298952,19 @@
      "incomplete-reading": 4,
      "scan-corroborated": 961,
      "single-witness": 9,
-     "source-reviewed": 247,
-     "unresolved": 7054
+     "source-reviewed": 253,
+     "unresolved": 7048
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 24750,
+     "analysis_tokens": 24756,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 45,
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
     "sources": [
      {
@@ -298988,7 +298988,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Knights (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299001,7 +299001,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299048,7 +299048,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 7081,
+      "analysis_tokens": 7086,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 16,
@@ -299098,19 +299098,19 @@
      "damaged-reading": 4,
      "scan-corroborated": 242,
      "single-witness": 1,
-     "source-reviewed": 52,
-     "unresolved": 1924
+     "source-reviewed": 57,
+     "unresolved": 1919
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 7081,
+     "analysis_tokens": 7086,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 16,
      "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
     "sources": [
      {
@@ -299134,7 +299134,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Lysistrata (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299147,7 +299147,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299194,7 +299194,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 32884,
+      "analysis_tokens": 32911,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 58,
@@ -299245,19 +299245,19 @@
      "incomplete-reading": 7,
      "scan-corroborated": 1102,
      "single-witness": 1,
-     "source-reviewed": 227,
-     "unresolved": 8240
+     "source-reviewed": 254,
+     "unresolved": 8212
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 32884,
+     "analysis_tokens": 32911,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 58,
      "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
     "sources": [
      {
@@ -299281,7 +299281,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Clouds (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299294,7 +299294,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299444,7 +299444,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 23390,
+      "analysis_tokens": 23398,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 40,
@@ -299494,19 +299494,19 @@
      "incomplete-reading": 6,
      "scan-corroborated": 817,
      "single-witness": 1004,
-     "source-reviewed": 136,
-     "unresolved": 6383
+     "source-reviewed": 144,
+     "unresolved": 6374
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 23390,
+     "analysis_tokens": 23398,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 40,
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
     "sources": [
      {
@@ -299530,7 +299530,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Peace (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299543,7 +299543,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299590,7 +299590,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 35611,
+      "analysis_tokens": 35627,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 65,
@@ -299640,19 +299640,19 @@
      "incomplete-reading": 7,
      "scan-corroborated": 1368,
      "single-witness": 2,
-     "source-reviewed": 218,
-     "unresolved": 10259
+     "source-reviewed": 233,
+     "unresolved": 10242
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 35611,
+     "analysis_tokens": 35627,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 65,
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
     "sources": [
      {
@@ -299676,7 +299676,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Wealth (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299689,7 +299689,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299709,7 +299709,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 23149,
+      "analysis_tokens": 23154,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 42,
@@ -299760,19 +299760,19 @@
      "incomplete-reading": 5,
      "scan-corroborated": 815,
      "single-witness": 1071,
-     "source-reviewed": 148,
-     "unresolved": 6145
+     "source-reviewed": 153,
+     "unresolved": 6140
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 23149,
+     "analysis_tokens": 23154,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 42,
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
     "sources": [
      {
@@ -299796,7 +299796,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Frogs (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299809,7 +299809,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299907,7 +299907,7 @@
      "source-reviewed": 14,
      "unresolved": 1067
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
      "analysis_tokens": 3740,
@@ -299916,7 +299916,7 @@
      "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
     "sources": [
      {
@@ -299940,7 +299940,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Thesmophoriazusae (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -299953,7 +299953,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -299998,7 +299998,7 @@
    "coverage_composition": {
     "components": [
      {
-      "analysis_tokens": 18576,
+      "analysis_tokens": 18582,
       "edition": "dubner-1855-collated",
       "license": "PD",
       "passages": 34,
@@ -300048,19 +300048,19 @@
      "incomplete-reading": 3,
      "scan-corroborated": 555,
      "single-witness": 87,
-     "source-reviewed": 95,
-     "unresolved": 4680
+     "source-reviewed": 101,
+     "unresolved": 4674
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
-     "analysis_tokens": 18576,
+     "analysis_tokens": 18582,
      "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
      "passages": 34,
      "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
     "sources": [
      {
@@ -300084,7 +300084,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Hypotheses and scholia to Wasps (Dübner 1855) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300097,7 +300097,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -300195,7 +300195,7 @@
      "source-reviewed": 1,
      "unresolved": 93
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
      "analysis_tokens": 367,
@@ -300204,7 +300204,7 @@
      "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
     "sources": [
      {
@@ -300228,7 +300228,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Τοῦ αὐτοῦ περὶ σημείων τῆς κοινῆς συλλαβῆς τῶν ἐντὸς κειμένων τῆς βίβλου (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300241,7 +300241,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
@@ -300311,7 +300311,7 @@
      "scan-corroborated": 2,
      "unresolved": 72
     },
-    "manifest_sha256": "9212bd7c095509b22a55630cb39f740245c60ad605f97ed1fc3b8de7dc054e93",
+    "manifest_sha256": "89d02556622157c27160eff346bed309a499819a86bc376f3f62480fcd373b90",
     "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
     "primary_quality": {
      "analysis_tokens": 188,
@@ -300320,7 +300320,7 @@
      "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
      "status": "source-role-reviewed-collated-ocr"
     },
-    "qualification": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+    "qualification": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
     "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
     "sources": [
      {
@@ -300344,7 +300344,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Δημητρίου τοῦ Τρικλινίου [περὶ μέτρων] (Dübner 1855 source witness) (Dübner 1855, collated OCR)",
-     "note": "Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "source-page.region",
      "scheme_inferred": false,
@@ -300357,7 +300357,7 @@
      "editor": "Dübner, Friedrich",
      "license": "PD",
      "name": "Dübner 1855, retained raw OCR witnesses",
-     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Occurrence-specific comparison with the 1843 edition, followed by explicit direct verification in both 1855 scans. The 1843 reading is retained separately, never counted as another 1855 OCR vote. Complete word extent and existing literal witness ordinals bound each correction. Every original variant, tokenization, voter, earlier decision, and exact preimage survives. Unclear marks and edition variants remain held.",
+     "note": "Original OCR readings of the same printed edition, preserved separately from the merged primary. Distinct scan copies and OCR runs do not establish independent textual editions. Fixed 60-case extent review with independent direct observations of Toronto, Harvard, and 1843. The 1843 edition is a comparison, never an extra 1855 vote. Both complete 1855 literal ordinal claims and their neighboring context must match the reviewed evidence. A word uses one existing slot; a complete span uses two adjacent unresolved slots. The two-letter bound applies to every present original word variant or each complete literal source across a reviewed span. Three supplemental token edges require their independently authored source certificate, exact residual letters, literal neighbors, and pinned pixels. Only that exact edge risk is discharged. A separate bounded-omission policy allows independently verified mutable words while retaining selected and uncertain evidence context exactly. All other omissions, ambiguous marks, terminals, and unreviewed neighboring ownership remain held. Planning is not authority.",
      "provider": "ocr",
      "scheme": "original-scan-page.row",
      "scheme_inferred": false,
