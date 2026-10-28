@@ -486,7 +486,7 @@
    "form": "ὣσπερ",
    "shapes": {
     "acute": {
-     "attested": 61867,
+     "attested": 61868,
      "form": "ὥσπερ"
     },
     "circumflex": {
@@ -586,7 +586,7 @@
      "form": "ἐ̓στιν"
     },
     "dropped": {
-     "attested": 103330,
+     "attested": 103332,
      "form": "ἐστιν"
     }
    },
@@ -692,7 +692,7 @@
      "form": "ᾶπὸ"
     },
     "crasis": {
-     "attested": 178459,
+     "attested": 178460,
      "form": "ἀπὸ"
     },
     "dropped": {
@@ -1058,7 +1058,7 @@
    "form": "ἒστι",
    "shapes": {
     "acute": {
-     "attested": 45075,
+     "attested": 45076,
      "form": "ἔστι"
     },
     "circumflex": {
@@ -1070,7 +1070,7 @@
      "form": "ἐ̓στι"
     },
     "dropped": {
-     "attested": 96783,
+     "attested": 96784,
      "form": "ἐστι"
     }
    },
@@ -3108,7 +3108,7 @@
      "form": "δήλον"
     },
     "circumflex": {
-     "attested": 18337,
+     "attested": 18338,
      "form": "δῆλον"
     },
     "crasis": {
@@ -3600,7 +3600,7 @@
      "form": "ἐπεἰδὴ"
     },
     "dropped": {
-     "attested": 32098,
+     "attested": 32101,
      "form": "ἐπειδὴ"
     }
    },
@@ -4406,7 +4406,7 @@
      "form": "μάλλον"
     },
     "circumflex": {
-     "attested": 66310,
+     "attested": 66311,
      "form": "μᾶλλον"
     },
     "crasis": {
@@ -4602,15 +4602,15 @@
   "tokens_with_more_than_one_attested_shape": 14797,
   "tokens_with_none": 18378
  },
- "served_tokens": 65219914,
+ "served_tokens": 65220167,
  "share": 0.000642,
  "skeleton_class": {
   "accent_only_forms": 2666,
   "accent_only_tokens": 7995,
   "base": {
    "excludes": "OCR sources, and every flagged form, so an illegal form cannot vote on the legal one",
-   "forms": 1161118,
-   "tokens": 36121366
+   "forms": 1161116,
+   "tokens": 36121367
   },
   "decided": [
    {
@@ -9996,7 +9996,7 @@
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved."
  },
- "surface_served_tokens": 65614216,
+ "surface_served_tokens": 65613963,
  "tokens": 41894,
  "what": "served tokens carrying a grave on a syllable that is not the ultima, partitioned by source, edition and by what a repair could be pointed at",
  "works_touched": 1651
