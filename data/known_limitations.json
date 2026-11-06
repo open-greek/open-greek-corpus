@@ -4,20 +4,20 @@
  "generated_from": {
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "e3ade99666bb8f79b4e480c549307c8e97d73cdd848192e1f81a1a61962c7405"
+   "sha256": "dd5b6a48b5e0ec6bcade8a70182958a69bf3a04ec12f2183341bf68f8c202094"
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "844f1a8f5b016ad0052844f853dbce611515687da0b142c11529be48d37c19ef"
+   "sha256": "c0e9ea05627c850e65aa74b1771154cc29abf50d6eb654f30bcfdbbe82f33cfd"
   },
-  "corpus_sha256": "23cdc5e906776d16e9aa56fce314e3ececef3349ff7fe8eb2c5ffda39ac7891f",
+  "corpus_sha256": "0ba1f28907b4f09099237f6f2bb4001f284a34e5d11bf1c7dc88f3061f4e5b13",
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "4834c17e73def09314a7ff5b26f8817c97f35d7255437a5668ba58997d0ba5ae"
+   "sha256": "717f8bf881ebf6bb3662b4cd4d42ccbc53d2156c36cd3996b631a0d8e8e91875"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "0822cc73bd7cb558e4dfe526287acd63e134bc0f27781ccd5205b0e3f93dfabe"
+   "sha256": "596e7d9b7e5527d1b10e3d9da595499b4d717649d3ad9c0a0a9494e00882837a"
   },
   "source_components": {
    "artifact": "data/source_component_tokens.json",
@@ -78,7 +78,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24791891,
+     "analysis_tokens": 24791888,
      "passages": 1284483,
      "works": 1246
     },
@@ -108,7 +108,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "23cdc5e906776d16e9aa56fce314e3ececef3349ff7fe8eb2c5ffda39ac7891f",
+   "corpus_sha256": "0ba1f28907b4f09099237f6f2bb4001f284a34e5d11bf1c7dc88f3061f4e5b13",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -292,12 +292,12 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "a192865e8f6d1e6de48892b2d562df1f6814c2878229a3c8dc4dba24c6a26a3c",
+   "sha256": "81fbe9c1d5de8bbe9d6620dcf2b0827d3917bbd3a7b1ca1d60a985e68c291103",
    "totals": {
-    "analysis_tokens": 65274173,
+    "analysis_tokens": 65274170,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29143251,
+    "ocr_analysis_tokens": 29143248,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
     "passages": 1913685,
@@ -336,7 +336,7 @@
     },
     "mixed_ocr_tokens": 552999,
     "mixed_works": 4,
-    "ocr_component_tokens": 29143251
+    "ocr_component_tokens": 29143248
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "key": "raw-ocr-coverage",
@@ -705,6 +705,125 @@
    "reopen_when": "Reopen reading review when occurrence-level inspection of the pinned Harvard and Ghent columns, or a better independently retained transcription, establishes a specific unresolved reading. Reopen the missing-leaf defect only if the recovered edition identity, physical boundary, or source evidence is invalidated.",
    "status": "accepted-measured-limitation",
    "why_no_bulk_action_remains": "The last excluded lexical occurrence is explicitly adopted as ἀΐαχοι from Latte alpha 8275 at the owner's direction. No uncertain recovered-column occurrences remain excluded from lexical counts. Duplicate fragments stay omitted. Schmidt's printed breathing and iota marks at this occurrence remain unverified; the separate adoption retains that uncertainty and every original alternative."
+  },
+  {
+   "current_measurement": {
+    "excluded_numerals": 1,
+    "excluded_readings": 2,
+    "locus": "athenaeus_mech_wescher_0088.4",
+    "normalized_reading": null,
+    "printed_readings_verified": 2,
+    "reader_path": "data/critical_editions/athenaeus-wescher-apparatus/reader.html",
+    "retained_readings": [
+     {
+      "baseline_text": "ἀρεμβολεῖται",
+      "display": "ἀρᶿεμβολεῖται",
+      "end": 440,
+      "id": "athenaeus_mech_wescher_0088.4.theta",
+      "interpretation": "Printed theta above rho; no ordinary-letter insertion boundary or normalized expansion is selected.",
+      "kind": "supralinear-letter",
+      "lexical_eligible": false,
+      "normalized_reading": null,
+      "preferred": false,
+      "printed_reading_verified": true,
+      "raised_letter": {
+       "anchor": {
+        "base_character": "ρ",
+        "base_codepoint_index": 1,
+        "placement": "above"
+       },
+       "linearized_boundary": null,
+       "text": "θ"
+      },
+      "source_regions": [
+       {
+        "apparatus_line": 6,
+        "box": [
+         1340,
+         2040,
+         1680,
+         2140
+        ],
+        "column": "right",
+        "printed_page": 34,
+        "source_id": "bsb"
+       },
+       {
+        "apparatus_line": 6,
+        "box": [
+         1180,
+         1940,
+         1420,
+         2035
+        ],
+        "column": "right",
+        "printed_page": 34,
+        "source_id": "toronto"
+       }
+      ],
+      "start": 427,
+      "witness": "V"
+     },
+     {
+      "comparison_lemma": "ᾧ",
+      "display": "ὧι",
+      "end": 628,
+      "graphemes": [
+       {
+        "accent": "circumflex",
+        "breathing": "rough",
+        "letter": "ω"
+       },
+       {
+        "baseline": "same",
+        "letter": "ι",
+        "placement": "adscript"
+       }
+      ],
+      "id": "athenaeus_mech_wescher_0088.4.omega",
+      "interpretation": "P's adscript iota is retained separately from the preceding lemma's iota subscript.",
+      "kind": "adscript-iota",
+      "lexical_eligible": false,
+      "normalized_reading": null,
+      "preferred": false,
+      "printed_reading_verified": true,
+      "source_regions": [
+       {
+        "apparatus_line": 6,
+        "box": [
+         1280,
+         2310,
+         1420,
+         2375
+        ],
+        "column": "right",
+        "printed_page": 34,
+        "source_id": "bsb"
+       },
+       {
+        "apparatus_line": 6,
+        "box": [
+         1115,
+         2210,
+         1215,
+         2270
+        ],
+        "column": "right",
+        "printed_page": 34,
+        "source_id": "toronto"
+       }
+      ],
+      "start": 626,
+      "witness": "P"
+     }
+    ],
+    "work": "athenaeus-mechanics.de-machinis"
+   },
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/132",
+   "key": "athenaeus-diplomatic-apparatus-variants",
+   "reopen_when": "Source-page evidence invalidates a glyph, placement, breathing, accent, manuscript attribution, or the exclusion of these unnormalized readings.",
+   "status": "accepted-measured-limitation",
+   "why_no_bulk_action_remains": "Both printed apparatus forms and their typographic roles are represented. Turning the raised theta into ordinary letters or preferring a normalized variant requires an editorial decision beyond this diplomatic transcription."
   }
  ],
  "resolved_coverage_findings": [
@@ -14939,7 +15058,7 @@
     },
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-11-05.1",
+     "declared_release": "corpus-2026-11-06.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16082,7 +16201,7 @@
      }
     },
     "publication": {
-     "declared_release": "corpus-2026-11-05.1",
+     "declared_release": "corpus-2026-11-06.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16115,7 +16234,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-05.1",
+     "declared_release": "corpus-2026-11-06.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16220,7 +16339,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-05.1",
+     "declared_release": "corpus-2026-11-06.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16315,7 +16434,7 @@
     ],
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-05.1",
+     "declared_release": "corpus-2026-11-06.1",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },

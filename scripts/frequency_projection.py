@@ -14,6 +14,9 @@ def projection_recipe_pins():
 
 
 def lexical_text(row):
+    if row.get("critical_markup", {}).get("schema") == "printed-apparatus-v1":
+        from athenaeus_apparatus_markup import validate
+        validate(row)
     text = row.get("analysis_text", row.get("text", ""))
     if not isinstance(text, str):
         raise ValueError("Published lexical text must be a string")
