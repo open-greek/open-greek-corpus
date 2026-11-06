@@ -40,13 +40,21 @@ def _load_work_ids() -> dict:
     return {e["slug"]: i for i, e in works.items() if e.get("status") == "served"}
 
 
-def main() -> None:
+def main(only=None) -> None:
     from collections import defaultdict
 
     slug_to_id = _load_work_ids()
     frequency = FrequencyProjection(CORPUS.parent)
-    ce = {}
-    for fp in sorted(CORPUS.glob("*.jsonl")):
+    files = {fp.stem: fp for fp in CORPUS.glob("*.jsonl")}
+    if only is not None:
+        missing = set(only) - files.keys()
+        if missing:
+            raise ValueError("Unknown corpus works: " + ", ".join(sorted(missing)))
+        ce = json.loads(CE.read_text(encoding="utf-8"))
+        files = {slug: files[slug] for slug in sorted(set(only))}
+    else:
+        ce = {}
+    for fp in sorted(files.values()):
         n_pass = n_tok = n_analysis = 0
         # A file can carry more than one edition (page-level upgrades leave a
         # work mostly on the new edition with a few pages on another). Label the
@@ -99,4 +107,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--only", nargs="+",
+                        help="Refresh selected works, preserving all other edition records")
+    main(parser.parse_args().only)
