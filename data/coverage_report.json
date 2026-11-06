@@ -12818,7 +12818,7 @@
   "ingested_partial_works": 116,
   "ingested_via_cgpg_volume": 0,
   "ingested_via_served_parts": 2,
-  "ingested_words_actual": 50603016,
+  "ingested_words_actual": 50598511,
   "partial_missing_words": {
    "actionable": 605754,
    "structural": 569499
@@ -12832,7 +12832,7 @@
   "total_words": 74975998,
   "total_works": 7209,
   "underfilled_50_90_missing_words": {
-   "actionable": 1513936,
+   "actionable": 1518441,
    "structural": 179837
   },
   "underfilled_50_90_works": 450
@@ -13176,14 +13176,6 @@
     "source": "cgpg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
-    "license": "PD",
-    "n_passages": 65,
-    "n_tokens": 55522,
-    "source": "ocr"
-   },
-   {
     "edition": "qwen36-ptolemaeus_gramm_valckenaer_ammonius",
     "key": "ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius",
     "license": "PD",
@@ -13256,20 +13248,20 @@
     "source": "cgpg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
-    "license": "PD",
-    "n_passages": 58,
-    "n_tokens": 49505,
-    "source": "ocr"
-   },
-   {
     "edition": "cgpg",
     "key": "theophylactus-achridensis.expositio-in-prophetam-oseam",
     "license": "CC-BY-4.0",
     "n_passages": 127,
     "n_tokens": 46934,
     "source": "cgpg"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
+    "license": "PD",
+    "n_passages": 65,
+    "n_tokens": 45488,
+    "source": "ocr"
    },
    {
     "edition": "cgpg",
@@ -13309,6 +13301,14 @@
     "license": "PD",
     "n_passages": 2171,
     "n_tokens": 42918,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
+    "license": "PD",
+    "n_passages": 58,
+    "n_tokens": 40989,
     "source": "ocr"
    },
    {
@@ -13376,14 +13376,6 @@
     "source": "ocr"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
-    "license": "PD",
-    "n_passages": 45,
-    "n_tokens": 38041,
-    "source": "ocr"
-   },
-   {
     "edition": "qwen36-archytas_mullach_fpg2",
     "key": "mullach-fpg2.paratexta",
     "license": "PD",
@@ -13432,14 +13424,6 @@
     "source": "ocr"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
-    "license": "PD",
-    "n_passages": 40,
-    "n_tokens": 35719,
-    "source": "ocr"
-   },
-   {
     "edition": "pta-grc1",
     "key": "severian-of-gabala.fragmenta-in-epistulas-pauli",
     "license": "CC-BY-SA-4.0",
@@ -13448,27 +13432,11 @@
     "source": "pta"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
-    "license": "PD",
-    "n_passages": 42,
-    "n_tokens": 35079,
-    "source": "ocr"
-   },
-   {
     "edition": "migne-ocr-qwen36",
     "key": "scholia-in-callimachum.schol-callim-schneider",
     "license": "PD",
     "n_passages": 6756,
     "n_tokens": 34499,
-    "source": "ocr"
-   },
-   {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
-    "license": "PD",
-    "n_passages": 39,
-    "n_tokens": 32998,
     "source": "ocr"
    },
    {
@@ -13486,6 +13454,14 @@
     "n_passages": 72,
     "n_tokens": 32099,
     "source": "cgpg"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
+    "license": "PD",
+    "n_passages": 45,
+    "n_tokens": 31661,
+    "source": "ocr"
    },
    {
     "edition": "cgpg",
@@ -13509,6 +13485,14 @@
     "license": "PD",
     "n_passages": 504,
     "n_tokens": 29705,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
+    "license": "PD",
+    "n_passages": 40,
+    "n_tokens": 29668,
     "source": "ocr"
    },
    {
@@ -13536,6 +13520,14 @@
     "source": "cgpg"
    },
    {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
+    "license": "PD",
+    "n_passages": 42,
+    "n_tokens": 29174,
+    "source": "ocr"
+   },
+   {
     "edition": "cgpg",
     "key": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
     "license": "CC-BY-4.0",
@@ -13544,20 +13536,20 @@
     "source": "cgpg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
-    "license": "PD",
-    "n_passages": 34,
-    "n_tokens": 28747,
-    "source": "ocr"
-   },
-   {
     "edition": "opp-grc1",
     "key": "methodius.symposium-sive-convivium-decem-virginum",
     "license": "CC-BY-SA-4.0",
     "n_passages": 98,
     "n_tokens": 28364,
     "source": "first1k"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
+    "license": "PD",
+    "n_passages": 39,
+    "n_tokens": 27152,
+    "source": "ocr"
    },
    {
     "edition": "dfhg",
@@ -13669,6 +13661,14 @@
     "license": "PD",
     "n_passages": 5520,
     "n_tokens": 23151,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
+    "license": "PD",
+    "n_passages": 34,
+    "n_tokens": 23098,
     "source": "ocr"
    },
    {
@@ -14024,14 +14024,6 @@
     "source": "cgpg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
-    "license": "PD",
-    "n_passages": 16,
-    "n_tokens": 10894,
-    "source": "ocr"
-   },
-   {
     "edition": "cgpg",
     "key": "symeon-thessalonicensis.expositio-de-divino-templo",
     "license": "CC-BY-4.0",
@@ -14157,6 +14149,14 @@
     "license": "PD",
     "n_passages": 264,
     "n_tokens": 9232,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
+    "license": "PD",
+    "n_passages": 16,
+    "n_tokens": 8988,
     "source": "ocr"
    },
    {
@@ -14568,14 +14568,6 @@
     "source": "pta"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855",
-    "license": "PD",
-    "n_passages": 9,
-    "n_tokens": 5779,
-    "source": "ocr"
-   },
-   {
     "edition": "pta-grc1",
     "key": "severian-of-gabala.in-cosmogoniam-homilia-5",
     "license": "CC-BY-SA-4.0",
@@ -14808,6 +14800,14 @@
     "source": "cgpg"
    },
    {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855",
+    "license": "PD",
+    "n_passages": 9,
+    "n_tokens": 4774,
+    "source": "ocr"
+   },
+   {
     "edition": "olivieri-teubner-1909",
     "key": "tlg1595.tlg492",
     "license": "PD",
@@ -14830,14 +14830,6 @@
     "n_passages": 48,
     "n_tokens": 4619,
     "source": "dfhg"
-   },
-   {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855",
-    "license": "PD",
-    "n_passages": 8,
-    "n_tokens": 4533,
-    "source": "ocr"
    },
    {
     "edition": "pta-grc1",
@@ -15030,6 +15022,14 @@
     "n_passages": 40,
     "n_tokens": 3730,
     "source": "pta"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855",
+    "license": "PD",
+    "n_passages": 8,
+    "n_tokens": 3714,
+    "source": "ocr"
    },
    {
     "edition": "pta-grc1",
@@ -16672,14 +16672,6 @@
     "source": "dfhg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
-    "license": "PD",
-    "n_passages": 2,
-    "n_tokens": 549,
-    "source": "ocr"
-   },
-   {
     "edition": "dfhg",
     "key": "eusebius.fragmenta-fhg5",
     "license": "CC-BY-SA-4.0",
@@ -16805,6 +16797,14 @@
     "license": "PD",
     "n_passages": 87,
     "n_tokens": 457,
+    "source": "ocr"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
+    "license": "PD",
+    "n_passages": 2,
+    "n_tokens": 455,
     "source": "ocr"
    },
    {
@@ -17112,14 +17112,6 @@
     "source": "dfhg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
-    "license": "PD",
-    "n_passages": 1,
-    "n_tokens": 284,
-    "source": "ocr"
-   },
-   {
     "edition": "dfhg",
     "key": "suidas.fragmenta",
     "license": "CC-BY-SA-4.0",
@@ -17166,6 +17158,14 @@
     "n_passages": 2,
     "n_tokens": 267,
     "source": "dfhg"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
+    "license": "PD",
+    "n_passages": 1,
+    "n_tokens": 259,
+    "source": "ocr"
    },
    {
     "edition": "cgpg",
@@ -17464,14 +17464,6 @@
     "source": "dfhg"
    },
    {
-    "edition": "dubner-1855-collated",
-    "key": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
-    "license": "PD",
-    "n_passages": 1,
-    "n_tokens": 170,
-    "source": "ocr"
-   },
-   {
     "edition": "dfhg",
     "key": "polyzelus-rhodius.fragmenta",
     "license": "CC-BY-SA-4.0",
@@ -17646,6 +17638,14 @@
     "n_passages": 3,
     "n_tokens": 146,
     "source": "dfhg"
+   },
+   {
+    "edition": "dubner-1855-collated",
+    "key": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855",
+    "license": "PD",
+    "n_passages": 1,
+    "n_tokens": 144,
+    "source": "ocr"
    },
    {
     "edition": "dfhg",
@@ -19240,7 +19240,7 @@
     "source": "ocr"
    }
   ],
-  "n_tokens": 8347978,
+  "n_tokens": 8295722,
   "works": 800
  },
  "partial_ingestions": [
@@ -20905,6 +20905,17 @@
    "work_id": "023"
   },
   {
+   "author": "Scholia In Aristophanem",
+   "coverage_ratio": 0.665,
+   "ingested_tokens": 21114,
+   "missing_words": 10626,
+   "source": "ocr",
+   "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
+   "tlg_id": "tlg5014",
+   "word_count": 31740,
+   "work_id": "001"
+  },
+  {
    "author": "Theopompus",
    "coverage_ratio": 0.583,
    "ingested_tokens": 13701,
@@ -21082,17 +21093,6 @@
    "title": "Scholia In Lucianum (Scholia Vetera Et Recentiora Arethae)",
    "tlg_id": "tlg5029",
    "word_count": 58133,
-   "work_id": "001"
-  },
-  {
-   "author": "Scholia In Aristophanem",
-   "coverage_ratio": 0.807,
-   "ingested_tokens": 25619,
-   "missing_words": 6121,
-   "source": "ocr",
-   "title": "Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii)",
-   "tlg_id": "tlg5014",
-   "word_count": 31740,
    "work_id": "001"
   },
   {

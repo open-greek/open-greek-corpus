@@ -23,14 +23,14 @@
    "clean_class": 4495,
    "clean_hits": 4403,
    "form": "ἃπερ",
-   "ocr_tokens": 2,
+   "ocr_tokens": 3,
    "runner_up": {
     "clean_tokens": 47,
     "form": "ἄπερ"
    },
    "share": 0.9795,
    "target": "ἅπερ",
-   "tokens": 11
+   "tokens": 12
   },
   {
    "accent_only": true,
@@ -76,6 +76,20 @@
   },
   {
    "accent_only": true,
+   "clean_class": 883,
+   "clean_hits": 876,
+   "form": "ἐπεὶπερ",
+   "ocr_tokens": 4,
+   "runner_up": {
+    "clean_tokens": 5,
+    "form": "ἔπειπερ"
+   },
+   "share": 0.9921,
+   "target": "ἐπείπερ",
+   "tokens": 4
+  },
+  {
+   "accent_only": true,
    "clean_class": 8485,
    "clean_hits": 8476,
    "form": "καὶτοι",
@@ -101,20 +115,6 @@
    "share": 0.9997,
    "target": "πολλάκις",
    "tokens": 4
-  },
-  {
-   "accent_only": true,
-   "clean_class": 883,
-   "clean_hits": 876,
-   "form": "ἐπεὶπερ",
-   "ocr_tokens": 3,
-   "runner_up": {
-    "clean_tokens": 5,
-    "form": "ἔπειπερ"
-   },
-   "share": 0.9921,
-   "target": "ἐπείπερ",
-   "tokens": 3
   },
   {
    "accent_only": true,
@@ -242,8 +242,8 @@
  "rule": "the form's skeleton class has a reading holding >= 0.95 of >= 100 clean non-OCR tokens, and the repair changes accents only: breathings, iota subscript and diaeresis are byte-identical between the form and its target.",
  "scope": "our own OCR only (source `ocr`). cgpg is calfa-co's OCR and first1k, perseus, dfhg, pta and saws are other people's editions that this repo republishes; whether we may correct those is a policy question nothing in docs/ answers, and holding them costs 3.5% of the tranche.",
  "status": "waiting on cisco. Every token here is wrong as it stands, since a non-final grave is not Greek, so the question is not whether to leave them right but whether this rule is right often enough to be worth the wrong ones it will introduce.",
- "token_weighted_share": 0.9965,
- "tokens": 55,
+ "token_weighted_share": 0.9961,
+ "tokens": 57,
  "what": "the repair tranche proposed for issue #31, NOT APPLIED",
  "what_it_would_NOT_touch": {
   "marks_moved": 1913,
