@@ -546474,7 +546474,7 @@
    "manifestation": {
     "edition": "qwen36-athenaeus_mech_wescher",
     "license": "PD",
-    "n_analysis_tokens": 46656,
+    "n_analysis_tokens": 46653,
     "n_passages": 2300,
     "n_tokens": 46412,
     "source": "ocr"
@@ -653887,7 +653887,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 119,
+       "analysis_tokens": 144,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 1,
@@ -653934,20 +653934,21 @@
      ],
      "counts": {
       "agreement": 110,
+      "editorial-decision": 25,
       "scan-corroborated": 6,
-      "source-reviewed": 3,
-      "unresolved": 27
+      "source-fragment": 2,
+      "source-reviewed": 3
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 119,
+      "analysis_tokens": 144,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 1,
       "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Heading attributes to Andronicus. Dübner footnote identifies Caecius/Tzetzes following Dindorf: conflicting attribution must remain explicit. Toronto OCR omits beginning of Greek body; surviving row32.3 begins Κωμικῶν.",
      "sources": [
       {
@@ -653987,7 +653988,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 16471,
+       "analysis_tokens": 20982,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 31,
@@ -654033,22 +654034,22 @@
       }
      ],
      "counts": {
-      "agreement": 15539,
-      "incomplete-reading": 1,
-      "scan-corroborated": 662,
-      "source-reviewed": 267,
-      "unresolved": 4740
+      "agreement": 15522,
+      "editorial-decision": 4378,
+      "scan-corroborated": 660,
+      "source-fragment": 172,
+      "source-reviewed": 477
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 16471,
+      "analysis_tokens": 20982,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 31,
       "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 1–31; surviving OCR extraction",
      "sources": [
       {
@@ -654091,7 +654092,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 21452,
+       "analysis_tokens": 26786,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 39,
@@ -654137,24 +654138,25 @@
       }
      ],
      "counts": {
-      "agreement": 18868,
+      "agreement": 18857,
       "damaged-reading": 4,
-      "incomplete-reading": 7,
-      "scan-corroborated": 749,
-      "single-witness": 1467,
-      "source-reviewed": 370,
-      "unresolved": 5909
+      "editorial-decision": 5448,
+      "incomplete-reading": 3,
+      "scan-corroborated": 748,
+      "single-witness": 1417,
+      "source-fragment": 370,
+      "source-reviewed": 527
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 21452,
+      "analysis_tokens": 26786,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 39,
       "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 209–247; surviving OCR extraction",
      "sources": [
       {
@@ -654194,7 +654196,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 2933,
+       "analysis_tokens": 3690,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 8,
@@ -654242,21 +654244,22 @@
      "counts": {
       "agreement": 2341,
       "damaged-reading": 2,
+      "editorial-decision": 757,
       "scan-corroborated": 117,
       "single-witness": 450,
-      "source-reviewed": 25,
-      "unresolved": 853
+      "source-fragment": 83,
+      "source-reviewed": 38
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 2933,
+      "analysis_tokens": 3690,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 8,
       "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 315–322; surviving OCR extraction",
      "sources": [
       {
@@ -654296,7 +654299,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 25111,
+       "analysis_tokens": 31449,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 45,
@@ -654342,24 +654345,26 @@
       }
      ],
      "counts": {
-      "agreement": 23526,
+      "agreement": 23506,
       "damaged-reading": 2,
-      "incomplete-reading": 4,
-      "scan-corroborated": 961,
-      "single-witness": 9,
-      "source-reviewed": 608,
-      "unresolved": 6690
+      "editorial-decision": 6155,
+      "incomplete-reading": 3,
+      "scan-corroborated": 957,
+      "single-witness": 7,
+      "source-fragment": 277,
+      "source-reviewed": 893,
+      "source-variant": 1
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 25111,
+      "analysis_tokens": 31449,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 45,
       "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 32–76; surviving OCR extraction",
      "sources": [
       {
@@ -654399,7 +654404,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 7086,
+       "analysis_tokens": 8932,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 16,
@@ -654445,23 +654450,24 @@
       }
      ],
      "counts": {
-      "agreement": 6786,
+      "agreement": 6775,
       "damaged-reading": 4,
-      "scan-corroborated": 242,
+      "editorial-decision": 1858,
+      "scan-corroborated": 241,
       "single-witness": 1,
-      "source-reviewed": 57,
-      "unresolved": 1919
+      "source-fragment": 57,
+      "source-reviewed": 73
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 7086,
+      "analysis_tokens": 8932,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 16,
       "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 248–263; surviving OCR extraction",
      "sources": [
       {
@@ -654501,7 +654507,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 32911,
+       "analysis_tokens": 40635,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 58,
@@ -654547,24 +654553,24 @@
       }
      ],
      "counts": {
-      "agreement": 31553,
+      "agreement": 31504,
       "damaged-reading": 22,
-      "incomplete-reading": 7,
-      "scan-corroborated": 1102,
-      "single-witness": 1,
-      "source-reviewed": 254,
-      "unresolved": 8212
+      "editorial-decision": 7802,
+      "incomplete-reading": 3,
+      "scan-corroborated": 1095,
+      "source-fragment": 351,
+      "source-reviewed": 376
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 32911,
+      "analysis_tokens": 40635,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 58,
       "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 77–134; surviving OCR extraction",
      "sources": [
       {
@@ -654604,7 +654610,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 23585,
+       "analysis_tokens": 29331,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 40,
@@ -654650,23 +654656,24 @@
       }
      ],
      "counts": {
-      "agreement": 21432,
-      "incomplete-reading": 6,
-      "scan-corroborated": 817,
-      "single-witness": 1004,
-      "source-reviewed": 331,
-      "unresolved": 6187
+      "agreement": 21410,
+      "editorial-decision": 5727,
+      "incomplete-reading": 3,
+      "scan-corroborated": 812,
+      "single-witness": 1003,
+      "source-fragment": 217,
+      "source-reviewed": 606
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 23585,
+      "analysis_tokens": 29331,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 40,
       "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 169–208; surviving OCR extraction",
      "sources": [
       {
@@ -654706,7 +654713,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 35627,
+       "analysis_tokens": 45128,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 65,
@@ -654752,23 +654759,24 @@
       }
      ],
      "counts": {
-      "agreement": 34022,
-      "incomplete-reading": 7,
+      "agreement": 33992,
+      "editorial-decision": 9517,
+      "incomplete-reading": 6,
       "scan-corroborated": 1368,
-      "single-witness": 2,
-      "source-reviewed": 233,
-      "unresolved": 10242
+      "single-witness": 1,
+      "source-fragment": 524,
+      "source-reviewed": 455
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 35627,
+      "analysis_tokens": 45128,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 65,
       "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 323–387; surviving OCR extraction",
      "sources": [
       {
@@ -654808,7 +654816,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 23249,
+       "analysis_tokens": 28904,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 42,
@@ -654854,24 +654862,25 @@
       }
      ],
      "counts": {
-      "agreement": 21113,
+      "agreement": 21097,
       "damaged-reading": 4,
+      "editorial-decision": 5659,
       "incomplete-reading": 5,
-      "scan-corroborated": 815,
+      "scan-corroborated": 810,
       "single-witness": 1071,
-      "source-reviewed": 248,
-      "unresolved": 6044
+      "source-fragment": 265,
+      "source-reviewed": 390
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 23249,
+      "analysis_tokens": 28904,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 42,
       "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 273–314; surviving OCR extraction",
      "sources": [
       {
@@ -654911,7 +654920,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 3740,
+       "analysis_tokens": 4742,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 9,
@@ -654957,21 +654966,22 @@
       }
      ],
      "counts": {
-      "agreement": 3580,
+      "agreement": 3571,
+      "editorial-decision": 1015,
       "scan-corroborated": 146,
-      "source-reviewed": 14,
-      "unresolved": 1067
+      "source-fragment": 51,
+      "source-reviewed": 24
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 3740,
+      "analysis_tokens": 4742,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 9,
       "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 264–272; surviving OCR extraction",
      "sources": [
       {
@@ -655011,7 +655021,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 18582,
+       "analysis_tokens": 22981,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 34,
@@ -655057,23 +655067,24 @@
       }
      ],
      "counts": {
-      "agreement": 17840,
-      "incomplete-reading": 3,
-      "scan-corroborated": 555,
-      "single-witness": 87,
-      "source-reviewed": 101,
-      "unresolved": 4674
+      "agreement": 17830,
+      "editorial-decision": 4366,
+      "incomplete-reading": 2,
+      "scan-corroborated": 553,
+      "single-witness": 86,
+      "source-fragment": 230,
+      "source-reviewed": 193
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 18582,
+      "analysis_tokens": 22981,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 34,
       "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Dübner 1855, printed pages 135–168; surviving OCR extraction",
      "sources": [
       {
@@ -655113,7 +655124,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 367,
+       "analysis_tokens": 452,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 2,
@@ -655160,20 +655171,21 @@
      ],
      "counts": {
       "agreement": 360,
+      "editorial-decision": 85,
       "scan-corroborated": 6,
-      "source-reviewed": 1,
-      "unresolved": 93
+      "source-fragment": 7,
+      "source-reviewed": 2
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 367,
+      "analysis_tokens": 452,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 2,
       "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Subheading attributes to same Demetrius Triclinius. Ends PDF41 with no subsequent historical text on blank42.",
      "sources": [
       {
@@ -655213,7 +655225,7 @@
     "coverage": {
      "components": [
       {
-       "analysis_tokens": 188,
+       "analysis_tokens": 253,
        "edition": "dubner-1855-collated",
        "license": "PD",
        "passages": 1,
@@ -655259,20 +655271,22 @@
       }
      ],
      "counts": {
-      "agreement": 186,
+      "agreement": 184,
+      "editorial-decision": 22,
       "scan-corroborated": 2,
-      "unresolved": 72
+      "source-fragment": 2,
+      "source-reviewed": 50
      },
-     "manifest_sha256": "b337251632549206e2e26f40e0cb81a4a6993a0d5f70e08ce482d74618e11274",
+     "manifest_sha256": "17362c6ff87237a8026dd409a510f1b862997e2d40cc1a57a2c48e5c9a759805",
      "policy": "source-reviewed-work-and-role-partition-with-collated-same-edition-witnesses",
      "primary_quality": {
-      "analysis_tokens": 188,
+      "analysis_tokens": 253,
       "note": "Explicit unresolved readings remain outside scalar lexical counts; this is not comprehensive proofreading.",
       "passages": 1,
       "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
       "status": "source-role-reviewed-collated-ocr"
      },
-     "qualification": "Nonblind direct review of three complete omission contexts in two 1855 scans and the separate 1843 printing. Modern passages assist location and comparison; their additions and edition variants are not substituted for the native print. Exact original literal streams, votes, absence claims, protected neighbors, and held allocations remain unchanged. No new OCR vote is created.",
+     "qualification": "These records complete occurrence-level source review while preserving an unresolved canonical choice and a qualified textual crux. Neither case adds a lexical word. The exception census separately retains the unexpanded abbreviation; all original witness evidence remains recoverable.",
      "scope": "Explicit printed author heading; Toronto omits opening column section and retains only right-column continuation starting δακτυλικοῦ.",
      "sources": [
       {

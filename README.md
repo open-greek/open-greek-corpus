@@ -4,7 +4,7 @@ An openly reusable corpus of Ancient, Medieval, and Modern Greek texts from
 public-domain editions and attributed open sources.
 
 The current export contains **3,939 works**, **1,913,685 passages**, and
-**65,274,173 eligible Greek tokens**. Correction quality varies by work.
+**65,274,170 eligible Greek tokens**. Correction quality varies by work.
 Unresolved readings remain excluded from lexical counts.
 The corrected reader text includes editorial decisions.
 
@@ -16,6 +16,10 @@ An optional `analysis_text` supplies the eligible lexical projection.
 `analysis_segments` preserves contiguous eligible runs where omitted text
 breaks adjacency. `contextual_eligible: false` excludes a row from measurements
 that depend on complete surrounding context.
+
+The [printed-apparatus format](docs/printed-apparatus.md) preserves elevated
+letters and manuscript typography in Athenaeus, with a standalone reader and
+explicit lexical exclusions for unnormalized variants.
 
 `data/work_index.json` supplies stable work and author identities, display
 metadata, bibliographic anchors, and historical citation mappings. Bare
@@ -47,7 +51,7 @@ inputs, and working review records are not distributed with this export.
 
 ## Lexical exports
 
-[Download the surface-frequency table](https://github.com/open-greek/open-greek-corpus/releases/download/corpus-2026-11-05.1/public_lexicon.tsv.gz)
+[Download the surface-frequency table](https://github.com/open-greek/open-greek-corpus/releases/download/corpus-2026-11-06.1/public_lexicon.tsv.gz)
 for this release. Its decompressed format is `form<TAB>count`; checksums and
 counts are in `data/public_lexicon_release.json`. The surface-frequency
 table excludes duplicate passages and filtered nonlexical forms, so its token

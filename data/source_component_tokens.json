@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24791891,
+   "analysis_tokens": 24791888,
    "passages": 1284483,
    "works": 1246
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "23cdc5e906776d16e9aa56fce314e3ececef3349ff7fe8eb2c5ffda39ac7891f",
+ "corpus_sha256": "0ba1f28907b4f09099237f6f2bb4001f284a34e5d11bf1c7dc88f3061f4e5b13",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -721,7 +721,7 @@
   "athanasius-theology.vita-antonii.jsonl": "e0cf5ed83dae1b0c70ee6e2f077f082a7ee0da4022f5a3e13f3e192e392f914b",
   "athanasius-theology.vita-sanctae-syncleticae-sp.jsonl": "9814248ec1d62c37047c76f63e82584953a686494e38e01f92238cc634db56cc",
   "athanasius-theology.vitae-monasticae-institutio-sp.jsonl": "c665ec45eb96e5dac0ba8f0055add1237e37cd9ec56245a8a5d375f8b600d59d",
-  "athenaeus-mechanics.de-machinis.jsonl": "d19ffb26b4352a1cddf8b29da8808201362a73cbc49d8275dbf028435637fa82",
+  "athenaeus-mechanics.de-machinis.jsonl": "9111a02c9956e8515b47d041e3524ca325d15718594e7fab98d66fbdc4d37cad",
   "athenaeus-naucratita.fragmenta.jsonl": "c38e6c3d721bc4fb9d6c745d781decece9fd745c63aee6fd3db338596ddf3fe2",
   "athenaeus-soph.deipnosophistae.jsonl": "ac7e46773eee6125cd1fe19e7fe1691a27043cf9b8a965ac3014176c3bd2b2ad",
   "athenagoras.de-resurrectione.jsonl": "79c87cc7f8ffe47c6fc2595e14dc0ec6df97e78675a197484cbfd63f52ee6361",
@@ -4039,10 +4039,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65274173,
+  "analysis_tokens": 65274170,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29143251,
+  "ocr_analysis_tokens": 29143248,
   "ocr_passages": 1295897,
   "ocr_works": 1445,
   "passages": 1913685,
@@ -19930,10 +19930,10 @@
    }
   },
   "athenaeus-mechanics.de-machinis": {
-   "analysis_tokens": 46656,
+   "analysis_tokens": 46653,
    "components": [
     {
-     "analysis_tokens": 46656,
+     "analysis_tokens": 46653,
      "edition": "qwen36-athenaeus_mech_wescher",
      "license": "PD",
      "passages": 2300,
@@ -19944,12 +19944,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 46656,
+   "ocr_analysis_tokens": 46653,
    "ocr_passages": 2300,
    "passages": 2300,
    "sources": {
     "ocr": {
-     "analysis_tokens": 46656,
+     "analysis_tokens": 46653,
      "passages": 2300
     }
    }
