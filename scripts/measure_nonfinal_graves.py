@@ -64,7 +64,7 @@ THIRDPARTY_SHARE, THIRDPARTY_CLASS = 0.99, 100
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
-from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection  # noqa: E402
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection, read_batch  # noqa: E402
 
 ACUTE, GRAVE, CIRCUMFLEX = "́", "̀", "͂"
 DIAERESIS = "̈"
@@ -183,36 +183,37 @@ def main() -> None:
     pages: collections.Counter = collections.Counter()
     works = set()
     total = surface_total = 0
-    frequency = FrequencyProjection(DATA)
+    with read_batch():
+        frequency = FrequencyProjection(DATA)
 
-    for fp in sorted((DATA / "corpus").glob("*.jsonl")):
-        for line in fp.read_text(encoding="utf-8").splitlines():
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            src, ed = r.get("source", "?"), r.get("edition", "?")
-            surface_total += len(_GK.findall(r.get("text") or ""))
-            for w in _GK.findall(frequency.text(r)):
-                total += 1
-                all_forms[w] += 1
-                src_total[src] += 1
-                ed_total[ed] += 1
-                if has_nonfinal_grave(w):
-                    forms[w] += 1
-                    by_source[src] += 1
-                    by_edition[ed] += 1
-                    works.add(fp.stem)
-                    if src == "ocr":
-                        ocr_tokens[w] += 1
-                        pages[f"{fp.stem}:{str(r.get('locus','')).rsplit('.', 1)[0]}"] += 1
-                    if src in THIRD_PARTY_SOURCES:
-                        third_party.setdefault(
-                            w, collections.Counter())[src] += 1
-                elif src not in OCR_SOURCES:
-                    # The attestation base. Flagged forms are excluded from it
-                    # entirely, not just the one being repaired: an illegal form
-                    # must not get a vote on what the legal one is.
-                    clean[w] += 1
+        for fp in sorted((DATA / "corpus").glob("*.jsonl")):
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                r = json.loads(line)
+                src, ed = r.get("source", "?"), r.get("edition", "?")
+                surface_total += len(_GK.findall(r.get("text") or ""))
+                for w in _GK.findall(frequency.text(r)):
+                    total += 1
+                    all_forms[w] += 1
+                    src_total[src] += 1
+                    ed_total[ed] += 1
+                    if has_nonfinal_grave(w):
+                        forms[w] += 1
+                        by_source[src] += 1
+                        by_edition[ed] += 1
+                        works.add(fp.stem)
+                        if src == "ocr":
+                            ocr_tokens[w] += 1
+                            pages[f"{fp.stem}:{str(r.get('locus','')).rsplit('.', 1)[0]}"] += 1
+                        if src in THIRD_PARTY_SOURCES:
+                            third_party.setdefault(
+                                w, collections.Counter())[src] += 1
+                    elif src not in OCR_SOURCES:
+                        # The attestation base. Flagged forms are excluded from it
+                        # entirely, not just the one being repaired: an illegal form
+                        # must not get a vote on what the legal one is.
+                        clean[w] += 1
 
     flagged = sum(forms.values())
     print(f"non-final graves: {len(forms):,} forms, {flagged:,} tokens "

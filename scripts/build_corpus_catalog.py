@@ -274,6 +274,12 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
 
 
 def build_rows() -> tuple[list[list[str]], dict]:
+    from frequency_projection import read_batch
+    with read_batch():
+        return _build_rows()
+
+
+def _build_rows() -> tuple[list[list[str]], dict]:
     component_report = load_verified(DATA)
     components = component_report["works"]
     index = load("work_index.json")["works"]

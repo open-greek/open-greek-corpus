@@ -2,10 +2,16 @@
 from __future__ import annotations
 
 import hashlib
+from contextlib import nullcontext
 from pathlib import Path
 
 ANALYSIS_COUNT_BASIS = "Greek regex runs in the published lexical projection; unresolved and ineligible readings are excluded."
 CONTEXT_COUNT_BASIS = "Only explicitly contiguous eligible text supplies positional evidence."
+
+
+def read_batch():
+    """Group reads of the already published lexical fields."""
+    return nullcontext()
 
 
 def projection_recipe_pins():

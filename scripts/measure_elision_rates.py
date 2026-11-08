@@ -30,7 +30,7 @@ after a re-OCR or an ingest; the rates move with the text.
 """
 
 from __future__ import annotations
-from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection, read_batch
 
 import argparse
 import json
@@ -96,25 +96,26 @@ def main() -> None:
     # rate for a sample that was not the word.
     token = re.compile(_GLET + "+")
 
-    files = sorted(CORPUS.glob("*.jsonl"))
-    frequency = FrequencyProjection(CORPUS.parent)
-    for n, fp in enumerate(files, 1):
-        with fp.open(encoding="utf-8") as fh:
-            for line in fh:
-                if not line.strip():
-                    continue
-                text = frequency.text(json.loads(line))
-                for m in token.finditer(text):
-                    stem = deaccent(m.group(0))
-                    if stem not in seen:
+    with read_batch():
+        files = sorted(CORPUS.glob("*.jsonl"))
+        frequency = FrequencyProjection(CORPUS.parent)
+        for n, fp in enumerate(files, 1):
+            with fp.open(encoding="utf-8") as fh:
+                for line in fh:
+                    if not line.strip():
                         continue
-                    seen[stem] += 1
-                    if m.end() < len(text) and text[m.end()] in APOSTROPHES:
-                        before[stem] += 1
-                        w = m.group(0)
-                        spellings[stem][w] = spellings[stem].get(w, 0) + 1
-        if n % 400 == 0:
-            print(f"  {n}/{len(files)} works", file=sys.stderr)
+                    text = frequency.text(json.loads(line))
+                    for m in token.finditer(text):
+                        stem = deaccent(m.group(0))
+                        if stem not in seen:
+                            continue
+                        seen[stem] += 1
+                        if m.end() < len(text) and text[m.end()] in APOSTROPHES:
+                            before[stem] += 1
+                            w = m.group(0)
+                            spellings[stem][w] = spellings[stem].get(w, 0) + 1
+            if n % 400 == 0:
+                print(f"  {n}/{len(files)} works", file=sys.stderr)
 
     rates = {stem: {"particle": cand[stem], "occurrences": seen[stem],
                     "before_apostrophe": before[stem],

@@ -35,7 +35,7 @@ be, and which to act on is not a measurement.
   python3 scripts/measure_spacing_marks.py [--write]
 """
 from __future__ import annotations
-from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection, read_batch
 import argparse, collections, json, sys, unicodedata
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
@@ -77,21 +77,22 @@ def main() -> None:
     forms: dict = collections.defaultdict(collections.Counter)
     works: dict = collections.defaultdict(set)
     src: dict = collections.defaultdict(collections.Counter)
-    frequency = FrequencyProjection(DATA)
-    for fp in sorted((DATA / "corpus").glob("*.jsonl")):
-        slug = fp.name[:-len(".jsonl")]
-        for line in fp.read_text(encoding="utf-8").splitlines():
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            for w in _GK.findall(frequency.text(r)):
-                if not w or w[0] not in (PSILI, DASIA):
+    with read_batch():
+        frequency = FrequencyProjection(DATA)
+        for fp in sorted((DATA / "corpus").glob("*.jsonl")):
+            slug = fp.name[:-len(".jsonl")]
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
                     continue
-                k = classify(w)
-                cls[k] += 1
-                forms[k][w] += 1
-                works[k].add(slug)
-                src[k][r.get("source")] += 1
+                r = json.loads(line)
+                for w in _GK.findall(frequency.text(r)):
+                    if not w or w[0] not in (PSILI, DASIA):
+                        continue
+                    k = classify(w)
+                    cls[k] += 1
+                    forms[k][w] += 1
+                    works[k].add(slug)
+                    src[k][r.get("source")] += 1
     total = sum(cls.values())
     for k, n in cls.most_common():
         print(f"  {k:<22} {n:>5} {n / total:>6.1%}  {len(works[k]):>3} works  "
