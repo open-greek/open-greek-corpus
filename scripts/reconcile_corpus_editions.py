@@ -19,7 +19,7 @@ import json
 import os
 import re
 from pathlib import Path
-from frequency_projection import FrequencyProjection
+from frequency_projection import FrequencyProjection, read_batch
 
 _ANALYSIS_GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+")
 
@@ -43,60 +43,61 @@ def _load_work_ids() -> dict:
 def main(only=None) -> None:
     from collections import defaultdict
 
-    slug_to_id = _load_work_ids()
-    frequency = FrequencyProjection(CORPUS.parent)
-    files = {fp.stem: fp for fp in CORPUS.glob("*.jsonl")}
-    if only is not None:
-        missing = set(only) - files.keys()
-        if missing:
-            raise ValueError("Unknown corpus works: " + ", ".join(sorted(missing)))
-        ce = json.loads(CE.read_text(encoding="utf-8"))
-        files = {slug: files[slug] for slug in sorted(set(only))}
-    else:
-        ce = {}
-    for fp in sorted(files.values()):
-        n_pass = n_tok = n_analysis = 0
-        # A file can carry more than one edition (page-level upgrades leave a
-        # work mostly on the new edition with a few pages on another). Label the
-        # work by the edition serving the MOST Greek tokens (its dominant served
-        # text), not by whichever record happens to sort first; this is only the
-        # single per-work rollup label.
-        by_ed_tok = defaultdict(int)
-        ed_meta = {}
-        for line in fp.read_text(encoding="utf-8").splitlines():
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            n_pass += 1
-            gk = sum(1 for t in r["text"].split() if _GK.search(t))
-            n_tok += gk
-            n_analysis += len(_ANALYSIS_GK.findall(frequency.text(r)))
-            ed = r.get("edition")
-            by_ed_tok[ed] += gk
-            ed_meta.setdefault(ed, (r.get("source"), r.get("license")))
-        if n_pass and by_ed_tok:
-            # dominant edition = most Greek tokens; ties break on first-seen (dict order)
-            edition = max(by_ed_tok, key=lambda e: by_ed_tok[e])
-            source, license_ = ed_meta[edition]
-            # "ocr-masked" (the geometric-column-mask re-OCR fleet) is OGC's own OCR,
-            # not a separate source: fold it into "ocr" so the reader's OGC-OCR bucket
-            # counts it. The masked-pipeline detail is preserved in the edition slug
-            # (qwen36-*-masked / -singlecol) + data/ocr_provenance/. Defensive: the
-            # existing rows were already folded by fold_ocr_masked_source.py, but this
-            # keeps corpus_editions correct if the upstream pipeline re-delivers a
-            # masked work still tagged "ocr-masked".
-            if source == "ocr-masked":
-                source = "ocr"
-            slug = fp.name[:-6]
-            row = {"edition": edition, "license": license_, "source": source,
-                   "n_passages": n_pass, "n_tokens": n_tok,
-                   "n_analysis_tokens": n_analysis}
-            # The opaque work id (from the ledger) is the canonical anchor; keep
-            # it alongside the derived edition metadata so consumers of this file
-            # get the stable id without a second join.
-            if slug in slug_to_id:
-                row["id"] = slug_to_id[slug]
-            ce[slug] = row
+    with read_batch():
+        slug_to_id = _load_work_ids()
+        frequency = FrequencyProjection(CORPUS.parent)
+        files = {fp.stem: fp for fp in CORPUS.glob("*.jsonl")}
+        if only is not None:
+            missing = set(only) - files.keys()
+            if missing:
+                raise ValueError("Unknown corpus works: " + ", ".join(sorted(missing)))
+            ce = json.loads(CE.read_text(encoding="utf-8"))
+            files = {slug: files[slug] for slug in sorted(set(only))}
+        else:
+            ce = {}
+        for fp in sorted(files.values()):
+            n_pass = n_tok = n_analysis = 0
+            # A file can carry more than one edition (page-level upgrades leave a
+            # work mostly on the new edition with a few pages on another). Label the
+            # work by the edition serving the MOST Greek tokens (its dominant served
+            # text), not by whichever record happens to sort first; this is only the
+            # single per-work rollup label.
+            by_ed_tok = defaultdict(int)
+            ed_meta = {}
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                r = json.loads(line)
+                n_pass += 1
+                gk = sum(1 for t in r["text"].split() if _GK.search(t))
+                n_tok += gk
+                n_analysis += len(_ANALYSIS_GK.findall(frequency.text(r)))
+                ed = r.get("edition")
+                by_ed_tok[ed] += gk
+                ed_meta.setdefault(ed, (r.get("source"), r.get("license")))
+            if n_pass and by_ed_tok:
+                # dominant edition = most Greek tokens; ties break on first-seen (dict order)
+                edition = max(by_ed_tok, key=lambda e: by_ed_tok[e])
+                source, license_ = ed_meta[edition]
+                # "ocr-masked" (the geometric-column-mask re-OCR fleet) is OGC's own OCR,
+                # not a separate source: fold it into "ocr" so the reader's OGC-OCR bucket
+                # counts it. The masked-pipeline detail is preserved in the edition slug
+                # (qwen36-*-masked / -singlecol) + data/ocr_provenance/. Defensive: the
+                # existing rows were already folded by fold_ocr_masked_source.py, but this
+                # keeps corpus_editions correct if the upstream pipeline re-delivers a
+                # masked work still tagged "ocr-masked".
+                if source == "ocr-masked":
+                    source = "ocr"
+                slug = fp.name[:-6]
+                row = {"edition": edition, "license": license_, "source": source,
+                       "n_passages": n_pass, "n_tokens": n_tok,
+                       "n_analysis_tokens": n_analysis}
+                # The opaque work id (from the ledger) is the canonical anchor; keep
+                # it alongside the derived edition metadata so consumers of this file
+                # get the stable id without a second join.
+                if slug in slug_to_id:
+                    row["id"] = slug_to_id[slug]
+                ce[slug] = row
     # Atomic write (temp + rename) so a concurrent reader - a gold annotation pass
     # reads this file while an ingest reconciles it - never sees a half-written file.
     _tmp = CE.with_name(CE.name + ".tmp")

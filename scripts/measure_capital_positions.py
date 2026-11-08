@@ -59,7 +59,7 @@ WORK_LEMMAS = DATA / "work_lemma_counts.tsv.gz"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
 from validate_lemma_map import VARIA, lower_initial, to_acute  # noqa: E402
-from frequency_projection import CONTEXT_COUNT_BASIS, FrequencyProjection  # noqa: E402
+from frequency_projection import CONTEXT_COUNT_BASIS, FrequencyProjection, read_batch  # noqa: E402
 
 MID_MAX = 0.25
 MIN_OCCURRENCES = 10
@@ -134,6 +134,11 @@ def target_twin(form: str, freq: dict[str, int]) -> str | None:
 
 def count_positions() -> tuple[Counter[str], Counter[str]]:
     """(sentence-initial, mid-sentence) counts per capitalized surface form."""
+    with read_batch():
+        return _count_positions()
+
+
+def _count_positions() -> tuple[Counter[str], Counter[str]]:
     initial: Counter[str] = Counter()
     mid: Counter[str] = Counter()
     frequency = FrequencyProjection(CORPUS.parent)
