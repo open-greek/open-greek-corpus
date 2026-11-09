@@ -87,7 +87,7 @@ def derive(root, *, undo=False):
     if new['author_slug'] in before[FILES[0]]['authors'] and not same(before[FILES[0]]['authors'][new['author_slug']], {'name':new['author_name'], 'aliases':{}}):
         raise ValueError('The complete name-only author identity changed')
     original = (wk.author == old['registry_author'] and same(wk.tags, old['registry_tags'])
-                and wk.attribution is None and same(idx['author'], old['index_author'])
+                and wk.attribution is None and 'attribution' not in before[FILES[0]]['works'][WORK] and same(idx['author'], old['index_author'])
                 and 'attribution' not in idx)
     ledger = Ledger.load(root / FILES[1], AUTHOR_PREFIX)
     known = ledger.current_slug_to_id().get(new['author_slug'])
@@ -167,7 +167,7 @@ def replay(root=ROOT, *, apply=False, undo=False, check=False):
         raise ValueError('Attribution replay required: ' + ', '.join(changed))
     if apply:
         for name in FILES:
-            (Path(root) / name).write_text(json.dumps(after[name], ensure_ascii=False, sort_keys=(name != FILES[1]), indent=1) + '\n')
+            (Path(root) / name).write_text(json.dumps(after[name], ensure_ascii=False, sort_keys=(name != FILES[1]), indent=1) + ('\n' if name != FILES[1] else ''))
     # Reproduce the existing public comparison/provenance projection with
     # its native owner; never edit a derived identity hash by hand.
     if (Path(root) / 'data/reference/bilby-oga-glaux-2024/manifest.json').exists():

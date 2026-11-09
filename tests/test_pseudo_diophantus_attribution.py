@@ -121,3 +121,8 @@ class AttributionReplayTest(unittest.TestCase):
     def test_preexisting_wrong_label_name_refuses_even_without_qid(self):
         self.rewrite(owner.FILES[0], lambda d: d['authors']['pseudo-diophantus'].__setitem__('name', 'Diophantus'))
         self.assertRaisesRegex(ValueError, 'name-only author identity', owner.replay, self.root, apply=True)
+
+    def test_original_registry_null_is_not_the_absent_owned_field(self):
+        owner.replay(self.root, apply=True, undo=True)
+        self.rewrite(owner.FILES[0], lambda d: d['works'][owner.WORK].__setitem__('attribution', None))
+        self.assertRaisesRegex(ValueError, 'original/corrected', owner.replay, self.root, apply=True)
