@@ -16969,6 +16969,10 @@
    },
    "name": "Pseudo-Dionysius Areopagita"
   },
+  "pseudo-diophantus": {
+   "aliases": {},
+   "name": "Pseudo-Diophantus"
+  },
   "pseudo-dioscorides": {
    "aliases": {
     "isni": "0000000490889914",
@@ -134406,7 +134410,17 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2039.tlg004"
    },
-   "author": "diophantus-mathematics",
+   "attribution": {
+    "cts": "urn:cts:greekLit:tlg2039.tlg004",
+    "evidence": {
+     "path": "data/corpus_changes/diophantus_fragment_pseudepigraphic_20261109.json",
+     "sha256": "470d89a3ac8794d3741c6beda00a6513c418f7fd3231d3999cab202c18b98917"
+    },
+    "kind": "pseudepigraphic",
+    "place": null,
+    "year": null
+   },
+   "author": "pseudo-diophantus",
    "best_source": "open_corpus",
    "default_edition": "diophantus-mathematics.fragmentum-sp-e-cod-paris-453.1st1K-grc1",
    "editions": {
@@ -134437,8 +134451,6 @@
     }
    },
    "tags": [
-    "century:3",
-    "era:imperial",
     "genre:mathematics"
    ],
    "title": "Fragmentum [Sp.] (E Cod. Paris. 453)"
