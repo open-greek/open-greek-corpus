@@ -27,6 +27,21 @@ external identifiers are work references, not additional text sources.
 `data/source_registry.json` and `data/corpus_editions.json` describe the sources
 and editions. Follow each source's stated license and attribution requirements.
 
+The Paris 453 fragment (tlg2039.tlg004, ogc001159) is attributed to
+Pseudo-Diophantus and is undated. Its edition explicitly identifies it as
+pseudepigraphic. Reproduce the finite metadata correction after regenerating
+identity files with `python3 scripts/correct_pseudo_diophantus_attribution.py
+--apply`; `--check` verifies it and `--apply --undo` withdraws it. The complete
+original attribution and pinned primary evidence are retained in
+`data/corpus_changes/diophantus_fragment_pseudepigraphic_20261109.json`.
+The explicit unknown year and place in its `attribution` block prevent
+consumers from inheriting the historical Diophantus's life or birthplace.
+Text, lexical counts, work identifiers, editions, and foreign metadata remain
+unchanged. The replay also regenerates the retained date-comparison source
+pins through `compare_oga_glaux_dates.py --published-projection`, preserving
+every published reading and date. `make check` checks both native replays
+in addition to the public export.
+
 ## Pinning and verification
 
 Pin a tagged release and the content hash in `data/public_export.json`.

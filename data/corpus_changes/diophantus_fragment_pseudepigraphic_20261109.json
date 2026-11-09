@@ -1,0 +1,104 @@
+{
+  "kind": "finite_source_backed_pseudepigraphic_attribution",
+  "date": "2026-11-09",
+  "applied_by": "scripts/correct_pseudo_diophantus_attribution.py",
+  "work": "diophantus-mathematics.fragmentum-sp-e-cod-paris-453",
+  "ogc_id": "ogc001159",
+  "cts": "urn:cts:greekLit:tlg2039.tlg004",
+  "original": {
+    "registry_author": "diophantus-mathematics",
+    "registry_tags": [
+      "century:3",
+      "era:imperial",
+      "genre:mathematics"
+    ],
+    "index_author": {
+      "authorities": {
+        "gnd": "118525913",
+        "isni": "0000000423366849",
+        "viaf": "7061159478126427990000",
+        "wikidata": "Q178217"
+      },
+      "id": "oga000531",
+      "name": "Diophantus",
+      "slug": "diophantus-mathematics"
+    },
+    "work_identity": {
+      "former_slugs": [],
+      "id": "ogc001159",
+      "manifestation": {
+        "edition": "1st1K-grc1",
+        "license": "CC-BY-SA-4.0",
+        "n_analysis_tokens": 2398,
+        "n_passages": 22,
+        "n_tokens": 2397,
+        "source": "first1k"
+      },
+      "slug": "diophantus-mathematics.fragmentum-sp-e-cod-paris-453",
+      "title": "Fragmentum [Sp.] (E Cod. Paris. 453)",
+      "work_anchors": {
+        "cts": "urn:cts:greekLit:tlg2039.tlg004",
+        "tlg": "tlg2039.tlg004"
+      }
+    },
+    "registry_identity": {
+      "aliases": {
+        "cts": "urn:cts:greekLit:tlg2039.tlg004"
+      },
+      "best_source": "open_corpus",
+      "default_edition": "diophantus-mathematics.fragmentum-sp-e-cod-paris-453.1st1K-grc1",
+      "editions": {
+        "diophantus-mathematics.fragmentum-sp-e-cod-paris-453.1st1K-grc1": {
+          "aliases": {
+            "cts": "urn:cts:greekLit:tlg2039.tlg004.1st1K-grc1"
+          },
+          "editor": "",
+          "license": "CC-BY-SA-4.0",
+          "name": "First1KGreek (1st1K-grc1)",
+          "provider": "first1k",
+          "scheme": "volume.page.line",
+          "scheme_inferred": false,
+          "servable": true,
+          "source": ""
+        },
+        "diophantus-mathematics.fragmentum-sp-e-cod-paris-453.tannery-1895": {
+          "aliases": {},
+          "editor": "Tannery, P",
+          "license": "",
+          "name": "Diophanti Alexandrini opera omnia, vol. 2",
+          "provider": "tlg-e-reference",
+          "scheme": "volume.page.line",
+          "scheme_inferred": false,
+          "servable": false,
+          "source": "",
+          "year": 1895
+        }
+      },
+      "title": "Fragmentum [Sp.] (E Cod. Paris. 453)"
+    }
+  },
+  "corrected": {
+    "author_slug": "pseudo-diophantus",
+    "author_name": "Pseudo-Diophantus",
+    "authorities": {},
+    "registry_tags": [
+      "genre:mathematics"
+    ],
+    "year": null,
+    "place": null
+  },
+  "evidence": [
+    {
+      "path": "data/corpus_changes/sources/diophantus_fragment_20261109/edition.xml",
+      "sha256": "4b9aedb7c7ddc18677e8e5c9ebe27dae19f123cc97d98f033e232a727120b54f",
+      "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/ed91552c52530c8f5a3ddf2dd767e899372a804c/data/tlg2039/tlg004/tlg2039.tlg004.1st1K-grc1.xml"
+    },
+    {
+      "path": "data/corpus_changes/sources/diophantus_fragment_20261109/work-cts.xml",
+      "sha256": "2a3e4b1084089ddfda65f2a0c450587d6e8bae4a4459851ebe70f44e799e97d6",
+      "url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/ed91552c52530c8f5a3ddf2dd767e899372a804c/data/tlg2039/tlg004/__cts__.xml"
+    }
+  ],
+  "reason": "The edition explicitly heads this work DIOPHANTUS PSEUDEPIGRAPHUS. The official work metadata and the catalog title mark Fragmentum [Sp.]. The retained evidence supplies no date or geographical attribution of this anonymous fragment; the historical Diophantus life, biography, authorities and birthplace must not be inherited. Mathematics remains the supported genre.",
+  "inverse": "Run the same native replay with --undo. The original complete work author block and tags are retained here; the new opaque author ID is retired, never recycled. No text, work ID, CTS anchor, counts, edition or foreign work changes."
+}

@@ -208,6 +208,7 @@ class Work:
     tags: list = field(default_factory=list)      # sorted "dimension:value" facets
     editions: dict = field(default_factory=dict)  # edition-slug -> Edition
     coverage_composition: dict = field(default_factory=dict)
+    attribution: dict | None = None  # explicit, source-backed work attribution
 
 
 @dataclass
@@ -397,6 +398,7 @@ class Registry:
                              and not (k == "storage" and v == "primary")}
                         for es, e in sorted(w.editions.items())
                     },
+                    **({"attribution": w.attribution} if w.attribution is not None else {}),
                 }
                 for s, w in sorted(self.works.items())
             },

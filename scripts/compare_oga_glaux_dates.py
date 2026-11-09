@@ -265,7 +265,7 @@ def compare_readings(readings):
             "selection": None, "independent_third_vote": False}
 
 
-def generate(root=ROOT):
+def generate(root=ROOT, *, published_projection=False):
     reference = root / REFERENCE
     all_readings = read_bilby(reference) + read_glaux(reference)
     oga_path = root / "data/oga_dating.json"
@@ -311,6 +311,13 @@ def generate(root=ROOT):
     output = {"schema_version": 1, "provenance": manifest,
               "normalization_policy": "Raw values and all repeated CTS rows are retained. Signed ISO-style fields use astronomical years, where year zero is 1 BCE. GLAUx's unspecified signed-year convention retains both astronomical and historical interpretations; none is selected. Multiple or ambiguous intervals are never collapsed to a midpoint. Exact CTS work suffixes remain distinct. No dates, century tags, identities, or text are overwritten.",
               "works": result}
+    if published_projection:
+        # The public artifact retains the source readings and raw dates; its
+        # existing schema omits the derived working comparison objects.
+        for work in output["works"].values():
+            work.pop("comparison", None)
+        public_encode = lambda value: (json.dumps(value, ensure_ascii=False, sort_keys=True, indent=1) + "\n").encode()
+        return {MANIFEST: public_encode(manifest), OUT: public_encode(output)}
     return {MANIFEST: encode(manifest), OUT: encode(output)}
 
 
@@ -318,10 +325,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fetch", action="store_true")
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--published-projection", action="store_true", help="Reproduce the existing public reading-only schema and serializer")
     args = parser.parse_args()
     if args.fetch:
         fetch_sources()
-    artifacts = generate()
+    artifacts = generate(published_projection=args.published_projection)
     if args.check:
         drift = [str(path) for path, raw in artifacts.items() if not (ROOT / path).exists() or (ROOT / path).read_bytes() != raw]
         if drift:
