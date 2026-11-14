@@ -5,6 +5,17 @@
  },
  "corrections": [
   {
+   "work": "dioscorides-pedanius.de-materia-medica",
+   "locus": "1.56.1",
+   "original": "ἓψε",
+   "correction": "ἕψε",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json at row index 116. Its recorded after-hash is the preimage of the Book 4 chapter correction.",
+   "date": "2026-08-11",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
    "work": "plato-philosophy.apologia-socratis",
    "locus": "18",
    "original": ">ἐμοῦ",
