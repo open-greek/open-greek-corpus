@@ -31,8 +31,8 @@
    "works": 528
   },
   "first1k": {
-   "analysis_tokens": 21866456,
-   "passages": 269506,
+   "analysis_tokens": 21865834,
+   "passages": 269504,
    "works": 1041
   },
   "galenus_verbatim": {
@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24791888,
+   "analysis_tokens": 24789947,
    "passages": 1284483,
    "works": 1246
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "2ca81be3d03f78c3cd47e24e9d3911a4ddfbde52cbe4ebedd3270afe0566cf43",
+ "corpus_sha256": "0690bc3e43365b021ec7b201689456b5fe0f9e9d1abae3b846e6158d7cd09e33",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -1115,8 +1115,8 @@
   "cyrus-rhetor.peri-diaphoras-staseos.jsonl": "2b78065e77c970dea2ba2a38b06f315ac8b8ab1cfded7d82162184c1a51eecfd",
   "daes-colonensis.fragmenta.jsonl": "f8e35c895e43483b8b699412ead6c7fa1590985b12a728a6f62afe60dd3b6f4c",
   "daimachus-history.fragmenta.jsonl": "5850acd334ba07fa8049252c7724b3137365b8129799bcede9e5d8cdff550eaa",
-  "damascius.de-principiis.jsonl": "1d2afc0d411679f04b54369fcb9df3ab6e92db2af76dbdec9c7a9e00136e8ff8",
-  "damascius.in-parmenidem.jsonl": "d029a5702839f984d4bd140743ac4328ba7c0b094a47a62ea205024761df4576",
+  "damascius.de-principiis.jsonl": "bd6245b74e5a0f228c7b8f2f22a110a06056844ce725260001891812360cfdbc",
+  "damascius.in-parmenidem.jsonl": "ae78390d4365367d1ddcc6f67044a253f922abf1bab802fcb090e24cfbbec37c",
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat.jsonl": "a4732a42cdabafff62535c3543aa445989ecc66c2fd198041d73bd5e47469a01",
   "damastes-sigeensis.fragmenta.jsonl": "2ed199808c2d05333de657261b0d417b2ec3870235db6acb7eff4cfac4f37ae7",
   "damianus-scriptor-de-opticis.optica.jsonl": "a568bdd9ca44e6a4bdae4d679e87301a54e45c30d502628c21d688ccc7351b54",
@@ -1309,7 +1309,7 @@
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-gr-2448.jsonl": "1f418aec22c499112bac590e5c8abe9d35a072955380f05676d4a251dccbc84c",
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-suppl-gr-387-fol-181r.jsonl": "3040c4a6098ab241bcc3bcc03602a8a60849fb57d2a94509f418f2ed20ce7ac3",
   "diophantus.fragmenta.jsonl": "6608bfbaf46164041508c0cd9a67536dd3df344006badcd76a7e8040bc1a951b",
-  "dioscorides-pedanius.de-materia-medica.jsonl": "801709e2ca194356685b70229ce69d399ac1102d4507fce9fce4b2814d263758",
+  "dioscorides-pedanius.de-materia-medica.jsonl": "f6e6cfe700d688826c138c354e398684d3027b89d097d1073abbd437c1f41e87",
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis.jsonl": "3573de26e8c55fa1ab9e25c73966ec4f0592392c0a1e9230357f028863d4868d",
   "dioscorides.fragmenta.jsonl": "4faa0a1915625550725a63f7344168dacb88ae24b2bf700eea6afa2a852bd2e0",
   "dioscurides.fragmenta.jsonl": "2d4804ec49db2ea77866307fbf47b5e100dce7b28c977c16516c57fc93ffdbf0",
@@ -1527,7 +1527,7 @@
   "flavius-josephus.contra-apionem-de-judaeorum-vetustate.jsonl": "6a93809d15fabebe0b60f0954175a2a66dc69bd2dfb23384b721b5b4a64a7100",
   "flavius-josephus.de-bello-judaico-libri-vii.jsonl": "8e9f1575c1877f117e4ec67218ce4ce03e852101de86d7e6a7faf26596613f29",
   "flavius-josephus.josephi-vita.jsonl": "43f9d76dd1799c21b3905be3a5e97a74cf0752273e7517dfa789e3a6ed6f0e2c",
-  "flavius-justinianus-imperator.novellae.jsonl": "34ea40fee41af36eb27e11b6d721a923cd1aec31bc193f5ebb1bcb5149c1fad8",
+  "flavius-justinianus-imperator.novellae.jsonl": "979612da373d63f74794d7de1f4197c4eb00541c025fff896b1dfa9e09a457c8",
   "flavius-philostratus.de-gymnastica.jsonl": "11990ecb8cfb8f93dac4ba146301ec186c50cbe34792d5d2a7287843f5b070b0",
   "flavius-philostratus.epistulae-et-dialexeis.jsonl": "65e1e300dca811518e5da8bb68a0dd79342b899f088065c5937709453911620c",
   "flavius-philostratus.heroicus.jsonl": "013bec36c680d1c2ecdd49b186b9d0254f8b87ed239f6bb7f50835eebf493fda",
@@ -2303,7 +2303,7 @@
   "joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos.jsonl": "c4f6daa17a35b460828ca563ed8810b296a35ad246bd48337980c00d1b92f51a",
   "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno.jsonl": "1e121673df8f12f171093c9c89968d3c81788936bd1664d72f6da9212f822005",
   "joannes-hierosolymitanus.narratio.jsonl": "48b76f6511aa21679e59008e5a7476ee60d10083b6039edfd618cf5e56cb9391",
-  "joannes-laurentius-lydus.de-mensibus.jsonl": "fe274762670cb081d286dd0e0bd58a89b0a49af474cb1b74ee4d295812a83036",
+  "joannes-laurentius-lydus.de-mensibus.jsonl": "6fd4b3a0dd63de281efed47c1b3c9d59c197964e02ce0ce5632fabf5aa695671",
   "joannes-malala.fragmenta.jsonl": "ba68e6634905896791329a74e115a11a71afad4e68f0fb7f98c83b5a431743b0",
   "joannes-philoponus.in-aristotelis-analytica-posteriora-commentaria.jsonl": "63dd10cf7bf8b8d1a4a6c10b4ef571cca726a8cd443ac13256f219bfc57c20c6",
   "joannes-philoponus.in-aristotelis-analytica-priora-commentaria.jsonl": "0e9168fc58635f2d6852c817158a4e48ee7756de879675e0e2bd709d7a1fd32b",
@@ -4039,13 +4039,13 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65274170,
+  "analysis_tokens": 65271607,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29143248,
+  "ocr_analysis_tokens": 29141307,
   "ocr_passages": 1295897,
   "ocr_works": 1445,
-  "passages": 1913685,
+  "passages": 1913683,
   "works": 3939
  },
  "works": {
@@ -29872,10 +29872,10 @@
    }
   },
   "damascius.de-principiis": {
-   "analysis_tokens": 119302,
+   "analysis_tokens": 118493,
    "components": [
     {
-     "analysis_tokens": 119302,
+     "analysis_tokens": 118493,
      "edition": "ruelle-qwen36-hathitrust-rover",
      "license": "PD",
      "passages": 1985,
@@ -29886,21 +29886,21 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 119302,
+   "ocr_analysis_tokens": 118493,
    "ocr_passages": 1985,
    "passages": 1985,
    "sources": {
     "ocr": {
-     "analysis_tokens": 119302,
+     "analysis_tokens": 118493,
      "passages": 1985
     }
    }
   },
   "damascius.in-parmenidem": {
-   "analysis_tokens": 132536,
+   "analysis_tokens": 131406,
    "components": [
     {
-     "analysis_tokens": 132536,
+     "analysis_tokens": 131406,
      "edition": "ruelle-qwen36-hathitrust-rover",
      "license": "PD",
      "passages": 2206,
@@ -29911,12 +29911,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 132536,
+   "ocr_analysis_tokens": 131406,
    "ocr_passages": 2206,
    "passages": 2206,
    "sources": {
     "ocr": {
-     "analysis_tokens": 132536,
+     "analysis_tokens": 131406,
      "passages": 2206
     }
    }
@@ -34778,27 +34778,27 @@
    }
   },
   "dioscorides-pedanius.de-materia-medica": {
-   "analysis_tokens": 94242,
+   "analysis_tokens": 93620,
    "components": [
     {
-     "analysis_tokens": 94242,
+     "analysis_tokens": 93620,
      "edition": "1st1K-grc1",
      "license": "CC-BY-SA-4.0",
-     "passages": 1509,
+     "passages": 1507,
      "source": "first1k"
     }
    ],
    "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
    "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 94242,
-   "non_ocr_passages": 1509,
+   "non_ocr_analysis_tokens": 93620,
+   "non_ocr_passages": 1507,
    "ocr_analysis_tokens": 0,
    "ocr_passages": 0,
-   "passages": 1509,
+   "passages": 1507,
    "sources": {
     "first1k": {
-     "analysis_tokens": 94242,
-     "passages": 1509
+     "analysis_tokens": 93620,
+     "passages": 1507
     }
    }
   },
@@ -40284,10 +40284,10 @@
    }
   },
   "flavius-justinianus-imperator.novellae": {
-   "analysis_tokens": 234311,
+   "analysis_tokens": 234309,
    "components": [
     {
-     "analysis_tokens": 234311,
+     "analysis_tokens": 234309,
      "edition": "qwen36-justinian_novellae_schoell",
      "license": "PD",
      "passages": 14016,
@@ -40298,12 +40298,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 234311,
+   "ocr_analysis_tokens": 234309,
    "ocr_passages": 14016,
    "passages": 14016,
    "sources": {
     "ocr": {
-     "analysis_tokens": 234311,
+     "analysis_tokens": 234309,
      "passages": 14016
     }
    }

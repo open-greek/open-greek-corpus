@@ -4,20 +4,20 @@
  "generated_from": {
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "ff1ab2a04af6c5218d7cb80f227607b448cbb6975c621e34151647bce9069190"
+   "sha256": "5155c65cac2dcf7c1d537eaf8bd835bbb228a916b715afc3e03dab1b662bf538"
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "5f5f37cabb8fe39b1ed2a1520f6bb2cec9332c3e7109a1aaad785b781866fbcf"
+   "sha256": "7a1d43b434a889036838a1d21f03fd483d75259fa761fc23eb710db9043cc5da"
   },
-  "corpus_sha256": "2ca81be3d03f78c3cd47e24e9d3911a4ddfbde52cbe4ebedd3270afe0566cf43",
+  "corpus_sha256": "0690bc3e43365b021ec7b201689456b5fe0f9e9d1abae3b846e6158d7cd09e33",
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "8769468ac38d85394cd1180439e9cc7bb7b46e2e9686b7e66fde479dd25cdc86"
+   "sha256": "3c9c6bf88884d630b5b909993dd32cf6fd7ac85bbdc8e7a650e96c60c5e29714"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "596e7d9b7e5527d1b10e3d9da595499b4d717649d3ad9c0a0a9494e00882837a"
+   "sha256": "0e756e4c4bee57da4573e087455920b814b071233a108c59c66dad892cc6c398"
   },
   "source_components": {
    "artifact": "data/source_component_tokens.json",
@@ -53,8 +53,8 @@
      "works": 528
     },
     "first1k": {
-     "analysis_tokens": 21866456,
-     "passages": 269506,
+     "analysis_tokens": 21865834,
+     "passages": 269504,
      "works": 1041
     },
     "galenus_verbatim": {
@@ -78,7 +78,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 24791888,
+     "analysis_tokens": 24789947,
      "passages": 1284483,
      "works": 1246
     },
@@ -108,7 +108,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "2ca81be3d03f78c3cd47e24e9d3911a4ddfbde52cbe4ebedd3270afe0566cf43",
+   "corpus_sha256": "0690bc3e43365b021ec7b201689456b5fe0f9e9d1abae3b846e6158d7cd09e33",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -292,15 +292,15 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "c273d0cafd2b7c85f6161abbf519eec20d1daa32cb22351f55086a8c848137b4",
+   "sha256": "48ae23d5c5af037f3b1b85d39ac412f5fffe0091b15fefec48dbf4981ea54131",
    "totals": {
-    "analysis_tokens": 65274170,
+    "analysis_tokens": 65271607,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29143248,
+    "ocr_analysis_tokens": 29141307,
     "ocr_passages": 1295897,
     "ocr_works": 1445,
-    "passages": 1913685,
+    "passages": 1913683,
     "works": 3939
    }
   }
@@ -336,7 +336,7 @@
     },
     "mixed_ocr_tokens": 552999,
     "mixed_works": 4,
-    "ocr_component_tokens": 29143248
+    "ocr_component_tokens": 29141307
    },
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "key": "raw-ocr-coverage",
@@ -824,6 +824,33 @@
    "reopen_when": "Source-page evidence invalidates a glyph, placement, breathing, accent, manuscript attribution, or the exclusion of these unnormalized readings.",
    "status": "accepted-measured-limitation",
    "why_no_bulk_action_remains": "Both printed apparatus forms and their typographic roles are represented. Turning the raised theta into ordinary letters or preferring a normalized variant requires an editorial decision beyond this diplomatic transcription."
+  },
+  {
+   "current_measurement": {
+    "chapters_ending_before_bracketed_text": [
+     "2.177",
+     "3.63",
+     "4.57",
+     "4.127",
+     "4.189.2"
+    ],
+    "concordance": "data/corpus_changes/dioscorides-pedanius.de-materia-medica.printed-divisions.json",
+    "edition": "Wellmann, Pedanii Dioscuridis Anazarbei De materia medica libri quinque, Berlin, 1906-1914",
+    "withdrawn_passages": [
+     "1.90~RV",
+     "3.63.2",
+     "3.73a.1",
+     "3.73a.2",
+     "4.147~RV"
+    ],
+    "words_no_longer_served": 609,
+    "work": "dioscorides-pedanius.de-materia-medica"
+   },
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/141",
+   "key": "dioscorides-rv-recension-not-served",
+   "reopen_when": "The RV recension is to be served as a text of its own, from a source that has its entries complete.",
+   "status": "accepted-measured-limitation",
+   "why_no_bulk_action_remains": "Wellmann prints nine chapters of the main text in square brackets, eight of them entries of the RV recension under the number of a neighbouring chapter, and prints the other entries of that recension below the text. The source marks three of the nine as deleted text. Of the other six it marks the printed chapter number, or part of it, as deleted and, in five, the last word. The corpus serves no text that its source marks as deleted and no other entry below the text, so the nine bracketed chapters and the two entries that the source file holds as passages are treated alike and are not served. The words that were served until corpus-2026-11-14, counted with their printed numbers and RV headings, are kept in the record of the change."
   }
  ],
  "resolved_coverage_findings": [
@@ -15058,7 +15085,7 @@
     },
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-11-14",
+     "declared_release": "corpus-2026-11-17",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16201,7 +16228,7 @@
      }
     },
     "publication": {
-     "declared_release": "corpus-2026-11-14",
+     "declared_release": "corpus-2026-11-17",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16234,7 +16261,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-14",
+     "declared_release": "corpus-2026-11-17",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16339,7 +16366,7 @@
     },
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-14",
+     "declared_release": "corpus-2026-11-17",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
@@ -16434,7 +16461,7 @@
     ],
     "complete": true,
     "publication": {
-     "declared_release": "corpus-2026-11-14",
+     "declared_release": "corpus-2026-11-17",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence.",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment."
     },
