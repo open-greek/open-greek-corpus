@@ -32,7 +32,10 @@ Four signatures, all measured against the corpus's own lemma frequencies:
                       ἰατρικός -> Ἰατρικός, βασιλίς -> Βασιλίς. The same
                       capitalized/lowercase confusion the OCR correctors had.
   unattested target   the proposed lemma occurs nowhere in the corpus at all
-                      (κβ -> κβʹ, οὕστ -> ουστ, ἀνωτάτω -> ἄνω2).
+                      (κβ -> κβʹ, οὕστ -> ουστ, ἀνωτάτω -> ἄνω2). The
+                      reviewed lemmas in REVIEWED_UNATTESTED need no corpus
+                      attestation: ὁμήλυδες -> ὅμηλυς stands although the
+                      older tables hold the form as its own lemma.
 
 Reports by default; --write emits a filtered map. Nothing is deleted silently:
 every rejected row is listed with the counts that condemned it.
@@ -267,6 +270,19 @@ def to_acute(s: str) -> str:
     """
     return unicodedata.normalize(
         "NFC", unicodedata.normalize("NFD", s).replace(VARIA, OXIA))
+
+
+# Lemmas reviewed by hand that the older frequency tables lack, because they
+# hold the inflected form as its own lemma. A dictionary headword alone is not
+# enough: it admitted διεξιέναι -> διεξίημι, περιπνευμονία -> περιπνευμονιάω
+# and ἦδον -> ἠδώ. Each lemma here is the plain nominative singular of the
+# forms it takes.
+REVIEWED_UNATTESTED = frozenset({
+    "ὅμηλυς", "κάτηλυς", "γοσταί",
+    "μαλάκιον", "δίδραχμον", "πανοικεσία", "ἀνθρωπαρέσκεια", "ἐξανέψιος", "ναῦλον",
+    "ὀκτωκαιεικοσαετηρίς", "τριακονταετηρίς", "πεζότης", "νομιμότης", "γνωριμότης",
+    "παραμήριον", "μανίκιον", "τραχήλιον", "ἀναθυμίαμα",
+})
 
 
 @lru_cache(maxsize=1)
@@ -546,7 +562,7 @@ def rejection_reason(form: str, lemma: str, freq: dict[str, int],
             and not is_elided(form, lemma)
             and deaccent(form) != deaccent(lemma)):
         return "common form assigned a far rarer lemma"
-    if l_freq == 0 and f_as_lemma:
+    if l_freq == 0 and f_as_lemma and lemma not in REVIEWED_UNATTESTED:
         return "proposed lemma occurs nowhere in the corpus"
     return None
 
