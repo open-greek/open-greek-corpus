@@ -1,40 +1,40 @@
 {
  "by_correction_status": {
-  "born_digital_rate": 1e-06,
+  "born_digital_rate": 2e-06,
   "by_class": {
    "auto-corrected": {
-    "grave_lemmas": 0,
-    "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 19309505,
+    "grave_lemmas": 1,
+    "grave_tokens": 1,
+    "lemmatized_tokens_in_this_class": 19128614,
     "rate": 0.0
    },
    "manual": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 5552786,
+    "lemmatized_tokens_in_this_class": 5517492,
     "rate": 0.0
    },
    "mixed-unassessed": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 796468,
+    "lemmatized_tokens_in_this_class": 794696,
     "rate": 0.0
    },
    "not-ocr": {
-    "grave_lemmas": 4,
-    "grave_tokens": 32,
-    "lemmatized_tokens_in_this_class": 35374732,
-    "rate": 1e-06
+    "grave_lemmas": 5,
+    "grave_tokens": 55,
+    "lemmatized_tokens_in_this_class": 35304977,
+    "rate": 2e-06
    },
    "raw-ocr": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 2447477,
+    "lemmatized_tokens_in_this_class": 2422676,
     "rate": 0.0
    }
   },
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
-  "lift": 0.0,
+  "lift": 0.02,
   "ocr_derived_rate": 0.0,
   "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it.",
   "unmatched": {
@@ -65,6 +65,10 @@
    "nonlexical": {
     "examples": [
      {
+      "lemma": "̀",
+      "tokens": 24
+     },
+     {
       "lemma": "῝",
       "tokens": 20
      },
@@ -81,9 +85,9 @@
       "tokens": 3
      }
     ],
-    "lemmas": 4,
+    "lemmas": 5,
     "surface_tokens": 0,
-    "tokens": 32,
+    "tokens": 56,
     "what": "nonlexical/editorial garbage"
    },
    "stale_cache": {
@@ -107,13 +111,13 @@
   "current_dilemma_version": "unknown",
   "lexical_residue_lemmas": 0,
   "lexical_residue_tokens": 0,
-  "per_work_residue_tokens": 32,
+  "per_work_residue_tokens": 56,
   "what": "exclusive attribution of grave residue, with nonlexical lemmas decided directly and lexical mappings traced through the form-to-lemma cache"
  },
  "headword_backed": {
   "control": {
    "grave_lemmas_le_10_tokens_backed": 0.0,
-   "non_grave_lemmas_le_10_tokens_backed": 0.3379,
+   "non_grave_lemmas_le_10_tokens_backed": 0.6755,
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too"
   },
   "excluded_sources": {
@@ -174,6 +178,10 @@
  "largest_reachable": [],
  "largest_unreachable": [
   {
+   "lemma": "̀",
+   "tokens": 24
+  },
+  {
    "lemma": "῝",
    "tokens": 20
   },
@@ -190,24 +198,24 @@
    "tokens": 3
   }
  ],
- "lemmas": 4,
+ "lemmas": 5,
  "reachable": {
   "caveat": "surface-reachable is not a repair gate or an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword",
   "lemmas": 0,
   "tokens": 0
  },
- "share_of_lemmatized_corpus": 5.041e-07,
+ "share_of_lemmatized_corpus": 8.865e-07,
  "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column of data/corpus_catalog.tsv for the by_correction_status block",
  "superseded": {
   "measured_the_old_way_tokens": 23,
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)"
  },
- "tokens": 32,
+ "tokens": 56,
  "unreachable": {
-  "lemmas": 4,
+  "lemmas": 5,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has no surface target. This does not by itself distinguish OCR, an inflected non-headword, or an editorial symbol; use cache_route_attribution for that distinction",
-  "tokens": 32
+  "tokens": 56
  },
  "what": "grave-lemma residue measured by surface reachability, independent headword backing, and cache/emission route",
  "why_not_the_annotation_exports": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it. Dictionary headword inventories can, and the headword_backed block below is that test."
