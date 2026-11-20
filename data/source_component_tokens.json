@@ -31,7 +31,7 @@
    "works": 528
   },
   "first1k": {
-   "analysis_tokens": 21865834,
+   "analysis_tokens": 21865754,
    "passages": 269504,
    "works": 1041
   },
@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 24789171,
+   "analysis_tokens": 24789219,
    "passages": 1284483,
    "works": 1246
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "1e9f51074fb2bf8cc0e3260872e54f9aa428155004816808a5bf20f9b68b3f23",
+ "corpus_sha256": "09494a9094559634ea41cc0620da99c8e8aa5d2b7a5f6166fea90fd8eded219a",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -1115,8 +1115,8 @@
   "cyrus-rhetor.peri-diaphoras-staseos.jsonl": "2b78065e77c970dea2ba2a38b06f315ac8b8ab1cfded7d82162184c1a51eecfd",
   "daes-colonensis.fragmenta.jsonl": "f8e35c895e43483b8b699412ead6c7fa1590985b12a728a6f62afe60dd3b6f4c",
   "daimachus-history.fragmenta.jsonl": "5850acd334ba07fa8049252c7724b3137365b8129799bcede9e5d8cdff550eaa",
-  "damascius.de-principiis.jsonl": "ef9c04bafca4f2f771126aa1fb147128ff717b2119826bf99b3557640b2ca4f4",
-  "damascius.in-parmenidem.jsonl": "ad207bd25f03b29f6a320d76bbfb5a0c99295d59dddd2d11ce21039dc335fa6f",
+  "damascius.de-principiis.jsonl": "308adbfbde4856a42af5854314c24e168ff5e84137c5c7faac918cd48fa856dd",
+  "damascius.in-parmenidem.jsonl": "b6c7e7fa1452afb33170d628c470d061a554275a434b8837e648bbf9ed5a8773",
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat.jsonl": "a4732a42cdabafff62535c3543aa445989ecc66c2fd198041d73bd5e47469a01",
   "damastes-sigeensis.fragmenta.jsonl": "2ed199808c2d05333de657261b0d417b2ec3870235db6acb7eff4cfac4f37ae7",
   "damianus-scriptor-de-opticis.optica.jsonl": "a568bdd9ca44e6a4bdae4d679e87301a54e45c30d502628c21d688ccc7351b54",
@@ -1309,7 +1309,7 @@
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-gr-2448.jsonl": "1f418aec22c499112bac590e5c8abe9d35a072955380f05676d4a251dccbc84c",
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-suppl-gr-387-fol-181r.jsonl": "3040c4a6098ab241bcc3bcc03602a8a60849fb57d2a94509f418f2ed20ce7ac3",
   "diophantus.fragmenta.jsonl": "6608bfbaf46164041508c0cd9a67536dd3df344006badcd76a7e8040bc1a951b",
-  "dioscorides-pedanius.de-materia-medica.jsonl": "f6e6cfe700d688826c138c354e398684d3027b89d097d1073abbd437c1f41e87",
+  "dioscorides-pedanius.de-materia-medica.jsonl": "3f2f5e521f90032f7f907c8b85e0ef4919c97a2bc1e594949ce9474cc05c801f",
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis.jsonl": "3573de26e8c55fa1ab9e25c73966ec4f0592392c0a1e9230357f028863d4868d",
   "dioscorides.fragmenta.jsonl": "4faa0a1915625550725a63f7344168dacb88ae24b2bf700eea6afa2a852bd2e0",
   "dioscurides.fragmenta.jsonl": "2d4804ec49db2ea77866307fbf47b5e100dce7b28c977c16516c57fc93ffdbf0",
@@ -4039,10 +4039,10 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65270831,
+  "analysis_tokens": 65270799,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29140531,
+  "ocr_analysis_tokens": 29140579,
   "ocr_passages": 1295897,
   "ocr_works": 1445,
   "passages": 1913683,
@@ -29872,10 +29872,10 @@
    }
   },
   "damascius.de-principiis": {
-   "analysis_tokens": 118156,
+   "analysis_tokens": 118106,
    "components": [
     {
-     "analysis_tokens": 118156,
+     "analysis_tokens": 118106,
      "edition": "ruelle-qwen36-hathitrust-rover",
      "license": "PD",
      "passages": 1985,
@@ -29886,21 +29886,21 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 118156,
+   "ocr_analysis_tokens": 118106,
    "ocr_passages": 1985,
    "passages": 1985,
    "sources": {
     "ocr": {
-     "analysis_tokens": 118156,
+     "analysis_tokens": 118106,
      "passages": 1985
     }
    }
   },
   "damascius.in-parmenidem": {
-   "analysis_tokens": 130967,
+   "analysis_tokens": 131065,
    "components": [
     {
-     "analysis_tokens": 130967,
+     "analysis_tokens": 131065,
      "edition": "ruelle-qwen36-hathitrust-rover",
      "license": "PD",
      "passages": 2206,
@@ -29911,12 +29911,12 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 130967,
+   "ocr_analysis_tokens": 131065,
    "ocr_passages": 2206,
    "passages": 2206,
    "sources": {
     "ocr": {
-     "analysis_tokens": 130967,
+     "analysis_tokens": 131065,
      "passages": 2206
     }
    }
@@ -34778,10 +34778,10 @@
    }
   },
   "dioscorides-pedanius.de-materia-medica": {
-   "analysis_tokens": 93620,
+   "analysis_tokens": 93540,
    "components": [
     {
-     "analysis_tokens": 93620,
+     "analysis_tokens": 93540,
      "edition": "1st1K-grc1",
      "license": "CC-BY-SA-4.0",
      "passages": 1507,
@@ -34790,14 +34790,14 @@
    ],
    "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
    "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 93620,
+   "non_ocr_analysis_tokens": 93540,
    "non_ocr_passages": 1507,
    "ocr_analysis_tokens": 0,
    "ocr_passages": 0,
    "passages": 1507,
    "sources": {
     "first1k": {
-     "analysis_tokens": 93620,
+     "analysis_tokens": 93540,
      "passages": 1507
     }
    }
