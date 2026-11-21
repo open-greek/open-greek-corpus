@@ -1,0 +1,40 @@
+{
+ "date": "2026-11-21",
+ "edition": "Wellmann, Pedanii Dioscuridis Anazarbei De materia medica libri quinque, Berlin, 1906-1914",
+ "issues": [
+  "https://github.com/open-greek/open-greek-corpus/issues/163"
+ ],
+ "misprints": [
+  {
+   "corpus": "σκευασθὲν",
+   "locus": "1.41",
+   "page": "vol. 1 p. 41 l. 9",
+   "print": "σκευασθέν",
+   "reason": "an acute on the final syllable before ⟨ἢ⟩, which is not an enclitic; the edition sets the grave there, as on προστυφθὲν in the same line"
+  },
+  {
+   "corpus": "μακρὰ",
+   "locus": "3.4.2",
+   "page": "vol. 2 p. 7 l. 5",
+   "print": "μακρά",
+   "reason": "an acute on the final syllable before ἀριστολοχεία; the edition sets the grave before a word that is not an enclitic, as on δὲ in the same line"
+  },
+  {
+   "corpus": "συνεψηθεὶς",
+   "locus": "4.4.2",
+   "page": "vol. 2 p. 172 l. 7",
+   "print": "συνεψηθείς",
+   "reason": "an acute on the final syllable before δὲ, which is not an enclitic; the edition sets the grave there, as on δὲ and προσλαβὼν in the same line"
+  },
+  {
+   "corpus": "τῷ",
+   "locus": "5.102.2",
+   "page": "vol. 3 p. 72 l. 6",
+   "print": "τᾷ",
+   "reason": "the article of the neuter dative μίσυι is τῷ; the page sets an alpha for its omega"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "dioscorides-pedanius.de-materia-medica",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}

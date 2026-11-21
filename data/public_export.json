@@ -1,5 +1,5 @@
 {
- "corpus_sha256": "09494a9094559634ea41cc0620da99c8e8aa5d2b7a5f6166fea90fd8eded219a",
+ "corpus_sha256": "3624cced9cb9f91ec270214df6a7e89f4e57b491b6bb6474de00df636875e041",
  "files": {
   "abas.fragmenta.jsonl": "5d7ea2b5cba7e8379a7bc6fa4edb60738f620694265a9f2ed4ec1507d4c6fe86",
   "abron-vel-habron-batiensis.fragmenta.jsonl": "10801392fc846c19e187613642fc2aa500a0a8962c6dd1935580578714edbd45",
@@ -1025,8 +1025,8 @@
   "cyrus-rhetor.peri-diaphoras-staseos.jsonl": "2b78065e77c970dea2ba2a38b06f315ac8b8ab1cfded7d82162184c1a51eecfd",
   "daes-colonensis.fragmenta.jsonl": "f8e35c895e43483b8b699412ead6c7fa1590985b12a728a6f62afe60dd3b6f4c",
   "daimachus-history.fragmenta.jsonl": "5850acd334ba07fa8049252c7724b3137365b8129799bcede9e5d8cdff550eaa",
-  "damascius.de-principiis.jsonl": "308adbfbde4856a42af5854314c24e168ff5e84137c5c7faac918cd48fa856dd",
-  "damascius.in-parmenidem.jsonl": "b6c7e7fa1452afb33170d628c470d061a554275a434b8837e648bbf9ed5a8773",
+  "damascius.de-principiis.jsonl": "08f4f1bf8e74357c1278732edae9f8e16fd35e6698f5ea626c6d8f87cd2279c0",
+  "damascius.in-parmenidem.jsonl": "8ac6a2205dfbb3fc163f7b0bcb0525f0df9926cf555e9e5566d811280b839ffd",
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat.jsonl": "a4732a42cdabafff62535c3543aa445989ecc66c2fd198041d73bd5e47469a01",
   "damastes-sigeensis.fragmenta.jsonl": "2ed199808c2d05333de657261b0d417b2ec3870235db6acb7eff4cfac4f37ae7",
   "damianus-scriptor-de-opticis.optica.jsonl": "a568bdd9ca44e6a4bdae4d679e87301a54e45c30d502628c21d688ccc7351b54",
@@ -1219,7 +1219,7 @@
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-gr-2448.jsonl": "1f418aec22c499112bac590e5c8abe9d35a072955380f05676d4a251dccbc84c",
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-suppl-gr-387-fol-181r.jsonl": "3040c4a6098ab241bcc3bcc03602a8a60849fb57d2a94509f418f2ed20ce7ac3",
   "diophantus.fragmenta.jsonl": "6608bfbaf46164041508c0cd9a67536dd3df344006badcd76a7e8040bc1a951b",
-  "dioscorides-pedanius.de-materia-medica.jsonl": "3f2f5e521f90032f7f907c8b85e0ef4919c97a2bc1e594949ce9474cc05c801f",
+  "dioscorides-pedanius.de-materia-medica.jsonl": "6591c9de3190a3579507d6a598dc70fd8cd041dd7cf636e94a424c65dc10ca4d",
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis.jsonl": "3573de26e8c55fa1ab9e25c73966ec4f0592392c0a1e9230357f028863d4868d",
   "dioscorides.fragmenta.jsonl": "4faa0a1915625550725a63f7344168dacb88ae24b2bf700eea6afa2a852bd2e0",
   "dioscurides.fragmenta.jsonl": "2d4804ec49db2ea77866307fbf47b5e100dce7b28c977c16516c57fc93ffdbf0",
@@ -3942,11 +3942,11 @@
   "zosimus-history.historia-nova.jsonl": "defe4f7c12b1b8fa0d2acca51366526e778ae2f05ee4cb87bff4749b593140ac"
  },
  "projection": "Explicit lexical text, contiguous segments, and context eligibility are publication outputs; source processing is not part of this export.",
- "release_id": "corpus-2026-11-20",
+ "release_id": "corpus-2026-11-21",
  "schema_version": 1,
  "totals": {
   "passages": 1913683,
-  "tokens": 65270799,
+  "tokens": 65270772,
   "works": 3939
  },
  "works": {
@@ -9072,13 +9072,13 @@
   },
   "damascius.de-principiis": {
    "passages": 1985,
-   "sha256": "308adbfbde4856a42af5854314c24e168ff5e84137c5c7faac918cd48fa856dd",
-   "tokens": 118106
+   "sha256": "08f4f1bf8e74357c1278732edae9f8e16fd35e6698f5ea626c6d8f87cd2279c0",
+   "tokens": 118094
   },
   "damascius.in-parmenidem": {
    "passages": 2206,
-   "sha256": "b6c7e7fa1452afb33170d628c470d061a554275a434b8837e648bbf9ed5a8773",
-   "tokens": 131065
+   "sha256": "8ac6a2205dfbb3fc163f7b0bcb0525f0df9926cf555e9e5566d811280b839ffd",
+   "tokens": 131057
   },
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat": {
    "passages": 78,
@@ -10042,8 +10042,8 @@
   },
   "dioscorides-pedanius.de-materia-medica": {
    "passages": 1507,
-   "sha256": "3f2f5e521f90032f7f907c8b85e0ef4919c97a2bc1e594949ce9474cc05c801f",
-   "tokens": 93540
+   "sha256": "6591c9de3190a3579507d6a598dc70fd8cd041dd7cf636e94a424c65dc10ca4d",
+   "tokens": 93533
   },
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis": {
    "passages": 645,
