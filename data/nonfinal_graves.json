@@ -574,7 +574,7 @@
    "form": "ἒστιν",
    "shapes": {
     "acute": {
-     "attested": 36073,
+     "attested": 36074,
      "form": "ἔστιν"
     },
     "circumflex": {
@@ -1058,7 +1058,7 @@
    "form": "ἒστι",
    "shapes": {
     "acute": {
-     "attested": 45311,
+     "attested": 45315,
      "form": "ἔστι"
     },
     "circumflex": {
@@ -1070,7 +1070,7 @@
      "form": "ἐ̓στι"
     },
     "dropped": {
-     "attested": 96992,
+     "attested": 96996,
      "form": "ἐστι"
     }
    },
@@ -1366,7 +1366,7 @@
    "form": "Ἒστι",
    "shapes": {
     "acute": {
-     "attested": 4994,
+     "attested": 4992,
      "form": "Ἔστι"
     },
     "circumflex": {
@@ -4602,15 +4602,15 @@
   "tokens_with_more_than_one_attested_shape": 14799,
   "tokens_with_none": 18379
  },
- "served_tokens": 65270799,
+ "served_tokens": 65270772,
  "share": 0.000642,
  "skeleton_class": {
   "accent_only_forms": 2667,
   "accent_only_tokens": 7998,
   "base": {
    "excludes": "OCR sources, and every flagged form, so an illegal form cannot vote on the legal one",
-   "forms": 1160918,
-   "tokens": 36120665
+   "forms": 1160900,
+   "tokens": 36120658
   },
   "decided": [
    {
@@ -5001,7 +5001,7 @@
    },
    {
     "accent_only": true,
-    "clean_class": 1764,
+    "clean_class": 1763,
     "clean_hits": 1666,
     "form": "Ἒστι",
     "ocr_tokens": 0,
@@ -5009,7 +5009,7 @@
      "clean_tokens": 44,
      "form": "Ἐστι"
     },
-    "share": 0.9444,
+    "share": 0.945,
     "target": "Ἔστι",
     "tokens": 38
    },
@@ -9996,7 +9996,7 @@
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved."
  },
- "surface_served_tokens": 65553474,
+ "surface_served_tokens": 65553447,
  "tokens": 41897,
  "what": "served tokens carrying a grave on a syllable that is not the ultima, partitioned by source, edition and by what a repair could be pointed at",
  "works_touched": 1651
