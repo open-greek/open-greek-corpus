@@ -1,16 +1,51 @@
 {
- "date": "2026-11-22",
+ "date": "2026-11-23",
  "edition": "C. É. Ruelle, Damascii successoris Dubitationes et solutiones de primis principiis, in Platonis Parmenidem, Paris 1889, vol. 2",
  "issues": [
   "https://github.com/open-greek/open-greek-corpus/issues/162"
  ],
  "misprints": [
   {
+   "corpus": "",
+   "locus": "32",
+   "page": "p. 6",
+   "print": "ζωή",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 6, 11 (note): \"Ita lege : ζωή οὐσία / νοῦς οὐσία ζωή voce ζωή deleta superne.\": the editor deletes the ζωή the table prints at the top of its last column and sets it in the last row"
+  },
+  {
+   "corpus": "ζωή",
+   "locus": "32",
+   "page": "p. 6",
+   "print": "",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 6, 11 (note): \"Ita lege : ζωή οὐσία / νοῦς οὐσία ζωή voce ζωή deleta superne.\": the editor sets ζωή at the end of the last row, where the page prints nothing"
+  },
+  {
+   "corpus": "χροὸς",
+   "locus": "64",
+   "page": "p. 12 l. 13",
+   "print": "χρόνος",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 12, 13: \"χρόνος] χροὸς. (Cf. Addenda h. l.)\": the editor's emendation of the Orphic verse, which the page prints with χρόνος"
+  },
+  {
+   "corpus": "",
+   "locus": "67",
+   "page": "p. 12",
+   "print": "Φά- νητος]",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 12, 13 (note): \"Dele verba : Φάνητος] Cf. supra, f. 184 r.\": the editor deletes the note, which the page prints"
+  },
+  {
    "corpus": "ἀνομοιομερὴς",
    "locus": "181",
    "page": "p. 30 l. 15",
    "print": "ἀναμοιομερὴς",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 30, 15, read ἀνομοιομερὴς; ἀναμοιομερὴς is no word, and the same line prints ἀνομοιομερής"
+  },
+  {
+   "corpus": "τριῶν",
+   "locus": "182",
+   "page": "p. 30 l. 16",
+   "print": "τρίτων",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 30, 16: \"ἐκ τριῶν. — (Not. sup.) ἐκ τρίτων. Correxi. Cf. infra, p. 41, 19.\": the editor corrects the ἐκ τρίτων the page prints and adds an upper note for it, which this copy does not print"
   },
   {
    "corpus": "Ἑνδέκατον,",
@@ -20,11 +55,32 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 30, 20, read Ἑνδέκατον; the page sets the smooth breathing, and the file already reads Ἑνδέκατον"
   },
   {
+   "corpus": "ἐκ τρίτων.",
+   "locus": "184",
+   "page": "p. 30",
+   "print": "",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 30, 16: \"ἐκ τριῶν. — (Not. sup.) ἐκ τρίτων. Correxi. Cf. infra, p. 41, 19.\": the editor adds an upper note to the line, which this copy does not print; the file gives the Greek words of the notes"
+  },
+  {
    "corpus": "αἰών, ἐπεὶ",
    "locus": "203",
    "page": "p. 33 l. 24",
    "print": "αἰών. Ἐπεὶ",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 33, 24, punctuate αἰών, ἐπεὶ"
+  },
+  {
+   "corpus": "ἐπέκεινα.",
+   "locus": "374",
+   "page": "p. 59 l. 21",
+   "print": "ἐπ’ ἐκεῖνα.",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 59, 21: \"δὶς ἐπέκεινα.\": the adverb ἐπέκεινα, which the page divides into two words"
+  },
+  {
+   "corpus": "ὀπαδοὶ",
+   "locus": "378",
+   "page": "p. 60 l. 14",
+   "print": "ὁπαδοὶ",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 60, 14: \"ὀπαδοὶ. Attamen librarii omnes fere ὁπαδοί scripserunt.\": the editor's spelling, with the smooth breathing, where the page prints the rough breathing of nearly all the manuscripts"
   },
   {
    "corpus": "ἤδη πάντ’",
@@ -62,6 +118,20 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 73, 21, read ἑτερότητος; the page sets the smooth breathing, and the file already reads ἑτερότητος"
   },
   {
+   "corpus": "ὁ",
+   "locus": "472",
+   "page": "p. 75 l. 11",
+   "print": "ὀ",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 75, 11. \"ὁ.\": the page sets the smooth breathing, and the file already reads ὁ"
+  },
+  {
+   "corpus": "προϋπάρχειν",
+   "locus": "486",
+   "page": "p. 77 ll. 14-15",
+   "print": "προὐπάρχειν",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 77, 14, read προϋπάρχειν; the page sets a smooth breathing for the diaeresis"
+  },
+  {
    "corpus": "ἑτερότης,",
    "locus": "490",
    "page": "p. 78 l. 5",
@@ -83,11 +153,25 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 83, 10, read γενητοῦ"
   },
   {
+   "corpus": "ἰυγγικός",
+   "locus": "539",
+   "page": "p. 86 l. 10",
+   "print": "ἴυγγικός",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 86, 10: \"ἰυγγικός.\": the page sets an accent on the first syllable as well as on the last"
+  },
+  {
    "corpus": "οὐρανῷ",
    "locus": "550",
    "page": "p. 88 l. 12",
    "print": "οὐράνῳ",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 88, 12: \"ἐν οὐρανῷ δεδ. Οὐρανιδῶν\"; the dative of οὐρανός"
+  },
+  {
+   "corpus": "Οὐρανιδῶν. Ἤδη",
+   "locus": "550",
+   "page": "p. 88 l. 12",
+   "print": "Οὐρανίδων. Ἤδη",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 88, 12: \"δεδ. Οὐρανιδῶν.\": the genitive plural of Οὐρανίδης, which the page accents on the ι"
   },
   {
    "corpus": "ἀποκεκραμέναις",
@@ -139,6 +223,27 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 124, 20, put a comma after μέσον"
   },
   {
+   "corpus": "οὗτος",
+   "locus": "919",
+   "page": "p. 148 l. 13",
+   "print": "«οὗτος",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 148, 13: \"καὶ οὗτος ὁ θεὸς κ. τ. λ.\": the editor removes the guillemets the page prints around the words"
+  },
+  {
+   "corpus": "θεὸς",
+   "locus": "919",
+   "page": "p. 148 l. 13",
+   "print": "θεὸς»",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 148, 13: \"καὶ οὗτος ὁ θεὸς κ. τ. λ.\": the editor removes the guillemets the page prints around the words"
+  },
+  {
+   "corpus": "ἐστι",
+   "locus": "958",
+   "page": "p. 154 l. 23",
+   "print": "ἑστι",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 154, 23: \"ἐστι\": the page sets the rough breathing"
+  },
+  {
    "corpus": "ἐστιν",
    "locus": "959",
    "page": "p. 154 l. 26",
@@ -160,6 +265,13 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 171, 23, moves the comma from after ἄλλα to after ἑτεροιοῦται, as in the clause that answers it (ὅσον δὲ πρὸς ἑαυτὸν ταυτοῦται, τῶν ἄλλων ἑτεροιούμενος)"
   },
   {
+   "corpus": "«ἄλλο»",
+   "locus": "1076",
+   "page": "p. 172 l. 20",
+   "print": "«ἀλλὸ»",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 172, 20: \"ἄλλο.\": the page sets the accent on the last syllable, and the file already reads ἄλλο"
+  },
+  {
    "corpus": "ἕν",
    "locus": "1179",
    "page": "p. 188 l. 28",
@@ -179,6 +291,13 @@
    "page": "p. 191 l. 2",
    "print": "ἕνος,",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 191, 2, read ἑνός"
+  },
+  {
+   "corpus": "αὐτὰ",
+   "locus": "1258",
+   "page": "p. 201 l. 15",
+   "print": "αὕτα",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 201, 15: \"αὐτά.\": the page sets the rough breathing and the acute on αυ, and the file already reads αὐτὰ"
   },
   {
    "corpus": "ἀπό",
@@ -216,6 +335,13 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 212, 1, read εἶδος (the list prints εἶδός); the page sets the acute for the circumflex, and the file already reads εἶδος"
   },
   {
+   "corpus": "λόγια ἐν τούτοις·",
+   "locus": "1348",
+   "page": "p. 217 ll. 7-8",
+   "print": "λόγια· Ἐν τούτοις",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 217, 7-9, punctuates λόγια ἐν τούτοις· … μέσσῳ ἠέριος,: the page sets the raised stop after λόγια and begins the verse with a capital"
+  },
+  {
    "corpus": "μέσσῳ ἠέριος,",
    "locus": "1348",
    "page": "p. 217 ll. 8-9",
@@ -228,6 +354,13 @@
    "page": "p. 219 l. 23",
    "print": "διαστατῷ",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 219, 23, read διαστάτῳ"
+  },
+  {
+   "corpus": "τὸ",
+   "locus": "1367",
+   "page": "p. 220 l. 24",
+   "print": "το",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 220, 24: \"τὸ. — μετὰ τὸ ἅπτεσθαι.\"; the page prints the article without its accent"
   },
   {
    "corpus": "ἅλματα",
@@ -244,6 +377,27 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 275, 4, read ἐπείσακτον; the page prints the word without its accent"
   },
   {
+   "corpus": "ἀσυμμέτρως",
+   "locus": "1759",
+   "page": "p. 284 l. 15",
+   "print": "ἀσυμμέτρως,",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 284, 15 ff.: \"καὶ ἀσυμμέτρως οὐκ ἔργοις, ὡς ἔφη τὸ λόγιον, ἀλλὰ νόῳ ἕν, (κ. τ. λ.)\": the editor moves the comma the page sets after ἀσυμμέτρως to stand after λόγιον"
+  },
+  {
+   "corpus": "λόγιον,",
+   "locus": "1759",
+   "page": "p. 284 l. 17",
+   "print": "λόγιον",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 284, 15 ff.: \"καὶ ἀσυμμέτρως οὐκ ἔργοις, ὡς ἔφη τὸ λόγιον, ἀλλὰ νόῳ ἕν, (κ. τ. λ.)\": the editor sets a comma after λόγιον, where the page has none"
+  },
+  {
+   "corpus": "Ἀλλ’",
+   "locus": "1797",
+   "page": "p. 290 l. 26",
+   "print": "Αλλ’",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 290, 26: \"Ἀλλ’ ὁ.\": the page prints the capital without its breathing, and the file already reads Ἀλλ’"
+  },
+  {
    "corpus": "ἄλλου",
    "locus": "1815",
    "page": "p. 293 l. 16",
@@ -251,42 +405,21 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 293, 16, read ἄλλου; the page sets no accent, and the file already reads ἄλλου"
   },
   {
-   "corpus": "χροὸς",
-   "locus": "64",
-   "page": "p. 12 l. 13",
-   "print": "χρόνος",
-   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 12, 13: \"χρόνος] χροὸς. (Cf. Addenda h. l.)\": the editor's emendation of the Orphic verse, which the page prints with χρόνος"
+   "corpus": "ὑπόστρωταί τε",
+   "locus": "1971",
+   "page": "p. 317",
+   "print": "ὑπόστρωται",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 317, 5 (note): \"ὑπόστρωταί τε καὶ Ἅδης Orac.\": the editor gives the verse of the Oracles with τε, which the note leaves out"
   },
   {
-   "corpus": "τριῶν",
-   "locus": "182",
-   "page": "p. 30 l. 16",
-   "print": "τρίτων",
-   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 30, 16: \"ἐκ τριῶν. — (Not. sup.) ἐκ τρίτων. Correxi. Cf. infra, p. 41, 19.\": the editor corrects the ἐκ τρίτων the page prints and adds an upper note for it, which this copy does not print"
-  },
-  {
-   "corpus": "ὀπαδοὶ",
-   "locus": "378",
-   "page": "p. 60 l. 14",
-   "print": "ὁπαδοὶ",
-   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 60, 14: \"ὀπαδοὶ. Attamen librarii omnes fere ὁπαδοί scripserunt.\": the editor's spelling, with the smooth breathing, where the page prints the rough breathing of nearly all the manuscripts"
-  },
-  {
-   "corpus": "προϋπάρχειν",
-   "locus": "486",
-   "page": "p. 77 ll. 14-15",
-   "print": "προὐπάρχειν",
-   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 77, 14, read προϋπάρχειν; the page sets a smooth breathing for the diaeresis"
-  },
-  {
-   "corpus": "τὸ",
-   "locus": "1367",
-   "page": "p. 220 l. 24",
-   "print": "το",
-   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 220, 24: \"τὸ. — μετὰ τὸ ἅπτεσθαι.\"; the page prints the article without its accent"
+   "corpus": "Ἅδης",
+   "locus": "1971",
+   "page": "p. 317",
+   "print": "ᾍδης",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 317, 5 (note): \"ὑπόστρωταί τε καὶ Ἅδης Orac.\": the editor gives the name without the iota subscript the note prints"
   }
  ],
- "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint.",
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint. Where the page divides or joins words, or leaves out or adds a word, `print` and `corpus` have different numbers of words; an empty `print` means the page leaves out the words `corpus` gives, and an empty `corpus` means the corpus leaves out words the page prints.",
  "source_urn": "damascius.in-parmenidem",
  "what": "Words the corpus corrects where the printed edition has an evident misprint"
 }

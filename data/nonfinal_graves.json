@@ -486,7 +486,7 @@
    "form": "ὣσπερ",
    "shapes": {
     "acute": {
-     "attested": 62024,
+     "attested": 62025,
      "form": "ὥσπερ"
     },
     "circumflex": {
@@ -574,7 +574,7 @@
    "form": "ἒστιν",
    "shapes": {
     "acute": {
-     "attested": 36073,
+     "attested": 36072,
      "form": "ἔστιν"
     },
     "circumflex": {
@@ -586,7 +586,7 @@
      "form": "ἐ̓στιν"
     },
     "dropped": {
-     "attested": 103550,
+     "attested": 103552,
      "form": "ἐστιν"
     }
    },
@@ -1026,7 +1026,7 @@
      "form": "μἐνον"
     },
     "dropped": {
-     "attested": 1098,
+     "attested": 1097,
      "form": "μενον"
     }
    },
@@ -1058,7 +1058,7 @@
    "form": "ἒστι",
    "shapes": {
     "acute": {
-     "attested": 45314,
+     "attested": 45318,
      "form": "ἔστι"
     },
     "circumflex": {
@@ -1070,7 +1070,7 @@
      "form": "ἐ̓στι"
     },
     "dropped": {
-     "attested": 96999,
+     "attested": 96998,
      "form": "ἐστι"
     }
    },
@@ -2448,7 +2448,7 @@
      "form": "εἴναι"
     },
     "circumflex": {
-     "attested": 180535,
+     "attested": 180534,
      "form": "εἶναι"
     },
     "crasis": {
@@ -2708,7 +2708,7 @@
    "form": "Ἢδη",
    "shapes": {
     "acute": {
-     "attested": 427,
+     "attested": 428,
      "form": "Ἤδη"
     },
     "circumflex": {
@@ -3600,7 +3600,7 @@
      "form": "ἐπεἰδὴ"
     },
     "dropped": {
-     "attested": 32221,
+     "attested": 32222,
      "form": "ἐπειδὴ"
     }
    },
@@ -4028,7 +4028,7 @@
    "form": "ἒχουσιν",
    "shapes": {
     "acute": {
-     "attested": 7160,
+     "attested": 7161,
      "form": "ἔχουσιν"
     },
     "circumflex": {
@@ -4602,15 +4602,15 @@
   "tokens_with_more_than_one_attested_shape": 14799,
   "tokens_with_none": 18379
  },
- "served_tokens": 65270762,
+ "served_tokens": 65270739,
  "share": 0.000642,
  "skeleton_class": {
   "accent_only_forms": 2667,
   "accent_only_tokens": 7998,
   "base": {
    "excludes": "OCR sources, and every flagged form, so an illegal form cannot vote on the legal one",
-   "forms": 1160782,
-   "tokens": 36120653
+   "forms": 1160618,
+   "tokens": 36120638
   },
   "decided": [
    {
@@ -4685,8 +4685,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 44981,
-    "clean_hits": 44455,
+    "clean_class": 44982,
+    "clean_hits": 44456,
     "form": "ὣσπερ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -5751,8 +5751,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 4696,
-    "clean_hits": 4604,
+    "clean_class": 4697,
+    "clean_hits": 4605,
     "form": "ἒχουσιν",
     "ocr_tokens": 0,
     "runner_up": {
@@ -6073,8 +6073,8 @@
    },
    {
     "accent_only": false,
-    "clean_class": 76887,
-    "clean_hits": 73737,
+    "clean_class": 76888,
+    "clean_hits": 73738,
     "form": "αὺτῶν",
     "ocr_tokens": 0,
     "runner_up": {
@@ -6751,8 +6751,8 @@
    },
    {
     "accent_only": false,
-    "clean_class": 44981,
-    "clean_hits": 44455,
+    "clean_class": 44982,
+    "clean_hits": 44456,
     "form": "ὢσπερ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -8479,15 +8479,15 @@
    },
    {
     "accent_only": true,
-    "clean_class": 513,
-    "clean_hits": 465,
+    "clean_class": 514,
+    "clean_hits": 466,
     "form": "ἂχρηστον",
     "ocr_tokens": 0,
     "runner_up": {
      "clean_tokens": 44,
      "form": "ἄχρηστόν"
     },
-    "share": 0.9064,
+    "share": 0.9066,
     "target": "ἄχρηστον",
     "tokens": 5
    },
@@ -9996,7 +9996,7 @@
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved."
  },
- "surface_served_tokens": 65553437,
+ "surface_served_tokens": 65553414,
  "tokens": 41897,
  "what": "served tokens carrying a grave on a syllable that is not the ultima, partitioned by source, edition and by what a repair could be pointed at",
  "works_touched": 1651
