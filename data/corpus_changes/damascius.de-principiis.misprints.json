@@ -1,5 +1,5 @@
 {
- "date": "2026-11-22",
+ "date": "2026-11-23",
  "edition": "C. É. Ruelle, Damascii successoris Dubitationes et solutiones de primis principiis, in Platonis Parmenidem, Paris 1889, vol. 1",
  "issues": [
   "https://github.com/open-greek/open-greek-corpus/issues/162"
@@ -76,14 +76,28 @@
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 219, 10: \"μαρτύρια. — (Not. inf.) μαρτυρίᾳ Kopp.\": the page prints in the text the conjecture of Kopp, which belongs in the note, and ἐπαγαγεῖν takes μαρτύρια as its object"
   },
   {
+   "corpus": "μαρτυρίᾳ Kopp.",
+   "locus": "1348",
+   "page": "p. 219",
+   "print": "",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 219, 10: \"μαρτύρια. — (Not. inf.) μαρτυρίᾳ Kopp.\": the editor moves Kopp's conjecture, which the page prints in the text, to a lower note, which this copy does not print"
+  },
+  {
    "corpus": "ὕπαρξίς",
    "locus": "1382",
    "page": "p. 225 l. 1",
    "print": "ὑπαρξίς",
    "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 225, 1, read ὕπαρξίς: the page has the acute the enclitic ἐστι adds to the last syllable, but not the acute of the word on its first"
+  },
+  {
+   "corpus": "παράπτεσθαι",
+   "locus": "1878",
+   "page": "p. 305 l. 8",
+   "print": "παραπτέσθαι",
+   "reason": "the page sets the acute on the ε of the infinitive; παράπτεσθαι, the infinitive of παράπτομαι, has it on the second α"
   }
  ],
- "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint.",
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint. Where the page divides or joins words, or leaves out or adds a word, `print` and `corpus` have different numbers of words; an empty `print` means the page leaves out the words `corpus` gives, and an empty `corpus` means the corpus leaves out words the page prints.",
  "source_urn": "damascius.de-principiis",
  "what": "Words the corpus corrects where the printed edition has an evident misprint"
 }
