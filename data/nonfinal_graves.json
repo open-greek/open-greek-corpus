@@ -486,7 +486,7 @@
    "form": "ὣσπερ",
    "shapes": {
     "acute": {
-     "attested": 62023,
+     "attested": 62024,
      "form": "ὥσπερ"
     },
     "circumflex": {
@@ -574,7 +574,7 @@
    "form": "ἒστιν",
    "shapes": {
     "acute": {
-     "attested": 36074,
+     "attested": 36073,
      "form": "ἔστιν"
     },
     "circumflex": {
@@ -692,7 +692,7 @@
      "form": "ᾶπὸ"
     },
     "crasis": {
-     "attested": 178472,
+     "attested": 178471,
      "form": "ἀπὸ"
     },
     "dropped": {
@@ -904,7 +904,7 @@
    "form": "εἲδη",
    "shapes": {
     "acute": {
-     "attested": 7374,
+     "attested": 7373,
      "form": "εἴδη"
     },
     "circumflex": {
@@ -1048,7 +1048,7 @@
      "form": "τὀῦ"
     },
     "dropped": {
-     "attested": 968274,
+     "attested": 968275,
      "form": "τοῦ"
     }
    },
@@ -1058,7 +1058,7 @@
    "form": "ἒστι",
    "shapes": {
     "acute": {
-     "attested": 45315,
+     "attested": 45314,
      "form": "ἔστι"
     },
     "circumflex": {
@@ -1070,7 +1070,7 @@
      "form": "ἐ̓στι"
     },
     "dropped": {
-     "attested": 96996,
+     "attested": 96999,
      "form": "ἐστι"
     }
    },
@@ -3600,7 +3600,7 @@
      "form": "ἐπεἰδὴ"
     },
     "dropped": {
-     "attested": 32220,
+     "attested": 32221,
      "form": "ἐπειδὴ"
     }
    },
@@ -4602,15 +4602,15 @@
   "tokens_with_more_than_one_attested_shape": 14799,
   "tokens_with_none": 18379
  },
- "served_tokens": 65270772,
+ "served_tokens": 65270762,
  "share": 0.000642,
  "skeleton_class": {
   "accent_only_forms": 2667,
   "accent_only_tokens": 7998,
   "base": {
    "excludes": "OCR sources, and every flagged form, so an illegal form cannot vote on the legal one",
-   "forms": 1160900,
-   "tokens": 36120658
+   "forms": 1160782,
+   "tokens": 36120653
   },
   "decided": [
    {
@@ -4685,8 +4685,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 44980,
-    "clean_hits": 44454,
+    "clean_class": 44981,
+    "clean_hits": 44455,
     "form": "ὣσπερ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -4897,8 +4897,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 527922,
-    "clean_hits": 516098,
+    "clean_class": 527924,
+    "clean_hits": 516100,
     "form": "τὸῦ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -5161,8 +5161,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 527922,
-    "clean_hits": 516098,
+    "clean_class": 527924,
+    "clean_hits": 516100,
     "form": "τὸυ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -6675,8 +6675,8 @@
    },
    {
     "accent_only": false,
-    "clean_class": 79754,
-    "clean_hits": 75477,
+    "clean_class": 79755,
+    "clean_hits": 75478,
     "form": "αὺτὸν",
     "ocr_tokens": 0,
     "runner_up": {
@@ -6689,8 +6689,8 @@
    },
    {
     "accent_only": true,
-    "clean_class": 4034,
-    "clean_hits": 3915,
+    "clean_class": 4035,
+    "clean_hits": 3916,
     "form": "αἳματος",
     "ocr_tokens": 0,
     "runner_up": {
@@ -6751,8 +6751,8 @@
    },
    {
     "accent_only": false,
-    "clean_class": 44980,
-    "clean_hits": 44454,
+    "clean_class": 44981,
+    "clean_hits": 44455,
     "form": "ὢσπερ",
     "ocr_tokens": 0,
     "runner_up": {
@@ -9996,7 +9996,7 @@
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved."
  },
- "surface_served_tokens": 65553447,
+ "surface_served_tokens": 65553437,
  "tokens": 41897,
  "what": "served tokens carrying a grave on a syllable that is not the ultima, partitioned by source, edition and by what a repair could be pointed at",
  "works_touched": 1651

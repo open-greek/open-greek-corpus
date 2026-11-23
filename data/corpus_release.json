@@ -1,8 +1,8 @@
 {
  "corpus": {
   "passages": 1913683,
-  "tokens": 65270772,
-  "tokens_lemmatized": 63172027,
+  "tokens": 65270762,
+  "tokens_lemmatized": 63172143,
   "works": 3939
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -16,11 +16,11 @@
    "works": 235
   },
   "CC-BY-SA-4.0": {
-   "tokens": 34162866,
+   "tokens": 34162861,
    "works": 2417
   },
   "PD": {
-   "tokens": 25896671,
+   "tokens": 25896666,
    "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -61,13 +61,13 @@
   }
  },
  "pin": {
-  "corpus_sha256": "3624cced9cb9f91ec270214df6a7e89f4e57b491b6bb6474de00df636875e041",
+  "corpus_sha256": "e54d3492981514a596cade2d366a1d12a3ae20969144c87c73080d923ef3fb0a",
   "manifest": "data/public_export.json"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20263092,
+    "tokens": 20263087,
     "works": 889
    },
    "manual": {
@@ -79,7 +79,7 @@
     "works": 4
    },
    "not-ocr": {
-    "tokens": 35878076,
+    "tokens": 35878071,
     "works": 2494
    },
    "raw-ocr": {
@@ -92,7 +92,7 @@
   "raw_ocr": {
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28587560,
+    "ocr_tokens": 28587555,
     "ocr_works": 1441,
     "raw_share_of_corpus_tokens": 0.0393,
     "raw_tokens": 2562152,
@@ -101,14 +101,14 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29140559,
+   "ocr_tokens": 29140554,
    "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "scope": "Correction quality varies by work. Unresolved readings remain excluded from lexical counts."
  },
- "release_date": "2026-11-21",
- "release_id": "corpus-2026-11-21",
+ "release_date": "2026-11-22",
+ "release_id": "corpus-2026-11-22",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -135,7 +135,7 @@
    "works": 528
   },
   "first1k": {
-   "tokens": 21805392,
+   "tokens": 21805387,
    "works": 1039
   },
   "galenus_verbatim": {
@@ -155,7 +155,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24530888,
+   "tokens": 24530883,
    "works": 1244
   },
   "perseus": {

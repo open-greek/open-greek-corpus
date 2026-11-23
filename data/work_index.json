@@ -36,6 +36,13 @@
    {
     "path": "data/corpus_changes/aristophanes-line-citations-139/changes.json",
     "sha256": "d5dfdeb8488dd0bf01a949a95a59f2bedafc86f7df2b4bbc5f9eb35d3e0d849c"
+   },
+   {
+    "path": "data/corpus_changes/platonius-heading-aliases-104/changes.json",
+    "retired_sources": {
+     "platonius.fragmenta-de-comoedia-graeca": "ogc002861"
+    },
+    "sha256": "2e021fbc7eb750531666640b9f58ae2f48b5f4fbcb18703818e310f5652b88fb"
    }
   ]
  },
@@ -186910,6 +186917,11 @@
    }
   },
   "platonius.fragmenta-de-comoedia-graeca": {
+   "platonius_duebner_scholaristoph1_0033.2": {
+    "locus": "dubner1855.0032",
+    "path": "data/corpus/scholia-in-aristophanem.andronicus-poet-order-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.andronicus-poet-order-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0033.3": {
     "current": {
      "locus": "dubner1855.0032",
@@ -186942,6 +186954,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.triclinius-meters-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.triclinius-meters-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0041.3": {
+    "locus": "dubner1855.0040",
+    "path": "data/corpus/scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0041.4": {
     "current": {
@@ -186987,6 +187004,16 @@
     "slug": "scholia-in-aristophanem.triclinius-common-syllable-signs-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0044.1": {
+    "locus": "dubner1855.0043",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
+   },
+   "platonius_duebner_scholaristoph1_0044.2": {
+    "locus": "dubner1855.0043",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
+   },
    "platonius_duebner_scholaristoph1_0044.3": {
     "current": {
      "locus": "dubner1855.0043",
@@ -186997,6 +187024,16 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0044.4": {
+    "locus": "dubner1855.0043",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
+   },
+   "platonius_duebner_scholaristoph1_0044.5": {
+    "locus": "dubner1855.0043",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii"
    },
    "platonius_duebner_scholaristoph1_0044.6": {
     "current": {
@@ -196744,6 +196781,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0075.1": {
+    "locus": "dubner1855.0074",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0075.10": {
     "current": {
      "locus": "dubner1855.0074",
@@ -196755,6 +196797,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0075.2": {
+    "locus": "dubner1855.0074",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0075.3": {
     "current": {
      "locus": "dubner1855.0074",
@@ -196765,6 +196812,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0075.4": {
+    "locus": "dubner1855.0074",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0075.5": {
     "current": {
@@ -196809,6 +196861,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0075.9": {
+    "locus": "dubner1855.0074",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-equites-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0076.1": {
     "current": {
@@ -214278,6 +214335,16 @@
     "slug": "scholia-in-aristophanem.scholia-in-equites-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0120.1": {
+    "locus": "dubner1855.0119",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0120.2": {
+    "locus": "dubner1855.0119",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0120.3": {
     "current": {
      "locus": "dubner1855.0119",
@@ -214310,6 +214377,16 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0120.6": {
+    "locus": "dubner1855.0119",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0120.7": {
+    "locus": "dubner1855.0119",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0120.8": {
     "current": {
@@ -214354,6 +214431,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0121.3": {
+    "locus": "dubner1855.0120",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-nubes-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0121.4": {
     "current": {
@@ -230899,6 +230981,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-nubes-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0186.1": {
+    "locus": "dubner1855.0177",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0186.10": {
     "current": {
      "locus": "dubner1855.0177",
@@ -230932,6 +231019,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0186.2": {
+    "locus": "dubner1855.0177",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0186.3": {
     "current": {
      "locus": "dubner1855.0177",
@@ -230953,6 +231045,16 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0186.5": {
+    "locus": "dubner1855.0177",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0186.6": {
+    "locus": "dubner1855.0177",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-vespae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0186.7": {
     "current": {
@@ -248928,6 +249030,16 @@
     "slug": "scholia-in-aristophanem.scholia-in-vespae-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0238.1": {
+    "locus": "dubner1855.0211",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0238.2": {
+    "locus": "dubner1855.0211",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0238.3": {
     "current": {
      "locus": "dubner1855.0211",
@@ -248960,6 +249072,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0239.1": {
+    "locus": "dubner1855.0212",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0239.10": {
     "current": {
@@ -249070,6 +249187,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0239.2": {
+    "locus": "dubner1855.0212",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-pax-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0239.20": {
     "current": {
@@ -260390,6 +260512,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-pax-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0278.1": {
+    "locus": "dubner1855.0251",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0278.2": {
     "current": {
      "locus": "dubner1855.0251",
@@ -261137,6 +261264,16 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0279.67": {
+    "locus": "dubner1855.0252",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0279.68": {
+    "locus": "dubner1855.0252",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-aves-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0279.69": {
     "current": {
@@ -272743,6 +272880,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-aves-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0317.1": {
+    "locus": "dubner1855.0290",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0317.10": {
     "current": {
      "locus": "dubner1855.0290",
@@ -272831,6 +272973,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0317.2": {
+    "locus": "dubner1855.0290",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0317.3": {
     "current": {
      "locus": "dubner1855.0290",
@@ -272841,6 +272988,16 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0317.4": {
+    "locus": "dubner1855.0290",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0317.5": {
+    "locus": "dubner1855.0290",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0317.6": {
     "current": {
@@ -280267,6 +280424,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-lysistrata-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0333.1": {
+    "locus": "dubner1855.0306",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0333.10": {
     "current": {
      "locus": "dubner1855.0306",
@@ -286196,6 +286358,16 @@
     "slug": "scholia-in-aristophanem.scholia-in-thesmophoriazusae-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0342.1": {
+    "locus": "dubner1855.0315",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0342.2": {
+    "locus": "dubner1855.0315",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0342.3": {
     "current": {
      "locus": "dubner1855.0315",
@@ -286207,6 +286379,16 @@
     "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0342.4": {
+    "locus": "dubner1855.0315",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0342.5": {
+    "locus": "dubner1855.0315",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0342.6": {
     "current": {
      "locus": "dubner1855.0315",
@@ -286217,6 +286399,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0342.7": {
+    "locus": "dubner1855.0315",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0342.8": {
     "current": {
@@ -286415,6 +286602,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0343.25": {
+    "locus": "dubner1855.0316",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-ranae-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-ranae-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0343.26": {
     "current": {
@@ -303840,6 +304032,16 @@
     "slug": "scholia-in-aristophanem.scholia-in-ecclesiazusae-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0390.1": {
+    "locus": "dubner1855.0365",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855"
+   },
+   "platonius_duebner_scholaristoph1_0390.2": {
+    "locus": "dubner1855.0365",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0390.3": {
     "current": {
      "locus": "dubner1855.0365",
@@ -303895,6 +304097,11 @@
     "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
     "storage": "secondary"
    },
+   "platonius_duebner_scholaristoph1_0391.1": {
+    "locus": "dubner1855.0366",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855"
+   },
    "platonius_duebner_scholaristoph1_0391.10": {
     "current": {
      "locus": "dubner1855.0366",
@@ -303916,6 +304123,11 @@
     "path": "data/corpus_secondary/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
     "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855",
     "storage": "secondary"
+   },
+   "platonius_duebner_scholaristoph1_0391.2": {
+    "locus": "dubner1855.0366",
+    "path": "data/corpus/scholia-in-aristophanem.scholia-in-plutus-dubner-1855.jsonl",
+    "slug": "scholia-in-aristophanem.scholia-in-plutus-dubner-1855"
    },
    "platonius_duebner_scholaristoph1_0391.3": {
     "current": {
@@ -566969,9 +567181,9 @@
    "manifestation": {
     "edition": "ruelle-qwen36-hathitrust-rover",
     "license": "PD",
-    "n_analysis_tokens": 118094,
+    "n_analysis_tokens": 118091,
     "n_passages": 1985,
-    "n_tokens": 118006,
+    "n_tokens": 118004,
     "source": "ocr"
    },
    "slug": "damascius.de-principiis",
@@ -566998,9 +567210,9 @@
    "manifestation": {
     "edition": "ruelle-qwen36-hathitrust-rover",
     "license": "PD",
-    "n_analysis_tokens": 131057,
+    "n_analysis_tokens": 131055,
     "n_passages": 2206,
-    "n_tokens": 130983,
+    "n_tokens": 130981,
     "source": "ocr"
    },
    "slug": "damascius.in-parmenidem",
@@ -572243,9 +572455,9 @@
    "manifestation": {
     "edition": "1st1K-grc1",
     "license": "CC-BY-SA-4.0",
-    "n_analysis_tokens": 93533,
+    "n_analysis_tokens": 93528,
     "n_passages": 1507,
-    "n_tokens": 93519,
+    "n_tokens": 93516,
     "source": "first1k"
    },
    "slug": "dioscorides-pedanius.de-materia-medica",

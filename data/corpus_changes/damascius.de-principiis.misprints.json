@@ -1,5 +1,5 @@
 {
- "date": "2026-11-21",
+ "date": "2026-11-22",
  "edition": "C. É. Ruelle, Damascii successoris Dubitationes et solutiones de primis principiis, in Platonis Parmenidem, Paris 1889, vol. 1",
  "issues": [
   "https://github.com/open-greek/open-greek-corpus/issues/162"
@@ -11,6 +11,76 @@
    "page": "p. 74 l. 13",
    "print": "διαστήναι",
    "reason": "an acute for the circumflex of the aorist infinitive, which the edition prints as διαστῆναι three times on p. 171"
+  },
+  {
+   "corpus": "προόδους",
+   "locus": "458",
+   "page": "p. 75 l. 21",
+   "print": "πρόοδους",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 75, 21, read προόδους, the accusative plural of πρόοδος; the file already reads it"
+  },
+  {
+   "corpus": "διεκρίθη",
+   "locus": "471",
+   "page": "p. 77 l. 23",
+   "print": "διεκρίθῃ",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 77, 23, read διεκρίθη, the aorist indicative; the page sets an iota subscript under the η, and the file already reads διεκρίθη"
+  },
+  {
+   "corpus": "πρόοδον",
+   "locus": "486",
+   "page": "p. 80 l. 4",
+   "print": "προόδον",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 80, 4, read πρόοδον; the page sets the acute on the second ο, and the file already reads πρόοδον"
+  },
+  {
+   "corpus": "ἀπαντησόμεθα]",
+   "locus": "609",
+   "page": "p. 99",
+   "print": "ἀπανθησόμεθα]",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 99, 3 (note), read ἀπαντησόμεθα, the word of l. 3 that the note takes as its lemma (the list prints ἀπαντήσομεθα); the file already reads it"
+  },
+  {
+   "corpus": "Χάους",
+   "locus": "650",
+   "page": "p. 107 l. 1",
+   "print": "Χαοῦς",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 107, 1, read Χάους, the genitive of Χάος; the file already reads it"
+  },
+  {
+   "corpus": "γάρ,",
+   "locus": "954",
+   "page": "p. 158 l. 6",
+   "print": "γὰρ",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 158, 6: \"Ita interpunge: οὐ γάρ, ἐπειδὴ\"; the page has no comma after γὰρ"
+  },
+  {
+   "corpus": "ὑποτιθοῖτο,",
+   "locus": "990",
+   "page": "p. 163 l. 19",
+   "print": "ὑποτίθοιτο,",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 163, 19, read ὑποτιθοῖτο: the circumflex of the optative on οῖ"
+  },
+  {
+   "corpus": "ἑνιαίαν",
+   "locus": "1067",
+   "page": "p. 176 l. 1",
+   "print": "ἑνιαῖαν",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 176, 1, read ἑνιαίαν: a circumflex cannot stand before the long final syllable"
+  },
+  {
+   "corpus": "μαρτύρια",
+   "locus": "1344",
+   "page": "p. 219 l. 10",
+   "print": "μαρτυρίᾳ",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 219, 10: \"μαρτύρια. — (Not. inf.) μαρτυρίᾳ Kopp.\": the page prints in the text the conjecture of Kopp, which belongs in the note, and ἐπαγαγεῖν takes μαρτύρια as its object"
+  },
+  {
+   "corpus": "ὕπαρξίς",
+   "locus": "1382",
+   "page": "p. 225 l. 1",
+   "print": "ὑπαρξίς",
+   "reason": "Ruelle's Corrigenda (vol. 2 pp. 389-390), P. 225, 1, read ὕπαρξίς: the page has the acute the enclitic ἐστι adds to the last syllable, but not the acute of the word on its first"
   }
  ],
  "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page and line given print `print`. `reason` says why the printed form is a misprint.",
