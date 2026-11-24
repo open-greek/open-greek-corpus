@@ -5,31 +5,31 @@
    "auto-corrected": {
     "grave_lemmas": 1,
     "grave_tokens": 1,
-    "lemmatized_tokens_in_this_class": 19130486,
+    "lemmatized_tokens_in_this_class": 19130997,
     "rate": 0.0
    },
    "manual": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 5517894,
+    "lemmatized_tokens_in_this_class": 5518002,
     "rate": 0.0
    },
    "mixed-unassessed": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 794709,
+    "lemmatized_tokens_in_this_class": 794717,
     "rate": 0.0
    },
    "not-ocr": {
     "grave_lemmas": 5,
     "grave_tokens": 55,
-    "lemmatized_tokens_in_this_class": 35306449,
+    "lemmatized_tokens_in_this_class": 35306697,
     "rate": 2e-06
    },
    "raw-ocr": {
     "grave_lemmas": 0,
     "grave_tokens": 0,
-    "lemmatized_tokens_in_this_class": 2422891,
+    "lemmatized_tokens_in_this_class": 2422933,
     "rate": 0.0
    }
   },
@@ -117,7 +117,7 @@
  "headword_backed": {
   "control": {
    "grave_lemmas_le_10_tokens_backed": 0.0,
-   "non_grave_lemmas_le_10_tokens_backed": 0.6764,
+   "non_grave_lemmas_le_10_tokens_backed": 0.6767,
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too"
   },
   "excluded_sources": {
@@ -204,7 +204,7 @@
   "lemmas": 0,
   "tokens": 0
  },
- "share_of_lemmatized_corpus": 8.865e-07,
+ "share_of_lemmatized_corpus": 8.864e-07,
  "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column of data/corpus_catalog.tsv for the by_correction_status block",
  "superseded": {
   "measured_the_old_way_tokens": 23,
