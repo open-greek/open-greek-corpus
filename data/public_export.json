@@ -1,5 +1,5 @@
 {
- "corpus_sha256": "cdaf93138936c1f85fedd92de6a6dc0c72b20843b410fd5a1305a812e09875c2",
+ "corpus_sha256": "9254ba56266ef8db8db4f6fb390637cbbe4d971544c2c5a07ff9ec62d822dabc",
  "files": {
   "abas.fragmenta.jsonl": "5d7ea2b5cba7e8379a7bc6fa4edb60738f620694265a9f2ed4ec1507d4c6fe86",
   "abron-vel-habron-batiensis.fragmenta.jsonl": "10801392fc846c19e187613642fc2aa500a0a8962c6dd1935580578714edbd45",
@@ -1025,8 +1025,8 @@
   "cyrus-rhetor.peri-diaphoras-staseos.jsonl": "2b78065e77c970dea2ba2a38b06f315ac8b8ab1cfded7d82162184c1a51eecfd",
   "daes-colonensis.fragmenta.jsonl": "f8e35c895e43483b8b699412ead6c7fa1590985b12a728a6f62afe60dd3b6f4c",
   "daimachus-history.fragmenta.jsonl": "5850acd334ba07fa8049252c7724b3137365b8129799bcede9e5d8cdff550eaa",
-  "damascius.de-principiis.jsonl": "ec48fcbc28594a118ac201f52f71d78c659fb5b0dbee87743a3cb96d06880bff",
-  "damascius.in-parmenidem.jsonl": "e4d99137c062f805ce398c647fc59ac19af5d9801e6a03d44af73a536ee425d2",
+  "damascius.de-principiis.jsonl": "7e5a8fe433441329bb1c7c6785891590e3d637777664a3cc4a05f42af8eed659",
+  "damascius.in-parmenidem.jsonl": "f83e566362290a88d7758cfffa485e1d3de6637894d2ec7d5dd18c1444ab8c44",
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat.jsonl": "a4732a42cdabafff62535c3543aa445989ecc66c2fd198041d73bd5e47469a01",
   "damastes-sigeensis.fragmenta.jsonl": "2ed199808c2d05333de657261b0d417b2ec3870235db6acb7eff4cfac4f37ae7",
   "damianus-scriptor-de-opticis.optica.jsonl": "a568bdd9ca44e6a4bdae4d679e87301a54e45c30d502628c21d688ccc7351b54",
@@ -1219,7 +1219,7 @@
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-gr-2448.jsonl": "1f418aec22c499112bac590e5c8abe9d35a072955380f05676d4a251dccbc84c",
   "diophantus-mathematics.fragmentum-sp-e-cod-paris-suppl-gr-387-fol-181r.jsonl": "3040c4a6098ab241bcc3bcc03602a8a60849fb57d2a94509f418f2ed20ce7ac3",
   "diophantus.fragmenta.jsonl": "6608bfbaf46164041508c0cd9a67536dd3df344006badcd76a7e8040bc1a951b",
-  "dioscorides-pedanius.de-materia-medica.jsonl": "5fae63e2409f29632b471c560819816882c02d9426aeb3b107ce7b013f2a3a31",
+  "dioscorides-pedanius.de-materia-medica.jsonl": "aa473760f593c0bd95185e369fe33157bc37c2a804e53651c18340f1d6e88d3a",
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis.jsonl": "3573de26e8c55fa1ab9e25c73966ec4f0592392c0a1e9230357f028863d4868d",
   "dioscorides.fragmenta.jsonl": "4faa0a1915625550725a63f7344168dacb88ae24b2bf700eea6afa2a852bd2e0",
   "dioscurides.fragmenta.jsonl": "2d4804ec49db2ea77866307fbf47b5e100dce7b28c977c16516c57fc93ffdbf0",
@@ -3942,11 +3942,11 @@
   "zosimus-history.historia-nova.jsonl": "defe4f7c12b1b8fa0d2acca51366526e778ae2f05ee4cb87bff4749b593140ac"
  },
  "projection": "Explicit lexical text, contiguous segments, and context eligibility are publication outputs; source processing is not part of this export.",
- "release_id": "corpus-2026-11-23",
+ "release_id": "corpus-2026-11-24",
  "schema_version": 1,
  "totals": {
   "passages": 1913683,
-  "tokens": 65270739,
+  "tokens": 65270733,
   "works": 3939
  },
  "works": {
@@ -9072,12 +9072,12 @@
   },
   "damascius.de-principiis": {
    "passages": 1985,
-   "sha256": "ec48fcbc28594a118ac201f52f71d78c659fb5b0dbee87743a3cb96d06880bff",
-   "tokens": 118089
+   "sha256": "7e5a8fe433441329bb1c7c6785891590e3d637777664a3cc4a05f42af8eed659",
+   "tokens": 118085
   },
   "damascius.in-parmenidem": {
    "passages": 2206,
-   "sha256": "e4d99137c062f805ce398c647fc59ac19af5d9801e6a03d44af73a536ee425d2",
+   "sha256": "f83e566362290a88d7758cfffa485e1d3de6637894d2ec7d5dd18c1444ab8c44",
    "tokens": 131049
   },
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat": {
@@ -10042,8 +10042,8 @@
   },
   "dioscorides-pedanius.de-materia-medica": {
    "passages": 1507,
-   "sha256": "5fae63e2409f29632b471c560819816882c02d9426aeb3b107ce7b013f2a3a31",
-   "tokens": 93513
+   "sha256": "aa473760f593c0bd95185e369fe33157bc37c2a804e53651c18340f1d6e88d3a",
+   "tokens": 93511
   },
   "dioscorides-pedanius.euporista-vel-de-simplicibus-medicinis": {
    "passages": 645,
