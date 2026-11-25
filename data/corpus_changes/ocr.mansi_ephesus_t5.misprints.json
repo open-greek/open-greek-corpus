@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-24",
+ "edition": "qwen36-mansi_ephesus_t5",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "ἱκανώσαντι",
+   "locus": "mansi_ephesus_t5_0053.3",
+   "page": "scan https://archive.org/download/sacrorumconcilio0005joan/page/n52.jpg, box 350,3681,599,3774 (pixels of the page image: left, top, right, bottom)",
+   "print": "ἱκαγώσαντι",
+   "reason": "the page prints γ for ν (ἱκανώσαντι)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "ocr.mansi_ephesus_t5",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}

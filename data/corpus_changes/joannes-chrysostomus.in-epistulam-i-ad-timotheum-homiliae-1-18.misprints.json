@@ -1,0 +1,24 @@
+{
+ "date": "2026-11-24",
+ "edition": "migne-ocr-qwen36",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "προσέρχονται",
+   "locus": "pg062_0549.4",
+   "page": "scan https://archive.org/download/patrologia-volumes/062/page/n548.jpg, box 3583,4625,3705,4720 and 2177,4707,2431,4805 (pixels of the page image: left, top, right, bottom)",
+   "print": "πρυσέρχονται",
+   "reason": "the page prints υ for ο (προσέρχονται)"
+  },
+  {
+   "corpus": "ἐπῃσχύνθη",
+   "locus": "pg062_0612.1",
+   "page": "scan https://archive.org/download/patrologia-volumes/062/page/n611.jpg, box 1742,4833,1835,4937 and 260,4908,517,5027 (pixels of the page image: left, top, right, bottom)",
+   "print": "ἐπῃυχύνθη",
+   "reason": "the page prints υ for σ (ἐπῃσχύνθη)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "joannes-chrysostomus.in-epistulam-i-ad-timotheum-homiliae-1-18",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}
