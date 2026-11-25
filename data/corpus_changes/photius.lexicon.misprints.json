@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-24",
+ "edition": "qwen36-photius_lexicon_naber-masked",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "προὐργιαίτερον",
+   "locus": "photius_lexicon_naber_0589.12",
+   "page": "scan https://archive.org/download/photiipatriarch00nabegoog/page/n588.jpg, box 1154,2135,1672,2258 (pixels of the page image: left, top, right, bottom)",
+   "print": "προὐργικίτερον",
+   "reason": "the page prints κ for α (προὐργιαίτερον)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "photius.lexicon",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}

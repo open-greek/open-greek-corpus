@@ -226,8 +226,8 @@
  "candidates": 2238,
  "clean_second_copies": 712,
  "clean_second_copies_served": 206,
- "clean_second_copies_served_tokens": 60295,
- "clean_second_copies_tokens": 228963,
+ "clean_second_copies_served_tokens": 60296,
+ "clean_second_copies_tokens": 228964,
  "duplicate_runs": {
   "detail": [
    {
@@ -572,7 +572,7 @@
  "issue": "open-greek/open-greek-corpus#33",
  "method": "bigram containment over min(|a|,|b|), which ignores reading order; the shed in carve_cgpg_volume.py uses difflib similarity, which a column-reordered second read defeats (PG118 loci 22 and 24 scored 0.482 there and 0.841 here)",
  "overlapping_not_copies": 1526,
- "overlapping_not_copies_tokens": 651957,
+ "overlapping_not_copies_tokens": 651959,
  "pairs": [
   {
    "bigram_coverage_a": 0.9808,
@@ -7821,6 +7821,40 @@
    "words_b": 167
   },
   {
+   "bigram_coverage_a": 0.8661,
+   "bigram_coverage_b": 0.8686,
+   "bigrams_a": 351,
+   "bigrams_b": 350,
+   "containment": 0.8686,
+   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
+   "locus_a": "pg082_0081",
+   "locus_b": "pg082_0083",
+   "ordered_overlap": {
+    "matched_tokens": 348,
+    "span_a": [
+     0,
+     374
+    ],
+    "span_b": [
+     0,
+     375
+    ],
+    "tokens_a": 374,
+    "tokens_b": 375,
+    "unmatched_tokens_a": 26,
+    "unmatched_tokens_b": 27
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 375,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 17,
+   "words_b": 375
+  },
+  {
    "bigram_coverage_a": 0.7807,
    "bigram_coverage_b": 0.8678,
    "bigrams_a": 269,
@@ -7938,83 +7972,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 13,
    "words_b": 208
-  },
-  {
-   "bigram_coverage_a": 0.8665,
-   "bigram_coverage_b": 0.6266,
-   "bigrams_a": 337,
-   "bigrams_b": 466,
-   "containment": 0.8665,
-   "file": "data/corpus/anaximenes-philosophy.testimonia.jsonl",
-   "locus_a": "nausiphanes_diels_fvs2_0037",
-   "locus_b": "anaxagoras_diels_vs1_0034",
-   "ordered_overlap": {
-    "matched_tokens": 349,
-    "span_a": [
-     0,
-     371
-    ],
-    "span_b": [
-     30,
-     463
-    ],
-    "tokens_a": 371,
-    "tokens_b": 511,
-    "unmatched_tokens_a": 22,
-    "unmatched_tokens_b": 162
-   },
-   "partial_overlap": true,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 510,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "παρμενιδου εφασαν γεγονεν",
-    "σαρδεων αλωσει οτε κυρος ο περσης κροισον καθειλεν",
-    "διογενης προτερον υδατος",
-    "χρη οτι αλλο",
-    "αστερων συμπεριφερομενας εκεινοις",
-    "καθως ετεροι υπεληφασιν",
-    "ημετεραν κεφαλην στρεφεται",
-    "γενομενον αλλ υπο",
-    "υψηλοτερων μερων σκεπομενον"
-   ],
-   "words_absent_from_a": 90,
-   "words_b": 511
-  },
-  {
-   "bigram_coverage_a": 0.8632,
-   "bigram_coverage_b": 0.8657,
-   "bigrams_a": 351,
-   "bigrams_b": 350,
-   "containment": 0.8657,
-   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
-   "locus_a": "pg082_0081",
-   "locus_b": "pg082_0083",
-   "ordered_overlap": {
-    "matched_tokens": 347,
-    "span_a": [
-     0,
-     374
-    ],
-    "span_b": [
-     0,
-     375
-    ],
-    "tokens_a": 374,
-    "tokens_b": 375,
-    "unmatched_tokens_a": 27,
-    "unmatched_tokens_b": 28
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 375,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 18,
-   "words_b": 375
   },
   {
    "bigram_coverage_a": 0.865,
@@ -8600,6 +8557,49 @@
    "words_b": 425
   },
   {
+   "bigram_coverage_a": 0.8605,
+   "bigram_coverage_b": 0.6223,
+   "bigrams_a": 337,
+   "bigrams_b": 466,
+   "containment": 0.8605,
+   "file": "data/corpus/anaximenes-philosophy.testimonia.jsonl",
+   "locus_a": "nausiphanes_diels_fvs2_0037",
+   "locus_b": "anaxagoras_diels_vs1_0034",
+   "ordered_overlap": {
+    "matched_tokens": 348,
+    "span_a": [
+     0,
+     371
+    ],
+    "span_b": [
+     30,
+     463
+    ],
+    "tokens_a": 371,
+    "tokens_b": 511,
+    "unmatched_tokens_a": 23,
+    "unmatched_tokens_b": 163
+   },
+   "partial_overlap": true,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 510,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "παρμενιδου εφασαν γεγονεν",
+    "σαρδεων αλωσει οτε κυρος ο περσης κροισον καθειλεν",
+    "διογενης προτερον υδατος",
+    "χρη οτι αλλο",
+    "αστερων συμπεριφερομενας εκεινοις",
+    "καθως ετεροι υπεληφασιν",
+    "ημετεραν κεφαλην στρεφεται",
+    "γενομενον αλλ υπο",
+    "υψηλοτερων μερων σκεπομενον"
+   ],
+   "words_absent_from_a": 91,
+   "words_b": 511
+  },
+  {
    "bigram_coverage_a": 0.8603,
    "bigram_coverage_b": 0.7695,
    "bigrams_a": 229,
@@ -8835,6 +8835,40 @@
    ],
    "words_absent_from_a": 123,
    "words_b": 584
+  },
+  {
+   "bigram_coverage_a": 0.8571,
+   "bigram_coverage_b": 0.8514,
+   "bigrams_a": 294,
+   "bigrams_b": 296,
+   "containment": 0.8571,
+   "file": "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl",
+   "locus_a": "pg027_0517",
+   "locus_b": "pg027_0527",
+   "ordered_overlap": {
+    "matched_tokens": 276,
+    "span_a": [
+     0,
+     362
+    ],
+    "span_b": [
+     0,
+     363
+    ],
+    "tokens_a": 362,
+    "tokens_b": 363,
+    "unmatched_tokens_a": 86,
+    "unmatched_tokens_b": 87
+   },
+   "page_offset": 10,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 363,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 24,
+   "words_b": 363
   },
   {
    "bigram_coverage_a": 0.8571,
@@ -9398,40 +9432,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 11,
    "words_b": 185
-  },
-  {
-   "bigram_coverage_a": 0.8537,
-   "bigram_coverage_b": 0.848,
-   "bigrams_a": 294,
-   "bigrams_b": 296,
-   "containment": 0.8537,
-   "file": "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl",
-   "locus_a": "pg027_0517",
-   "locus_b": "pg027_0527",
-   "ordered_overlap": {
-    "matched_tokens": 275,
-    "span_a": [
-     0,
-     362
-    ],
-    "span_b": [
-     0,
-     363
-    ],
-    "tokens_a": 362,
-    "tokens_b": 363,
-    "unmatched_tokens_a": 87,
-    "unmatched_tokens_b": 88
-   },
-   "page_offset": 10,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 363,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 25,
-   "words_b": 363
   },
   {
    "bigram_coverage_a": 0.8532,
@@ -12779,6 +12779,42 @@
    "words_b": 228
   },
   {
+   "bigram_coverage_a": 0.8287,
+   "bigram_coverage_b": 0.7855,
+   "bigrams_a": 327,
+   "bigrams_b": 345,
+   "containment": 0.8287,
+   "file": "data/corpus/basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius.jsonl",
+   "locus_a": "pg031_0628",
+   "locus_b": "pg031_0630",
+   "ordered_overlap": {
+    "matched_tokens": 314,
+    "span_a": [
+     1,
+     345
+    ],
+    "span_b": [
+     1,
+     361
+    ],
+    "tokens_a": 345,
+    "tokens_b": 361,
+    "unmatched_tokens_a": 31,
+    "unmatched_tokens_b": 47
+   },
+   "page_offset": 2,
+   "partial_overlap": true,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 361,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "γνωσιως επιδει κνυμενους"
+   ],
+   "words_absent_from_a": 41,
+   "words_b": 361
+  },
+  {
    "bigram_coverage_a": 0.8056,
    "bigram_coverage_b": 0.8286,
    "bigrams_a": 432,
@@ -13468,42 +13504,6 @@
    "words_b": 263
   },
   {
-   "bigram_coverage_a": 0.8226,
-   "bigram_coverage_b": 0.7797,
-   "bigrams_a": 327,
-   "bigrams_b": 345,
-   "containment": 0.8226,
-   "file": "data/corpus/basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius.jsonl",
-   "locus_a": "pg031_0628",
-   "locus_b": "pg031_0630",
-   "ordered_overlap": {
-    "matched_tokens": 313,
-    "span_a": [
-     1,
-     345
-    ],
-    "span_b": [
-     1,
-     361
-    ],
-    "tokens_a": 345,
-    "tokens_b": 361,
-    "unmatched_tokens_a": 32,
-    "unmatched_tokens_b": 48
-   },
-   "page_offset": 2,
-   "partial_overlap": true,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 361,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "γνωσιως επιδει κνυμενους"
-   ],
-   "words_absent_from_a": 42,
-   "words_b": 361
-  },
-  {
    "bigram_coverage_a": 0.8132,
    "bigram_coverage_b": 0.8222,
    "bigrams_a": 182,
@@ -13819,40 +13819,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 29,
    "words_b": 278
-  },
-  {
-   "bigram_coverage_a": 0.8201,
-   "bigram_coverage_b": 0.8136,
-   "bigrams_a": 378,
-   "bigrams_b": 381,
-   "containment": 0.8201,
-   "file": "data/corpus/theodoretus.eranistes.jsonl",
-   "locus_a": "pg083_0114",
-   "locus_b": "pg083_0116",
-   "ordered_overlap": {
-    "matched_tokens": 364,
-    "span_a": [
-     0,
-     400
-    ],
-    "span_b": [
-     0,
-     402
-    ],
-    "tokens_a": 400,
-    "tokens_b": 402,
-    "unmatched_tokens_a": 36,
-    "unmatched_tokens_b": 38
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 402,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 29,
-   "words_b": 402
   },
   {
    "bigram_coverage_a": 0.8196,
@@ -14418,6 +14384,40 @@
    ],
    "words_absent_from_a": 23,
    "words_b": 285
+  },
+  {
+   "bigram_coverage_a": 0.8158,
+   "bigram_coverage_b": 0.8136,
+   "bigrams_a": 380,
+   "bigrams_b": 381,
+   "containment": 0.8158,
+   "file": "data/corpus/theodoretus.eranistes.jsonl",
+   "locus_a": "pg083_0114",
+   "locus_b": "pg083_0116",
+   "ordered_overlap": {
+    "matched_tokens": 364,
+    "span_a": [
+     0,
+     402
+    ],
+    "span_b": [
+     0,
+     402
+    ],
+    "tokens_a": 402,
+    "tokens_b": 402,
+    "unmatched_tokens_a": 38,
+    "unmatched_tokens_b": 38
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 402,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 29,
+   "words_b": 402
   },
   {
    "bigram_coverage_a": 0.8156,
@@ -18986,6 +18986,40 @@
    "words_b": 231
   },
   {
+   "bigram_coverage_a": 0.7746,
+   "bigram_coverage_b": 0.7821,
+   "bigrams_a": 315,
+   "bigrams_b": 312,
+   "containment": 0.7821,
+   "file": "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl",
+   "locus_a": "pg027_0665",
+   "locus_b": "pg027_0675",
+   "ordered_overlap": {
+    "matched_tokens": 202,
+    "span_a": [
+     148,
+     374
+    ],
+    "span_b": [
+     1,
+     370
+    ],
+    "tokens_a": 374,
+    "tokens_b": 370,
+    "unmatched_tokens_a": 172,
+    "unmatched_tokens_b": 168
+   },
+   "page_offset": 10,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 370,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 30,
+   "words_b": 370
+  },
+  {
    "bigram_coverage_a": 0.7817,
    "bigram_coverage_b": 0.7731,
    "bigrams_a": 449,
@@ -19271,7 +19305,7 @@
     "αποντα καταδικασθηναι θανατω ωτε",
     "αμφοτερων αυτω προσαρχελεντων",
     "αρα εκακεινον καμου παλαι",
-    "ειδειν αυτους θνητους γεννησας οι",
+    "ηιδειν αυτους θνητους γεννησας οι",
     "σολωνα τουτο αναφερουσιν αλλοι",
     "θαψαι ταις ιδιαις χερσιν αυτους δημητριος",
     "δεσμοτηριω τεθνηκως περικλης",
@@ -19593,6 +19627,42 @@
    "words_b": 284
   },
   {
+   "bigram_coverage_a": 0.7797,
+   "bigram_coverage_b": 0.769,
+   "bigrams_a": 286,
+   "bigrams_b": 290,
+   "containment": 0.7797,
+   "file": "data/corpus/ocr.pg036.jsonl",
+   "locus_a": "pg036_0033",
+   "locus_b": "pg036_0043",
+   "ordered_overlap": {
+    "matched_tokens": 298,
+    "span_a": [
+     0,
+     332
+    ],
+    "span_b": [
+     0,
+     332
+    ],
+    "tokens_a": 332,
+    "tokens_b": 336,
+    "unmatched_tokens_a": 34,
+    "unmatched_tokens_b": 38
+   },
+   "page_offset": 10,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 336,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "δι ονειρατων αναπλασεως"
+   ],
+   "words_absent_from_a": 35,
+   "words_b": 336
+  },
+  {
    "bigram_coverage_a": 0.7532,
    "bigram_coverage_b": 0.7796,
    "bigrams_a": 385,
@@ -19817,40 +19887,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 23,
    "words_b": 204
-  },
-  {
-   "bigram_coverage_a": 0.7714,
-   "bigram_coverage_b": 0.7788,
-   "bigrams_a": 315,
-   "bigrams_b": 312,
-   "containment": 0.7788,
-   "file": "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl",
-   "locus_a": "pg027_0665",
-   "locus_b": "pg027_0675",
-   "ordered_overlap": {
-    "matched_tokens": 202,
-    "span_a": [
-     148,
-     374
-    ],
-    "span_b": [
-     1,
-     370
-    ],
-    "tokens_a": 374,
-    "tokens_b": 370,
-    "unmatched_tokens_a": 172,
-    "unmatched_tokens_b": 168
-   },
-   "page_offset": 10,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 370,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 32,
-   "words_b": 370
   },
   {
    "bigram_coverage_a": 0.7784,
@@ -20584,6 +20620,40 @@
    "words_b": 242
   },
   {
+   "bigram_coverage_a": 0.7721,
+   "bigram_coverage_b": 0.7742,
+   "bigrams_a": 373,
+   "bigrams_b": 372,
+   "containment": 0.7742,
+   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
+   "locus_a": "pg082_0162",
+   "locus_b": "pg082_0166",
+   "ordered_overlap": {
+    "matched_tokens": 379,
+    "span_a": [
+     0,
+     425
+    ],
+    "span_b": [
+     0,
+     426
+    ],
+    "tokens_a": 425,
+    "tokens_b": 426,
+    "unmatched_tokens_a": 46,
+    "unmatched_tokens_b": 47
+   },
+   "page_offset": 4,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 426,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 41,
+   "words_b": 426
+  },
+  {
    "bigram_coverage_a": 0.7736,
    "bigram_coverage_b": 0.7736,
    "bigrams_a": 159,
@@ -20764,42 +20834,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 62,
    "words_b": 729
-  },
-  {
-   "bigram_coverage_a": 0.7727,
-   "bigram_coverage_b": 0.7621,
-   "bigrams_a": 286,
-   "bigrams_b": 290,
-   "containment": 0.7727,
-   "file": "data/corpus/ocr.pg036.jsonl",
-   "locus_a": "pg036_0033",
-   "locus_b": "pg036_0043",
-   "ordered_overlap": {
-    "matched_tokens": 297,
-    "span_a": [
-     0,
-     332
-    ],
-    "span_b": [
-     0,
-     332
-    ],
-    "tokens_a": 332,
-    "tokens_b": 336,
-    "unmatched_tokens_a": 35,
-    "unmatched_tokens_b": 39
-   },
-   "page_offset": 10,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 336,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "δι ονειρατων αναπλασεως"
-   ],
-   "words_absent_from_a": 36,
-   "words_b": 336
   },
   {
    "bigram_coverage_a": 0.5247,
@@ -21141,6 +21175,45 @@
    ],
    "words_absent_from_a": 62,
    "words_b": 290
+  },
+  {
+   "bigram_coverage_a": 0.7674,
+   "bigram_coverage_b": 0.7715,
+   "bigrams_a": 374,
+   "bigrams_b": 372,
+   "containment": 0.7715,
+   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
+   "locus_a": "pg082_0164",
+   "locus_b": "pg082_0166",
+   "ordered_overlap": {
+    "matched_tokens": 374,
+    "span_a": [
+     1,
+     426
+    ],
+    "span_b": [
+     1,
+     426
+    ],
+    "tokens_a": 426,
+    "tokens_b": 426,
+    "unmatched_tokens_a": 52,
+    "unmatched_tokens_b": 52
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 426,
+   "unique_runs_if_a_dropped": [
+    "αγνοια περικεκλειμενοι χωρων",
+    "πολυν εξω πλανην"
+   ],
+   "unique_runs_if_b_dropped": [
+    "αγνοιας περικεκειμενοι ζωρον"
+   ],
+   "words_absent_from_a": 42,
+   "words_b": 426
   },
   {
    "bigram_coverage_a": 0.769,
@@ -21791,40 +21864,6 @@
    "words_b": 241
   },
   {
-   "bigram_coverage_a": 0.7641,
-   "bigram_coverage_b": 0.7682,
-   "bigrams_a": 373,
-   "bigrams_b": 371,
-   "containment": 0.7682,
-   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
-   "locus_a": "pg082_0162",
-   "locus_b": "pg082_0166",
-   "ordered_overlap": {
-    "matched_tokens": 377,
-    "span_a": [
-     0,
-     425
-    ],
-    "span_b": [
-     0,
-     425
-    ],
-    "tokens_a": 425,
-    "tokens_b": 425,
-    "unmatched_tokens_a": 48,
-    "unmatched_tokens_b": 48
-   },
-   "page_offset": 4,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 425,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 42,
-   "words_b": 425
-  },
-  {
    "bigram_coverage_a": 0.3976,
    "bigram_coverage_b": 0.7682,
    "bigrams_a": 425,
@@ -22454,45 +22493,6 @@
    ],
    "words_absent_from_a": 79,
    "words_b": 692
-  },
-  {
-   "bigram_coverage_a": 0.7594,
-   "bigram_coverage_b": 0.7655,
-   "bigrams_a": 374,
-   "bigrams_b": 371,
-   "containment": 0.7655,
-   "file": "data/corpus/theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli.jsonl",
-   "locus_a": "pg082_0164",
-   "locus_b": "pg082_0166",
-   "ordered_overlap": {
-    "matched_tokens": 372,
-    "span_a": [
-     1,
-     426
-    ],
-    "span_b": [
-     1,
-     425
-    ],
-    "tokens_a": 426,
-    "tokens_b": 425,
-    "unmatched_tokens_a": 54,
-    "unmatched_tokens_b": 53
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 425,
-   "unique_runs_if_a_dropped": [
-    "αγνοια περικεκλειμενοι χωρων",
-    "πολυν εξω πλανην"
-   ],
-   "unique_runs_if_b_dropped": [
-    "αγνοιας περικεκειμενοι ζωρον"
-   ],
-   "words_absent_from_a": 43,
-   "words_b": 425
   },
   {
    "bigram_coverage_a": 0.7121,
@@ -27086,6 +27086,40 @@
    "words_b": 529
   },
   {
+   "bigram_coverage_a": 0.7433,
+   "bigram_coverage_b": 0.7354,
+   "bigrams_a": 187,
+   "bigrams_b": 189,
+   "containment": 0.7433,
+   "file": "data/corpus/apollonius-philosophy.apotelesmata-sp.jsonl",
+   "locus_a": "apollonius_parad_keller_v1_0136",
+   "locus_b": "apollonius_parad_keller_v1_0142",
+   "ordered_overlap": {
+    "matched_tokens": 164,
+    "span_a": [
+     1,
+     193
+    ],
+    "span_b": [
+     1,
+     186
+    ],
+    "tokens_a": 193,
+    "tokens_b": 195,
+    "unmatched_tokens_a": 29,
+    "unmatched_tokens_b": 31
+   },
+   "page_offset": 6,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 195,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 25,
+   "words_b": 195
+  },
+  {
    "bigram_coverage_a": 0.7288,
    "bigram_coverage_b": 0.7433,
    "bigrams_a": 719,
@@ -28314,6 +28348,45 @@
    "words_b": 689
   },
   {
+   "bigram_coverage_a": 0.7322,
+   "bigram_coverage_b": 0.7391,
+   "bigrams_a": 534,
+   "bigrams_b": 529,
+   "containment": 0.7391,
+   "file": "data/corpus/empedocles.testimonia.jsonl",
+   "locus_a": "anaxagoras_diels_vs1_0186",
+   "locus_b": "nausiphanes_diels_fvs2_0196",
+   "ordered_overlap": {
+    "matched_tokens": 462,
+    "span_a": [
+     72,
+     578
+    ],
+    "span_b": [
+     0,
+     508
+    ],
+    "tokens_a": 578,
+    "tokens_b": 571,
+    "unmatched_tokens_a": 116,
+    "unmatched_tokens_b": 109
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 571,
+   "unique_runs_if_a_dropped": [
+    "πλειονος φθειρεται διο",
+    "κρινωμεν τωι ομοιωι"
+   ],
+   "unique_runs_if_b_dropped": [
+    "χρην ωμεν τω ομολοι",
+    "αλλοιουται τω ομοιω"
+   ],
+   "words_absent_from_a": 62,
+   "words_b": 571
+  },
+  {
    "bigram_coverage_a": 0.7391,
    "bigram_coverage_b": 0.6145,
    "bigrams_a": 207,
@@ -29290,45 +29363,6 @@
    "words_b": 417
   },
   {
-   "bigram_coverage_a": 0.7285,
-   "bigram_coverage_b": 0.7353,
-   "bigrams_a": 534,
-   "bigrams_b": 529,
-   "containment": 0.7353,
-   "file": "data/corpus/empedocles.testimonia.jsonl",
-   "locus_a": "anaxagoras_diels_vs1_0186",
-   "locus_b": "nausiphanes_diels_fvs2_0196",
-   "ordered_overlap": {
-    "matched_tokens": 461,
-    "span_a": [
-     72,
-     578
-    ],
-    "span_b": [
-     0,
-     508
-    ],
-    "tokens_a": 578,
-    "tokens_b": 571,
-    "unmatched_tokens_a": 117,
-    "unmatched_tokens_b": 110
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 571,
-   "unique_runs_if_a_dropped": [
-    "πλειονος φθειρεται διο",
-    "κρινωμεν τωι ομοιωι"
-   ],
-   "unique_runs_if_b_dropped": [
-    "χρην ωμεν τω ομολοι",
-    "αλλοιουται τω ομοιω"
-   ],
-   "words_absent_from_a": 63,
-   "words_b": 571
-  },
-  {
    "bigram_coverage_a": 0.7351,
    "bigram_coverage_b": 0.6594,
    "bigrams_a": 453,
@@ -30274,40 +30308,6 @@
    "unique_runs_if_b_dropped": [],
    "words_absent_from_a": 55,
    "words_b": 445
-  },
-  {
-   "bigram_coverage_a": 0.7312,
-   "bigram_coverage_b": 0.7196,
-   "bigrams_a": 186,
-   "bigrams_b": 189,
-   "containment": 0.7312,
-   "file": "data/corpus/apollonius-philosophy.apotelesmata-sp.jsonl",
-   "locus_a": "apollonius_parad_keller_v1_0136",
-   "locus_b": "apollonius_parad_keller_v1_0142",
-   "ordered_overlap": {
-    "matched_tokens": 162,
-    "span_a": [
-     1,
-     192
-    ],
-    "span_b": [
-     1,
-     186
-    ],
-    "tokens_a": 192,
-    "tokens_b": 195,
-    "unmatched_tokens_a": 30,
-    "unmatched_tokens_b": 33
-   },
-   "page_offset": 6,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 195,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 27,
-   "words_b": 195
   },
   {
    "bigram_coverage_a": 0.7151,
@@ -32947,6 +32947,48 @@
    "words_b": 252
   },
   {
+   "bigram_coverage_a": 0.723,
+   "bigram_coverage_b": 0.6619,
+   "bigrams_a": 444,
+   "bigrams_b": 485,
+   "containment": 0.723,
+   "file": "data/corpus/melissus.testimonia.jsonl",
+   "locus_a": "nausiphanes_diels_fvs2_0163",
+   "locus_b": "anaxagoras_diels_vs1_0157",
+   "ordered_overlap": {
+    "matched_tokens": 379,
+    "span_a": [
+     42,
+     466
+    ],
+    "span_b": [
+     2,
+     428
+    ],
+    "tokens_a": 466,
+    "tokens_b": 519,
+    "unmatched_tokens_a": 87,
+    "unmatched_tokens_b": 140
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 519,
+   "unique_runs_if_a_dropped": [
+    "φην συγχριθημι ωσθ",
+    "εις αλληλα φερεσθαι",
+    "περιιστασθαι αμα οτνοουν εις αλλο",
+    "πρωτον αλλον μεταβαλλοντος αει"
+   ],
+   "unique_runs_if_b_dropped": [
+    "οντος κενου κεχωρισμενου",
+    "παντη διαιρετον ουθεν",
+    "πεπλασμενωι τινι τουτ εοικεναι μεχρι ποσου"
+   ],
+   "words_absent_from_a": 72,
+   "words_b": 519
+  },
+  {
    "bigram_coverage_a": 0.7141,
    "bigram_coverage_b": 0.7228,
    "bigrams_a": 661,
@@ -33726,48 +33768,6 @@
    ],
    "words_absent_from_a": 100,
    "words_b": 695
-  },
-  {
-   "bigram_coverage_a": 0.7185,
-   "bigram_coverage_b": 0.6577,
-   "bigrams_a": 444,
-   "bigrams_b": 485,
-   "containment": 0.7185,
-   "file": "data/corpus/melissus.testimonia.jsonl",
-   "locus_a": "nausiphanes_diels_fvs2_0163",
-   "locus_b": "anaxagoras_diels_vs1_0157",
-   "ordered_overlap": {
-    "matched_tokens": 378,
-    "span_a": [
-     42,
-     466
-    ],
-    "span_b": [
-     2,
-     428
-    ],
-    "tokens_a": 466,
-    "tokens_b": 519,
-    "unmatched_tokens_a": 88,
-    "unmatched_tokens_b": 141
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 519,
-   "unique_runs_if_a_dropped": [
-    "φην συγχριθημι ωσθ",
-    "εις αλληλα φερεσθαι",
-    "περιιστασθαι αμα οτνοουν εις αλλο",
-    "πρωτον αλλον μεταβαλλοντος αει"
-   ],
-   "unique_runs_if_b_dropped": [
-    "οντος κενου κεχωρισμενου",
-    "παντη διαιρετον ουθεν",
-    "πεπλασμενωι τινι τουτ εοικεναι μεχρι ποσου"
-   ],
-   "words_absent_from_a": 73,
-   "words_b": 519
   },
   {
    "bigram_coverage_a": 0.5816,
@@ -37270,6 +37270,44 @@
    "words_b": 240
   },
   {
+   "bigram_coverage_a": 0.6877,
+   "bigram_coverage_b": 0.7055,
+   "bigrams_a": 317,
+   "bigrams_b": 309,
+   "containment": 0.7055,
+   "file": "data/corpus/theodoretus.interpretatio-in-jeremiam.jsonl",
+   "locus_a": "pg081_0308",
+   "locus_b": "pg081_0310",
+   "ordered_overlap": {
+    "matched_tokens": 267,
+    "span_a": [
+     1,
+     320
+    ],
+    "span_b": [
+     0,
+     312
+    ],
+    "tokens_a": 320,
+    "tokens_b": 312,
+    "unmatched_tokens_a": 53,
+    "unmatched_tokens_b": 45
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 312,
+   "unique_runs_if_a_dropped": [
+    "περιδολαιον χαλκουν ισχυρ"
+   ],
+   "unique_runs_if_b_dropped": [
+    "περιβολαιον χαλκον ισχυν"
+   ],
+   "words_absent_from_a": 43,
+   "words_b": 312
+  },
+  {
    "bigram_coverage_a": 0.7055,
    "bigram_coverage_b": 0.7044,
    "bigrams_a": 652,
@@ -39080,44 +39118,6 @@
    ],
    "words_absent_from_a": 108,
    "words_b": 728
-  },
-  {
-   "bigram_coverage_a": 0.6814,
-   "bigram_coverage_b": 0.699,
-   "bigrams_a": 317,
-   "bigrams_b": 309,
-   "containment": 0.699,
-   "file": "data/corpus/theodoretus.interpretatio-in-jeremiam.jsonl",
-   "locus_a": "pg081_0308",
-   "locus_b": "pg081_0310",
-   "ordered_overlap": {
-    "matched_tokens": 266,
-    "span_a": [
-     1,
-     320
-    ],
-    "span_b": [
-     0,
-     312
-    ],
-    "tokens_a": 320,
-    "tokens_b": 312,
-    "unmatched_tokens_a": 54,
-    "unmatched_tokens_b": 46
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 312,
-   "unique_runs_if_a_dropped": [
-    "περιδολαιον χαλκουν ισχυρ"
-   ],
-   "unique_runs_if_b_dropped": [
-    "περιβολαιον χαλκον ισχυν"
-   ],
-   "words_absent_from_a": 44,
-   "words_b": 312
   },
   {
    "bigram_coverage_a": 0.6989,
@@ -43893,6 +43893,48 @@
    "words_b": 679
   },
   {
+   "bigram_coverage_a": 0.655,
+   "bigram_coverage_b": 0.6828,
+   "bigrams_a": 516,
+   "bigrams_b": 495,
+   "containment": 0.6828,
+   "file": "data/corpus/empedocles.testimonia.jsonl",
+   "locus_a": "anaxagoras_diels_vs1_0185",
+   "locus_b": "nausiphanes_diels_fvs2_0195",
+   "ordered_overlap": {
+    "matched_tokens": 410,
+    "span_a": [
+     98,
+     559
+    ],
+    "span_b": [
+     1,
+     471
+    ],
+    "tokens_a": 559,
+    "tokens_b": 543,
+    "unmatched_tokens_a": 149,
+    "unmatched_tokens_b": 133
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 543,
+   "unique_runs_if_a_dropped": [
+    "πολλοις επιβαλλομενους ολιγα επιτελειν",
+    "αιματος φορας οις",
+    "κρασιν ουσαν ομοιως",
+    "αλλας δυναμεις ε",
+    "εμ ποιουσιν επι"
+   ],
+   "unique_runs_if_b_dropped": [
+    "τηλικαυτα μεγεθη γενεσθαι",
+    "που ταυτα υπεξηρχετο"
+   ],
+   "words_absent_from_a": 66,
+   "words_b": 543
+  },
+  {
    "bigram_coverage_a": 0.6667,
    "bigram_coverage_b": 0.6828,
    "bigrams_a": 507,
@@ -46226,48 +46268,6 @@
    "words_b": 684
   },
   {
-   "bigram_coverage_a": 0.6473,
-   "bigram_coverage_b": 0.6747,
-   "bigrams_a": 516,
-   "bigrams_b": 495,
-   "containment": 0.6747,
-   "file": "data/corpus/empedocles.testimonia.jsonl",
-   "locus_a": "anaxagoras_diels_vs1_0185",
-   "locus_b": "nausiphanes_diels_fvs2_0195",
-   "ordered_overlap": {
-    "matched_tokens": 406,
-    "span_a": [
-     98,
-     557
-    ],
-    "span_b": [
-     1,
-     471
-    ],
-    "tokens_a": 557,
-    "tokens_b": 543,
-    "unmatched_tokens_a": 151,
-    "unmatched_tokens_b": 137
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 543,
-   "unique_runs_if_a_dropped": [
-    "πολλοις επιβαλλομενους ολιγα επιτελειν",
-    "αιματος φορας οις",
-    "κρασιν ουσαν ομοιως",
-    "αλλας δυναμεις ε",
-    "εμ ποιουσιν επι"
-   ],
-   "unique_runs_if_b_dropped": [
-    "τηλικαυτα μεγεθη γενεσθαι",
-    "που ταυτα υπεξηρχετο"
-   ],
-   "words_absent_from_a": 68,
-   "words_b": 543
-  },
-  {
    "bigram_coverage_a": 0.6747,
    "bigram_coverage_b": 0.6737,
    "bigrams_a": 667,
@@ -47339,6 +47339,76 @@
    ],
    "words_absent_from_a": 125,
    "words_b": 757
+  },
+  {
+   "bigram_coverage_a": 0.3198,
+   "bigram_coverage_b": 0.6702,
+   "bigrams_a": 788,
+   "bigrams_b": 376,
+   "containment": 0.6702,
+   "file": "data/corpus/joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl",
+   "locus_a": "pg063_0596",
+   "locus_b": "pg063_0598",
+   "ordered_overlap": {
+    "matched_tokens": 334,
+    "span_a": [
+     0,
+     704
+    ],
+    "span_b": [
+     0,
+     401
+    ],
+    "tokens_a": 835,
+    "tokens_b": 411,
+    "unmatched_tokens_a": 501,
+    "unmatched_tokens_b": 77
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 411,
+   "unique_runs_if_a_dropped": [
+    "αυτον ευεργεσιας ανειδιζη",
+    "προφερη τοτε δη τοτε",
+    "υβρις αφορητος γινεται",
+    "υπο τινος μεγαλου παθον κακως εχει φιλοτιμιαν",
+    "απηρημημενου μειζωνα εχει",
+    "γελωντων εκεινων ημεις δακρυομεν",
+    "αδικως χην απαντες γελωσιν ημεις εαυτους",
+    "μηδεν αφορητοτερον τοις δυσωμουσιν",
+    "λογω δυναμενω δακειν",
+    "εκαστην καιρου τυγχανοντες",
+    "μελλων δεισθαι τινος χην ευλογα μελλη παρακαλειν επιπτειθεται αναμνησει καιρου οπως ημων",
+    "ευ διακονμενη προσελθοι",
+    "καιρου λαβων συμμαχην επιτεινχοι",
+    "λεγοντα καιρον επιπτεισθαι ζητειν δει οθεν",
+    "πλησιων καθα δη τοι",
+    "ημων αυτον βουλεται μηδεν πασχειν",
+    "πρεπεται δευς κρατος τιμη",
+    "αιωνων αμην λογος κ",
+    "θυμου βουλει μαθειν ποσον",
+    "οργιζεσθαι κακον παραστηθι μαχομενους",
+    "δυνασαι ραδιως ιδειν επιστομωμεν",
+    "θυμος ζεσας διανισταται",
+    "αγριαινει πυρ πνεει",
+    "στομα πυρ αφισιν",
+    "οφθαλμοι οιδε παντοθεν",
+    "δης ατακτως αι χειρες εκτεινονται",
+    "εναλλονται τοις κατεχουσι",
+    "αγριων δυνον λακτιζοντες δακνοντες",
+    "ταις υβρεσι δακνετε οιδα",
+    "θελωμεν δυνατον διακρουσασθαι",
+    "φοβος αντιρροπος εστηκε",
+    "υβριζομενοι μυρια σιγη",
+    "αυτον επικειμενον εχουσι δεσμον νυν",
+    "δεινα με υβρισεν",
+    "σκιρτωμεν μηδε εστω"
+   ],
+   "unique_runs_if_b_dropped": [],
+   "words_absent_from_a": 58,
+   "words_b": 411
   },
   {
    "bigram_coverage_a": 0.6683,
@@ -48635,76 +48705,6 @@
    ],
    "words_absent_from_a": 35,
    "words_b": 197
-  },
-  {
-   "bigram_coverage_a": 0.3173,
-   "bigram_coverage_b": 0.6649,
-   "bigrams_a": 788,
-   "bigrams_b": 376,
-   "containment": 0.6649,
-   "file": "data/corpus/joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl",
-   "locus_a": "pg063_0596",
-   "locus_b": "pg063_0598",
-   "ordered_overlap": {
-    "matched_tokens": 333,
-    "span_a": [
-     0,
-     704
-    ],
-    "span_b": [
-     0,
-     401
-    ],
-    "tokens_a": 835,
-    "tokens_b": 411,
-    "unmatched_tokens_a": 502,
-    "unmatched_tokens_b": 78
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 411,
-   "unique_runs_if_a_dropped": [
-    "αυτον ευεργεσιας ανειδιζη",
-    "προφερη τοτε δη τοτε",
-    "υβρις αφορητος γινεται",
-    "υπο τινος μεγαλου παθον κακως εχει φιλοτιμιαν",
-    "απηρημημενου μειζωνα εχει",
-    "γελωντων εκεινων ημεις δακρυομεν",
-    "αδικως χην απαντες γελωσιν ημεις εαυτους",
-    "μηδεν αφορητοτερον τοις δυσωμουσιν",
-    "λογω δυναμενω δακειν",
-    "εκαστην καιρου τυγχανοντες",
-    "μελλων δεισθαι τινος χην ευλογα μελλη παρακαλειν επιπτειθεται αναμνησει καιρου οπως ημων",
-    "ευ διακονμενη προσελθοι",
-    "καιρου λαβων συμμαχην επιτεινχοι",
-    "λεγοντα καιρον επιπτεισθαι ζητειν δει οθεν",
-    "πλησιων καθα δη τοι",
-    "ημων αυτον βουλεται μηδεν πασχειν",
-    "πρεπεται δευς κρατος τιμη",
-    "αιωνων αμην λογος κ",
-    "θυμου βουλει μαθειν ποσον",
-    "οργιζεσθαι κακον παραστηθι μαχομενους",
-    "δυνασαι ραδιως ιδειν επιστομωμεν",
-    "θυμος ζεσας διανισταται",
-    "αγριαινει πυρ πνεει",
-    "στομα πυρ αφισιν",
-    "οφθαλμοι οιδε παντοθεν",
-    "δης ατακτως αι χειρες εκτεινονται",
-    "εναλλονται τοις κατεχουσι",
-    "αγριων δυνον λακτιζοντες δακνοντες",
-    "ταις υβρεσι δακνετε οιδα",
-    "θελωμεν δυνατον διακρουσασθαι",
-    "φοβος αντιρροπος εστηκε",
-    "υβριζομενοι μυρια σιγη",
-    "αυτον επικειμενον εχουσι δεσμον νυν",
-    "δεινα με υβρισεν",
-    "σκιρτωμεν μηδε εστω"
-   ],
-   "unique_runs_if_b_dropped": [],
-   "words_absent_from_a": 59,
-   "words_b": 411
   },
   {
    "bigram_coverage_a": 0.6648,
@@ -51177,6 +51177,48 @@
    "words_b": 187
   },
   {
+   "bigram_coverage_a": 0.6574,
+   "bigram_coverage_b": 0.5124,
+   "bigrams_a": 251,
+   "bigrams_b": 322,
+   "containment": 0.6574,
+   "file": "data/corpus/theodoretus.commentaria-in-isaiam.jsonl",
+   "locus_a": "pg081_0186",
+   "locus_b": "pg081_0188",
+   "ordered_overlap": {
+    "matched_tokens": 210,
+    "span_a": [
+     2,
+     258
+    ],
+    "span_b": [
+     71,
+     333
+    ],
+    "tokens_a": 258,
+    "tokens_b": 333,
+    "unmatched_tokens_a": 48,
+    "unmatched_tokens_b": 123
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 333,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "αυλη εκειτο τα",
+    "τω ναω κε κινηθησεται",
+    "πεσειται τον περι",
+    "σομα ανελαβε λογον",
+    "εδειξεν αυτον ωφελειαν ουδεμιαν εκ",
+    "ιερωσυνης δεξαμενον τιμωριαν",
+    "βαθυμιας δρεψαμενον κεφαλ"
+   ],
+   "words_absent_from_a": 87,
+   "words_b": 333
+  },
+  {
    "bigram_coverage_a": 0.6468,
    "bigram_coverage_b": 0.6574,
    "bigrams_a": 620,
@@ -52715,6 +52757,56 @@
   },
   {
    "bigram_coverage_a": 0.6517,
+   "bigram_coverage_b": 0.3422,
+   "bigrams_a": 178,
+   "bigrams_b": 339,
+   "containment": 0.6517,
+   "file": "data/corpus/theodoretus.interpretatio-in-ezechielem.jsonl",
+   "locus_a": "pg081_0521",
+   "locus_b": "pg081_0525",
+   "ordered_overlap": {
+    "matched_tokens": 148,
+    "span_a": [
+     0,
+     185
+    ],
+    "span_b": [
+     7,
+     367
+    ],
+    "tokens_a": 185,
+    "tokens_b": 367,
+    "unmatched_tokens_a": 37,
+    "unmatched_tokens_b": 219
+   },
+   "page_offset": 4,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 367,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "συμφορας μαθωσιν απαντες",
+    "ειπον μηδαμως αδωναι κυριε αυτοι λεγουσι προς",
+    "ουχι παραβολη εστι λεγομενη",
+    "εγενετο λογος κυριου προς",
+    "λεγων δια τουτο προσητυσθου υιε ανθρωπου",
+    "ταδε λεγει αδωναι κυριος",
+    "προσεθηκε τουτο εξολοθρευσω",
+    "παρανομιων ενεκεν οιον",
+    "παρασκευασω γνωναι παντας δια",
+    "συ υιε ανθρωπου καταστεναζου",
+    "οφθαλμους αυτων ακολουθειτω",
+    "εσται εαν ειπωσι προς σε ενεκεν τινος συ στεναζεις",
+    "θραυσθησεται πασα καρδια",
+    "παραλυθησονται πασαι χειρες",
+    "εκψυξει πασα σαρξ"
+   ],
+   "words_absent_from_a": 135,
+   "words_b": 367
+  },
+  {
+   "bigram_coverage_a": 0.6517,
    "bigram_coverage_b": 0.6374,
    "bigrams_a": 356,
    "bigrams_b": 364,
@@ -53461,48 +53553,6 @@
    ],
    "words_absent_from_a": 111,
    "words_b": 713
-  },
-  {
-   "bigram_coverage_a": 0.6494,
-   "bigram_coverage_b": 0.5062,
-   "bigrams_a": 251,
-   "bigrams_b": 322,
-   "containment": 0.6494,
-   "file": "data/corpus/theodoretus.commentaria-in-isaiam.jsonl",
-   "locus_a": "pg081_0186",
-   "locus_b": "pg081_0188",
-   "ordered_overlap": {
-    "matched_tokens": 209,
-    "span_a": [
-     2,
-     258
-    ],
-    "span_b": [
-     71,
-     333
-    ],
-    "tokens_a": 258,
-    "tokens_b": 333,
-    "unmatched_tokens_a": 49,
-    "unmatched_tokens_b": 124
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 333,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "αυλη εκειτο τα",
-    "τω ναω κε κινηθησεται",
-    "πεσειται τον περι",
-    "σομα ανελαβε λογον",
-    "εδειξεν αυτον ωφελειαν ουδεμιαν εκ",
-    "ιερωσυνης δεξαμενον τιμωριαν",
-    "βαθυμιας δρεψαμενον κεφαλ"
-   ],
-   "words_absent_from_a": 88,
-   "words_b": 333
   },
   {
    "bigram_coverage_a": 0.4579,
@@ -56138,56 +56188,6 @@
    "words_b": 704
   },
   {
-   "bigram_coverage_a": 0.6404,
-   "bigram_coverage_b": 0.3363,
-   "bigrams_a": 178,
-   "bigrams_b": 339,
-   "containment": 0.6404,
-   "file": "data/corpus/theodoretus.interpretatio-in-ezechielem.jsonl",
-   "locus_a": "pg081_0521",
-   "locus_b": "pg081_0525",
-   "ordered_overlap": {
-    "matched_tokens": 147,
-    "span_a": [
-     0,
-     185
-    ],
-    "span_b": [
-     7,
-     367
-    ],
-    "tokens_a": 185,
-    "tokens_b": 367,
-    "unmatched_tokens_a": 38,
-    "unmatched_tokens_b": 220
-   },
-   "page_offset": 4,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 367,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "συμφορας μαθωσιν απαντες",
-    "ειπον μηδαμως αδωναι κυριε αυτοι λεγουσι προς",
-    "ουχι παραβολη εστι λεγομενη",
-    "εγενετο λογος κυριου προς",
-    "λεγων δια τουτο προσητυσθου υιε ανθρωπου",
-    "ταδε λεγει αδωναι κυριος",
-    "προσεθηκε τουτο εξολοθρευσω",
-    "παρανομιων ενεκεν οιον",
-    "παρασκευασω γνωναι παντας δια",
-    "συ υιε ανθρωπου καταστεναζου",
-    "οφθαλμους αυτων ακολουθειτω",
-    "εσται εαν ειπωσι προς σε ενεκεν τινος συ στεναζεις",
-    "θραυσθησεται πασα καρδια",
-    "παραλυθησονται πασαι χειρες",
-    "εκψυξει πασα σαρξ"
-   ],
-   "words_absent_from_a": 136,
-   "words_b": 367
-  },
-  {
    "bigram_coverage_a": 0.5787,
    "bigram_coverage_b": 0.6404,
    "bigrams_a": 197,
@@ -56892,6 +56892,54 @@
    ],
    "words_absent_from_a": 112,
    "words_b": 672
+  },
+  {
+   "bigram_coverage_a": 0.6359,
+   "bigram_coverage_b": 0.4286,
+   "bigrams_a": 184,
+   "bigrams_b": 273,
+   "containment": 0.6359,
+   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
+   "locus_a": "theognostus_canones_cramer_0058",
+   "locus_b": "theognostus_canones_cramer_0062",
+   "ordered_overlap": {
+    "matched_tokens": 172,
+    "span_a": [
+     1,
+     208
+    ],
+    "span_b": [
+     1,
+     246
+    ],
+    "tokens_a": 208,
+    "tokens_b": 325,
+    "unmatched_tokens_a": 36,
+    "unmatched_tokens_b": 153
+   },
+   "page_offset": 4,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 325,
+   "unique_runs_if_a_dropped": [
+    "τιμονος σιμ γ"
+   ],
+   "unique_runs_if_b_dropped": [
+    "τ μνημων μνημονος",
+    "ονομα κυ βρεμων",
+    "στρυμων στρυ τυμων",
+    "τιλων βρι λανευς",
+    "μηπο εναλαξαντα εολων να",
+    "ων στημονος σιμωνος ου",
+    "συλληψιν ορους καρ ν φραδμονος ορικα ακμων να ουκ εστιν",
+    "τονως ακρε μεγαλου",
+    "υμονος δαι εκτικα επει",
+    "κηδε περι τονων",
+    "ποτε μετοχη ων"
+   ],
+   "words_absent_from_a": 87,
+   "words_b": 325
   },
   {
    "bigram_coverage_a": 0.5427,
@@ -57766,54 +57814,6 @@
    ],
    "words_absent_from_a": 51,
    "words_b": 276
-  },
-  {
-   "bigram_coverage_a": 0.6304,
-   "bigram_coverage_b": 0.4249,
-   "bigrams_a": 184,
-   "bigrams_b": 273,
-   "containment": 0.6304,
-   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
-   "locus_a": "theognostus_canones_cramer_0058",
-   "locus_b": "theognostus_canones_cramer_0062",
-   "ordered_overlap": {
-    "matched_tokens": 170,
-    "span_a": [
-     1,
-     207
-    ],
-    "span_b": [
-     1,
-     246
-    ],
-    "tokens_a": 207,
-    "tokens_b": 325,
-    "unmatched_tokens_a": 37,
-    "unmatched_tokens_b": 155
-   },
-   "page_offset": 4,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 325,
-   "unique_runs_if_a_dropped": [
-    "τιμονος σιμ γ"
-   ],
-   "unique_runs_if_b_dropped": [
-    "τ μνημων μνημονος",
-    "ονομα κυ βρεμων",
-    "στρυμων στρυ τυμων",
-    "τιλων βρι λανευς",
-    "μηπο εναλαξαντα εολων να",
-    "ων στημονος σιμωνος ου",
-    "συλληψιν ορους καρ ν φραδμονος ορικα ακμων να ουκ εστιν",
-    "τονως ακρε μεγαλου",
-    "υμονος δαι εκτικα επει",
-    "κηδε περι τονων",
-    "ποτε μετοχη ων"
-   ],
-   "words_absent_from_a": 87,
-   "words_b": 325
   },
   {
    "bigram_coverage_a": 0.4507,
@@ -62073,47 +62073,6 @@
    "words_b": 223
   },
   {
-   "bigram_coverage_a": 0.6095,
-   "bigram_coverage_b": 0.5995,
-   "bigrams_a": 420,
-   "bigrams_b": 427,
-   "containment": 0.6095,
-   "file": "data/corpus/himerius.declamationes-et-orationes.jsonl",
-   "locus_a": "himerius_dubner_didot_0079",
-   "locus_b": "himerius_dubner_didot_0081",
-   "ordered_overlap": {
-    "matched_tokens": 334,
-    "span_a": [
-     0,
-     437
-    ],
-    "span_b": [
-     5,
-     440
-    ],
-    "tokens_a": 437,
-    "tokens_b": 440,
-    "unmatched_tokens_a": 103,
-    "unmatched_tokens_b": 106
-   },
-   "page_offset": 2,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 440,
-   "unique_runs_if_a_dropped": [
-    "εκκαθαλως ετι γεγονοτι πεμπουσιν",
-    "πλειον εσπασαντο προοδοναι",
-    "μητρος απειλευδρων ακολουθων ειγων"
-   ],
-   "unique_runs_if_b_dropped": [
-    "πλεον ησπασαντο προσδοναι",
-    "ματρος απελευθρων ακολουθους ειχον"
-   ],
-   "words_absent_from_a": 89,
-   "words_b": 440
-  },
-  {
    "bigram_coverage_a": 0.6094,
    "bigram_coverage_b": 0.6026,
    "bigrams_a": 530,
@@ -62638,6 +62597,42 @@
    "words_b": 730
   },
   {
+   "bigram_coverage_a": 0.6069,
+   "bigram_coverage_b": 0.5955,
+   "bigrams_a": 262,
+   "bigrams_b": 267,
+   "containment": 0.6069,
+   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
+   "locus_a": "theognostus_canones_cramer_0268",
+   "locus_b": "theognostus_canones_cramer_0294",
+   "ordered_overlap": {
+    "matched_tokens": 224,
+    "span_a": [
+     0,
+     313
+    ],
+    "span_b": [
+     0,
+     306
+    ],
+    "tokens_a": 314,
+    "tokens_b": 308,
+    "unmatched_tokens_a": 90,
+    "unmatched_tokens_b": 84
+   },
+   "page_offset": 26,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 308,
+   "unique_runs_if_a_dropped": [],
+   "unique_runs_if_b_dropped": [
+    "κ μενα ισηνω"
+   ],
+   "words_absent_from_a": 39,
+   "words_b": 308
+  },
+  {
    "bigram_coverage_a": 0.6066,
    "bigram_coverage_b": 0.583,
    "bigrams_a": 272,
@@ -62860,6 +62855,47 @@
   },
   {
    "bigram_coverage_a": 0.6048,
+   "bigram_coverage_b": 0.5935,
+   "bigrams_a": 420,
+   "bigrams_b": 428,
+   "containment": 0.6048,
+   "file": "data/corpus/himerius.declamationes-et-orationes.jsonl",
+   "locus_a": "himerius_dubner_didot_0079",
+   "locus_b": "himerius_dubner_didot_0081",
+   "ordered_overlap": {
+    "matched_tokens": 333,
+    "span_a": [
+     0,
+     437
+    ],
+    "span_b": [
+     5,
+     441
+    ],
+    "tokens_a": 437,
+    "tokens_b": 441,
+    "unmatched_tokens_a": 104,
+    "unmatched_tokens_b": 108
+   },
+   "page_offset": 2,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 441,
+   "unique_runs_if_a_dropped": [
+    "εκκαθαλως ετι γεγονοτι πεμπουσιν",
+    "πλειον εσπασαντο προοδοναι",
+    "μητρος απειλευδρων ακολουθων ειγων"
+   ],
+   "unique_runs_if_b_dropped": [
+    "πλεον ησπασαντο προσδοναι",
+    "ματρος απελευθρων ακολουθους ειχον"
+   ],
+   "words_absent_from_a": 90,
+   "words_b": 441
+  },
+  {
+   "bigram_coverage_a": 0.6048,
    "bigram_coverage_b": 0.5733,
    "bigrams_a": 291,
    "bigrams_b": 307,
@@ -63072,42 +63108,6 @@
    ],
    "words_absent_from_a": 124,
    "words_b": 758
-  },
-  {
-   "bigram_coverage_a": 0.6031,
-   "bigram_coverage_b": 0.5918,
-   "bigrams_a": 262,
-   "bigrams_b": 267,
-   "containment": 0.6031,
-   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
-   "locus_a": "theognostus_canones_cramer_0268",
-   "locus_b": "theognostus_canones_cramer_0294",
-   "ordered_overlap": {
-    "matched_tokens": 223,
-    "span_a": [
-     0,
-     313
-    ],
-    "span_b": [
-     0,
-     306
-    ],
-    "tokens_a": 314,
-    "tokens_b": 308,
-    "unmatched_tokens_a": 91,
-    "unmatched_tokens_b": 85
-   },
-   "page_offset": 26,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 308,
-   "unique_runs_if_a_dropped": [],
-   "unique_runs_if_b_dropped": [
-    "κ μενα ισηνω"
-   ],
-   "words_absent_from_a": 40,
-   "words_b": 308
   },
   {
    "bigram_coverage_a": 0.6031,
@@ -64543,6 +64543,53 @@
    "words_b": 235
   },
   {
+   "bigram_coverage_a": 0.5844,
+   "bigram_coverage_b": 0.5952,
+   "bigrams_a": 551,
+   "bigrams_b": 541,
+   "containment": 0.5952,
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "locus_a": "anaxagoras_diels_vs1_0390",
+   "locus_b": "nausiphanes_diels_fvs2_0408",
+   "ordered_overlap": {
+    "matched_tokens": 364,
+    "span_a": [
+     0,
+     390
+    ],
+    "span_b": [
+     180,
+     570
+    ],
+    "tokens_a": 592,
+    "tokens_b": 570,
+    "unmatched_tokens_a": 228,
+    "unmatched_tokens_b": 206
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 570,
+   "unique_runs_if_a_dropped": [
+    "ου ταις ακοαις",
+    "ακοης ουτως αποδιδωσι",
+    "αλλας αισθησεις σχεδον",
+    "παλαιους καλως τουθ υπολαβειν",
+    "φρονειν οπερ ισως",
+    "φρονειν δοξαι σχεδον αυται",
+    "τοσαυται τυγχανουσιν ουσαι παρα"
+   ],
+   "unique_runs_if_b_dropped": [
+    "ισχυρας σαρκος μεστα",
+    "εκαστον γνωριζει πρωτον",
+    "παραβαλλων τοιαυτην εινα",
+    "υδατι τυπουσθαι δυνατον οσω πυκνοτερον",
+    "υπο τινος εσται"
+   ],
+   "words_absent_from_a": 100,
+   "words_b": 570
+  },
+  {
    "bigram_coverage_a": 0.5949,
    "bigram_coverage_b": 0.5875,
    "bigrams_a": 158,
@@ -65684,53 +65731,6 @@
    ],
    "words_absent_from_a": 36,
    "words_b": 190
-  },
-  {
-   "bigram_coverage_a": 0.58,
-   "bigram_coverage_b": 0.5896,
-   "bigrams_a": 550,
-   "bigrams_b": 541,
-   "containment": 0.5896,
-   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
-   "locus_a": "anaxagoras_diels_vs1_0390",
-   "locus_b": "nausiphanes_diels_fvs2_0408",
-   "ordered_overlap": {
-    "matched_tokens": 362,
-    "span_a": [
-     0,
-     389
-    ],
-    "span_b": [
-     180,
-     570
-    ],
-    "tokens_a": 591,
-    "tokens_b": 570,
-    "unmatched_tokens_a": 229,
-    "unmatched_tokens_b": 208
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 570,
-   "unique_runs_if_a_dropped": [
-    "ου ταις ακοαις",
-    "ακοης ουτως αποδιδωσι",
-    "αλλας αισθησεις σχεδον",
-    "παλαιους καλως τουθ υπολαβειν",
-    "φρονειν οπερ ισως",
-    "φρονειν δοξαι σχεδον αυται",
-    "τοσαυται τυγχανουσιν ουσαι παρα"
-   ],
-   "unique_runs_if_b_dropped": [
-    "ισχυρας σαρκος μεστα",
-    "εκαστον γνωριζει πρωτον",
-    "παραβαλλων τοιαυτην εινα",
-    "υδατι τυπουσθαι δυνατον οσω πυκνοτερον",
-    "υπο τινος εσται"
-   ],
-   "words_absent_from_a": 102,
-   "words_b": 570
   },
   {
    "bigram_coverage_a": 0.5896,
@@ -68087,6 +68087,53 @@
    "words_b": 219
   },
   {
+   "bigram_coverage_a": 0.5696,
+   "bigram_coverage_b": 0.5738,
+   "bigrams_a": 539,
+   "bigrams_b": 535,
+   "containment": 0.5738,
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "locus_a": "anaxagoras_diels_vs1_0391",
+   "locus_b": "nausiphanes_diels_fvs2_0409",
+   "ordered_overlap": {
+    "matched_tokens": 130,
+    "span_a": [
+     0,
+     134
+    ],
+    "span_b": [
+     460,
+     593
+    ],
+    "tokens_a": 611,
+    "tokens_b": 593,
+    "unmatched_tokens_a": 481,
+    "unmatched_tokens_b": 463
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 593,
+   "unique_runs_if_a_dropped": [
+    "αλλοιουμενης εξ ης γινεσθαι",
+    "τουτ ενισχυειν εκαστω",
+    "εις μακρα διανενεμενον αναιρετον",
+    "μη ταυτα πασι φαινεσθαι",
+    "ουτω δειν υπολαμβανειν",
+    "χυλους ανα φερων",
+    "τωι σχηματι γωννοειδη",
+    "παντη διαδυεσθαι τραχυν"
+   ],
+   "unique_runs_if_b_dropped": [
+    "περιψυχος γενηται μεταλλαττειν",
+    "παλαιους καλως τουθ υπολαβειν",
+    "φρονειν οπερ ισως αυτω",
+    "τοσαυται τυγχανουσιν ουσαι παρα"
+   ],
+   "words_absent_from_a": 109,
+   "words_b": 593
+  },
+  {
    "bigram_coverage_a": 0.3372,
    "bigram_coverage_b": 0.5735,
    "bigrams_a": 347,
@@ -68740,53 +68787,6 @@
    "words_b": 295
   },
   {
-   "bigram_coverage_a": 0.5659,
-   "bigram_coverage_b": 0.5701,
-   "bigrams_a": 539,
-   "bigrams_b": 535,
-   "containment": 0.5701,
-   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
-   "locus_a": "anaxagoras_diels_vs1_0391",
-   "locus_b": "nausiphanes_diels_fvs2_0409",
-   "ordered_overlap": {
-    "matched_tokens": 130,
-    "span_a": [
-     0,
-     134
-    ],
-    "span_b": [
-     460,
-     593
-    ],
-    "tokens_a": 611,
-    "tokens_b": 593,
-    "unmatched_tokens_a": 481,
-    "unmatched_tokens_b": 463
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 593,
-   "unique_runs_if_a_dropped": [
-    "αλλοιουμενης εξ ης γινεσθαι",
-    "τουτ ενισχυειν εκαστω",
-    "εις μακρα διανενεμενον αναιρετον",
-    "μη ταυτα πασι φαινεσθαι",
-    "ουτω δειν υπολαμβανειν",
-    "χυλους ανα φερων",
-    "τωι σχηματι γωννοειδη",
-    "παντη διαδυεσθαι τραχυν"
-   ],
-   "unique_runs_if_b_dropped": [
-    "περιψυχος γενηται μεταλλαττειν",
-    "παλαιους καλως τουθ υπολαβειν",
-    "φρονειν οπερ ισως αυτω",
-    "τοσαυται τυγχανουσιν ουσαι παρα"
-   ],
-   "words_absent_from_a": 110,
-   "words_b": 593
-  },
-  {
    "bigram_coverage_a": 0.5698,
    "bigram_coverage_b": 0.4988,
    "bigrams_a": 351,
@@ -69244,6 +69244,56 @@
    ],
    "words_absent_from_a": 73,
    "words_b": 386
+  },
+  {
+   "bigram_coverage_a": 0.5537,
+   "bigram_coverage_b": 0.5686,
+   "bigrams_a": 307,
+   "bigrams_b": 299,
+   "containment": 0.5686,
+   "file": "data/corpus/mullach-fpg2.paratexta.jsonl",
+   "locus_a": "archytas_mullach_fpg2_0272",
+   "locus_b": "archytas_mullach_fpg2_0302",
+   "ordered_overlap": {
+    "matched_tokens": 123,
+    "span_a": [
+     3,
+     144
+    ],
+    "span_b": [
+     168,
+     312
+    ],
+    "tokens_a": 319,
+    "tokens_b": 313,
+    "unmatched_tokens_a": 196,
+    "unmatched_tokens_b": 190
+   },
+   "page_offset": 30,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 313,
+   "unique_runs_if_a_dropped": [
+    "κατετεμνεν ουτως ηδη",
+    "ψυχης υστασις εγεγονετο μετα",
+    "μεσον μεση ξυναγαγων προσηρμοσεν",
+    "αυτον εξωθεν περικαλυψασα",
+    "στρεφομενη θειαν αρχην ηρξατο απαυστου",
+    "σωμα ορατον ουρανου γεγονεν",
+    "αριστου αριστη γενομενη"
+   ],
+   "unique_runs_if_b_dropped": [
+    "κινουμενω υφ αυτου φερομενος ανευ φοβου",
+    "ετερου κυκλος ορθος ων",
+    "ψυχην διαγγειλη δοξαι",
+    "πιστεως γιγνονται βεβαιοι",
+    "κυκλος ευτροχος ων αυτα μηνυση νους επιστημη",
+    "εξ αναγκης αποτελειται",
+    "ποτε τις αυτο αλλο πλην ψυχην ειπη"
+   ],
+   "words_absent_from_a": 70,
+   "words_b": 313
   },
   {
    "bigram_coverage_a": 0.5683,
@@ -70318,56 +70368,6 @@
    ],
    "words_absent_from_a": 62,
    "words_b": 245
-  },
-  {
-   "bigram_coverage_a": 0.5472,
-   "bigram_coverage_b": 0.5619,
-   "bigrams_a": 307,
-   "bigrams_b": 299,
-   "containment": 0.5619,
-   "file": "data/corpus/mullach-fpg2.paratexta.jsonl",
-   "locus_a": "archytas_mullach_fpg2_0272",
-   "locus_b": "archytas_mullach_fpg2_0302",
-   "ordered_overlap": {
-    "matched_tokens": 122,
-    "span_a": [
-     3,
-     144
-    ],
-    "span_b": [
-     168,
-     312
-    ],
-    "tokens_a": 319,
-    "tokens_b": 313,
-    "unmatched_tokens_a": 197,
-    "unmatched_tokens_b": 191
-   },
-   "page_offset": 30,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 313,
-   "unique_runs_if_a_dropped": [
-    "κατετεμνεν ουτως ηδη",
-    "ψυχης υστασις εγεγονετο μετα",
-    "μεσον μεση ξυναγαγων προσηρμοσεν",
-    "αυτον εξωθεν περικαλυψασα",
-    "στρεφομενη θειαν αρχην ηρξατο απαυστου",
-    "σωμα ορατον ουρανου γεγονεν",
-    "αριστου αριστη γενομενη"
-   ],
-   "unique_runs_if_b_dropped": [
-    "κινουμενω υφ αυτου φερομενος ανευ φοβου",
-    "ετερου κυκλος ορθος ων",
-    "ψυχην διαγγειλη δοξαι",
-    "πιστεως γιγνονται βεβαιοι",
-    "κυκλος ευτροχος ων αυτα μηνυση νους επιστημη",
-    "εξ αναγκης αποτελειται",
-    "ποτε τις αυτο αλλο πλην ψυχην ειπη"
-   ],
-   "words_absent_from_a": 71,
-   "words_b": 313
   },
   {
    "bigram_coverage_a": 0.5619,
@@ -71836,6 +71836,51 @@
    "words_b": 319
   },
   {
+   "bigram_coverage_a": 0.5515,
+   "bigram_coverage_b": 0.5546,
+   "bigrams_a": 359,
+   "bigrams_b": 357,
+   "containment": 0.5546,
+   "file": "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl",
+   "locus_a": "scholia_aeschylum_depauw_stanley_0060",
+   "locus_b": "scholia_aeschylum_depauw_stanley_0072",
+   "ordered_overlap": {
+    "matched_tokens": 272,
+    "span_a": [
+     0,
+     379
+    ],
+    "span_b": [
+     2,
+     376
+    ],
+    "tokens_a": 379,
+    "tokens_b": 376,
+    "unmatched_tokens_a": 107,
+    "unmatched_tokens_b": 104
+   },
+   "page_offset": 12,
+   "partial_overlap": false,
+   "same_item": true,
+   "served": true,
+   "tokens_b": 376,
+   "unique_runs_if_a_dropped": [
+    "φιλοτητα σπυδων σπυδοντι ποθ ηξω",
+    "βελομη θ τοινυ",
+    "υποδειξιν βελομη θ",
+    "τους θεους εχθρον τους",
+    "ωσθ πιδειν ηκ ειχεν υπο τυτον"
+   ],
+   "unique_runs_if_b_dropped": [
+    "φιλοτατι σπιυδων σπιυδοντι παθ ηξι",
+    "τιω υστεροις βελιομη",
+    "σασις τοις θεοις εγινετο τοις",
+    "περι εκ ειχον απ τουτων"
+   ],
+   "words_absent_from_a": 90,
+   "words_b": 376
+  },
+  {
    "bigram_coverage_a": 0.5545,
    "bigram_coverage_b": 0.5301,
    "bigrams_a": 413,
@@ -72470,51 +72515,6 @@
    ],
    "words_absent_from_a": 58,
    "words_b": 287
-  },
-  {
-   "bigram_coverage_a": 0.5487,
-   "bigram_coverage_b": 0.5518,
-   "bigrams_a": 359,
-   "bigrams_b": 357,
-   "containment": 0.5518,
-   "file": "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl",
-   "locus_a": "scholia_aeschylum_depauw_stanley_0060",
-   "locus_b": "scholia_aeschylum_depauw_stanley_0072",
-   "ordered_overlap": {
-    "matched_tokens": 271,
-    "span_a": [
-     0,
-     379
-    ],
-    "span_b": [
-     2,
-     376
-    ],
-    "tokens_a": 379,
-    "tokens_b": 376,
-    "unmatched_tokens_a": 108,
-    "unmatched_tokens_b": 105
-   },
-   "page_offset": 12,
-   "partial_overlap": false,
-   "same_item": true,
-   "served": true,
-   "tokens_b": 376,
-   "unique_runs_if_a_dropped": [
-    "φιλοτητα σπυδων σπυδοντι ποθ ηξω",
-    "βελομη θ τοινυ",
-    "υποδειξιν βελομη θ",
-    "τους θεους εχθρον τους",
-    "ωσθ πιδειν ηκ ειχεν υπο τυτον"
-   ],
-   "unique_runs_if_b_dropped": [
-    "φιλοτατι σπιυδων σπιυδοντι παθ ηξι",
-    "τιω υστεροις βελιομη",
-    "σασις τοις θεοις εγινετο τοις",
-    "περι εκ ειχον απ τουτων"
-   ],
-   "words_absent_from_a": 91,
-   "words_b": 376
   },
   {
    "bigram_coverage_a": 0.4531,
@@ -88245,14 +88245,13 @@
     "ιν ενδεικνυμενου δηπου"
    ],
    "unique_runs_if_b_dropped": [
-    "ελογιστευε πιρως καυ διωτροπως τουτο",
     "ουκετι προσφει δικαζοντι",
     "αχθουσα εκολογουμενος καν αδικουται",
     "σκηναις ενι παρετυγχανεν απεδυ",
     "προτερας φθαλμους αποβαλειν αρδυος",
     "ρυγην ανδεικνυμενος δηπω"
    ],
-   "words_absent_from_a": 124,
+   "words_absent_from_a": 123,
    "words_b": 424
   },
   {
@@ -93911,6 +93910,70 @@
   },
   {
    "bigram_coverage_a": 0.433,
+   "bigram_coverage_b": 0.3569,
+   "bigrams_a": 291,
+   "bigrams_b": 353,
+   "containment": 0.433,
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "locus_a": "anaxagoras_diels_vs1_0381",
+   "locus_b": "nausiphanes_diels_fvs2_0400",
+   "ordered_overlap": {
+    "matched_tokens": 142,
+    "span_a": [
+     134,
+     295
+    ],
+    "span_b": [
+     0,
+     165
+    ],
+    "tokens_a": 296,
+    "tokens_b": 358,
+    "unmatched_tokens_a": 154,
+    "unmatched_tokens_b": 216
+   },
+   "partial_overlap": false,
+   "same_item": false,
+   "served": true,
+   "tokens_b": 358,
+   "unique_runs_if_a_dropped": [
+    "δημοκριτον φυσικους τοιαυτη τις αναφερεσθαι",
+    "χρονου νοησις χρονος εστιν ημεροειδες",
+    "νυκτοειδες φαντασμα απορειται",
+    "φλογος σχημα πυρκαιοειδες εστι",
+    "τελος αποξυνεσθαι εισι",
+    "ημας ελθειναι θεων αφ ης φαινεται",
+    "μετεωροις παθηματα οι παλαιοι",
+    "ανθρωπων καθαπερ βροντας",
+    "αστρων συνοδους ηλιου",
+    "σεληνης εκλειψεις εδειματουντο θεους οιομενοι",
+    "ανωθεν διεπιτη γεινεται διο",
+    "εξεργαζομενον γνοντας σεβεσθαι"
+   ],
+   "unique_runs_if_b_dropped": [
+    "φυλατ τονται προσμιξηι",
+    "αυ παλιν προς οργωντων",
+    "διακαυομενων εκφωθισκοντα πολλα",
+    "καλως αν εχοι παραλιπειν ος",
+    "δαιμονας ονομαζων μεστον",
+    "μυελοις εγκαθημενους ανεγειρειν",
+    "σπλαγχνων διηκοντας την αρχην",
+    "γενεσεως υπηρετας καντευθεν την επιγειον ταυτην διοικησιν",
+    "ημετερων σωματων διοικειν καθολου γουν την",
+    "καλχηδονιος ουκ απελπιζει",
+    "καν μη θελη ομολογησει",
+    "κοσμου φησιν η διαλυσις αυτου",
+    "φθορα ητις δυναμιν ειχεν",
+    "γενεσθαι κοσμος αλλ",
+    "ων απειρων οντων",
+    "αλληλους διαδεχομενων ουκ αναγκη παλιν επι",
+    "αυτον την επανοδον γινεσθαι ουτως"
+   ],
+   "words_absent_from_a": 135,
+   "words_b": 358
+  },
+  {
+   "bigram_coverage_a": 0.433,
    "bigram_coverage_b": 0.3905,
    "bigrams_a": 515,
    "bigrams_b": 571,
@@ -94903,70 +94966,6 @@
    ],
    "words_absent_from_a": 74,
    "words_b": 245
-  },
-  {
-   "bigram_coverage_a": 0.4261,
-   "bigram_coverage_b": 0.3513,
-   "bigrams_a": 291,
-   "bigrams_b": 353,
-   "containment": 0.4261,
-   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
-   "locus_a": "anaxagoras_diels_vs1_0381",
-   "locus_b": "nausiphanes_diels_fvs2_0400",
-   "ordered_overlap": {
-    "matched_tokens": 141,
-    "span_a": [
-     134,
-     295
-    ],
-    "span_b": [
-     0,
-     165
-    ],
-    "tokens_a": 296,
-    "tokens_b": 358,
-    "unmatched_tokens_a": 155,
-    "unmatched_tokens_b": 217
-   },
-   "partial_overlap": false,
-   "same_item": false,
-   "served": true,
-   "tokens_b": 358,
-   "unique_runs_if_a_dropped": [
-    "δημοκριτον φυσικους τοιαυτη τις αναφερεσθαι",
-    "χρονου νοησις χρονος εστιν ημεροειδες",
-    "νυκτοειδες φαντασμα απορειται",
-    "φλογος σχημα πυρκαιοειδες εστι",
-    "τελος αποξυνεσθαι εισι",
-    "ημας ελθειναι θεων αφ ης φαινεται",
-    "μετεωροις παθηματα οι παλαιοι",
-    "ανθρωπων καθαπερ βροντας",
-    "αστρων συνοδους ηλιου",
-    "σεληνης εκλειψεις εδειματουντο θεους οιομενοι",
-    "ανωθεν διεπιτη γεινεται διο",
-    "εξεργαζομενον γνοντας σεβεσθαι"
-   ],
-   "unique_runs_if_b_dropped": [
-    "φυλατ τονται προσμιξηι",
-    "αυ παλιν προς οργωντων",
-    "διακαυομενων εκφωθισκοντα πολλα",
-    "καλως αν εχοι παραλιπειν ος",
-    "δαιμονας ονομαζων μεστον",
-    "μυελοις εγκαθημενους ανεγειρειν",
-    "σπλαγχνων διηκοντας την αρχην",
-    "γενεσεως υπηρετας καντευθεν την επιγειον ταυτην διοικησιν",
-    "ημετερων σωματων διοικειν καθολου γουν την",
-    "καλχηδονιος ουκ απελπιζει",
-    "καν μη θελη ομολογησει",
-    "κοσμου φησιν η διαλυσις αυτου",
-    "φθορα ητις δυναμιν ειχεν",
-    "γενεσθαι κοσμος αλλ",
-    "ων απειρων οντων",
-    "αλληλους διαδεχομενων ουκ αναγκη παλιν επι",
-    "αυτον την επανοδον γινεσθαι ουτως"
-   ],
-   "words_absent_from_a": 136,
-   "words_b": 358
   },
   {
    "bigram_coverage_a": 0.4257,
@@ -96210,7 +96209,7 @@
     "επιστρεφας κατ ωρας",
     "γε νεσεσθαι παρην",
     "πολλους οπλιτας φρουρουμενους αποσφαττουσι ευπετους αμυλιον",
-    "μυθωδεστερων αξιωντες ιστορικη γραφη προσαγειν",
+    "μυθωδεστερων αξιωντες ιστορικη γραφη προσηκειν",
     "υπηρεταις γενομενην απιθανον ειναι φασιν",
     "λυκαινης το τιμασθον η",
     "δραματικης μεστον αποπιας διασφυρουσιν αντιδιαλλαττομενοι",
@@ -99334,7 +99333,7 @@
    "unique_runs_if_a_dropped": [
     "παν καταναλωκει ταυτην",
     "μηκος σχισας μεσην",
-    "μεσην εκαντεραν αλληλαις οιον γη προσβαλων κατεκαμψεν",
+    "μεσην εκατεραν αλληλαις οιον γη προσβαλων κατεκαμψεν",
     "κυκλον ξυναψας αυτας",
     "εντος εποιειτο των κυκλων",
     "εξω φοραν επεφημισεν ειναι",
@@ -100346,8 +100345,8 @@
    "band": "0.60-0.80",
    "pairs": 131,
    "same_item_pairs": 116,
-   "same_item_tokens": 31385,
-   "tokens": 35459
+   "same_item_tokens": 31386,
+   "tokens": 35460
   },
   {
    "band": "0.40-0.60",

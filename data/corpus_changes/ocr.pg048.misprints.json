@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-24",
+ "edition": "migne-ocr-qwen36",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "παρέσχον",
+   "locus": "pg048_0317.2",
+   "page": "scan https://archive.org/download/patrologia-volumes/048/page/n316.jpg, box 3556,1376,3688,1484 and 2106,1464,2257,1567 (pixels of the page image: left, top, right, bottom)",
+   "print": "παρέαχον",
+   "reason": "the page prints α for σ (παρέσχον)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "ocr.pg048",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}

@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-24",
+ "edition": "migne-ocr-qwen36",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "καθόλου",
+   "locus": "pg045_0370.2",
+   "page": "scan https://archive.org/download/patrologia-volumes/045/page/n369.jpg, box 1673,3360,1799,3459 and 222,3449,335,3553 (pixels of the page image: left, top, right, bottom)",
+   "print": "καθώλου",
+   "reason": "the page prints ω for ο (καθόλου)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "gregorius-nyssenus.contra-eunomium",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}

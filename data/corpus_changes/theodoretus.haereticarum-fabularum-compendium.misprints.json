@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-24",
+ "edition": "migne-ocr-qwen36",
+ "issues": [],
+ "misprints": [
+  {
+   "corpus": "δυσίατον",
+   "locus": "pg083_0279.1",
+   "page": "scan https://archive.org/download/patrologia-volumes/083/page/n278.jpg, box 3670,4006,3794,4116 and 2219,4094,2400,4210 (pixels of the page image: left, top, right, bottom)",
+   "print": "δυσίατυν",
+   "reason": "the page prints υ for ο (δυσίατον)"
+  }
+ ],
+ "misprints_note": "Each entry is a word of the printed edition that the page misprints. The corpus text reads `corpus` in the passage `locus`; the page image and the boxes on it that `page` gives print `print`. `reason` says why the printed form is a misprint.",
+ "source_urn": "theodoretus.haereticarum-fabularum-compendium",
+ "what": "Words the corpus corrects where the printed edition has an evident misprint"
+}
