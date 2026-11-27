@@ -1,8 +1,8 @@
 {
  "corpus": {
   "passages": 1913683,
-  "tokens": 65272176,
-  "tokens_lemmatized": 63179997,
+  "tokens": 65272173,
+  "tokens_lemmatized": 63180360,
   "works": 3939
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -20,7 +20,7 @@
    "works": 2417
   },
   "PD": {
-   "tokens": 25898094,
+   "tokens": 25898091,
    "works": 1262
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -61,13 +61,13 @@
   }
  },
  "pin": {
-  "corpus_sha256": "832edb8ed3ebbf9d56ac7fc6ab8488249d55adac4279613ca060baf318198ab3",
+  "corpus_sha256": "c2b87f68dd0bae8a140ac92543ac3f9e09e6d1dcd5124aa3d4c2107837f5b1c2",
   "manifest": "data/public_export.json"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20264326,
+    "tokens": 20264323,
     "works": 889
    },
    "manual": {
@@ -92,7 +92,7 @@
   "raw_ocr": {
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 28588983,
+    "ocr_tokens": 28588980,
     "ocr_works": 1441,
     "raw_share_of_corpus_tokens": 0.0393,
     "raw_tokens": 2562216,
@@ -101,14 +101,14 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29141982,
+   "ocr_tokens": 29141979,
    "ocr_works": 1445,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
   "scope": "Correction quality varies by work. Unresolved readings remain excluded from lexical counts."
  },
- "release_date": "2026-11-26",
- "release_id": "corpus-2026-11-26",
+ "release_date": "2026-11-28",
+ "release_id": "corpus-2026-11-28",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -155,7 +155,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 24532311,
+   "tokens": 24532308,
    "works": 1244
   },
   "perseus": {

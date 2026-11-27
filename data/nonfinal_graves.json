@@ -12,7 +12,7 @@
   {
    "edition": "migne-ocr-qwen36",
    "rate": 0.000985,
-   "tokens": 11332
+   "tokens": 11331
   },
   {
    "edition": "cgpg",
@@ -137,9 +137,9 @@
  ],
  "by_source": [
   {
-   "rate": 0.000951,
+   "rate": 0.00095,
    "source": "ocr",
-   "tokens": 23568
+   "tokens": 23557
   },
   {
    "rate": 0.000395,
@@ -193,7 +193,7 @@
   }
  ],
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
- "forms": 25675,
+ "forms": 25668,
  "issue": "open-greek/open-greek-corpus#31",
  "largest_forms": [
   {
@@ -1982,7 +1982,7 @@
    "form": "ἃττα",
    "shapes": {
     "acute": {
-     "attested": 229,
+     "attested": 230,
      "form": "ἅττα"
     },
     "circumflex": {
@@ -4598,11 +4598,11 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_exactly_one": 8778,
+  "tokens_with_exactly_one": 8775,
   "tokens_with_more_than_one_attested_shape": 14692,
-  "tokens_with_none": 17962
+  "tokens_with_none": 17954
  },
- "served_tokens": 65272176,
+ "served_tokens": 65272173,
  "share": 0.000635,
  "skeleton_class": {
   "accent_only_forms": 2659,
@@ -9962,7 +9962,7 @@
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "marks_moved_tokens": 1897,
   "page_diffusion": {
-   "distinct_scan_pages": 15232,
+   "distinct_scan_pages": 15225,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages",
    "tokens_on_the_densest_500_pages": 3511
   },
@@ -9983,8 +9983,8 @@
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 3955,
-    "tokens": 6244
+    "forms": 3954,
+    "tokens": 6243
    },
    {
     "bucket": "dominant >= 0.9",
@@ -9993,15 +9993,15 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 16679,
-    "tokens": 19441
+    "forms": 16673,
+    "tokens": 19431
    }
   ],
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved."
  },
- "surface_served_tokens": 65554851,
- "tokens": 41432,
+ "surface_served_tokens": 65554848,
+ "tokens": 41421,
  "what": "served tokens carrying a grave on a syllable that is not the ultima, partitioned by source, edition and by what a repair could be pointed at",
  "works_touched": 1648
 }
